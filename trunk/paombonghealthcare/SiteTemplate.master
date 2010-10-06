@@ -1,0 +1,136 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SiteTemplate.master.cs" Inherits="SiteTemplate" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="height: 1038px">
+    <form id="form1" runat="server">
+    <div style="height: 1038px; width: 947px">
+        
+        <br />
+        <br />
+        <br />
+        <br />
+        <asp:Panel ID="panel_Footer" runat="server" BorderStyle="None" 
+            
+            style="top: 889px; left: 17px; position: absolute; height: 155px; width: 936px">
+            <asp:Image ID="image_MapuaLogo" runat="server" Height="151px" 
+                ImageUrl="~/images/MapuaLogo.PNG" Width="155px" />
+            <asp:Label ID="Label2" runat="server" 
+                style="top: 119px; left: 173px; position: absolute; height: 22px; width: 544px;" 
+                
+                Text="This program was provided by Mapua Institute of Technology For Pambong Municipality" 
+                Font-Bold="False"></asp:Label>
+            <asp:Image ID="image_Paombong" runat="server" 
+                ImageUrl="~/HISystem/images/PaombongCityLogo.PNG" 
+                
+                
+                style="top: 4px; left: 762px; position: absolute; height: 144px; width: 168px;" />
+            <asp:HyperLink ID="hyperlink_AboutUs" runat="server" BorderStyle="None" 
+                ForeColor="#000099" 
+                style="top: 42px; left: 204px; position: absolute; height: 19px; width: 65px;">About Us</asp:HyperLink>
+            <asp:HyperLink ID="hyperlink_ContactUs" runat="server" BorderStyle="None" 
+                ForeColor="#000099" 
+                style="top: 42px; left: 309px; position: absolute; height: 19px; width: 78px;">Contact Us</asp:HyperLink>
+            <asp:HyperLink ID="hyperlink_SiteMap" runat="server" ForeColor="#000099" 
+                style="top: 42px; left: 427px; position: absolute; height: 19px; width: 65px;">Site Map</asp:HyperLink>
+            <asp:HyperLink ID="hyperlink_MapuaSite" runat="server" ForeColor="#000099" 
+                style="top: 41px; left: 536px; position: absolute; height: 19px; width: 101px;">Mapua Website</asp:HyperLink>
+        </asp:Panel>
+        <asp:Panel ID="panel_Header" runat="server" 
+            style="top: 12px; left: 10px; position: absolute; height: 131px; width: 947px">
+            <asp:Label ID="Label1" runat="server" 
+    Text="*Display Logo and design*"></asp:Label>
+            <asp:Menu ID="menu_Bar" runat="server" BackColor="#F7F6F3" 
+                DynamicHorizontalOffset="20" Font-Names="Tahoma" Font-Size="Medium" 
+                ForeColor="#3399FF" Height="36px" ItemWrap="True" Orientation="Horizontal" 
+                StaticSubMenuIndent="10px" style="top: 132px; left: 1px; position: absolute" 
+                Width="946px">
+                <DynamicHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                <DynamicMenuItemStyle HorizontalPadding="5px" ItemSpacing="10px" 
+                    VerticalPadding="1px" />
+                <DynamicMenuStyle BackColor="#F7F6F3" />
+                <DynamicSelectedStyle BackColor="#5D7B9D" />
+                <Items>
+                    <asp:MenuItem Text="Home (Dashboard)" Value="Home (Dashboard)"></asp:MenuItem>
+                    <asp:MenuItem Text="Patient Demographics" Value="Patient Demographics">
+                        <asp:MenuItem Text="Add/Edit Patient" Value="Add/Edit Patient"></asp:MenuItem>
+                        <asp:MenuItem Text="View Patient" Value="View Patient"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Medical Record" Value="Medical Record">
+                        <asp:MenuItem Text="Patient Medical Record" Value="Patient Medical Record">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Medicine Inventory" Value="Medicine Inventory">
+                        </asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Reports" Value="Reports">
+                        <asp:MenuItem Text="Maternal Care" Value="Maternal Care"></asp:MenuItem>
+                        <asp:MenuItem Text="Family Planning" Value="Family Planning"></asp:MenuItem>
+                        <asp:MenuItem Text="Child Care A" Value="Child Care A"></asp:MenuItem>
+                        <asp:MenuItem Text="Child Care B" Value="Child Care B"></asp:MenuItem>
+                        <asp:MenuItem Text="Dental Care" Value="Dental Care"></asp:MenuItem>
+                        <asp:MenuItem Text="Disease Control A" Value="Disease Control A"></asp:MenuItem>
+                        <asp:MenuItem Text="Disease Control B" Value="Disease Control B"></asp:MenuItem>
+                    </asp:MenuItem>
+                </Items>
+                <StaticHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                <StaticSelectedStyle BackColor="#5D7B9D" />
+            </asp:Menu>
+        </asp:Panel>
+        <br />
+        <br />
+        <br />
+        <asp:Panel ID="panel_Content" runat="server" 
+            style="top: 183px; left: 15px; position: absolute; height: 694px; width: 947px">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <p>
+                    <br />
+                </p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+                <p>
+                    &nbsp;</p>
+            </asp:ContentPlaceHolder>
+        </asp:Panel>
+
+
+
+
+    </div>
+    </form>
+</body>
+</html>
