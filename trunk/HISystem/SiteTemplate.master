@@ -60,23 +60,28 @@
                 <Items>
                     <asp:MenuItem Text="Home (Dashboard)" Value="Home (Dashboard)"></asp:MenuItem>
                     <asp:MenuItem Text="Patient Demographics" Value="Patient Demographics">
-                        <asp:MenuItem Text="Add/Edit Patient" NavigateUrl="~/Patient Demographics/AddPatient.aspx" Value="Add/Edit Patient"></asp:MenuItem>
-                        <asp:MenuItem Text="View Patient" NavigateUrl="~/Patient Demographics/ViewEditPatient.aspx" Value="View Patient"></asp:MenuItem>
+                        <asp:MenuItem Text="Add Patient" 
+                            NavigateUrl="~/Patient Demographics/AddPatient.aspx" Value="Add/Edit Patient"></asp:MenuItem>
+                        <asp:MenuItem Text="View and Edit Patient" 
+                            NavigateUrl="~/Patient Demographics/ViewEditPatient.aspx" Value="View Patient"></asp:MenuItem>
                     </asp:MenuItem>
                     <asp:MenuItem Text="Medical Record" Value="Medical Record">
-                        <asp:MenuItem Text="Patient Medical Record" NavigateUrl="~/Medical Record/MedicalRecord.aspx" Value="Patient Medical Record">
-                        </asp:MenuItem>
                         <asp:MenuItem Text="Medicine Inventory" NavigateUrl="~/Medical Record/MedicalInventory.aspx" Value="Medicine Inventory">
                         </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Medical Record/AddMedicalRecord.aspx" 
+                            Text="Add Patient Medical Record" Value="Patient Medical Record">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="View Patient Medical Record" NavigateUrl="~/Medical Record/ViewRecordPatient.aspx"
+                            Value="View Patient Medical Record"></asp:MenuItem>
                     </asp:MenuItem>
                     <asp:MenuItem Text="Reports" Value="Reports">
-                        <asp:MenuItem Text="Maternal Care" Value="Maternal Care"></asp:MenuItem>
-                        <asp:MenuItem Text="Family Planning" Value="Family Planning"></asp:MenuItem>
-                        <asp:MenuItem Text="Child Care A" Value="Child Care A"></asp:MenuItem>
-                        <asp:MenuItem Text="Child Care B" Value="Child Care B"></asp:MenuItem>
-                        <asp:MenuItem Text="Dental Care" Value="Dental Care"></asp:MenuItem>
-                        <asp:MenuItem Text="Disease Control A" Value="Disease Control A"></asp:MenuItem>
-                        <asp:MenuItem Text="Disease Control B" Value="Disease Control B"></asp:MenuItem>
+                        <asp:MenuItem Text="Maternal Care" Value="Maternal Care" NavigateUrl="~/Reports/MaternalCare.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Family Planning" Value="Family Planning" NavigateUrl ="~/Reports/FamilyPlanning.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Child Care A" Value="Child Care A" NavigateUrl="~/Reports/ChildCareA.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Child Care B" Value="Child Care B" NavigateUrl="~/Reports/ChildCareB.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Dental Care" Value="Dental Care" NavigateUrl="~/Reports/DentalCare.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Disease Control A" Value="Disease Control A" NavigateUrl="~/Reports/DiseaseControlA.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Disease Control B" Value="Disease Control B" NavigateUrl="~/Reports/DiseaseControlB.aspx"></asp:MenuItem>
                     </asp:MenuItem>
                 </Items>
                 <StaticHoverStyle BackColor="#7C6F57" ForeColor="White" />
