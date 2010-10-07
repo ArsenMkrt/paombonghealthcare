@@ -26,7 +26,7 @@ using System.Data.SqlClient;
 
 public class DataAccess
 {
-    private string dataConnection = @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\db_paombong\paombongdb.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+    private string dataConnection = @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\Paombong\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
 	
     public DataAccess()
 	{
