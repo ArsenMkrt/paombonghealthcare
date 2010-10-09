@@ -191,7 +191,7 @@
 <p>
     <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
         style="top: 448px; left: 225px; position: absolute; height: 26px; width: 88px" 
-        Text="Edit" />
+        Text="Save" />
 </p>
 <p>
     <asp:TextBox ID="txtContactNum" runat="server" 
