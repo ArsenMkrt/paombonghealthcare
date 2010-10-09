@@ -57,7 +57,7 @@ public partial class Patient_Demographics_ViewPatient : System.Web.UI.Page
                 txtSpouseName.Text = dr["SpouseName"].ToString().Trim();
                 txtNationality.Text = dr["PatientNationality"].ToString().Trim();
                 txtDoctor.Text = dr["PatientDoctor"].ToString().Trim();
-                //ddlBarangay.Text = dr["PatientBarangay"].ToString().Trim();
+                ddlBarangay.Text = dr["PatientBarangay"].ToString().Trim();
             }
         }
     }
@@ -82,6 +82,6 @@ public partial class Patient_Demographics_ViewPatient : System.Web.UI.Page
             Name[3].Trim(), ddlDay.Text.Trim() + "/" + ddlMonth.Text.Trim() + "/" + ddlYear.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
             txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
             Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
-        
+        Response.Redirect("ViewEditPatient.aspx");
     }
 }

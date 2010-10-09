@@ -13,11 +13,7 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["ModeSave"] == null)
-        {
-            Session["ModeSave"] = "new";
-            MessageBox.Show((string)Session["ModeSave"]);
-        }
+
     }
     protected void button_AddEdit_Click(object sender, EventArgs e)
     {
@@ -38,7 +34,7 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
              txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
              Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"),ddlBarangay.Text.Trim());
         
-        Response.Redirect("AddEditPatient.aspx");
+        Response.Redirect("AddPatient.aspx");
     }
     protected void button_Clear_Click(object sender, EventArgs e)
     {

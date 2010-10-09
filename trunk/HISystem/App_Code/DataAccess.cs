@@ -14,12 +14,24 @@ using System.Data.SqlClient;
  *      1. Add Patient Finished - Lakhi 10/5/2010
  *      2. Update Patient Finished - Lakhi 10/5/2010
  *      3. Get Values Finished - Lakhi 10/5/2010
- *      4. 
+ *      4. Add Medicine Finished - Lakhi 10/10/2010
+ *      5. Get Medicine Finished - Lakhi 10/10/2010
+ *      6. Delete Medicine Finished - Lakhi 10/10/2010
+ *      7. Grid View Finished - Lakhi 10/10/2010
+ *      8. BarangayId Fixed Finished - Lakhi 10/10/2010
+ *      
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 
 /* Log Negative
  *      1. BarangayId Not yet Fixed in Update and Get Values - Lakhi 10/5/2010
- *      2. 
+ *      2. Inventory Not yet Finished - Lakhi 10/10/2010
  *      3. 
  *      4. 
  */
@@ -27,18 +39,18 @@ using System.Data.SqlClient;
 public class DataAccess
 {
     private string dataConnection = @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\Paombong\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
-	
+
     public DataAccess()
-	{
-		
-	}
+    {
+
+    }
 
     /*Add Patient Finished - Lakhi 10/5/2010*/
 
     public void AddPatient(string PatientFirstName, string PatientMiddleName, string PatientLastName,
-        string PatientContactNumber, string PatientEmailAddress, string PatientSuffix, string PatientBirthdate,string PatientBirthplace, string PatientAddress,
+        string PatientContactNumber, string PatientEmailAddress, string PatientSuffix, string PatientBirthdate, string PatientBirthplace, string PatientAddress,
         string PatientFaxNumber, string PatientDoctor, string PatientNationality, string PatientCity,
-        string PatientSex, string PatientMaritalStatus, string PatientSpouseName,string PatientCompany, string DateRegistered, string PatientBarangay)
+        string PatientSex, string PatientMaritalStatus, string PatientSpouseName, string PatientCompany, string DateRegistered, string PatientBarangay)
     {
         SqlConnection connPatient = new SqlConnection(dataConnection);
         try
@@ -74,7 +86,7 @@ public class DataAccess
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Error : "+ ex.Message);
+            MessageBox.Show("Error : " + ex.Message);
         }
         finally
         {
@@ -97,13 +109,13 @@ public class DataAccess
         patientData.Columns.Add("PatientCivilStatus");
         patientData.Columns.Add("SpouseName");
         patientData.Columns.Add("PatientNationality");
-        patientData.Columns.Add("PatientAddress"); 
+        patientData.Columns.Add("PatientAddress");
         patientData.Columns.Add("PatientContactNumber");
         patientData.Columns.Add("PatientEmailAddress");
         patientData.Columns.Add("PatientFaxNumber");
-        patientData.Columns.Add("PatientDoctor");  
+        patientData.Columns.Add("PatientDoctor");
         patientData.Columns.Add("DateRegistered");
-        //patientData.Columns.Add("PatientBarangay");
+        patientData.Columns.Add("PatientBarangay");
 
         connPatient.Open();
         try
@@ -130,8 +142,8 @@ public class DataAccess
                 dtrPatient["PtEmail"].ToString().Trim(),
                 dtrPatient["PtFaxNumber"].ToString().Trim(),
                 dtrPatient["PtDoctor"].ToString().Trim(),
-                dtrPatient["DateRegistered"].ToString().Trim());
-                //dtrPatient["BarangayID"].ToString().Trim());
+                dtrPatient["DateRegistered"].ToString().Trim(),
+                dtrPatient["BarangayName"].ToString().Trim());
         }
         catch (Exception ex)
         {
@@ -176,7 +188,7 @@ public class DataAccess
             cmdTxt.Parameters.Add("@PatientSpouseName", SqlDbType.Char).Value = PatientSpouseName;
             cmdTxt.Parameters.Add("@DateRegistered", SqlDbType.Char).Value = DateRegistered;
             cmdTxt.Parameters.Add("@PatientSuffix", SqlDbType.Char).Value = PatientSuffix;
-            //cmdTxt.Parameters.Add("@PatientBarangay", SqlDbType.Char).Value = PatientBarangay;
+            cmdTxt.Parameters.Add("@PatientBarangay", SqlDbType.Char).Value = PatientBarangay;
             int check = cmdTxt.ExecuteNonQuery();
             if (check > 0)
                 MessageBox.Show("Updated Patient Information Successfully!");
@@ -193,53 +205,37 @@ public class DataAccess
         }
     }
 
-    public DataTable ViewMedicalRecord(string Patient_Id)
+    public int GetMedicineId(string MedicineName)
     {
         SqlConnection connPatient = new SqlConnection(dataConnection);
-        SqlDataReader dtrPatient;
-        DataTable dataPatient = new DataTable();
-        dataPatient.Columns.Add("Patient_Id");
-        dataPatient.Columns.Add("MedicalRecord");
-        dataPatient.Columns.Add("DateOfCheckUp");
-        connPatient.Open();
-        try
-        {
-            SqlCommand cmdTxt = new SqlCommand("ViewHealthRecord", connPatient);
-            cmdTxt.CommandType = CommandType.StoredProcedure;
-            cmdTxt.Parameters.Add("@Patient_Id", SqlDbType.Char).Value = Patient_Id;
-            dtrPatient = cmdTxt.ExecuteReader();
-            while (dtrPatient.Read())
-            {
-                dataPatient.Rows.Add(dtrPatient["Patient_Id"].ToString().Trim(),dtrPatient["MedicalRecord"].ToString().Trim(),
-                    dtrPatient["DateOfCheckUp"].ToString().Trim());
-            }
 
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Error: " + ex.Message);
-        }
-        finally
-        {
-            connPatient.Close();
-        }
-        return dataPatient;
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("SELECT MedicineId FROM Medicine WHERE MedicineName = @aa", connPatient);
+        cmdTxt.Parameters.Add("@aa", SqlDbType.Char).Value = MedicineName;
+        SqlDataReader id = cmdTxt.ExecuteReader();
+        id.Read();
+        int retId = id.GetInt32(0);
+        id.Close();
+        connPatient.Close();
+        return retId;
     }
 
-    public void AddRecord(string Patient_Id, string MedicalRecord)
+    /*AddMedicine Finished - Lakhi 10/10/2010*/
+
+    public void AddMedicine(string MedicineName, string CategoryName, int Quantity)
     {
         SqlConnection connPatient = new SqlConnection(dataConnection);
         try
         {
             connPatient.Open();
-            SqlCommand cmdTxt = new SqlCommand("InsertRecord", connPatient);
+            SqlCommand cmdTxt = new SqlCommand("AddMedicine", connPatient);
             cmdTxt.CommandType = CommandType.StoredProcedure;
-            cmdTxt.Parameters.Add("@Patient_Id", SqlDbType.Char).Value = Patient_Id;
-            cmdTxt.Parameters.Add("@MedicalRecord", SqlDbType.Char).Value = MedicalRecord;
-            cmdTxt.Parameters.Add("@DateOfCheckUp", SqlDbType.Char).Value = DateTime.Now.ToString("d");
+            cmdTxt.Parameters.Add("@MedicineName", SqlDbType.Char).Value = MedicineName;
+            cmdTxt.Parameters.Add("@Quantity", SqlDbType.Int).Value = Quantity;
+            cmdTxt.Parameters.Add("@CategoryName", SqlDbType.Char).Value = CategoryName;
             int checker = cmdTxt.ExecuteNonQuery();
             if (checker > 0)
-                MessageBox.Show("Successfully Added Record");
+                MessageBox.Show("Successfully Added Medicine");
             else
                 MessageBox.Show("Please Try Again!!");
 
@@ -253,15 +249,128 @@ public class DataAccess
             connPatient.Close();
         }
     }
-    public int Checker(string Patient_Id)
+
+    /*GetMedicine Finished - Lakhi 10/10/2010*/
+
+    public DataTable GetMedicine(string MedicineId)
     {
         SqlConnection connPatient = new SqlConnection(dataConnection);
+        SqlDataReader dtrMedicine;
+        DataTable medicineData = new DataTable();
+        medicineData.Columns.Add("MedicineName");
+        medicineData.Columns.Add("Quantity");
+        medicineData.Columns.Add("CategoryName");
+
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("Select Count(*) From Patient Where Patient_Id = @aa",connPatient);
-        cmdTxt.Parameters.Add("@aa", SqlDbType.Char).Value = Patient_Id;
-        int count = (int)cmdTxt.ExecuteScalar();
-        connPatient.Close();
-        return count;
+        try
+        {
+            SqlCommand cmdTxt = new SqlCommand("GetMedicineData", connPatient);
+            cmdTxt.CommandType = CommandType.StoredProcedure;
+            cmdTxt.Parameters.Add("@MedicineId", SqlDbType.Char).Value = MedicineId;
+            dtrMedicine = cmdTxt.ExecuteReader();
+            dtrMedicine.Read();
+
+            medicineData.Rows.Add(dtrMedicine["MedicineName"].ToString().Trim()
+                ,dtrMedicine["Quantity"].ToString().Trim()
+                ,dtrMedicine["CategoryName"].ToString().Trim());
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error : " + ex.Message);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
+        return medicineData;
+    }
+
+    public void DeleteMedicine(string MedicineId)
+    {
+        SqlConnection connPatient = new SqlConnection(dataConnection);
+   
+        connPatient.Open();
+        try
+        {
+            SqlCommand cmdTxt = new SqlCommand("Delete From Medicine Where MedicineId = @aa", connPatient);
+            cmdTxt.Parameters.Add("@aa", SqlDbType.Int).Value = MedicineId;
+            int check = cmdTxt.ExecuteNonQuery();
+            if (check > 0)
+                MessageBox.Show("Successfully Deleted Medicine");
+            else
+                MessageBox.Show("Please Try Again!!");
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error : " + ex.Message);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
+    }
+
+    public void RefreshGridviewMedicine(GridView gridView)
+    {
+        SqlConnection connPatient = new SqlConnection(dataConnection);
+
+        connPatient.Open();
+        try
+        {
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Medicine",connPatient);
+            DataSet ds = new DataSet();
+            da.Fill(ds,"Medicine");
+
+            if (ds.Tables.Count > 0)
+            {
+                gridView.DataSource = ds;
+                gridView.DataBind();
+            }
+            ds.Dispose();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error : " + ex.Message);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
+    }
+
+    public void RefreshGridviewMedicineByCategory(GridView gridView,string CategoryName)
+    {
+        SqlConnection connPatient = new SqlConnection(dataConnection);
+
+        connPatient.Open();
+        try
+        {
+
+            SqlCommand cmdTxt = new SqlCommand("SELECT MedicineId,MedicineName,Quantity FROM Medicine "+
+                "WHERE CategoryId = (SELECT CategoryId FROM Category WHERE CategoryName = @aa)", connPatient);
+            cmdTxt.Parameters.Add("@aa",SqlDbType.VarChar).Value = CategoryName;
+            SqlDataAdapter da = new SqlDataAdapter(cmdTxt);
+            gridView.DataSource = null;
+            gridView.DataBind();
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Medicine");
+
+            if (ds.Tables.Count > 0)
+            {
+                gridView.DataSource = ds;
+                gridView.DataBind();
+            }
+            ds.Dispose();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error : " + ex.Message);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
 
     }
 }
