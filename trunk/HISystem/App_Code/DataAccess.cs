@@ -32,7 +32,7 @@ using System.Data.SqlClient;
 /* Log Negative
  *      1. BarangayId Not yet Fixed in Update and Get Values - Lakhi 10/5/2010
  *      2. Inventory Not yet Finished - Lakhi 10/10/2010
- *      3. 
+ *      3. Search By Medicine Name Not yet Finished - Lakhi 10/12/2010
  *      4. 
  */
 
@@ -349,6 +349,122 @@ public class DataAccess
             SqlCommand cmdTxt = new SqlCommand("SELECT MedicineId,MedicineName,Quantity FROM Medicine "+
                 "WHERE CategoryId = (SELECT CategoryId FROM Category WHERE CategoryName = @aa)", connPatient);
             cmdTxt.Parameters.Add("@aa",SqlDbType.VarChar).Value = CategoryName;
+            SqlDataAdapter da = new SqlDataAdapter(cmdTxt);
+            gridView.DataSource = null;
+            gridView.DataBind();
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Medicine");
+
+            if (ds.Tables.Count > 0)
+            {
+                gridView.DataSource = ds;
+                gridView.DataBind();
+            }
+            ds.Dispose();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error : " + ex.Message);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
+
+    }
+
+    /*NOT YET WORKING*/
+
+    public void RefreshGridviewMedicineByName(GridView gridView, string MedicineName)
+    {
+        SqlConnection connPatient = new SqlConnection(dataConnection);
+        SqlDataAdapter da;
+
+        connPatient.Open();
+        try
+        {
+            if (MedicineName != "" || MedicineName != null)
+            {
+                SqlCommand cmdTxt = new SqlCommand("SELECT MedicineId,MedicineName,Quantity FROM Medicine WHERE MedicineName Like '@aa%'", connPatient);
+                cmdTxt.Parameters.Add("@aa", SqlDbType.VarChar).Value = MedicineName;
+                da = new SqlDataAdapter(cmdTxt);
+            }
+            else
+            {
+                SqlCommand cmdTxt = new SqlCommand("SELECT MedicineId,MedicineName,Quantity FROM Medicine", connPatient);
+                da = new SqlDataAdapter(cmdTxt);
+            }
+            
+            gridView.DataSource = null;
+            gridView.DataBind();
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Medicine");
+
+            if (ds.Tables.Count > 0)
+            {
+                gridView.DataSource = ds;
+                gridView.DataBind();
+            }
+            ds.Dispose();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error : " + ex.Message);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
+
+    }
+
+    public void RefreshGridviewByQuantityLow(GridView gridView)
+    {
+        SqlConnection connPatient = new SqlConnection(dataConnection);
+
+        connPatient.Open();
+        try
+        {
+
+            SqlCommand cmdTxt = new SqlCommand("SELECT MedicineId,MedicineName,Quantity FROM Medicine " +
+                "WHERE Quantity <= 25", connPatient);
+            SqlDataAdapter da = new SqlDataAdapter(cmdTxt);
+            gridView.DataSource = null;
+            gridView.DataBind();
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Medicine");
+
+            if (ds.Tables.Count > 0)
+            {
+                gridView.DataSource = ds;
+                gridView.DataBind();
+            }
+            ds.Dispose();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error : " + ex.Message);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
+
+    }
+    public void RefreshGridviewByQuantityLowConfig(GridView gridView,int Quantity)
+    {
+        SqlConnection connPatient = new SqlConnection(dataConnection);
+
+        connPatient.Open();
+        try
+        {
+
+            SqlCommand cmdTxt = new SqlCommand("SELECT MedicineId,MedicineName,Quantity FROM Medicine " +
+                "WHERE Quantity <= @aa", connPatient);
+            cmdTxt.Parameters.Add("@aa", SqlDbType.Int).Value = Quantity;
             SqlDataAdapter da = new SqlDataAdapter(cmdTxt);
             gridView.DataSource = null;
             gridView.DataBind();
