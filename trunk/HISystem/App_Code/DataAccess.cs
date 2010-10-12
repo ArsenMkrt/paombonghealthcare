@@ -19,10 +19,11 @@ using System.Data.SqlClient;
  *      6. Delete Medicine Finished - Lakhi 10/10/2010
  *      7. Grid View Finished - Lakhi 10/10/2010
  *      8. BarangayId Fixed Finished - Lakhi 10/10/2010
- *      
- * 
- * 
- * 
+ *      9. Search By Medicine Name Fixed and Finished - Lakhi 10/12/2010
+ *      10.Add to List Finished - Lakhi 10/12/2010
+ *      11.Update Medicine Finished - Lakhi 10/13/2010
+ *      12.Sorting Medicine Inventory Finished - Lakhi 10/13/2010
+ *      13.Inventory Module Finished - Lakhi 10/13/2010
  * 
  * 
  * 
@@ -374,7 +375,6 @@ public class DataAccess
 
     }
 
-    /*NOT YET WORKING*/
 
     public void RefreshGridviewMedicineByName(GridView gridView, string MedicineName)
     {
@@ -386,8 +386,8 @@ public class DataAccess
         {
             if (MedicineName != "" || MedicineName != null)
             {
-                SqlCommand cmdTxt = new SqlCommand("SELECT MedicineId,MedicineName,Quantity FROM Medicine WHERE MedicineName Like '@aa%'", connPatient);
-                cmdTxt.Parameters.Add("@aa", SqlDbType.VarChar).Value = MedicineName;
+                SqlCommand cmdTxt = new SqlCommand("SELECT MedicineId,MedicineName,Quantity FROM Medicine WHERE MedicineName Like '" +MedicineName.Trim()+"%'", connPatient);
+                
                 da = new SqlDataAdapter(cmdTxt);
             }
             else
@@ -489,4 +489,105 @@ public class DataAccess
         }
 
     }
+
+    public void RefreshGridviewByCategoryAndQuantityLow(GridView gridView, string CategoryName, int Quantity)
+    {
+        SqlConnection connPatient = new SqlConnection(dataConnection);
+
+        connPatient.Open();
+        try
+        {
+
+            SqlCommand cmdTxt = new SqlCommand("SELECT MedicineId,MedicineName,Quantity FROM Medicine " +
+                "WHERE CategoryId = (SELECT CategoryId FROM Category WHERE CategoryName = @aa) AND Quantity <= @ab", connPatient);
+            cmdTxt.Parameters.Add("@aa", SqlDbType.VarChar).Value = CategoryName;
+            cmdTxt.Parameters.Add("@ab", SqlDbType.Int).Value = Quantity;
+            SqlDataAdapter da = new SqlDataAdapter(cmdTxt);
+            gridView.DataSource = null;
+            gridView.DataBind();
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Medicine");
+
+            if (ds.Tables.Count > 0)
+            {
+                gridView.DataSource = ds;
+                gridView.DataBind();
+            }
+            ds.Dispose();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error : " + ex.Message);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
+
+    }
+
+
+    public void UpdateStock(int MedicineId,int Quantity)
+    {
+        SqlConnection connPatient = new SqlConnection(dataConnection);
+
+        connPatient.Open();
+        try
+        {
+            SqlCommand cmdTxt = new SqlCommand("SELECT Quantity FROM Medicine " +
+                "WHERE MedicineId = @aa", connPatient);
+            cmdTxt.Parameters.Add("@aa", SqlDbType.Int).Value = MedicineId;
+            SqlDataReader dr = cmdTxt.ExecuteReader();
+            dr.Read();
+            SqlCommand cmdTxt2 = new SqlCommand("Update Medicine Set Quantity = @aa WHERE MedicineId = @ab",connPatient);
+            int newQuantity = (int)dr.GetInt64(0) - Quantity;
+            cmdTxt2.Parameters.Add("@aa", SqlDbType.BigInt).Value = newQuantity;
+            cmdTxt2.Parameters.Add("@ab", SqlDbType.Int).Value = MedicineId;
+            dr.Close();
+            cmdTxt2.ExecuteNonQuery();
+            
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error : " + ex.Message);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
+
+    }
+    
+    public void UpdateMedicine(int MedicineId,string MedicineName, string CategoryName, int Quantity)
+    {
+        SqlConnection connPatient = new SqlConnection(dataConnection);
+        try
+        {
+            connPatient.Open();
+            SqlCommand cmdTxt = new SqlCommand("Update Medicine SET MedicineName = @MedicineName,"+
+                "CategoryId = (SELECT CategoryId FROM Category WHERE CategoryName = @CategoryName),"+
+                "Quantity = @Quantity WHERE MedicineId ="+MedicineId, connPatient);
+            cmdTxt.Parameters.Add("@MedicineName", SqlDbType.Char).Value = MedicineName;
+            cmdTxt.Parameters.Add("@Quantity", SqlDbType.BigInt).Value = Quantity;
+            cmdTxt.Parameters.Add("@CategoryName", SqlDbType.Char).Value = CategoryName;
+            int checker = cmdTxt.ExecuteNonQuery();
+            if (checker > 0)
+                MessageBox.Show("Successfully Updated Medicine");
+            else
+                MessageBox.Show("Please Try Again!!");
+
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error : " + ex.Message);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
+    }
+
+
+
 }
