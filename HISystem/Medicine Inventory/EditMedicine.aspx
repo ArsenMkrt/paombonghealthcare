@@ -48,7 +48,7 @@
     <p>
         <asp:Button ID="btnSave" runat="server" 
             style="top: 335px; left: 235px; position: absolute; height: 26px; width: 85px" 
-            Text="Save" />
+            Text="Save" onclick="btnSave_Click" />
         <asp:Button ID="btnClear" runat="server" 
             style="top: 335px; left: 396px; position: absolute; height: 26px; width: 73px" 
             Text="Clear" />

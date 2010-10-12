@@ -36,4 +36,10 @@ public partial class Medicine_Inventory_EditMedicine : System.Web.UI.Page
             }
         }
     }
+    protected void btnSave_Click(object sender, EventArgs e)
+    {
+        data = new DataAccess();
+        data.UpdateMedicine(Convert.ToInt32(txtMedicineId.Text.Trim()),txtMedicineName.Text.Trim(),
+            ddlCategory.Text.Trim(),Convert.ToInt32(txtQuantity.Text.Trim()));
+    }
 }
