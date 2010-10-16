@@ -178,19 +178,23 @@
     <p>
     </p>
     <asp:SqlDataSource ID="Medicine2" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+        ConnectionString="<%$ ConnectionStrings:geraldconnectionstring %>" 
+        
         SelectCommand="SELECT DISTINCT [MedicineId], [MedicineName], [Quantity] FROM [Medicine] ORDER BY [MedicineName]">
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="Category2" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+        ConnectionString="<%$ ConnectionStrings:geraldconnectionstring %>" 
+        
         SelectCommand="SELECT DISTINCT [CategoryName] FROM [Category] ORDER BY [CategoryName]">
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="Medicine" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+        ConnectionString="<%$ ConnectionStrings:geraldconnectionstring %>" 
+        
         SelectCommand="SELECT DISTINCT [MedicineId] FROM [Medicine] ORDER BY [MedicineId]">
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="Category" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+        ConnectionString="<%$ ConnectionStrings:geraldconnectionstring %>" 
+        
         SelectCommand="SELECT DISTINCT [CategoryName] FROM [Category] ORDER BY [CategoryName]">
     </asp:SqlDataSource>
 </asp:Content>
