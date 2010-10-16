@@ -11,8 +11,8 @@
         style="top: 54px; left: 51px; position: absolute; height: 19px; width: 59px" 
         Text="Patient Id"></asp:Label>
     <asp:Button ID="Button1" runat="server" 
-        style="top: 54px; left: 284px; position: absolute; height: 26px; width: 56px" 
-        Text="Search" />
+        style="top: 54px; left: 284px; position: absolute; height: 26px; width: 71px" 
+        Text="Search" onclick="Button1_Click" />
 </p>
 <p>
     <asp:TextBox ID="txtPatient" runat="server" 
@@ -24,21 +24,24 @@
 <p>
 </p>
 <p>
-    <asp:CheckBoxList ID="checkbox_Disease" runat="server" 
-        style="top: 140px; left: 175px; position: absolute; height: 27px; width: 82px">
+    <asp:CheckBoxList ID="checkbox_Disease" runat="server"
+    
+    style="top: 108px; left: 135px; position: absolute; height: 27px; width: 83px" 
+        BorderWidth="2px" CellPadding="4" CellSpacing="2" TextAlign="Left">
     </asp:CheckBoxList>
 </p>
 <p>
 </p>
 <p>
     <asp:Label ID="Label4" runat="server" 
-        style="top: 303px; left: 63px; position: absolute; height: 19px; width: 34px" 
+        style="top: 384px; left: 55px; position: absolute; height: 20px; width: 34px" 
         Text="Notes"></asp:Label>
 </p>
 <p>
     <asp:TextBox ID="TextBox1" runat="server" 
         
-        style="top: 317px; left: 133px; position: absolute; height: 147px; width: 555px"></asp:TextBox>
+        
+        style="top: 413px; left: 134px; position: absolute; height: 147px; width: 555px"></asp:TextBox>
 </p>
 <p>
 </p>
@@ -55,6 +58,15 @@
 <p>
 </p>
 <p>
+    <asp:Button ID="Button2" runat="server" 
+        style="top: 578px; left: 284px; position: absolute; height: 26px; width: 148px" 
+        Text="Add Medical Record" />
+    <asp:Button ID="btnAddMedicalRecord" runat="server" 
+        style="top: 578px; left: 284px; position: absolute; height: 26px; width: 148px" 
+        Text="Add Medical Record" />
+    <asp:Button ID="btnClear" runat="server" 
+        style="top: 578px; left: 492px; position: absolute; height: 26px; width: 106px" 
+        Text="Clear Details" />
 </p>
 <p>
 </p>

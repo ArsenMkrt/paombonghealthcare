@@ -4,8 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
-    <asp:TextBox ID="txtPatientId" runat="server" 
-        style="top: 58px; left: 101px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
         <asp:DropDownList ID="ddlBarangay" runat="server" DataSourceID="Barangay" 
             DataTextField="BarangayName" DataValueField="BarangayName" 
             style="top: 58px; left: 458px; position: absolute; height: 22px; width: 77px">
@@ -16,12 +14,11 @@
         </asp:SqlDataSource>
 </p>
 <p>
-    <asp:Label ID="Label1" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 59px; left: 22px; position: absolute; height: 19px; width: 65px" 
-        Text="Patient Id"></asp:Label>
     <asp:Label ID="Label2" runat="server" Font-Bold="True" ForeColor="#006666" 
         style="top: 99px; left: 20px; position: absolute; height: 19px; width: 185px" 
         Text="Name (LN,FN,MN,Suffix)"></asp:Label>
+    <asp:TextBox ID="txtSuffix" runat="server" 
+        style="top: 99px; left: 641px; position: absolute; height: 22px; width: 75px"></asp:TextBox>
     <asp:Label ID="Label3" runat="server" Font-Bold="True" ForeColor="#006666" 
         style="top: 139px; left: 20px; position: absolute; height: 19px; width: 110px" 
         Text="Contact Number"></asp:Label>
@@ -64,11 +61,16 @@
     <asp:Label ID="Label20" runat="server" Font-Bold="True" ForeColor="#006666" 
         style="top: 60px; left: 357px; position: absolute; height: 19px; width: 34px" 
         Text="Barangay"></asp:Label>
+    <asp:TextBox ID="txtFName" runat="server" 
+        style="top: 97px; left: 363px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
 </p>
 <p>
-    <asp:TextBox ID="txtName" runat="server" 
+    <asp:TextBox ID="txtLName" runat="server" 
         
-        style="top: 98px; left: 219px; position: absolute; height: 22px; width: 519px"></asp:TextBox>
+        
+        style="top: 98px; left: 219px; position: absolute; height: 22px; width: 133px"></asp:TextBox>
+    <asp:TextBox ID="txtMName" runat="server" 
+        style="top: 99px; left: 502px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
 </p>
 <p>
 </p>

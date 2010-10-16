@@ -588,6 +588,50 @@ public class DataAccess
         }
     }
 
+    public List<string> GetDiseaseCategory()
+    {
+        List<string> category;
+        SqlConnection connPatient = new SqlConnection(dataConnection);
 
+        connPatient.Open();
+        category = new List<string>();
+        SqlCommand cmdTxt = new SqlCommand("Select DiseaseCategoryName From DiseaseCategory", connPatient);
+        SqlDataReader dr = cmdTxt.ExecuteReader();
+        while (dr.Read())
+        {
+            category.Add(dr.GetString(0).ToString().Trim());
+        }
+        dr.Close();
+        connPatient.Close();
+        return category;            
+    }
+
+    public void LoadCheckBoxList(CheckBoxList checkBoxDisease,string DiseaseCategory)
+    {
+        SqlConnection connPatient = new SqlConnection(dataConnection);
+
+        try
+        {
+            connPatient.Open();
+            SqlCommand cmdTxt = new SqlCommand("Select DiseaseName From Diseases Where DiseaseCategoryName = @DiseaseCategory", connPatient);
+            cmdTxt.Parameters.Add("@DiseaseCategory", SqlDbType.Char).Value = DiseaseCategory;
+
+            SqlDataReader dr = cmdTxt.ExecuteReader();
+            while (dr.Read())
+            {
+                MessageBox.Show(""+ dr.GetString(0).ToString());
+                checkBoxDisease.Items.Add(dr.GetString(0).ToString().Trim());
+            }
+            dr.Close();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error : " + ex.Message);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
+    }
 
 }
