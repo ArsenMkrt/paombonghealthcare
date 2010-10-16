@@ -11,6 +11,7 @@ public partial class Medical_Record_MedicalRecord : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        checkbox_Disease.Items.Clear();
         da = new DataAccess();
         List<string> category = da.GetDiseaseCategory();
         checkbox_Disease.RepeatColumns = category.Count;
@@ -21,6 +22,6 @@ public partial class Medical_Record_MedicalRecord : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-
+        Response.Write("<script language='javascript'>window.open('PopUp.aspx','_blank','toolbar=0,location=0,menubar=0,resizable=0,width=850,height=800');</script>");
     }
 }
