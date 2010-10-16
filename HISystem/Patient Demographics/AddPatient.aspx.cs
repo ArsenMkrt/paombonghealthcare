@@ -24,13 +24,11 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
         if (radiobutton_Female.Checked)
            Gender = "Female";
 
-        string toSplit = txtName.Text.ToString();
-        string[] Name = toSplit.Split(',');
         data = new DataAccess();
  
         //Add Patient
-        data.AddPatient(Name[1].Trim(), Name[2].Trim(), Name[0].Trim(), txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
-             Name[3].Trim(), ddlDay.Text.Trim() + "/" + ddlMonth.Text.Trim() + "/" + ddlYear.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
+        data.AddPatient(txtFName.Text.Trim(),txtMName.Text.Trim(),txtLName.Text.Trim(), txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
+             txtSuffix.Text.Trim(), ddlDay.Text.Trim() + "/" + ddlMonth.Text.Trim() + "/" + ddlYear.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
              txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
              Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"),ddlBarangay.Text.Trim());
         
