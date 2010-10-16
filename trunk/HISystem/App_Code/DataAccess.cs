@@ -619,10 +619,55 @@ public class DataAccess
             SqlDataReader dr = cmdTxt.ExecuteReader();
             while (dr.Read())
             {
-                MessageBox.Show(""+ dr.GetString(0).ToString());
                 checkBoxDisease.Items.Add(dr.GetString(0).ToString().Trim());
             }
             dr.Close();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error : " + ex.Message);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
+    }
+
+    /*Not Yet Finished for PopUp Window*/
+
+    public void LoadPatientGrid(GridView gridview)
+    {
+        SqlConnection connPatient = new SqlConnection(dataConnection);
+        SqlCommand cmdTxt;
+        DataTable dt;
+        DataSet ds;
+        SqlDataReader dr;
+        try
+        {
+            connPatient.Open();
+            
+            cmdTxt = new SqlCommand("SELECT a.PatientID as PatientId,a.PtLname + ',' + a.PtFname + ' ' + a.PtMname as Name,c.BarangayID,c.BarangayName as Barangay FROM Patients a,"
+            + "PatientsLocation b,Barangays c WHERE a.PatientID = b.PatientID AND c.BarangayID = b.BarangayID", connPatient);
+
+            dr = cmdTxt.ExecuteReader();
+            dt = new DataTable();
+            dt.Columns.Add("PatientId");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Barangay");
+            while (dr.Read())
+            {
+                dt.Rows.Add(dr["PatientId"].ToString(), dr["Name"].ToString(), dr["Barangay"].ToString());
+            }
+            dr.Close();
+            
+            ds = new DataSet();
+            ds.Tables.Add(dt);
+            MessageBox.Show("" + ds.Tables.Count.ToString());
+            gridview.DataSource = null;
+            gridview.DataBind();
+            gridview.Dispose();
+            gridview.DataSource = ds;
+            gridview.DataBind();
         }
         catch (Exception ex)
         {
