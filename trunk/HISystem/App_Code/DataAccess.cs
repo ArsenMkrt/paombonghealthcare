@@ -39,8 +39,9 @@ using System.Data.SqlClient;
 
 public class DataAccess
 {
-    private string dataconnection = @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\Paombong\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
-    private string dataconnection1 = @"Data Source=GERALD-PC\SQLEXPRESS;AttachDbFilename=C:\Users\Magno\Desktop\expressionstudio4\App_Data\paombongdb.mdf;Integrated Security=True";
+    private string dataconnection = 
+    @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\Paombong\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
+    // @"Data Source=GERALD-PC\SQLEXPRESS;AttachDbFilename=C:\Users\Magno\Desktop\expressionstudio4\App_Data\paombongdb.mdf;Integrated Security=True";
     public DataAccess()
     {
 
@@ -53,7 +54,7 @@ public class DataAccess
         string PatientFaxNumber, string PatientDoctor, string PatientNationality, string PatientCity,
         string PatientSex, string PatientMaritalStatus, string PatientSpouseName, string PatientCompany, string DateRegistered, string PatientBarangay)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
         try
         {
             connPatient.Open();
@@ -97,7 +98,7 @@ public class DataAccess
 
     public DataTable GetValues(string Patient_Id)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
         SqlDataReader dtrPatient;
         DataTable patientData = new DataTable();
         patientData.Columns.Add("PatientID");
@@ -164,7 +165,7 @@ public class DataAccess
         string PatientFaxNumber, string PatientDoctor, string PatientNationality, string PatientCity,
         string PatientSex, string PatientMaritalStatus, string PatientSpouseName, string PatientCompany, string DateRegistered, string PatientBarangay)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
         connPatient.Open();
         try
         {
@@ -208,7 +209,7 @@ public class DataAccess
 
     public int GetMedicineId(string MedicineName)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
         SqlCommand cmdTxt = new SqlCommand("SELECT MedicineId FROM Medicine WHERE MedicineName = @aa", connPatient);
@@ -225,7 +226,7 @@ public class DataAccess
 
     public void AddMedicine(string MedicineName, string CategoryName, int Quantity)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
         try
         {
             connPatient.Open();
@@ -255,7 +256,7 @@ public class DataAccess
 
     public DataTable GetMedicine(string MedicineId)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
         SqlDataReader dtrMedicine;
         DataTable medicineData = new DataTable();
         medicineData.Columns.Add("MedicineName");
@@ -288,7 +289,7 @@ public class DataAccess
 
     public void DeleteMedicine(string MedicineId)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
    
         connPatient.Open();
         try
@@ -313,7 +314,7 @@ public class DataAccess
 
     public void RefreshGridviewMedicine(GridView gridView)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
         try
@@ -341,7 +342,7 @@ public class DataAccess
 
     public void RefreshGridviewMedicineByCategory(GridView gridView,string CategoryName)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
         try
@@ -378,7 +379,7 @@ public class DataAccess
 
     public void RefreshGridviewMedicineByName(GridView gridView, string MedicineName)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
         SqlDataAdapter da;
 
         connPatient.Open();
@@ -422,7 +423,7 @@ public class DataAccess
 
     public void RefreshGridviewByQuantityLow(GridView gridView)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
         try
@@ -456,7 +457,7 @@ public class DataAccess
     }
     public void RefreshGridviewByQuantityLowConfig(GridView gridView,int Quantity)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
         try
@@ -492,7 +493,7 @@ public class DataAccess
 
     public void RefreshGridviewByCategoryAndQuantityLow(GridView gridView, string CategoryName, int Quantity)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
         try
@@ -530,7 +531,7 @@ public class DataAccess
 
     public void UpdateStock(int MedicineId,int Quantity)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
         try
@@ -561,7 +562,7 @@ public class DataAccess
     
     public void UpdateMedicine(int MedicineId,string MedicineName, string CategoryName, int Quantity)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
         try
         {
             connPatient.Open();
@@ -591,7 +592,7 @@ public class DataAccess
     public List<string> GetDiseaseCategory()
     {
         List<string> category;
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
         category = new List<string>();
@@ -608,7 +609,7 @@ public class DataAccess
 
     public void LoadCheckBoxList(CheckBoxList checkBoxDisease,string DiseaseCategory)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
 
         try
         {
@@ -637,7 +638,7 @@ public class DataAccess
 
     public void LoadPatientGrid(GridView gridview)
     {
-        SqlConnection connPatient = new SqlConnection(dataconnection1);
+        SqlConnection connPatient = new SqlConnection(dataconnection);
         SqlCommand cmdTxt;
         DataTable dt;
         DataSet ds;
