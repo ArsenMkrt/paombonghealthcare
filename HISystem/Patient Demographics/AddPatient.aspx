@@ -9,7 +9,7 @@
             style="top: 58px; left: 458px; position: absolute; height: 22px; width: 77px">
         </asp:DropDownList>
         <asp:SqlDataSource ID="Barangay" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:C:\USERS\MAGNO\DESKTOP\EXPRESSIONSTUDIO4\APP_DATA\PAOMBONGDB.MDFConnectionString %>" 
+            ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
             
             SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
         </asp:SqlDataSource>
