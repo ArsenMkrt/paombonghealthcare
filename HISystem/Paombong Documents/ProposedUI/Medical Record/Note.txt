@@ -1,0 +1,2 @@
+No ViewMedicalRecord
+AddMedicalRecord Not Finished
