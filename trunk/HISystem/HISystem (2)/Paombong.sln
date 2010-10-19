@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Paombong", "..\", "{B84D017B-E222-4452-99BA-70767F52043C}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Paombong", "..\", "{17CBEA94-A51F-47C0-9713-9D842607EB91}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/Paombong"
@@ -18,7 +18,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Paombong", "..\", "{B84D017
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "5873"
+		VWDPort = "1081"
 	EndProjectSection
 EndProject
 Global
@@ -26,8 +26,8 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B84D017B-E222-4452-99BA-70767F52043C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B84D017B-E222-4452-99BA-70767F52043C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17CBEA94-A51F-47C0-9713-9D842607EB91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17CBEA94-A51F-47C0-9713-9D842607EB91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
