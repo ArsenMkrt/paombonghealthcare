@@ -79,11 +79,11 @@
                         <asp:MenuItem Text="Inventory" Value="Inventory" NavigateUrl="~/Medicine Inventory/Inventory.aspx"></asp:MenuItem>
                     </asp:MenuItem>
                     <asp:MenuItem Text="Reports" Value="Reports">
-                        <asp:MenuItem Text="Maternal Care" Value="Maternal Care" NavigateUrl="~/Reports/MaternalCare.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Family Planning" Value="Family Planning" NavigateUrl ="~/Reports/FamilyPlanning.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Child Care A" Value="Child Care A" NavigateUrl="~/Reports/ChildCareA.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Maternal Care" Value="Maternal Care" NavigateUrl="~/Reports/MaternalCareTemp.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Family Planning" Value="Family Planning" NavigateUrl ="~/Reports/FamilyPlanningTemp.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Child Care A" Value="Child Care A" NavigateUrl="~/Reports/ChildCareTemp.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Child Care B" Value="Child Care B" NavigateUrl="~/Reports/ChildCareB.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Dental Care" Value="Dental Care" NavigateUrl="~/Reports/DentalCare.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Dental Care" Value="Dental Care" NavigateUrl="~/Reports/DentalCareTemp.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Disease Control A" Value="Disease Control A" NavigateUrl="~/Reports/DiseaseControlA.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Disease Control B" Value="Disease Control B" NavigateUrl="~/Reports/DiseaseControlB.aspx"></asp:MenuItem>
                     </asp:MenuItem>
