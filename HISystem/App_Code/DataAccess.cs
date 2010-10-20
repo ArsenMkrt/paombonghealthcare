@@ -24,17 +24,23 @@ using System.Data.SqlClient;
  *      11.Update Medicine Finished - Lakhi 10/13/2010
  *      12.Sorting Medicine Inventory Finished - Lakhi 10/13/2010
  *      13.Inventory Module Finished - Lakhi 10/13/2010
- * 
+ *      14.Added Report Template and Manage Report Module Finished - Lakhi 10/20/2010
+ *      15.Updated Database Tables also fields Finished - Lakhi 10/20/2010
  * 
  * 
  * 
  */
 
 /* Log Negative
- *      1. BarangayId Not yet Fixed in Update and Get Values - Lakhi 10/5/2010
- *      2. Inventory Not yet Finished - Lakhi 10/10/2010
- *      3. Search By Medicine Name Not yet Finished - Lakhi 10/12/2010
- *      4. 
+ *      1. BarangayId Not yet Fixed in Update and Get Values - Lakhi 10/5/2010  CHECK 
+ *      2. Inventory Not yet Finished - Lakhi 10/10/2010                        CHECK
+ *      3. Search By Medicine Name Not yet Finished - Lakhi 10/12/2010          CHECK
+ *      4. Medical Record Not Yet Finished - Lakhi 10/20/2010
+ *      5. POP UP window for PatientSearch for Modules Patient Demographics and 
+ *          Medical Records Not yet Finished - Lakhi 10/20/2010
+ * 
+ * 
+ * 
  */
 
 public class DataAccess
@@ -680,4 +686,84 @@ public class DataAccess
         }
     }
 
+    public void LoadIndicator(DropDownList dropdownProgram,DropDownList dropdownIndicator)
+    {
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+
+        try
+        {
+            connPatient.Open();
+            SqlCommand cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = (SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @Program)", connPatient);
+            cmdTxt.Parameters.Add("@Program", SqlDbType.Char).Value = dropdownProgram.Text;
+
+            SqlDataReader dr = cmdTxt.ExecuteReader();
+            while (dr.Read())
+            {
+                dropdownIndicator.Items.Add(dr.GetString(0).Trim());
+            }
+            dr.Close();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error : " + ex.Message);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
+    }
+
+    public int GetIndicatorId(string IndicatorData)
+    {
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("SELECT IndicatorID FROM Indicator WHERE IndicatorData = @IndicatorData", connPatient);
+        cmdTxt.Parameters.Add("@IndicatorData", SqlDbType.Char).Value = IndicatorData.Trim();
+
+        SqlDataReader dr = cmdTxt.ExecuteReader();
+        dr.Read();
+        int id = dr.GetInt32(0);
+        dr.Close();
+        connPatient.Close();
+        return id;
+    }
+
+    public string GetIndicatorName(int IndicatorId)
+    {
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE IndicatorID = @IndicatorId", connPatient);
+        cmdTxt.Parameters.Add("@IndicatorId", SqlDbType.Int).Value = IndicatorId;
+
+        SqlDataReader dr = cmdTxt.ExecuteReader();
+        dr.Read();
+        string data = dr.GetString(0);
+        dr.Close();
+        connPatient.Close();
+        return data;
+    }
+
+    public void LoadBarangays(GridView gridview)
+    {
+        int indexRow = 0;
+        int indexCell = 1;
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("SELECT BarangayName FROM Barangays", connPatient);
+        SqlDataReader dr = cmdTxt.ExecuteReader();
+        //while(dr.Read())
+        //{
+        dr.Read();
+            MessageBox.Show("1 "+dr.GetString(0));
+            gridview.Rows[1].Cells[1].Text = dr.GetString(0).Trim();
+            MessageBox.Show("2 " + gridview.Rows[1].Cells[1].Text);
+            //indexRow++;
+       // }
+        dr.Close();
+
+        connPatient.Close();
+    }
 }
