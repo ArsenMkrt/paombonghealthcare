@@ -747,23 +747,34 @@ public class DataAccess
 
     public void LoadBarangays(GridView gridview)
     {
-        int indexRow = 0;
-        int indexCell = 1;
+        gridview.Dispose();
+
+        DataTable dtGrid = new DataTable();
+        dtGrid.Columns.Add("Barangay"); 
+        dtGrid.Columns.Add("Population");
+        dtGrid.Columns.Add("Target");
+        dtGrid.Columns.Add("January");
+        dtGrid.Columns.Add("February");
+        dtGrid.Columns.Add("March");
+        dtGrid.Columns.Add("Quarter Accomplishment");
+        dtGrid.Columns.Add("Percent");
+
         SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
         SqlCommand cmdTxt = new SqlCommand("SELECT BarangayName FROM Barangays", connPatient);
         SqlDataReader dr = cmdTxt.ExecuteReader();
-        //while(dr.Read())
-        //{
-        dr.Read();
-            MessageBox.Show("1 "+dr.GetString(0));
-            gridview.Rows[1].Cells[1].Text = dr.GetString(0).Trim();
-            MessageBox.Show("2 " + gridview.Rows[1].Cells[1].Text);
-            //indexRow++;
-       // }
+
+        while(dr.Read())
+        {
+            dtGrid.Rows.Add(dr.GetString(0).Trim(),"x","x","x","x","x","x","x");
+        }
+
         dr.Close();
 
+        gridview.DataSource = dtGrid;
+        gridview.DataBind();
         connPatient.Close();
     }
+
 }
