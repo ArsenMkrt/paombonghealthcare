@@ -36,7 +36,7 @@
             BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" 
             CellPadding="3" CellSpacing="1" DataKeyNames="MedicineId"
             Height="211px" onselectedindexchanged="gridviewMedicine_SelectedIndexChanged" 
-            Width="330px" AutoGenerateSelectButton="True">
+            Width="330px" AutoGenerateSelectButton="True" HorizontalAlign="Center">
             <Columns>
                 <asp:BoundField DataField="MedicineId" HeaderText="MedicineId" 
                     InsertVisible="False" ReadOnly="True" SortExpression="MedicineId" />
@@ -121,7 +121,7 @@
             <asp:GridView ID="gridViewList" runat="server" AutoGenerateColumns="False" 
                 BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" 
                 CellPadding="3" CellSpacing="1" DataKeyNames="MedicineId" GridLines="None" 
-                Height="124px" Width="331px">
+                Height="124px" Width="331px" HorizontalAlign="Center">
                 <Columns>
                     <asp:BoundField DataField="MedicineId" HeaderText="MedicineId" 
                         InsertVisible="False" ReadOnly="True" SortExpression="MedicineId" />
@@ -154,7 +154,7 @@
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
             BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" 
             CellPadding="3" CellSpacing="1" DataKeyNames="MedicineId" GridLines="None" 
-            Height="189px" Width="323px">
+            Height="189px" Width="323px" HorizontalAlign="Center">
             <Columns>
                 <asp:CommandField ShowSelectButton="True" />
                 <asp:BoundField DataField="MedicineId" HeaderText="MedicineId" 

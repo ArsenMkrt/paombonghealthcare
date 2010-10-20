@@ -86,14 +86,9 @@
                         <asp:MenuItem Text="Inventory" Value="Inventory" NavigateUrl="~/Medicine Inventory/Inventory.aspx"></asp:MenuItem>
                     </asp:MenuItem>
                     <asp:MenuItem Text="Reports" Value="Reports">
-                        <asp:MenuItem Text="Maternal Care" Value="Maternal Care" NavigateUrl="~/Reports/MaternalCareTemp.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Family Planning" Value="Family Planning" NavigateUrl ="~/Reports/FamilyPlanningTemp.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Child Care" Value="Child Care" NavigateUrl="~/Reports/ChildCareTemp.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Malaria" Value="Malaria" NavigateUrl="~/Reports/MalariaTemp.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Schistomiasis" Value="Schistomiasis" NavigateUrl="~/Reports/SchistomiasisTemp.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Filariasis" Value= "Filariasis" NavigateUrl="~/Reports/FilariasisTemp.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Tuberculosis" Value="Tuberculosis" NavigateUrl="~/Reports/TuberculosisTemp.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Leprosy" Value="Leprosy" NavigateUrl="~/Reports/LeprosyTemp.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="New Report" Value="New" NavigateUrl="~/Reports/AddReport.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="View Edit Report" Value="Edit" NavigateUrl="~/Reports/ViewEditReport.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Delete Report" Value="Delete" NavigateUrl="~/Reports/DeleteReport.aspx"></asp:MenuItem>
                     </asp:MenuItem>
                 </Items>
                 <StaticHoverStyle BackColor="#990000" ForeColor="White" />
