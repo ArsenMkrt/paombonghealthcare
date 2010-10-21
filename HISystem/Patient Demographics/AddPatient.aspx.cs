@@ -38,4 +38,14 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
     {
 
     }
+    protected void radiobutton_Male_CheckedChanged(object sender, EventArgs e)
+    {
+        if (radiobutton_Female.Checked)
+            radiobutton_Female.Checked = false;
+    }
+    protected void radiobutton_Female_CheckedChanged(object sender, EventArgs e)
+    {
+        if (radiobutton_Male.Checked)
+            radiobutton_Male.Checked = false;
+    }
 }
