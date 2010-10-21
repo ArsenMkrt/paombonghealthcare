@@ -28,10 +28,10 @@
         Text="Civil Status"></asp:Label>
     <asp:RadioButton ID="radiobutton_Female" runat="server" Font-Bold="True" ForeColor="#006666" 
         style="top: 179px; left: 222px; position: absolute; height: 21px; width: 75px" 
-        Text="Female" />
+        Text="Female" oncheckedchanged="radiobutton_Female_CheckedChanged" />
     <asp:RadioButton ID="radiobutton_Male" runat="server" Font-Bold="True" ForeColor="#006666" 
         style="top: 180px; left: 120px; position: absolute; height: 21px; width: 75px" 
-        Text="Male" />
+        Text="Male" oncheckedchanged="radiobutton_Male_CheckedChanged" />
     <asp:Label ID="Label4" runat="server" Font-Bold="True" ForeColor="#006666" 
         style="top: 213px; left: 22px; position: absolute; height: 19px; width: 97px" 
         Text="Email Address"></asp:Label>

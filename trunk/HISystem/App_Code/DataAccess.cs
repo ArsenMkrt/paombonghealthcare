@@ -88,7 +88,7 @@ public class DataAccess
 
             int checker = cmdTxt.ExecuteNonQuery();
             if (checker > 0)
-                MessageBox.Show("Patient Saved!");
+                MessageBox.Show("<script>window.alert('Successful.')</script>");
             else
                 MessageBox.Show("Patient Not Saved! Please Try Again");
         }
@@ -243,7 +243,7 @@ public class DataAccess
             cmdTxt.Parameters.Add("@CategoryName", SqlDbType.Char).Value = CategoryName;
             int checker = cmdTxt.ExecuteNonQuery();
             if (checker > 0)
-                MessageBox.Show("Successfully Added Medicine");
+                MessageBox.Show("<script>window.alert('Add Medicine.')</script>");
             else
                 MessageBox.Show("Please Try Again!!");
 
@@ -753,9 +753,9 @@ public class DataAccess
         dtGrid.Columns.Add("Barangay"); 
         dtGrid.Columns.Add("Population");
         dtGrid.Columns.Add("Target");
-        dtGrid.Columns.Add("January");
-        dtGrid.Columns.Add("February");
-        dtGrid.Columns.Add("March");
+        dtGrid.Columns.Add("month1");
+        dtGrid.Columns.Add("month2");
+        dtGrid.Columns.Add("month3");
         dtGrid.Columns.Add("Quarter Accomplishment");
         dtGrid.Columns.Add("Percent");
 
@@ -767,7 +767,7 @@ public class DataAccess
 
         while(dr.Read())
         {
-            dtGrid.Rows.Add(dr.GetString(0).Trim(),"x","x","x","x","x","x","x");
+            dtGrid.Rows.Add(dr.GetString(0).Trim(),"","","","","","","");
         }
 
         dr.Close();
@@ -777,4 +777,25 @@ public class DataAccess
         connPatient.Close();
     }
 
+    public void InsertReport(string ChildData,int Male,int Female,int BarangayID, 
+        DateTime monthYear,string Accomplishment,decimal percent)
+    {
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO ChildCare (ChildData,Male,Female,InputDate,BarangayID,MonthYear,Accomplishment,Percent)"
+            +"VALUES (@ChildData,@Male,@Female,@InputDate,@BarangayID,@MonthYear,@Accomplishment,@Percent)", connPatient);
+        cmdTxt.Parameters.Add("@ChildData", SqlDbType.Int).Value = ChildData;
+        cmdTxt.Parameters.Add("@Male", SqlDbType.Int).Value = Male;
+        cmdTxt.Parameters.Add("@Female", SqlDbType.Int).Value = Female;
+        cmdTxt.Parameters.Add("@InputDate", SqlDbType.Int).Value = DateTime.Now.ToString("MM/dd/yyyy");
+        cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
+        cmdTxt.Parameters.Add("@MonthYear", SqlDbType.Int).Value = monthYear;
+        cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.Int).Value = Accomplishment;
+        cmdTxt.Parameters.Add("@Percent", SqlDbType.Int).Value = percent;
+
+        cmdTxt.ExecuteNonQuery();
+
+        connPatient.Close();
+    }
 }
