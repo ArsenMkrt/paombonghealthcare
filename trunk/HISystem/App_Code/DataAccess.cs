@@ -777,24 +777,29 @@ public class DataAccess
         connPatient.Close();
     }
 
-    public void InsertReport(string ChildData,int Male,int Female,int BarangayID, 
-        DateTime monthYear,string Accomplishment,decimal percent)
+    public void InsertChildReport(string ChildData,int Male,int Female,int BarangayID, 
+        DateTime monthYear,string Accomplishment,decimal percent,int Population)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
         SqlCommand cmdTxt = new SqlCommand("INSERT INTO ChildCare (ChildData,Male,Female,InputDate,BarangayID,MonthYear,Accomplishment,Percent)"
             +"VALUES (@ChildData,@Male,@Female,@InputDate,@BarangayID,@MonthYear,@Accomplishment,@Percent)", connPatient);
-        cmdTxt.Parameters.Add("@ChildData", SqlDbType.Int).Value = ChildData;
+        cmdTxt.Parameters.Add("@ChildData", SqlDbType.VarChar).Value = ChildData;
         cmdTxt.Parameters.Add("@Male", SqlDbType.Int).Value = Male;
         cmdTxt.Parameters.Add("@Female", SqlDbType.Int).Value = Female;
-        cmdTxt.Parameters.Add("@InputDate", SqlDbType.Int).Value = DateTime.Now.ToString("MM/dd/yyyy");
+        cmdTxt.Parameters.Add("@InputDate", SqlDbType.DateTime).Value = DateTime.Now.ToString("MM/dd/yyyy");
         cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
-        cmdTxt.Parameters.Add("@MonthYear", SqlDbType.Int).Value = monthYear;
-        cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.Int).Value = Accomplishment;
-        cmdTxt.Parameters.Add("@Percent", SqlDbType.Int).Value = percent;
-
+        cmdTxt.Parameters.Add("@MonthYear", SqlDbType.DateTime).Value = monthYear;
+        cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
+        cmdTxt.Parameters.Add("@Percent", SqlDbType.Decimal).Value = percent;
         cmdTxt.ExecuteNonQuery();
+        SqlCommand cmdTxt2 = new SqlCommand("INSERT INTO Population (BarangayID,MonthYear,Population)"
+            +"VALUES (@BarangayID,@MonthYear,@Pop)");
+        cmdTxt2.Parameters.Add("@BarangayID",SqlDbType.Int).Value = BarangayID;
+        cmdTxt2.Parameters.Add("@MonthYear", SqlDbType.DateTime).Value = monthYear;
+        cmdTxt2.Parameters.Add("@Pop", SqlDbType.Int).Value = Population;
+        cmdTxt2.ExecuteNonQuery();
 
         connPatient.Close();
     }
