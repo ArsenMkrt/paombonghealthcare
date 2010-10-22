@@ -76,7 +76,7 @@
                     <asp:MenuItem Text="Patient Demographics" Value="Patient Demographics">
                         <asp:MenuItem Text="Add Patient" 
                             NavigateUrl="~/Patient Demographics/AddPatient.aspx" 
-                            Value="Add/Edit Patient" ImageUrl="~/images/PaombongCityLogo.PNG"></asp:MenuItem>
+                            Value="Add/Edit Patient"></asp:MenuItem>
                         <asp:MenuItem Text="View and Edit Patient" 
                             NavigateUrl="~/Patient Demographics/ViewEditPatient.aspx" Value="View Patient"></asp:MenuItem>
                     </asp:MenuItem>
