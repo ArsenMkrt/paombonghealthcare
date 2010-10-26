@@ -686,7 +686,7 @@ public class DataAccess
         }
     }
 
-    public void LoadIndicator(DropDownList dropdownProgram,DropDownList dropdownIndicator)
+    public void LoadIndicator(string Program,DropDownList dropdownIndicator)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
 
@@ -694,7 +694,7 @@ public class DataAccess
         {
             connPatient.Open();
             SqlCommand cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = (SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @Program)", connPatient);
-            cmdTxt.Parameters.Add("@Program", SqlDbType.Char).Value = dropdownProgram.Text;
+            cmdTxt.Parameters.Add("@Program", SqlDbType.Char).Value = Program;
 
             SqlDataReader dr = cmdTxt.ExecuteReader();
             while (dr.Read())
