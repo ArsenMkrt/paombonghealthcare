@@ -837,14 +837,14 @@ public class DataAccess
     public void LoadGridChildCare(GridView gridviewCCChildCare, string IndicatorData,string Quarter, string Year)
     {
         SqlConnection conn = new SqlConnection(dataconnection);
-
+        SqlDataReader dr;
         conn.Open();
         SqlCommand cmdTxt = new SqlCommand("GetCcChildCare", conn);
         cmdTxt.CommandType = CommandType.StoredProcedure;
         cmdTxt.Parameters.Add("@IndicatorData", SqlDbType.VarChar).Value = IndicatorData;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = Convert.ToInt32(Quarter);
         cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Int32.Parse(Year);
-        SqlDataReader dr = cmdTxt.ExecuteReader();
+        dr = cmdTxt.ExecuteReader();
 
         gridviewCCChildCare.DataSource = dr;
         gridviewCCChildCare.DataBind();
