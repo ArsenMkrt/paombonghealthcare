@@ -839,13 +839,14 @@ public class DataAccess
         SqlConnection conn = new SqlConnection(dataconnection);
         SqlDataReader dr;
         conn.Open();
-        SqlCommand cmdTxt = new SqlCommand("GetCcChildCare", conn);
+        SqlCommand cmdTxt = new SqlCommand("GetcChildCare", conn);
         cmdTxt.CommandType = CommandType.StoredProcedure;
         cmdTxt.Parameters.Add("@IndicatorData", SqlDbType.VarChar).Value = IndicatorData;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = Convert.ToInt32(Quarter);
         cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Int32.Parse(Year);
+        //cmdTxt.Parameters.Add("@Month", SqlDbType.Int).Value = Month;
         dr = cmdTxt.ExecuteReader();
-
+        
         gridviewCCChildCare.DataSource = dr;
         gridviewCCChildCare.DataBind();
         
