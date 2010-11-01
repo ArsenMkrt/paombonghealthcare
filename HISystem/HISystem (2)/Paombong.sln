@@ -1,18 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Paombong", "..\", "{9550A245-3F04-4781-B504-6FBFD824AA6F}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Paombong", "..\", "{B854D63A-1AD0-4052-8904-5F60D2A1E5C0}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/Paombong"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\Paombong\"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\Paombong\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Paombong\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/Paombong"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\Paombong\"
+		Release.AspNetCompiler.PhysicalPath = "..\..\Paombong\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Paombong\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
@@ -26,8 +26,8 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9550A245-3F04-4781-B504-6FBFD824AA6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9550A245-3F04-4781-B504-6FBFD824AA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B854D63A-1AD0-4052-8904-5F60D2A1E5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B854D63A-1AD0-4052-8904-5F60D2A1E5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

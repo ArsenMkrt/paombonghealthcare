@@ -45,9 +45,16 @@ using System.Data.SqlClient;
 
 public class DataAccess
 {
-    private string dataconnection = 
+    private string dataconnection =
     @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\Paombong\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
     // @"Data Source=GERALD-PC\SQLEXPRESS;AttachDbFilename=C:\Users\Magno\Desktop\expressionstudio4\App_Data\paombongdb.mdf;Integrated Security=True";
+    
+    public string Dataconnection
+    {
+        get { return dataconnection; }
+        set { dataconnection = value; }
+    }
+   
     public DataAccess()
     {
 
@@ -853,6 +860,7 @@ public class DataAccess
         dr.Dispose();
         conn.Close();
     }
+
 
 
     //public void LoadGridChildCare(GridView gridviewCCChildCare, string IndicatorData,string Quarter, string Year)
