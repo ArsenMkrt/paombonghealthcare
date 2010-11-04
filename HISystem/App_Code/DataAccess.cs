@@ -10,6 +10,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+#region Logs
+
 /* Log Positive
  *      1. Add Patient Finished - Lakhi 10/5/2010
  *      2. Update Patient Finished - Lakhi 10/5/2010
@@ -43,12 +45,16 @@ using System.Data.SqlClient;
  * 
  */
 
+#endregion
+
 public class DataAccess
 {
     private string dataconnection =
     @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\Paombong\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
     // @"Data Source=GERALD-PC\SQLEXPRESS;AttachDbFilename=C:\Users\Magno\Desktop\expressionstudio4\App_Data\paombongdb.mdf;Integrated Security=True";
-    
+
+    private MonthConverter mc;
+
     public string Dataconnection
     {
         get { return dataconnection; }
@@ -709,6 +715,7 @@ public class DataAccess
                 dropdownIndicator.Items.Add(dr.GetString(0).Trim());
             }
             dr.Close();
+            
         }
         catch (Exception ex)
         {
@@ -784,26 +791,31 @@ public class DataAccess
     }
 
     public void InsertChildReport(string ChildData,int Male,int Female,int BarangayID, 
-        string monthYear,string Accomplishment,decimal percent,int Population)
+        int Month, int Year,string Accomplishment,decimal percent,int Population, int Target)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
+        mc = new MonthConverter();
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO ChildCare (ChildData,Male,Female,InputDate,BarangayID,MonthYear,Accomplishment,Percent)"
-            +"VALUES (@ChildData,@Male,@Female,@InputDate,@BarangayID,@MonthYear,@Accomplishment,@Percent)", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO ChildCare (ChildData,Male,Female,InputDate,BarangayID,Month,Year,Accomplishment,[Percent],Quarter)"
+            +"VALUES (@ChildData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Accomplishment,@Percent,@Quarter)", connPatient);
         cmdTxt.Parameters.Add("@ChildData", SqlDbType.VarChar).Value = ChildData;
         cmdTxt.Parameters.Add("@Male", SqlDbType.Int).Value = Male;
         cmdTxt.Parameters.Add("@Female", SqlDbType.Int).Value = Female;
         cmdTxt.Parameters.Add("@InputDate", SqlDbType.DateTime).Value = DateTime.Now.ToString("MM/dd/yyyy HH:MM");
         cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
-        cmdTxt.Parameters.Add("@MonthYear", SqlDbType.VarChar).Value = monthYear;
+        cmdTxt.Parameters.Add("@Month", SqlDbType.Int).Value = Month;
+        cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
         cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
         cmdTxt.Parameters.Add("@Percent", SqlDbType.Decimal).Value = percent;
+        cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
-        SqlCommand cmdTxt2 = new SqlCommand("INSERT INTO Population (BarangayID,MonthYear,Population)"
-            +"VALUES (@BarangayID,@MonthYear,@Pop)");
+        SqlCommand cmdTxt2 = new SqlCommand("INSERT INTO Population (BarangayID,Target,Quarter,Year,Population)"
+            +"VALUES (@BarangayID,@Target,@Quarter,@Year,@Pop)", connPatient);
         cmdTxt2.Parameters.Add("@BarangayID",SqlDbType.Int).Value = BarangayID;
-        cmdTxt2.Parameters.Add("@MonthYear", SqlDbType.VarChar).Value = monthYear;
+        cmdTxt2.Parameters.Add("@Target", SqlDbType.Int).Value = Target;
+        cmdTxt2.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
+        cmdTxt2.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
         cmdTxt2.Parameters.Add("@Pop", SqlDbType.Int).Value = Population;
         cmdTxt2.ExecuteNonQuery();
 
@@ -858,6 +870,35 @@ public class DataAccess
         gridviewCCChildCare.DataBind();
         
         dr.Dispose();
+        conn.Close();
+    }
+    public void LoadAvailableYearAndMonth(string Program, DropDownList year, DropDownList month)
+    {
+        SqlConnection conn = new SqlConnection(dataconnection);
+        SqlDataReader drYear;
+        SqlDataReader drMonth;
+        conn.Open();
+        SqlCommand cmdTxtYear = new SqlCommand("Select Distinct Year From "+Program.Trim(), conn);
+        SqlCommand cmdTxtMonth = new SqlCommand("Select Distinct Month From "+Program.Trim(), conn);
+
+        drYear = cmdTxtYear.ExecuteReader();
+        year.Items.Add("All");
+        while (drYear.Read())
+        {
+            year.Items.Add(drYear.GetInt32(0).ToString());
+        }
+        drYear.Close();
+        
+        drMonth = cmdTxtMonth.ExecuteReader();
+        month.Items.Add("All");
+        while (drMonth.Read())
+        {
+            month.Items.Add(drMonth.GetInt32(0).ToString());
+        }
+        drMonth.Close();
+
+        drYear.Dispose();
+        drMonth.Dispose();
         conn.Close();
     }
 
