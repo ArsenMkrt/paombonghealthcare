@@ -94,9 +94,8 @@
                         <asp:MenuItem Text="Inventory" Value="Inventory" NavigateUrl="~/Medicine Inventory/Inventory.aspx"></asp:MenuItem>
                     </asp:MenuItem>
                     <asp:MenuItem Text="Reports" Value="Reports">
-                        <asp:MenuItem Text="New Report" Value="New" NavigateUrl="~/Reports/AddReport.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="View Edit Report" Value="Edit" NavigateUrl="~/Reports/ViewEditReport.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Delete Report" Value="Delete" NavigateUrl="~/Reports/DeleteReport.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="New/View/Delete Report" Value="New" NavigateUrl="~/Reports/mReport.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="View Consolidated Report" Value="Edit" NavigateUrl="~/Reports/ViewEditReport.aspx"></asp:MenuItem>
                     </asp:MenuItem>
                 </Items>
                 <StaticHoverStyle BackColor="#666666" ForeColor="White" />
