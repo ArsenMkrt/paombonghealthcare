@@ -7,10 +7,11 @@
     <title></title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
+	<link href="main.css" rel="stylesheet" type="text/css" />
 </head>
-<body style="height: 1038px">
+<body style="height: 1038px; color: #0000FF;">
     <form id="form1" runat="server">
-    <div style="height: 1033px; width: 1018px">
+    <div style="height: 1033px; width: 1243px">
         
         <br />
         <br />
@@ -20,44 +21,42 @@
             
             
             
-            style="top: 889px; left: 17px; position: absolute; height: 155px; width: 1231px">
-            <asp:Image ID="image_MapuaLogo" runat="server" Height="151px" 
-                ImageUrl="~/images/MapuaLogo.PNG" Width="155px" />
-            <asp:Label ID="Label2" runat="server" 
-                style="top: 103px; left: 341px; position: absolute; height: 22px; width: 544px;" 
-                
-                Text="This program was provided by Mapua Institute of Technology For Pambong Municipality" 
-                Font-Bold="False"></asp:Label>
+            
+            style="margin: 0; padding: 0; list-style: none; top: 947px; left: 17px; position: absolute; height: 100px; width: 1231px; background-color: #99CCFF; float: left;" BackColor="Black">
+            <asp:Image ID="image_MapuaLogo" runat="server" Height="95px" 
+                ImageUrl="~/images/image3.png" Width="106px" />
             <asp:Image ID="image_Paombong" runat="server" 
-                ImageUrl="~/images/PaombongCityLogo.PNG" 
+                ImageUrl="~/images/image5.png" 
+                
+                
+
                 
                 
                 
                 
                 
-                style="top: 4px; left: 1059px; position: absolute; height: 144px; width: 168px;" />
-            <asp:HyperLink ID="hyperlink_AboutUs" runat="server" BorderStyle="None" 
-                ForeColor="#000099" 
-                style="top: 42px; left: 204px; position: absolute; height: 19px; width: 65px;">About Us</asp:HyperLink>
-            <asp:HyperLink ID="hyperlink_ContactUs" runat="server" BorderStyle="None" 
-                ForeColor="#000099" 
-                
-                
-                style="top: 42px; left: 396px; position: absolute; height: 19px; width: 78px;">Contact Us</asp:HyperLink>
-            <asp:HyperLink ID="hyperlink_SiteMap" runat="server" ForeColor="#000099" 
-                
-                
-                style="top: 44px; left: 602px; position: absolute; height: 19px; width: 65px;">Site Map</asp:HyperLink>
-            <asp:HyperLink ID="hyperlink_MapuaSite" runat="server" ForeColor="#000099" 
-                
-                
-                style="top: 43px; left: 855px; position: absolute; height: 19px; width: 101px;">Mapua Website</asp:HyperLink>
+                style="top: 4px; left: 1132px; position: absolute; height: 92px; width: 95px;" />
+
+<div id="header">
+<div id="mainNav" style="left: 288px; bottom: 16px; height: 28px; color: #000000; width: 513px;">
+  <ul id="lifestyleSubNav">
+    <li><a href="lifestyle/journal.htm">About</a></li>
+    <li><a href="lifestyle/photos.htm">Help</a></li>
+    <li><a href="lifestyle/conditions.htm">Mapua Website</a></li>
+    <li><a href="lifestyle/register.htm" class="last">Sitemap</a></li>
+</ul>
+</div>
+</div>
+ 
+            <asp:Label ID="Label2" runat="server" Font-Bold="False" 
+                style="top: 21px; left: 254px; position: absolute; height: 22px; width: 590px;" 
+                Text="This program was provided by Mapua Institute of Technology For the Municipality of Paombong"></asp:Label>
         </asp:Panel>
         <asp:Panel ID="panel_Header" runat="server" 
             
             
             
-            style="top: 12px; left: 10px; position: absolute; height: 131px; width: 1239px" 
+            style="top: 12px; left: 10px; position: absolute; height: 131px; width: 1239px; float: left; background-color: #99CCFF;" 
             BackImageUrl="~/images/Header.png">
             <asp:Menu ID="menu_Bar" runat="server" BackColor="#E3EAEB" 
                 DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" 
@@ -102,7 +101,40 @@
                 <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                 <StaticSelectedStyle BackColor="#1C5E55" />
             </asp:Menu>
-        </asp:Panel>
+            &nbsp;
+            <div id="wrapAll" style="width: 1240px;">
+            <div id="wrap"  style="width: 1089px; height: 104px; float: right;">
+            <div id="loginview" style="width: 301px; float: right; height: 101px;">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<asp:LoginView ID="HeadLoginView0" runat="server" EnableViewState="false">
+					<AnonymousTemplate>
+						[
+						<a ID="HeadLoginStatus1" runat="server" href="~/Account/Login.aspx">
+						Log In</a> ]
+					</AnonymousTemplate>
+					<LoggedInTemplate>
+						Welcome <span class="bold">
+						<asp:LoginName ID="HeadLoginName0" runat="server" />
+						</span>! [
+						<asp:LoginStatus ID="HeadLoginStatus2" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/" LogoutText="Log Out" />
+						]
+					</LoggedInTemplate>
+				</asp:LoginView>
+			</div>
+			<div id="label" style="width: 782px; float: left; height: 101px;">
+				<h1 style="height: 99px; margin-bottom: 11px">
+                    <asp:Image ID="Image3" runat="server" ImageUrl="~/images/phis_name.png" 
+                        Height="85px" Width="323px" />
+                    </h1>
+			</div>
+			</div>
+			
+			<div id="logo" style="float: left;">
+				<asp:Image ID="Image2" runat="server" Height="107px" 
+                    ImageUrl="~/images/icon hd2.png" Width="118px" />
+			</div>
+			</div>
+		</asp:Panel>
         <br />
         <br />
         <br />
