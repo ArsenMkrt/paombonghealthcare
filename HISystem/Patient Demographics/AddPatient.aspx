@@ -57,7 +57,7 @@
         style="top: 175px; left: 25px; position: absolute; height: 21px; width: 23px" 
         Text="Sex"></asp:Label>
     <asp:Label ID="Label9" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 386px; left: 370px; position: absolute; height: 58px; width: 43px" 
+        style="top: 386px; left: 370px; position: absolute; height: 18px; width: 43px" 
         Text="Doctor"></asp:Label>
     <asp:Label ID="Label20" runat="server" Font-Bold="True" ForeColor="#006666" 
         style="top: 60px; left: 357px; position: absolute; height: 19px; width: 34px" 
