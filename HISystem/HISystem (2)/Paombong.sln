@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Paombong", "..\", "{CD3F59CD-4B9B-4DD1-A7BD-47164F7C9317}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Paombong", "..\", "{08EF9A20-3AFC-4860-A5DE-66489B7311CF}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/Paombong"
@@ -26,8 +26,8 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CD3F59CD-4B9B-4DD1-A7BD-47164F7C9317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD3F59CD-4B9B-4DD1-A7BD-47164F7C9317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08EF9A20-3AFC-4860-A5DE-66489B7311CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08EF9A20-3AFC-4860-A5DE-66489B7311CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
