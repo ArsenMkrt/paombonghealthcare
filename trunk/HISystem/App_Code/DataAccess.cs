@@ -50,8 +50,8 @@ using System.Data.SqlClient;
 public class DataAccess
 {
     private string dataconnection =
-    //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\Paombong\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
-    @"Data Source=localhost\\SQLEXPRESS;AttachDbFilename=C:\\Users\\Magno\\Desktop\\GERALD\\App_Data\\paombongdb.mdf;Integrated Security=True";
+    @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\Paombong\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
+    //@"Data Source=localhost\\SQLEXPRESS;AttachDbFilename=C:\\Users\\Magno\\Desktop\\GERALD\\App_Data\\paombongdb.mdf;Integrated Security=True";
 
     private MonthConverter mc;
 
