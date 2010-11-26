@@ -9,9 +9,9 @@
     </asp:ContentPlaceHolder>
 	<link href="main.css" rel="stylesheet" type="text/css" />
 </head>
-<body style="height: 1038px; color: #0000FF;">
+<body style="height: 1038px; color: #0000FF; width: 926px;">
     <form id="form1" runat="server">
-    <div style="height: 1033px; width: 1243px">
+    <div style="height: 1033px; width: 923px; margin-right: 0px;">
         
         <br />
         <br />
@@ -22,9 +22,11 @@
             
             
             
-            style="margin: 0; padding: 0; list-style: none; top: 947px; left: 17px; position: absolute; height: 100px; width: 1231px; background-color: #99CCFF; float: left;" BackColor="Black">
+            
+            style="margin: 0; padding: 0; list-style: none; top: 947px; left: 17px; position: absolute; height: 100px; width: 925px; background-color: #99CCFF; float: left;" 
+            BackColor="Black">
             <asp:Image ID="image_MapuaLogo" runat="server" Height="75px" 
-                ImageUrl="~/images/image3.png" Width="74px" style="margin-left: 86px" />
+                ImageUrl="~/images/image3.png" Width="74px" style="margin-left: 50px" />
             <asp:Image ID="image_Paombong" runat="server" 
                 ImageUrl="~/images/image5.png" 
                 
@@ -36,11 +38,13 @@
                 
                 
                 
-                style="top: 0px; left: 980px; position: absolute; height: 72px; width: 79px; right: 172px; margin-right: 0px;" />
+                
+                style="top: 0px; left: 790px; position: absolute; height: 72px; width: 85px; right: 50px; margin-right: 0px;" />
 
 <div id="header">
 <div id="mainNav" 
-        style="left: 293px; bottom: 57px; height: 28px; color: #000000; width: 513px;">
+        
+        style="left: 199px; bottom: 56px; height: 28px; color: #000000; width: 513px;">
   <ul id="lifestyleSubNav">
     <li><a href="lifestyle/journal.htm">About</a></li>
     <li><a href="lifestyle/photos.htm">Help</a></li>
@@ -51,7 +55,8 @@
 </div>
  
             <asp:Label ID="Label2" runat="server" Font-Bold="False" 
-                style="top: 58px; left: 250px; position: absolute; height: 22px; width: 590px;" 
+                style="top: 58px; left: 159px; position: absolute; height: 22px; width: 590px;" 
+                
                 
                 Text="This program was provided by Mapua Institute of Technology For the Municipality of Paombong"></asp:Label>
         </asp:Panel>
@@ -60,12 +65,13 @@
             
             
             
-            style="top: 12px; left: 10px; position: absolute; height: 131px; width: 1239px; float: left; background-color: #99CCFF;">
+            
+            style="top: 12px; left: 10px; position: absolute; height: 131px; width: 934px; float: left; background-color: #99CCFF;">
             <asp:Menu ID="menu_Bar" runat="server" BackColor="#E3EAEB" 
                 DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" 
                 ForeColor="#666666" Height="36px" ItemWrap="True" Orientation="Horizontal" 
                 StaticSubMenuIndent="30px" 
-                style="top: 132px; left: 1px; position: absolute; width: 1238px;" 
+                style="top: 132px; left: 1px; position: absolute; width: 921px; right: 61px;" 
                 PathSeparator="|" RenderingMode="Table" SkinID="2" 
                 IncludeStyleBlock="False">
                 <DynamicHoverStyle BackColor="#666666" ForeColor="White" />
@@ -105,9 +111,9 @@
                 <StaticSelectedStyle BackColor="#1C5E55" />
             </asp:Menu>
             &nbsp;
-            <div id="wrapAll" style="width: 1240px;">
-            <div id="wrap"  style="width: 1089px; height: 104px; float: right;">
-            <div id="loginview" style="width: 301px; float: right; height: 101px;">
+            <div id="wrapAll" style="width: 941px;">
+            <div id="wrap"  style="width: 791px; height: 104px; float: right;">
+            <div id="loginview" style="width: 166px; float: right; height: 101px;">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<asp:LoginView ID="HeadLoginView0" runat="server" EnableViewState="false">
 					<AnonymousTemplate>
@@ -124,18 +130,18 @@
 					</LoggedInTemplate>
 				</asp:LoginView>
 			</div>
-			<div id="label" style="width: 782px; float: left; height: 101px;">
-				<h1 style="height: 99px; margin-bottom: 11px">
+			<div id="label" style="width: 473px; float: left; height: 101px;">
+				<h1 style="height: 99px; margin-bottom: 11px; width: 246px;">
                     <asp:Image ID="Image3" runat="server" ImageUrl="~/images/phis_name.png" 
-                        Height="76px" Width="208px" />
+                        Height="76px" Width="208px" style="margin-left: 18px; margin-top: 6px" />
                     </h1>
 			</div>
 			</div>
 			
-			<div id="logo" style="float: left;">
+			<div id="logo" style="float: left; width: 78px;">
 				<asp:Image ID="Image2" runat="server" Height="74px" 
-                    ImageUrl="~/images/icon hd2.png" Width="77px" 
-                    style="margin-left: 55px; margin-top: 10px" />
+                    ImageUrl="~/images/icon hd2.png" Width="75px" 
+                    style="margin-left: 11px; margin-top: 10px" />
 			</div>
 			</div>
 		</asp:Panel>
@@ -145,7 +151,8 @@
         <asp:Panel ID="panel_Content" runat="server" 
             
             
-            style="top: 183px; left: 15px; position: absolute; height: 694px; width: 1237px">
+            
+            style="top: 183px; left: 15px; position: absolute; height: 694px; width: 924px">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <p>
                     <br />

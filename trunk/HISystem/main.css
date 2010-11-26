@@ -29,7 +29,7 @@
 }
 
 #header #mainNav li a:hover {
-	color: #f8b449;
+	color: #2680D9;
 	background: url(../_images/nav_rollover.jpg) no-repeat left top;
 	border: none;
 }
@@ -37,10 +37,10 @@
 	margin-top: -5px;
 	height: 30px;
 	background: url(../_images/current.jpg) no-repeat;
-	color: #AAB3B2;
+	color: #2680D9;
 	line-height: 25px;
 }
 #header #mainNav ul li a.current:hover {
-	color: #AAB3B2;
+	color: #2680D9;
 	cursor: default;
 }

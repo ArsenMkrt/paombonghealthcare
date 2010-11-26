@@ -19,9 +19,11 @@
         uname:nurse1 pass:nurse1
 
         </p>
-    <p>
+<p>
         log in as midwife
-         uname:midwife1 pass:midwife1
+         uname:midwife1 pass:midwife1</p>
+<p>
+        &nbsp;<asp:Label ID="Label3" runat="server" ForeColor="#2680D9" Text="Label"></asp:Label>
         </p>
 </asp:Content>
 

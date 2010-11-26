@@ -9,11 +9,24 @@
 
 
 
-<asp:CreateUserWizard ID="RegisterUser" runat="server" EnableViewState="false" OnCreatedUser="RegisterUser_CreatedUser">
+<asp:CreateUserWizard ID="RegisterUser" runat="server" EnableViewState="False" 
+        OnCreatedUser="RegisterUser_CreatedUser" BackColor="#EFF3FB" 
+        BorderColor="#B5C7DE" BorderStyle="Solid" BorderWidth="1px" 
+        Font-Names="Verdana" Font-Size="0.8em">
+       <HeaderStyle BackColor="#284E98" BorderColor="#EFF3FB" BorderStyle="Solid" 
+           BorderWidth="2px" Font-Bold="True" Font-Size="0.9em" ForeColor="White" 
+           HorizontalAlign="Center" />
        <LayoutTemplate>
             <asp:PlaceHolder ID="wizardStepPlaceholder" runat="server"></asp:PlaceHolder>
             <asp:PlaceHolder ID="navigationPlaceholder" runat="server"></asp:PlaceHolder>
         </LayoutTemplate>
+        <ContinueButtonStyle BackColor="White" BorderColor="#507CD1" 
+           BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
+           ForeColor="#284E98" />
+       <CreateUserButtonStyle BackColor="White" BorderColor="#507CD1" 
+           BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
+           ForeColor="#284E98" />
+       <TitleTextStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
         <WizardSteps>
             <asp:CreateUserWizardStep ID="RegisterUserWizardStep" runat="server">
                 <ContentTemplate>
@@ -31,27 +44,30 @@
                     </span>
                     <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification" 
                          ValidationGroup="RegisterUserValidationGroup"/>
-                    <div class="accountInfo">
+
+
+
+                    <div class="accountInfo"  style="height: 550px; width: 310px;">
                         <fieldset class="register">
                             <legend>Account Information</legend>
                             <p>
                                 <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
                                 <asp:TextBox ID="UserName" runat="server" CssClass="textEntry"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" 
+                                <asp:RequiredFieldValidator ID="UserNameRequired" Display="Dynamic" runat="server" ControlToValidate="UserName" 
                                      CssClass="failureNotification" ErrorMessage="User Name is required." ToolTip="User Name is required." 
                                      ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
                             </p>
                             <p>
                                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email">E-mail:</asp:Label>
                                 <asp:TextBox ID="Email" runat="server" CssClass="textEntry"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" 
+                                <asp:RequiredFieldValidator ID="EmailRequired" runat="server" Display="Dynamic" ControlToValidate="Email" 
                                      CssClass="failureNotification" ErrorMessage="E-mail is required." ToolTip="E-mail is required." 
                                      ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
                             </p>
                             <p>
                                 <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
                                 <asp:TextBox ID="Password" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" 
+                                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" Display="Dynamic" ControlToValidate="Password" 
                                      CssClass="failureNotification" ErrorMessage="Password is required." ToolTip="Password is required." 
                                      ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
                             </p>
@@ -75,7 +91,15 @@
                 <CustomNavigationTemplate>
                 </CustomNavigationTemplate>
             </asp:CreateUserWizardStep>
+<asp:CompleteWizardStep runat="server"></asp:CompleteWizardStep>
         </WizardSteps>
+       <NavigationButtonStyle BackColor="White" BorderColor="#507CD1" 
+           BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
+           ForeColor="#284E98" />
+       <SideBarButtonStyle BackColor="#507CD1" Font-Names="Verdana" 
+           ForeColor="White" />
+       <SideBarStyle BackColor="#507CD1" Font-Size="0.9em" VerticalAlign="Top" />
+       <StepStyle Font-Size="0.8em" />
     </asp:CreateUserWizard>
 
 
