@@ -23,8 +23,8 @@
             
             
             style="margin: 0; padding: 0; list-style: none; top: 947px; left: 17px; position: absolute; height: 100px; width: 1231px; background-color: #99CCFF; float: left;" BackColor="Black">
-            <asp:Image ID="image_MapuaLogo" runat="server" Height="95px" 
-                ImageUrl="~/images/image3.png" Width="106px" />
+            <asp:Image ID="image_MapuaLogo" runat="server" Height="75px" 
+                ImageUrl="~/images/image3.png" Width="74px" style="margin-left: 86px" />
             <asp:Image ID="image_Paombong" runat="server" 
                 ImageUrl="~/images/image5.png" 
                 
@@ -35,10 +35,12 @@
                 
                 
                 
-                style="top: 4px; left: 1132px; position: absolute; height: 92px; width: 95px;" />
+                
+                style="top: 0px; left: 980px; position: absolute; height: 72px; width: 79px; right: 172px; margin-right: 0px;" />
 
 <div id="header">
-<div id="mainNav" style="left: 288px; bottom: 16px; height: 28px; color: #000000; width: 513px;">
+<div id="mainNav" 
+        style="left: 293px; bottom: 57px; height: 28px; color: #000000; width: 513px;">
   <ul id="lifestyleSubNav">
     <li><a href="lifestyle/journal.htm">About</a></li>
     <li><a href="lifestyle/photos.htm">Help</a></li>
@@ -49,7 +51,8 @@
 </div>
  
             <asp:Label ID="Label2" runat="server" Font-Bold="False" 
-                style="top: 21px; left: 254px; position: absolute; height: 22px; width: 590px;" 
+                style="top: 58px; left: 250px; position: absolute; height: 22px; width: 590px;" 
+                
                 Text="This program was provided by Mapua Institute of Technology For the Municipality of Paombong"></asp:Label>
         </asp:Panel>
         <asp:Panel ID="panel_Header" runat="server" 
@@ -71,7 +74,7 @@
                 <DynamicMenuStyle BackColor="#E3EAEB" />
                 <DynamicSelectedStyle BackColor="#1C5E55" />
                 <Items>
-                    <asp:MenuItem Text="Home (Dashboard)" Value="Home (Dashboard)"></asp:MenuItem>
+                    <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Default.aspx"></asp:MenuItem>
                     <asp:MenuItem Text="Patient Demographics" Value="Patient Demographics">
                         <asp:MenuItem Text="Add Patient" 
                             NavigateUrl="~/Patient Demographics/AddPatient.aspx" 
@@ -109,7 +112,7 @@
 				<asp:LoginView ID="HeadLoginView0" runat="server" EnableViewState="false">
 					<AnonymousTemplate>
 						[
-						<a ID="HeadLoginStatus1" runat="server" href="~/Account/Login.aspx">
+						<a ID="HeadLoginStatus1" runat="server" href="~/Public/Login.aspx">
 						Log In</a> ]
 					</AnonymousTemplate>
 					<LoggedInTemplate>
@@ -124,14 +127,15 @@
 			<div id="label" style="width: 782px; float: left; height: 101px;">
 				<h1 style="height: 99px; margin-bottom: 11px">
                     <asp:Image ID="Image3" runat="server" ImageUrl="~/images/phis_name.png" 
-                        Height="85px" Width="323px" />
+                        Height="76px" Width="208px" />
                     </h1>
 			</div>
 			</div>
 			
 			<div id="logo" style="float: left;">
-				<asp:Image ID="Image2" runat="server" Height="107px" 
-                    ImageUrl="~/images/icon hd2.png" Width="118px" />
+				<asp:Image ID="Image2" runat="server" Height="74px" 
+                    ImageUrl="~/images/icon hd2.png" Width="77px" 
+                    style="margin-left: 55px; margin-top: 10px" />
 			</div>
 			</div>
 		</asp:Panel>
