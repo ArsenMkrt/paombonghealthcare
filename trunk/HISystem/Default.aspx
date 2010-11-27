@@ -23,7 +23,6 @@
         log in as midwife
          uname:midwife1 pass:midwife1</p>
 <p>
-        &nbsp;<asp:Label ID="Label3" runat="server" ForeColor="#2680D9" Text="Label"></asp:Label>
-        </p>
+        &nbsp;</p>
 </asp:Content>
 
