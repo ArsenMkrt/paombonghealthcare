@@ -128,7 +128,12 @@
 						<asp:LoginStatus ID="HeadLoginStatus2" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/" LogoutText="Log Out" />
 						]
 					</LoggedInTemplate>
+
+                   
 				</asp:LoginView>
+                <br/>
+                <asp:HyperLink ID="HyperLinktoAdminPage" runat="server" 
+                    NavigateUrl="~/Admin/Add Users.aspx" ForeColor="Red">Go to Admin Panel</asp:HyperLink>
 			</div>
 			<div id="label" style="width: 473px; float: left; height: 101px;">
 				<h1 style="height: 99px; margin-bottom: 11px; width: 246px;">
