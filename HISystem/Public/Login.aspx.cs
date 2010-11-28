@@ -9,6 +9,7 @@ public partial class Public_Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //check if page was redirected to login from restricted access
         if (!Page.IsPostBack)
         {
 
