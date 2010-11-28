@@ -32,9 +32,9 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body style="height: 1038px; color: #0000FF; ">
+<body style="height: 987px; color: #0000FF; ">
     <form id="form1" runat="server">
-    <div style="height: 1033px; width: 1021px; margin-right: 0px;">
+    <div style="height: 982px; width: 1021px; margin-right: 0px;">
         
         <br />
         <br />
@@ -46,7 +46,7 @@
             
             
             
-            style="margin: 0; padding: 0; list-style: none; top: 947px; left: 17px; position: absolute; height: 100px; width: 1009px; background-color: #99CCFF; float: left;" 
+            style="margin: 0; padding: 0; list-style: none; top: 893px; left: 17px; position: absolute; height: 100px; width: 1009px; background-color: #99CCFF; float: left;" 
             BackColor="Black">
             <asp:Image ID="image_MapuaLogo" runat="server" Height="75px" 
                 ImageUrl="~/images/image3.png" Width="74px" style="margin-left: 50px" />
@@ -138,10 +138,10 @@
             <div id="wrapAll" style="width: 941px;">
             <div id="wrap"  style="width: 809px; height: 104px; float: right;">
             <div id="loginview" 
-                    style="width: 207px; float: right; height: 101px; margin-left: 8px;">
-				&nbsp;<asp:LoginView ID="HeadLoginView0" runat="server" EnableViewState="false">
+                    style="width: 274px; float: right; height: 101px; margin-left: 8px;">
+				<asp:LoginView ID="HeadLoginView0" runat="server" EnableViewState="false">
 					<AnonymousTemplate>
-						Welcome Guest [
+						Welcome Guest, [
 						<a ID="HeadLoginStatus1" runat="server" href="~/Public/Login.aspx">
 						Log In</a> ]
 					</AnonymousTemplate>
@@ -156,18 +156,19 @@
 				</asp:LoginView>
                 <br />
                 <br />
-                <asp:Label ID="lbl_AdminPrivileges" runat="server" Text="Admin Privileges :"></asp:Label>
-                <br/>
-                <asp:HyperLink ID="HyperLinktoAddUser" runat="server" ForeColor="Red" 
-                    NavigateUrl="~/Admin/Add Users.aspx">Add New User</asp:HyperLink>
-&nbsp;
-                     <asp:HyperLink ID="HyperLinktoManageRoles" runat="server" 
-                    NavigateUrl="~/Admin/UsersAndRoles.aspx" ForeColor="Red">Manage Roles</asp:HyperLink>
+                <asp:Label ID="lbl_AdminPrivileges" runat="server" Text="Admin:" 
+                    Font-Bold="True" Font-Size="Medium"></asp:Label>
+                &nbsp;&nbsp;
+                <asp:HyperLink ID="HyperLinktoAddUser" runat="server" Font-Size="Small" 
+                    ForeColor="Red" NavigateUrl="~/Admin/Add Users.aspx">Add New User</asp:HyperLink>
+                &nbsp;
+                <asp:HyperLink ID="HyperLinktoManageRoles" runat="server" Font-Size="Small" 
+                    ForeColor="Red" NavigateUrl="~/Admin/UsersAndRoles.aspx">Manage Roles</asp:HyperLink>
 			</div>
 			<div id="label" style="width: 473px; float: left; height: 101px;">
 				<h1 style="height: 99px; margin-bottom: 11px; width: 246px;">
                     <asp:Image ID="Image3" runat="server" ImageUrl="~/images/phis_name.png" 
-                        Height="76px" Width="208px" style="margin-left: 18px; margin-top: 6px" />
+                        Height="56px" Width="211px" style="margin-left: 18px; margin-top: 6px" />
                     </h1>
 			</div>
 			</div>
@@ -187,19 +188,12 @@
             
             
             
-            style="top: 183px; left: 15px; position: absolute; height: 694px; width: 1012px">
+            
+            style="top: 183px; left: 15px; position: absolute; height: 703px; width: 1012px">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <p>
                     <br />
                 </p>
-                <p>
-                    &nbsp;</p>
-                <p>
-                    &nbsp;</p>
-                <p>
-                    &nbsp;</p>
-                <p>
-                    &nbsp;</p>
                 <p>
                     &nbsp;</p>
                 <p>
