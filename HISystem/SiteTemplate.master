@@ -116,6 +116,9 @@
                         <asp:MenuItem NavigateUrl="~/Medical Record/AddMedicalRecord.aspx" 
                             Text="Add Patient Medical Record" Value="Patient Medical Record">
                         </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Medical Record/Consultation.aspx" 
+                            Text="Daily Patient Record" Value="Patient Medical Record">
+                        </asp:MenuItem>
                         <asp:MenuItem Text="View Patient Medical Record" NavigateUrl="~/Medical Record/ViewRecordPatient.aspx"
                             Value="View Patient Medical Record"></asp:MenuItem>
                     </asp:MenuItem>
