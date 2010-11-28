@@ -67,8 +67,11 @@
             Enabled="False">
         </asp:DropDownList>
         <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Medicine Id<asp:TextBox 
-            ID="txtQuantity" runat="server" 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Medicine Id
+        
+
+        <!-- Validations for numbers only-->
+        <asp:TextBox ID="txtQuantity" runat="server" onpaste = "return false;" onkeyup ="keyUP(event.keyCode)" onkeydown = "return isNumeric(event.keyCode);" 
             
             style="top: 95px; left: 164px; position: absolute; width: 131px; height: 22px; border-style: Double"></asp:TextBox>
         <br />
@@ -103,9 +106,13 @@
             Text="Category"></asp:Label>
     </p>
     <p style="margin-left: 40px">
-        &nbsp;<asp:TextBox ID="txtQuantityLimit" runat="server" AutoPostBack="True" 
-            ontextchanged="txtQuantityLimit_TextChanged" 
-            style="top: 452px; left: 258px; position: absolute; height: 22px; width: 72px">20</asp:TextBox>
+        &nbsp;
+        
+        
+        <!-- Validations for numbers only-->
+
+        <asp:TextBox ID="txtQuantityLimit" runat="server" AutoPostBack="True" onpaste = "return false;" onkeyup ="keyUP(event.keyCode)" onkeydown = "return isNumeric(event.keyCode);" 
+        style="top: 452px; left: 258px; position: absolute; height: 22px; width: 72px">20</asp:TextBox>
         <asp:Label ID="Label4" runat="server" 
             style="top: 459px; left: 36px; position: absolute; height: 19px; width: 170px" 
             Text="Show Items Below Quantity"></asp:Label>

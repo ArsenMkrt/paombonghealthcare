@@ -5,13 +5,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
+    
+      <script type="text/javascript" language="javascript">
+
+
+          var isShift = false;
+
+          function keyUP(keyCode) {
+              if (keyCode == 16)
+                  isShift = false;
+          }
+
+
+
+          function isNumeric(keyCode) {
+              if (keyCode == 16)
+                  isShift = true;
+
+              return ((keyCode >= 48 && keyCode <= 57 || keyCode == 8 || (keyCode >= 96 && keyCode <= 105)) && isShift == false);
+          }
+    </script>
+
+
+	<link href="main.css" rel="stylesheet" type="text/css" />
+
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
-	<link href="main.css" rel="stylesheet" type="text/css" />
 </head>
-<body style="height: 1038px; color: #0000FF; width: 926px;">
+<body style="height: 1038px; color: #0000FF; ">
     <form id="form1" runat="server">
-    <div style="height: 1033px; width: 923px; margin-right: 0px;">
+    <div style="height: 1033px; width: 1021px; margin-right: 0px;">
         
         <br />
         <br />
@@ -23,7 +46,7 @@
             
             
             
-            style="margin: 0; padding: 0; list-style: none; top: 947px; left: 17px; position: absolute; height: 100px; width: 925px; background-color: #99CCFF; float: left;" 
+            style="margin: 0; padding: 0; list-style: none; top: 947px; left: 17px; position: absolute; height: 100px; width: 1009px; background-color: #99CCFF; float: left;" 
             BackColor="Black">
             <asp:Image ID="image_MapuaLogo" runat="server" Height="75px" 
                 ImageUrl="~/images/image3.png" Width="74px" style="margin-left: 50px" />
@@ -66,12 +89,13 @@
             
             
             
-            style="top: 12px; left: 10px; position: absolute; height: 131px; width: 934px; float: left; background-color: #99CCFF;">
+            
+            style="top: 12px; left: 16px; position: absolute; height: 131px; width: 1017px; float: left; background-color: #99CCFF;">
             <asp:Menu ID="menu_Bar" runat="server" BackColor="#E3EAEB" 
                 DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" 
                 ForeColor="#666666" Height="36px" ItemWrap="True" Orientation="Horizontal" 
                 StaticSubMenuIndent="30px" 
-                style="top: 132px; left: 1px; position: absolute; width: 921px; right: 61px;" 
+                style="top: 132px; left: 6px; position: absolute; width: 1006px; right: -78px;" 
                 PathSeparator="|" RenderingMode="Table" SkinID="2" 
                 IncludeStyleBlock="False">
                 <DynamicHoverStyle BackColor="#666666" ForeColor="White" />
@@ -112,19 +136,19 @@
             </asp:Menu>
             &nbsp;
             <div id="wrapAll" style="width: 941px;">
-            <div id="wrap"  style="width: 791px; height: 104px; float: right;">
-            <div id="loginview" style="width: 166px; float: right; height: 101px;">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<asp:LoginView ID="HeadLoginView0" runat="server" EnableViewState="false">
+            <div id="wrap"  style="width: 809px; height: 104px; float: right;">
+            <div id="loginview" 
+                    style="width: 207px; float: right; height: 101px; margin-left: 8px;">
+				&nbsp;<asp:LoginView ID="HeadLoginView0" runat="server" EnableViewState="false">
 					<AnonymousTemplate>
 						[
 						<a ID="HeadLoginStatus1" runat="server" href="~/Public/Login.aspx">
 						Log In</a> ]
 					</AnonymousTemplate>
 					<LoggedInTemplate>
-						Welcome <span class="bold">
+					Welcome <span class="bold">
 						<asp:LoginName ID="HeadLoginName0" runat="server" />
-						</span>! [
+						</span>! <br/>[
 						<asp:LoginStatus ID="HeadLoginStatus2" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/" LogoutText="Log Out" />
 						]
 					</LoggedInTemplate>
@@ -157,7 +181,8 @@
             
             
             
-            style="top: 183px; left: 15px; position: absolute; height: 694px; width: 924px">
+            
+            style="top: 183px; left: 15px; position: absolute; height: 694px; width: 1012px">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <p>
                     <br />
