@@ -40,8 +40,11 @@
     <p>
     </p>
     <p>
-        <asp:TextBox ID="txtQuantity" runat="server" 
-            style="top: 283px; left: 455px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
+
+
+    <!-- Validations for numbers only-->
+        <asp:TextBox ID="txtQuantity" runat="server"  onpaste = "return false;" onkeyup ="keyUP(event.keyCode)" onkeydown = "return isNumeric(event.keyCode);" 
+        style="top: 283px; left: 455px; position: absolute; height: 22px; width: 128px" ></asp:TextBox>
         <asp:Button ID="btnClear" runat="server" 
             style="top: 354px; left: 473px; position: absolute; height: 26px; width: 97px" 
             Text="Clear" />
