@@ -72,7 +72,7 @@
     <tr>
     <td colspan="2">
      <asp:Button ID="AddUserToRoleButton" runat="server" Text="Add User to Role" 
-            onclick="AddUserToRoleButton_Click" />
+            onclick="AddUserToRoleButton_Click" Width="208px" />
     </td>
     </tr>
     </table>
