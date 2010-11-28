@@ -15,7 +15,9 @@ public partial class SiteTemplate : System.Web.UI.MasterPage
             {
 
                 //make hyperlink invisible if not doctor role
-                HyperLinktoAdminPage.Visible = false;
+                lbl_AdminPrivileges.Visible = false;
+                HyperLinktoManageRoles.Visible = false;
+                HyperLinktoAddUser.Visible = false;
                 return;
             }
         }

@@ -141,12 +141,11 @@
                     style="width: 207px; float: right; height: 101px; margin-left: 8px;">
 				&nbsp;<asp:LoginView ID="HeadLoginView0" runat="server" EnableViewState="false">
 					<AnonymousTemplate>
-						[
+						Welcome Guest [
 						<a ID="HeadLoginStatus1" runat="server" href="~/Public/Login.aspx">
 						Log In</a> ]
 					</AnonymousTemplate>
-					<LoggedInTemplate>
-					Welcome <span class="bold">
+					<LoggedInTemplate>Welcome<span class="bold">
 						<asp:LoginName ID="HeadLoginName0" runat="server" />
 						</span>! <br/>[
 						<asp:LoginStatus ID="HeadLoginStatus2" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/" LogoutText="Log Out" />
@@ -155,9 +154,15 @@
 
                    
 				</asp:LoginView>
+                <br />
+                <br />
+                <asp:Label ID="lbl_AdminPrivileges" runat="server" Text="Admin Privileges :"></asp:Label>
                 <br/>
-                <asp:HyperLink ID="HyperLinktoAdminPage" runat="server" 
-                    NavigateUrl="~/Admin/Add Users.aspx" ForeColor="Red">Go to Admin Panel</asp:HyperLink>
+                <asp:HyperLink ID="HyperLinktoAddUser" runat="server" ForeColor="Red" 
+                    NavigateUrl="~/Admin/Add Users.aspx">Add New User</asp:HyperLink>
+&nbsp;
+                     <asp:HyperLink ID="HyperLinktoManageRoles" runat="server" 
+                    NavigateUrl="~/Admin/UsersAndRoles.aspx" ForeColor="Red">Manage Roles</asp:HyperLink>
 			</div>
 			<div id="label" style="width: 473px; float: left; height: 101px;">
 				<h1 style="height: 99px; margin-bottom: 11px; width: 246px;">
