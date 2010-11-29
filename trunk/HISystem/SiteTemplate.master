@@ -27,6 +27,33 @@
     </script>
 
 
+
+
+
+
+     <script type="text/javascript" language="javascript">
+
+         //calculate
+         function CalculateValue(obj) {
+             var tr = obj.parentNode.parentNode //get the entered row object.
+             var txtPopu = tr.cells[2].getElementsByTagName("INPUT")[0] //population textbox
+
+             var txtMale = tr.cells[3].getElementsByTagName("INPUT")[0] //male textbox
+             var txtFemale = tr.cells[4].getElementsByTagName("INPUT")[0] //female textbox
+             var txtTotal = tr.cells[5].getElementsByTagName("INPUT")[0] //total textbox
+             var txtPercent = tr.cells[6].getElementsByTagName("INPUT")[0] //percentage textbox
+
+             // do calculations
+             txtTotal.value = parseInt(txtMale.value) + parseInt(txtFemale.value); //total value calculation.
+             txtPercent.value = (parseInt(txtTotal.value) / parseInt(txtPopu.value)) * 100 //percentage calculation.
+
+         }
+
+    </script>
+
+
+
+
 	<link href="main.css" rel="stylesheet" type="text/css" />
 
     <asp:ContentPlaceHolder id="head" runat="server">
@@ -69,10 +96,10 @@
         
         style="left: 199px; bottom: 56px; height: 28px; color: #000000; width: 513px;">
   <ul id="lifestyleSubNav">
-    <li><a href="lifestyle/journal.htm">About</a></li>
-    <li><a href="lifestyle/photos.htm">Help</a></li>
-    <li><a href="lifestyle/conditions.htm">Mapua Website</a></li>
-    <li><a href="lifestyle/register.htm" class="last">Sitemap</a></li>
+    <li><a href="Public/About.aspx">About</a></li>
+    <li><a href="Public/Help.aspx">Help</a></li>
+    <li><a href="http://www.mapua.edu.ph">Mapua Website</a></li>
+    <li><a href="Public/Sitemap.aspx" class="last">Sitemap</a></li>
 </ul>
 </div>
 </div>
@@ -192,35 +219,10 @@
             
             
             
-            style="top: 183px; left: 15px; position: absolute; height: 703px; width: 1012px">
+            
+            style="top: 183px; left: 15px; position: absolute; height: 712px; width: 1012px">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <p>
-                    <br />
-                </p>
-                <p>
-                    &nbsp;</p>
-                <p>
-                    &nbsp;</p>
-                <p>
-                    &nbsp;</p>
-                <p>
-                    &nbsp;</p>
-                <p>
-                    &nbsp;</p>
-                <p>
-                    &nbsp;</p>
-                <p>
-                    &nbsp;</p>
-                <p>
-                    &nbsp;</p>
-                <p>
-                    &nbsp;</p>
-                <p>
-                    &nbsp;</p>
-                <p>
-                    &nbsp;</p>
-                <p>
-                    &nbsp;</p>
+                
             </asp:ContentPlaceHolder>
         </asp:Panel>
 
