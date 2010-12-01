@@ -81,7 +81,7 @@
         Width="136px" />
     <br />
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:geraldNov30 %>" 
+        ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
         SelectCommand="SELECT [BarangayID], [BarangayName] FROM [Barangays]">
     </asp:SqlDataSource>
     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
