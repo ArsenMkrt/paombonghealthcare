@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate.master" AutoEventWireup="true" CodeFile="Add Users.aspx.cs" Inherits="Admin_Add_Users" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate3.master" AutoEventWireup="true" CodeFile="Add Users.aspx.cs" Inherits="Admin_Add_Users" %>
 
 <script runat="server">
 	
@@ -53,7 +53,7 @@
 
 
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
         .webparts
         {
@@ -64,8 +64,8 @@
             height: 23px;
         }
     </style>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+</asp:Content>--%>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 
 <br />
