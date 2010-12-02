@@ -63,7 +63,7 @@
         <form id="form1" runat="server">
         
             <div id="header">
-                <span class="title">Paombong Health Information System
+                <span class="title">Paombong Healthcare Information System
                 <asp:Image ID="Image1" runat="server" Height="46px" 
                     ImageUrl="~/images/icon hd2.png" style="margin-left: 15px" Width="59px" />
                 </span><br />
@@ -139,8 +139,15 @@
 
                 <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" />
             </div>
+           
         </form>
-    </div>
+        </div>
+         <br />
+
+
+
+
+           
 </body>
 </html>
 
