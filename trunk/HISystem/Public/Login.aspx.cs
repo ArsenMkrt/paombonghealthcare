@@ -15,6 +15,8 @@ public partial class Public_Login : System.Web.UI.Page
 
             if (Request.IsAuthenticated && !string.IsNullOrEmpty(Request.QueryString["ReturnUrl"]))
                 Response.Redirect("AccessDenied.aspx");
+            if (!string.IsNullOrEmpty(Request.QueryString["ReturnUrl"]))
+                Response.Redirect("AccessDenied.aspx");
 
         }
         RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
