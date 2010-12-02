@@ -21,7 +21,7 @@
             <siteMapNode url="~/Medicine Inventory/Inventory.aspx" title="View Inventory" />
     </siteMapNode>
         <siteMapNode title="Reports">
-            <siteMapNode url="~/Reports/Bulk/Childcare.aspx.aspx" title="Bulk Insert" />
+            <siteMapNode url="~/Reports/Bulk/Childcare.aspx" title="Bulk Insert" />
             <siteMapNode url="~/Reports/mReport.aspx" title="New/View/Delete Report" />
             <siteMapNode url="~/Reports/ViewEditReport.aspx" title="View Consolidated" />
 
