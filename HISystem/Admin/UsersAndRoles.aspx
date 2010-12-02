@@ -1,19 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate.master" AutoEventWireup="true" CodeFile="UsersAndRoles.aspx.cs" Inherits="Admin_UsersAndRoles" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate3.master" AutoEventWireup="true" CodeFile="UsersAndRoles.aspx.cs" Inherits="Admin_UsersAndRoles" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
         .Important
         {
             text-align: left;
         }
     </style>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+</asp:Content>--%>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 
     <br />
      <br /> 
-    <asp:Panel ID="Panel1" runat="server" Height="542px" Width="428px" 
+    <asp:Panel ID="Panel1" runat="server" Height="764px" Width="428px" 
         BackColor="#00CCFF">
     
     

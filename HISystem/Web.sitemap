@@ -2,6 +2,12 @@
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
    
     <siteMapNode url="~/Default.aspx" title="Home">
+        <siteMapNode title="Public">
+            <siteMapNode url="~/Public/AccessDenied.aspx" title="Unauthorized Page" />
+            <siteMapNode url="~/Public/Login.aspx" title="Login Page" />
+            <siteMapNode url="~/Public/Register.aspx" title="Registration Page" />
+
+        </siteMapNode>
         <siteMapNode title="Patient Demographics">
             <siteMapNode url="~/Patient Demographics/AddPatient.aspx" title="Add New Patient" />
             <siteMapNode url="~/Patient Demographics/ViewEditPatient.aspx" title="View Edit Patient" />
