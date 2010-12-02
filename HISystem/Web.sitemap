@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+   
+    <siteMapNode url="~/Default.aspx" title="Home">
+        <siteMapNode title="Patient Demographics">
+            <siteMapNode url="~/Patient Demographics/AddPatient.aspx" title="Add New Patient" />
+            <siteMapNode url="~/Patient Demographics/ViewEditPatient.aspx" title="View Edit Patient" />
+            
+        </siteMapNode>
+
+        <siteMapNode title="Medical Records">
+            <siteMapNode url="~/Medical Record/AddMedicalRecord.aspx" title="Add Patient Medical Record" />
+            <siteMapNode url="~/Medical Record/Consultation.aspx" title="Daily Patient Record" />
+            <siteMapNode url="~/Medical Record/ViewRecordPatient.aspx" title="View Patient Medical Record" />
+            
+        </siteMapNode>
+        <siteMapNode title="Inventory">
+            <siteMapNode url="~/Medicine Inventory/AddMedicine.aspx" title="Add to Inventory" />
+            <siteMapNode url="~/Medicine Inventory/EditMedicine.aspx" title="Edit Inventory Items" />
+            <siteMapNode url="~/Medicine Inventory/DeleteMedicine.aspx" title="Delete Inventory Items" />            
+            <siteMapNode url="~/Medicine Inventory/Inventory.aspx" title="View Inventory" />
+    </siteMapNode>
+        <siteMapNode title="Reports">
+            <siteMapNode url="~/Reports/Bulk/Childcare.aspx.aspx" title="Bulk Insert" />
+            <siteMapNode url="~/Reports/mReport.aspx" title="New/View/Delete Report" />
+            <siteMapNode url="~/Reports/ViewEditReport.aspx" title="View Consolidated" />
+
+        </siteMapNode>
+        <siteMapNode title="Admin">
+            <siteMapNode url="~/Admin/Add Users.aspx" title="Add Users" />
+            <siteMapNode url="~/Admin/UsersAndRoles.aspx" title="Manage Roles" />
+            
+        </siteMapNode>
+        
+    </siteMapNode>
+   
+        
+</siteMap>
