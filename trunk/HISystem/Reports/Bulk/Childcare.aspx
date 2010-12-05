@@ -1,10 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate.master" AutoEventWireup="true" CodeFile="Childcare.aspx.cs" Inherits="Reports_Bulk_Childcare" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate3.master" AutoEventWireup="true" CodeFile="Childcare.aspx.cs" Inherits="Reports_Bulk_Childcare" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     
-    
+    <h2>Consolidated Report</h2>
     <asp:Label ID="lbl_Indicator" runat="server" Text="Choose Indicator:"></asp:Label>
 &nbsp;
     <asp:DropDownList ID="dropIndicator" runat="server" Height="28px" 
@@ -18,7 +17,7 @@
     <asp:ListView ID="ListView1" runat="server">
         <LayoutTemplate>
             <table cellpadding="3" cellspacing="0" rules="all" 
-                style="border: solid 2px #336699;">
+                style="border: solid 2px #336699;" bgcolor="#99CCFF">
                 <tr style="background-color: #336699; color: White;">
                     <th>
                         BrgyID</th>
