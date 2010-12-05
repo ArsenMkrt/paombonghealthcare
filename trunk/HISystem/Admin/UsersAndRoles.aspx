@@ -11,10 +11,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 
+    
+    
+    <asp:Panel ID="Panel1" runat="server" BackColor="#99CCFF">
+
+
+
     <br />
      <br /> 
-    <asp:Panel ID="Panel1" runat="server" Height="764px" Width="428px" 
-        BackColor="#00CCFF">
+    
     
     
      <h2>User Role Management</h2>
@@ -32,12 +37,14 @@
         </asp:DropDownList>
     </p>
     <p>
+    
         <asp:Repeater ID="UsersRoleList" runat="server">
             <ItemTemplate>
                 <asp:CheckBox runat="server" ID="RoleCheckBox" AutoPostBack="true" Text='<%# Container.DataItem %>' OnCheckedChanged="RoleCheckBox_CheckChanged" />
                 <br />
             </ItemTemplate>
         </asp:Repeater>
+        
     </p>
     
         <hr style="height: -12px" />
@@ -63,7 +70,8 @@
             </Columns>
         </asp:GridView>
     </p>
-
+    <br />
+    <br />
     <table>
     <tr>
     <td><b>UserName:</b></td>
@@ -76,17 +84,16 @@
     </td>
     </tr>
     </table>
-    <p>
-        
-       
-        <br />
-       
-    </p>
-    <br />
+    
+    
+    
+
+
+
+
+
+
     </asp:Panel>
-
-
-
 
 </asp:Content>
 

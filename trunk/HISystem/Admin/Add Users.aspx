@@ -70,13 +70,9 @@
 
 <br />
 <br />
-
-    <asp:Panel ID="Panel1" runat="server" Height="503px" Width="297px" 
-        BackColor="#00CCFF">
-        
-        <br />
-        <br />
-        <table align="center" class="webparts">
+<center>
+    
+        <table align="left" class="webparts" bgcolor="#99CCFF">
             <tr>
                 <th class="style1">
                     Add User</th>
@@ -152,7 +148,8 @@
                 </td>
             </tr>
         </table>
-    </asp:Panel>
+        </center>
+    
 
 
 
