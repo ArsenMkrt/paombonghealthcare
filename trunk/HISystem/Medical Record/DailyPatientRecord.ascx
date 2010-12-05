@@ -162,10 +162,8 @@
     }
 </style>
 
-<asp:Panel ID="Panel1" runat="server" Font-Bold="True" Font-Size="XX-Large" 
-    Height="572px" Width="762px" BackColor="#FFFFCC" BorderColor="#666666" 
-    BorderStyle="Solid">
-    <table style="width:100%; height: 292px;" border="1">
+
+    <table style="width:100%; height: 292px;" border="1" bgcolor="#99CCFF">
         <tr>
             <td class="style65" colspan="2">
                 <asp:Label ID="Label1" runat="server" Font-Size="X-Large" 
@@ -299,5 +297,5 @@
                 &nbsp;</td>
         </tr>
     </table>
-</asp:Panel>
+
 
