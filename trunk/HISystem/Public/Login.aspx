@@ -1,8 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Public_Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate3.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Public_Login" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 
 
@@ -16,7 +15,8 @@
     </p>
     <asp:Login ID="LoginUser" runat="server" EnableViewState="False" 
     BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" 
-    BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333">
+    BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" 
+        Font-Bold="True">
         <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
         <LayoutTemplate>
             <span class="failureNotification">
@@ -24,7 +24,7 @@
             </span>
             <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="LoginUserValidationGroup"/>
-            <div class="accountInfo">
+            <div class="accountInfo" style="background-color: #99CCFF">
                 <fieldset class="login">
                     <legend>Account Information</legend>
                     <p>
