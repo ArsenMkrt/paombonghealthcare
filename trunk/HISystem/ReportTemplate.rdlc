@@ -295,7 +295,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!Quarter.Value, "WindowsApplicationPaumbongReports_BusinessObjects")</Value>
+                <Value />
                 <Style />
               </TextRun>
             </TextRuns>
@@ -325,7 +325,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!MunicipalityName.Value, "WindowsApplicationPaumbongReports_BusinessObjects")</Value>
+                <Value />
                 <Style />
               </TextRun>
             </TextRuns>
@@ -355,7 +355,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!Province.Value, "WindowsApplicationPaumbongReports_BusinessObjects")</Value>
+                <Value />
                 <Style />
               </TextRun>
             </TextRuns>
@@ -443,7 +443,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!Year.Value, "WindowsApplicationPaumbongReports_BusinessObjects")</Value>
+                <Value />
                 <Style />
               </TextRun>
             </TextRuns>
@@ -475,7 +475,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!PopOfYear.Value, "WindowsApplicationPaumbongReports_BusinessObjects")</Value>
+                <Value />
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1915,7 +1915,7 @@
         <DataSetName>Maternal</DataSetName>
         <Top>1.06958in</Top>
         <Left>0.10604in</Left>
-        <Height>2.60417in</Height>
+        <Height>2.60416in</Height>
         <Width>9.7934in</Width>
         <ZIndex>10</ZIndex>
         <Style>
@@ -4127,7 +4127,7 @@
         <Top>3.96542in</Top>
         <Left>0.10604in</Left>
         <Height>2.84375in</Height>
-        <Width>9.7934in</Width>
+        <Width>9.79341in</Width>
         <ZIndex>11</ZIndex>
         <Style>
           <Border>
@@ -5922,7 +5922,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox277</rd:DefaultName>
@@ -5956,7 +5958,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox279</rd:DefaultName>
@@ -6097,7 +6101,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox291</rd:DefaultName>
@@ -6170,7 +6176,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox293</rd:DefaultName>
@@ -6204,7 +6212,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox294</rd:DefaultName>
@@ -6238,7 +6248,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox295</rd:DefaultName>
@@ -6272,7 +6284,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox296</rd:DefaultName>
@@ -6306,7 +6320,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox297</rd:DefaultName>
@@ -6340,7 +6356,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox298</rd:DefaultName>
@@ -6374,7 +6392,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox299</rd:DefaultName>
@@ -6830,7 +6850,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
