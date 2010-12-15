@@ -22,6 +22,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         data = new DataAccess();
+        ReportViewer1.Visible = true;
     }
     protected void btn_runReport_Click(object sender, EventArgs e)
     {
@@ -48,5 +49,15 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
         SqlDataAdapter adapter = new SqlDataAdapter();
         adapter.SelectCommand = reportCmd;
         adapter.Fill(thisDataSet);
+
+        ReportDataSource dataSource = new ReportDataSource("DataSet_Program", thisDataSet.Tables[0]);
+        ReportViewer1.LocalReport.DataSources.Clear();
+        ReportViewer1.LocalReport.DataSources.Add(dataSource);
+        if(thisDataSet.Tables[0].Rows.Count == 0)
+        {
+            //lblMessage.Text = "Sorry, no products under this category!";
+        }
+
+        ReportViewer1.LocalReport.Refresh();
     }
 }
