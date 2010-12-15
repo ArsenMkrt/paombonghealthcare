@@ -965,14 +965,25 @@
             </TablixMember>
             <TablixMember>
               <Group Name="Details" />
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!MaternalData.Value</Value>
+                </SortExpression>
+              </SortExpressions>
               <TablixMembers>
-                <TablixMember />
+                <TablixMember>
+                  <Visibility>
+                    <ToggleItem>Textbox93</ToggleItem>
+                  </Visibility>
+                </TablixMember>
                 <TablixMember />
                 <TablixMember />
               </TablixMembers>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <RepeatColumnHeaders>true</RepeatColumnHeaders>
+        <RepeatRowHeaders>true</RepeatRowHeaders>
         <KeepTogether>true</KeepTogether>
         <DataSetName>Maternal</DataSetName>
         <PageBreak>
@@ -986,6 +997,7 @@
           <Border>
             <Style>None</Style>
           </Border>
+          <TextAlign>Center</TextAlign>
         </Style>
       </Tablix>
       <Tablix Name="Tablix6">
@@ -2335,6 +2347,11 @@
             </TablixMember>
             <TablixMember>
               <Group Name="Details1" />
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!FPData.Value</Value>
+                </SortExpression>
+              </SortExpressions>
               <TablixMembers>
                 <TablixMember />
                 <TablixMember />
@@ -3766,6 +3783,11 @@
             </TablixMember>
             <TablixMember>
               <Group Name="Details2" />
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!ChildData.Value</Value>
+                </SortExpression>
+              </SortExpressions>
               <TablixMembers>
                 <TablixMember />
                 <TablixMember />
@@ -4948,6 +4970,11 @@
             </TablixMember>
             <TablixMember>
               <Group Name="Details3" />
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!DentalData.Value</Value>
+                </SortExpression>
+              </SortExpressions>
               <TablixMembers>
                 <TablixMember />
                 <TablixMember />
