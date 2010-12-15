@@ -5,6 +5,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <p>
     <br />
+        <asp:Button ID="btn_runReport" runat="server" onclick="btn_runReport_Click" 
+            style="top: 124px; left: 840px; position: absolute; height: 26px; width: 109px" 
+            Text="Run Report" />
+        <asp:DropDownList ID="ddlQuarter" runat="server" 
+            style="top: 123px; left: 450px; position: absolute; height: 22px; width: 120px">
+            <asp:ListItem>1</asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>3</asp:ListItem>
+            <asp:ListItem>4</asp:ListItem>
+        </asp:DropDownList>
+        <asp:DropDownList ID="ddlYear" runat="server" 
+            style="top: 121px; left: 624px; position: absolute; height: 30px; width: 114px">
+        </asp:DropDownList>
 </p>
 <p>
     &nbsp;</p>
