@@ -106,7 +106,8 @@ h1 {
 }
 #content p {
 	font-size: 80%;
-	line-height: 1.6em; 
+	line-height: 1.6em;
+    margin-left: 40px;
 }
 
 #content ul {
