@@ -12,7 +12,6 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
     {
         if (!Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Doctor"))
         {
-
             //make hyperlink invisible
             lbl_AdminPrivileges.Visible = false;
             HyperLinktoManageRoles.Visible = false;

@@ -30,7 +30,7 @@
             <siteMapNode url="~/Reports/Bulk/Childcare.aspx" title="Bulk Insert" />
             <siteMapNode url="~/Reports/mReport.aspx" title="New/View/Delete Report" />
             <siteMapNode url="~/Reports/ViewEditReport.aspx" title="View Consolidated" />
-
+            <siteMapNode url="~/Reports/previewReport.aspx" title="Preview Report" />
         </siteMapNode>
         <siteMapNode title="Admin">
             <siteMapNode url="~/Admin/Add Users.aspx" title="Add Users" />

@@ -6,7 +6,7 @@
     <p>
     <br />
         <asp:Button ID="btn_runReport" runat="server" onclick="btn_runReport_Click" 
-            style="top: 124px; left: 829px; position: absolute; height: 26px; width: 109px" 
+            style="top: 106px; left: 822px; position: absolute; height: 26px; width: 109px" 
             Text="Run Report" />
         <asp:DropDownList ID="ddlQuarter" runat="server" 
             

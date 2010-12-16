@@ -59,7 +59,7 @@
     </asp:Panel>
             &nbsp;
              <asp:Button ID="Button1" runat="server" 
-            style="top: 662px; left: 358px; position: absolute; height: 26px; width: 129px" 
+            style="top: 646px; left: 373px; position: absolute; height: 26px; width: 129px" 
             Text="Close" /></div>
     </form>
 </body>
