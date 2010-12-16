@@ -1,48 +1,64 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate.master" AutoEventWireup="true" CodeFile="mReport.aspx.cs" Inherits="Reports_AddReport" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate3.master" AutoEventWireup="true" CodeFile="mReport.aspx.cs" Inherits="Reports_AddReport" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <p>
         <asp:SqlDataSource ID="Program" runat="server" 
             ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
             SelectCommand="SELECT DISTINCT [ProgramData] FROM [ProgramCategory] ORDER BY [ProgramData]">
         </asp:SqlDataSource>
-        <br />
-    </p>
-    <p>
-        <asp:Button ID="btnManagePopulation" runat="server" 
-            style="top: 109px; left: 48px; position: absolute; height: 22px; width: 142px" 
-            Text="Manage Population" />
     </p>
     <p>
         &nbsp;</p>
     <p>
+        <br />
+        <table style="width: 100%; height: 142px;">
+            <tr>
+                <td style="width: 65px">
+        <asp:Label ID="Label4" runat="server"  
+            Text="Program"></asp:Label>
+                </td>
+                <td style="width: 138px">
         <asp:DropDownList ID="ddlProgram" runat="server" 
             DataSourceID="Program" DataTextField="ProgramData" DataValueField="ProgramData" 
-            onselectedindexchanged="ddlProgram_SelectedIndexChanged" 
-            
-            style="top: 64px; left: 120px; position: absolute; height: 20px; width: 115px">
+            onselectedindexchanged="ddlProgram_SelectedIndexChanged" Height="20px" Width="122px">
         </asp:DropDownList>
-    </p>
-    <p>
-        <asp:Label ID="Label4" runat="server" 
-            style="top: 64px; left: 28px; position: absolute; height: 19px; width: 52px; bottom: 611px" 
-            Text="Program"></asp:Label>
+                </td>
+                <td style="width: 366px">
         <asp:Button ID="btnNext" runat="server" onclick="btnNext_Click" 
-            style="top: 289px; left: 289px; position: absolute; height: 26px; width: 187px" 
-            Text="Next" />
+            Text="Next" Height="21px" Width="127px" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 65px">
+                      &nbsp;</td>
+                <td style="width: 138px">
+                      <asp:Button ID="btnManagePopulation" runat="server"  
+            Text="Manage Population" />
+                    </td>
+                <td style="width: 366px">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 65px">
+                    &nbsp;</td>
+                <td style="width: 138px">
+                    &nbsp;</td>
+                <td style="width: 366px">
+                    &nbsp;</td>
+            </tr>
+        </table>
     </p>
     <p>
-    </p>
-    <p>
+  
     </p>
     <p>
         &nbsp;</p>
     <p>
-    </p>
+        &nbsp;</p>
     <p>
-    </p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
     <p>
     </p>
     <p>
