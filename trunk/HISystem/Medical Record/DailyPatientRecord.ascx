@@ -67,7 +67,6 @@
     }
     .style42
     {
-        width: 635px;
         font-size: xx-small;
         height: 43px;
     }
@@ -191,10 +190,10 @@
             <td class="style13">
                 Name<br /> (LN, FN, MN)</td>
             <td class="style10" colspan="5">
-                <asp:TextBox ID="txtlname" runat="server" Width="121px"></asp:TextBox>
+                <asp:TextBox ID="txtlname" runat="server" Width="166px"></asp:TextBox>
                 ,
-                <asp:TextBox ID="txtfname" runat="server" Width="128px"></asp:TextBox>
-                ,&nbsp;<asp:TextBox ID="txtmname" runat="server" Width="79px"></asp:TextBox>
+                <asp:TextBox ID="txtfname" runat="server" Width="182px"></asp:TextBox>
+                ,&nbsp;<asp:TextBox ID="txtmname" runat="server" Width="130px"></asp:TextBox>
             </td>
             <td class="style11">
                 Philhealth #</td>
@@ -205,11 +204,10 @@
         <tr>
             <td class="style20">
                 Address</td>
-            <td class="style42" colspan="5">
-                <asp:TextBox ID="txtAddress" runat="server" TextMode="MultiLine" Width="377px"></asp:TextBox>
+            <td class="style42" colspan="7">
+                <asp:TextBox ID="txtAddress" runat="server" TextMode="MultiLine" Width="784px" 
+                    Height="32px"></asp:TextBox>
             </td>
-            <td class="style43" colspan="2">
-                </td>
             
         </tr>
         <tr>
@@ -271,7 +269,7 @@
                 Diagnosis</td>
             <td class="style55" colspan="7">
                 <asp:TextBox ID="txtDiagnosis" runat="server" Height="81px" TextMode="MultiLine" 
-                    Width="415px"></asp:TextBox>
+                    Width="780px"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -279,7 +277,7 @@
                 Treatment/<br /> Recommendation</td>
             <td class="style51" colspan="7">
                 <asp:TextBox ID="txtRecomendation" runat="server" Height="81px" TextMode="MultiLine" 
-                    Width="415px"></asp:TextBox>
+                    Width="779px"></asp:TextBox>
             </td>
         </tr>
         <tr>
