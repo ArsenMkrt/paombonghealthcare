@@ -50,37 +50,38 @@ body {
 	padding: 0;
 }
 #navigation li {
-	border-bottom: 1px solid #0064F9;
+	border-bottom: 1px solid #000000;
+	border-top: 1px solid #000000;
 }
 #navigation li a  {
 	display: block;
 	padding: 5px 5px 5px 0.5em;
-	border-left: 12px solid #711515;
-	border-right: 1px solid #711515;
+	border-left: 12px solid #000000;
+	border-right: 1px solid #000000;
 	background-color: #99CCFF;
 	color: #060606;
 	text-decoration: none;
 }
 #navigation li a:hover {
-	background-color: #711515;
-	color: #FFFFFF;
+	background-color: #FFFFFF;
+	color: #000000;
 }
 #navigation ul ul {
 	margin-left: 12px;
 }
 #navigation ul ul li {
-	border-bottom: 1px solid #711515;
+	border-bottom: 1px solid #999999;
 	margin:0;
-	background-color: #0064F9;
-	color: #711515;
+	background-color: #003366;
+	color: #FFFFFF;
 }
 #navigation ul ul a:link, #navigation ul ul a:visited {
-	background-color: #0064F9;
-	color: #711515;
+	background-color: #003366;
+	color: #FFFFFF;
 }
 #navigation ul ul a:hover {
-	background-color: #711515;
-	color: #FFFFFF;
+	background-color: #FFFFFF;
+	color: #000000;
 }
 #header .breadcrumb {
 	font: 90% Arial, Helvetica, Georgia, "Times New Roman", Times, serif;
