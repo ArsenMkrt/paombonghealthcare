@@ -8,23 +8,9 @@
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">--%>
     <p>
     <br />
-        this is home</p>
-    <p>
-        login credentials</p>
-    <p>
-        to access medical records must be a doctor because of restrictions</p>
-    <p>
-        uname: doctor1 pass:doctor1</p>
-    <p>
-        other account</p>
-    <p>
-        log in as nurse
-        uname:nurse1 pass:nurse1
-
-        </p>
-<p>
-        log in as midwife
-         uname:midwife1 pass:midwife1</p>
+        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" 
+            ForeColor="#0064F9" Text="Label"></asp:Label>
+    </p>
 <p>
         &nbsp;</p>
 </asp:Content>
