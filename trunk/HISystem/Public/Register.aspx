@@ -46,11 +46,11 @@
 
 
 
-                    <div class="accountInfo" style="height: 550px;  width: 310px;">
+                    <div class="accountInfo" style="height: 163px;  width: 310px;" style="background-color: #99CCFF">
                         <fieldset class="register">
                             <legend>Account Information</legend>
                             
-                            <table style="width: 100%;">
+                            <table style="width: 100%; background-color: #99CCFF">
                                 <tr>
                                     <td>
                                          <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
@@ -103,27 +103,20 @@
                                     </td>
                                     
                                 </tr>
-                            </table>
-                            <p>
-                               
-                               
-                            </p>
-                            <p>
-                               
-                              
-                            </p>
-                            <p>
-                               
-                               
-                            </p>
-                            <p>
+                                <tr>
+                                <td>
+                                </td>
+                                <td>
                                 
-                            </p>
-                        </fieldset>
-                        <p class="submitButton">
-                            <asp:Button ID="CreateUserButton" runat="server" CommandName="MoveNext" Text="Create User" 
+                                 <asp:Button ID="CreateUserButton" runat="server" CommandName="MoveNext" Text="Create User" 
                                  ValidationGroup="RegisterUserValidationGroup"/>
-                        </p>
+                                 
+                                 </td>
+                                </tr>
+                            </table>
+                           
+                        </fieldset>
+                        
                     </div>
                 </ContentTemplate>
                 <CustomNavigationTemplate>
