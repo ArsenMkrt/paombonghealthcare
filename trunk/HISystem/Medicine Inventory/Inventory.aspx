@@ -8,7 +8,7 @@
     <p>
         <table style="width:100%; height: 239px;">
             <tr>
-                <td>
+                <td style="width: 100px">
                     Category</td>
                 <td style="width: 548px">
         <asp:DropDownList ID="ddlCategory" runat="server" AutoPostBack="True" 
@@ -21,7 +21,7 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td>
+                <td style="width: 100px">
                     Search Name</td>
                 <td style="width: 548px">
                     <asp:TextBox 
@@ -32,7 +32,7 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td style="height: 246px">
+                <td style="height: 246px; width: 100px;">
                     Medicine Inventory<br />
                     <br />
                     <br />
@@ -124,11 +124,7 @@
                             <td>
                                 &nbsp;</td>
                             <td>
-    <asp:Panel ID="panelGridView2" runat="server" ScrollBars="Vertical" 
-        
-        
-        style="top: 955px; left: 363px; position: absolute; height: 194px; width: 395px; right: 268px">
-    </asp:Panel>
+    
                             </td>
                             <td>
                                 &nbsp;</td>
@@ -139,10 +135,44 @@
                     </td>
             </tr>
         </table>
+        <table style="width:100%;">
+            <asp:Panel ID="panelList" runat="server" 
+        
+        
+        
+        style="top: 592px; left: 433px; position: absolute; height: 253px; width: 409px">
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List<asp:Button ID="btnCheckOut" runat="server" onclick="btnCheckOut_Click" 
+            style="top: 212px; left: 59px; position: absolute; height: 26px; width: 81px" 
+            Text="Check Out" />
+        <asp:Button ID="Button2" runat="server" onclick="Button2_Click" 
+            style="top: 214px; left: 207px; position: absolute; height: 26px; width: 87px" 
+            Text="Remove All" />
+        <asp:GridView ID="gridViewList" runat="server" AutoGenerateColumns="False" 
+            BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" 
+            CellPadding="3" CellSpacing="1" DataKeyNames="MedicineId" GridLines="None" 
+            Height="124px" HorizontalAlign="Center" Width="331px">
+            <Columns>
+                <asp:BoundField DataField="MedicineId" HeaderText="MedicineId" 
+                    InsertVisible="False" ReadOnly="True" SortExpression="MedicineId" />
+                <asp:BoundField DataField="MedicineName" HeaderText="MedicineName" 
+                    SortExpression="MedicineName" />
+                <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
+                    SortExpression="Quantity" />
+            </Columns>
+            <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
+            <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
+            <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+            <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#594B9C" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#33276A" />
+        </asp:GridView>
+    </asp:Panel>
+        </table>
     </p>
-    <p style="margin-left: 40px">
-    
-        &nbsp;</p>
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
     <p style="margin-left: 40px">
@@ -197,7 +227,7 @@
             AutoPostBack="True" DataSourceID="Category2" 
             onselectedindexchanged="ddlCategoryForItemShow_SelectedIndexChanged" 
             
-            style="top: 882px; left: 749px; position: absolute; height: 22px; width: 213px" 
+            style="top: 934px; left: 746px; position: absolute; height: 22px; width: 213px" 
             DataTextField="CategoryName" DataValueField="CategoryName">
         </asp:DropDownList>
     </p>
@@ -221,47 +251,7 @@
     </p>
     <p>
         </p>
-    <asp:Panel ID="panelList" runat="server" 
-        
-        
-        
-        style="top: 592px; left: 433px; position: absolute; height: 253px; width: 409px">
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List<asp:Panel 
-            ID="panelGridView" runat="server" 
-            ScrollBars="Vertical" 
-            
-            style="top: 305px; left: -102px; position: absolute; height: 156px; width: 336px">
-        </asp:Panel>
-        <asp:Button ID="btnCheckOut" runat="server" onclick="btnCheckOut_Click" 
-            style="top: 212px; left: 59px; position: absolute; height: 26px; width: 81px" 
-            Text="Check Out" />
-        <asp:Button ID="Button2" runat="server" onclick="Button2_Click" 
-            style="top: 214px; left: 207px; position: absolute; height: 26px; width: 87px" 
-            Text="Remove All" />
-        <asp:GridView ID="gridViewList" runat="server" AutoGenerateColumns="False" 
-            BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" 
-            CellPadding="3" CellSpacing="1" DataKeyNames="MedicineId" GridLines="None" 
-            Height="124px" HorizontalAlign="Center" Width="331px">
-            <Columns>
-                <asp:BoundField DataField="MedicineId" HeaderText="MedicineId" 
-                    InsertVisible="False" ReadOnly="True" SortExpression="MedicineId" />
-                <asp:BoundField DataField="MedicineName" HeaderText="MedicineName" 
-                    SortExpression="MedicineName" />
-                <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
-                    SortExpression="Quantity" />
-            </Columns>
-            <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
-            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
-            <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
-            <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
-            <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-            <SortedAscendingHeaderStyle BackColor="#594B9C" />
-            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-            <SortedDescendingHeaderStyle BackColor="#33276A" />
-        </asp:GridView>
-    </asp:Panel>
+    
     <p>
     </p>
     <asp:SqlDataSource ID="Medicine2" runat="server" 
