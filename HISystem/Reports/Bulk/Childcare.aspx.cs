@@ -22,7 +22,7 @@ public partial class Reports_Bulk_Childcare : System.Web.UI.Page
     private void BindData()
     {
         data = new DataAccess();
-        // string constr = "Data Source=GERALD-PC\\SQLEXPRESS;AttachDbFilename=C:\\Users\\Magno\\Desktop\\HISystem\\App_Data\\paombongdb.mdf;Initial Catalog=phis;Integrated Security=True";
+        
         string constr = data.Dataconnection;
         string query = "SELECT BarangayID, BarangayName FROM Barangays";
 
@@ -40,7 +40,6 @@ public partial class Reports_Bulk_Childcare : System.Web.UI.Page
         if (dropIndicator.SelectedValue != null && dropIndicator.SelectedItem!=null)
         {
             data = new DataAccess();
-            //string constr = "Data Source=GERALD-PC\\SQLEXPRESS;AttachDbFilename=C:\\Users\\Magno\\Desktop\\HISystem\\App_Data\\paombongdb.mdf;Initial Catalog=phis;Integrated Security=True";
             string constr = data.Dataconnection;
             foreach (ListViewDataItem lv in this.ListView1.Items)
             {
