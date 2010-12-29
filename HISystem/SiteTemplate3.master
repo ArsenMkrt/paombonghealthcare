@@ -86,12 +86,12 @@
                     Font-Size="Small" Text="Admin:"></asp:Label>
                 
                 <asp:ImageButton ID="imgBtn_addUser" runat="server" 
-                    ImageUrl="~/images/add_user.png" onclick="imgBtn_addUser_Click" 
-                    ToolTip="Add Users" Width="41px" Height="32px" style="margin-left: 16px" />
+                    ImageUrl="~/images/addUsers.png" onclick="imgBtn_addUser_Click" 
+                    ToolTip="Add Users" Width="41px" Height="37px" style="margin-left: 16px" />
                 <asp:ImageButton ID="imgBtn_ManageUser" runat="server" 
                     ImageUrl="~/images/business_users_process.png" onclick="imgBtn_ManageUser_Click" 
                     ToolTip="Manage Users" Width="41px" Height="30px" 
-                    style="margin-left: 13px" />
+                    style="margin-left: 15px" />
                 <br />
                 </span>
                 </div>
