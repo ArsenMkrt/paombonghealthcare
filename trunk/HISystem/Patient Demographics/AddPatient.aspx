@@ -2,12 +2,6 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-   <br />
-    <br />
-    <br />
-   <br />
-   <br />
-   <br />
     <table style="width="84%" height="93px" border="1" bgcolor="#99CCFF">
         <tr>
             <td class="style1" colspan="4">

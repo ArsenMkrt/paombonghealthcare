@@ -8,12 +8,8 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+
+
     <uc1:DailyPatientRecord ID="DailyPatientRecord1" runat="server" />
     </asp:Content>
 

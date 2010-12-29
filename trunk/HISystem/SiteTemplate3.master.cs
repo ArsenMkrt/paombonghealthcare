@@ -14,9 +14,18 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
         {
             //make hyperlink invisible
             lbl_AdminPrivileges.Visible = false;
-            HyperLinktoManageRoles.Visible = false;
-            HyperLinktoAddUser.Visible = false;
+            imgBtn_addUser.Visible = false;
+            imgBtn_ManageUser.Visible = false;
+            
             return;
         }
+    }
+    protected void imgBtn_addUser_Click(object sender, ImageClickEventArgs e)
+    {
+        Response.Redirect("~/Admin/Add Users.aspx");
+    }
+    protected void imgBtn_ManageUser_Click(object sender, ImageClickEventArgs e)
+    {
+        Response.Redirect("~/Admin/UsersAndRoles.aspx");
     }
 }

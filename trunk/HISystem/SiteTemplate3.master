@@ -56,13 +56,20 @@
     
     
     <link href="Themes/Styles.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #subheaderWrapper
+        {
+            height: 38px;
+            
+        }
+    </style>
 </head>
 <body>
     <div id="wrapper">
 
         <form id="form1" runat="server">
         
-            <div id="header">
+            <div id="header" style="background-color:#a2cc85; margin-top: 7px;">
                 <span class="title">Paombong Healthcare Information System
                 <asp:Image ID="Image1" runat="server" Height="46px" 
                     ImageUrl="~/images/icon hd2.png" style="margin-left: 15px" Width="59px" />
@@ -72,7 +79,46 @@
                     </asp:SiteMapPath>
                 </span>
             </div>
-        
+            <div id="subheaderWrapper" style="background-color:#d3e7c5">
+            <div id="adminFunctions" style="float:right; height: 31px;">
+            <span>
+                <asp:Label ID="lbl_AdminPrivileges" runat="server" Font-Bold="True" 
+                    Font-Size="Small" Text="Admin:          "></asp:Label>
+                
+                <asp:ImageButton ID="imgBtn_addUser" runat="server" 
+                    ImageUrl="~/images/user_2_add.png" onclick="imgBtn_addUser_Click" 
+                    ToolTip="Add Users" Width="35px" Height="30px" />
+                &nbsp;
+                <asp:ImageButton ID="imgBtn_ManageUser" runat="server" 
+                    ImageUrl="~/images/business_users_process.png" onclick="imgBtn_ManageUser_Click" 
+                    ToolTip="Manage Users" Width="35px" Height="30px" 
+                    style="margin-left: 0px" />
+                <br />
+                </span>
+                </div>
+            <div id="welcomeUser" style="float:left; height: 31px; width: 321px;">
+                <asp:ContentPlaceHolder ID="LoginContent" runat="server">
+                    
+                     <asp:LoginView ID="LoginView1" runat="server">
+                         <LoggedInTemplate>
+                             Welcome back,
+                             <asp:LoginName ID="HeadLoginName0" runat="server" />
+                             </span>!
+                        
+                        [
+                             <asp:LoginStatus ID="HeadLoginStatus2" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/" LogoutText="Log Out" />
+                             ]
+                         </LoggedInTemplate>
+                         <AnonymousTemplate>
+                             Welcome Guest, [
+                             <a ID="HeadLoginStatus1" runat="server" href="~/Public/Login.aspx">Log In</a> ]
+                         </AnonymousTemplate>
+                     </asp:LoginView>
+                </asp:ContentPlaceHolder>
+               
+               
+                </div>
+            </div>
             <div id="content">
                 <asp:contentplaceholder id="MainContent" runat="server">
                   <!-- Page-specific content will go here... -->
@@ -80,39 +126,11 @@
             </div>
             
             <div id="navigation">
-                <div id="logBox">
-                <asp:ContentPlaceHolder ID="LoginContent" runat="server">
-                    <asp:LoginView ID="LoginView1" runat="server">
-                        <LoggedInTemplate>
-                            <asp:LoginName ID="HeadLoginName0" runat="server" />
-                            </span>!
-                            <br/>
-                            [
-                            <asp:LoginStatus ID="HeadLoginStatus2" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/" LogoutText="Log Out" />
-                            ]
-                        </LoggedInTemplate>
-                        <AnonymousTemplate>
-                            Welcome Guest,<br/> [
-                            <a ID="HeadLoginStatus1" runat="server" href="~/Public/Login.aspx">Log In</a> ]
-                        </AnonymousTemplate>
-                    </asp:LoginView>
-                    <br />
-                    <asp:Label ID="lbl_AdminPrivileges" runat="server" Text="Admin:" 
-                    Font-Bold="True" Font-Size="Small"></asp:Label>
-                    <br />
-                    <asp:HyperLink ID="HyperLinktoAddUser" runat="server" Font-Size="Small" 
-                    ForeColor="Red" NavigateUrl="~/Admin/Add Users.aspx">Add User</asp:HyperLink>
-                    &nbsp;
-                    <asp:HyperLink ID="HyperLinktoManageRoles" runat="server" Font-Size="Small" 
-                    ForeColor="Red" NavigateUrl="~/Admin/UsersAndRoles.aspx">Manage Roles</asp:HyperLink>
-                    <br />
-                </asp:ContentPlaceHolder>
-                
-                </div>
                 
                 <ul>
                     <li>
-                        <asp:HyperLink runat="server" ID="lnkHome" NavigateUrl="~/Default.aspx">Home</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="lnkHome" NavigateUrl="~/Default.aspx" 
+                            Height="16px" Width="178px">Home</asp:HyperLink>
                     </li>  
                     <asp:Repeater runat="server" ID="menu" DataSourceID="SiteMapDataSource1">
                         <ItemTemplate>
