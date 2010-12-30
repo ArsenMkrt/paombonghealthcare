@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate.master" AutoEventWireup="true" CodeFile="ViewEditPatient.aspx.cs" Inherits="Patient_Demographics_ViewPatient" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate.master" AutoEventWireup="true" CodeFile="ViewEditPatient.aspx.cs" Inherits="Patient_Demographics_ViewEditPatient" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
@@ -6,7 +6,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
     <p>
-    <asp:Button ID="button_Search" runat="server"  onClick="ButtonSearch_Click"
+
+    <script type="text/javascript" language="javascript">
+
+          function Popup() {
+              window.open("http://www.google.com/")
+          }
+    </script>
+
+    <asp:Button ID="button_Search" runat="server"  onClick="Popup()"
         style="top: 56px; left: 245px; position: absolute; width: 56px" 
         Text="Search" />
     <asp:TextBox ID="txtPatientId" runat="server" 

@@ -9,14 +9,9 @@
     
       <script type="text/javascript" language="javascript">
 
-          function myPopup() {
+          function Popup() {
               window.open("http://www.google.com/")
           }
-
-      </script>
-
-      <script type="text/javascript" language="javascript">
-
 
           var isShift = false;
 
