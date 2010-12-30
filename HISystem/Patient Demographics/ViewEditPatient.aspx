@@ -1,10 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate.master" AutoEventWireup="true" CodeFile="ViewEditPatient.aspx.cs" Inherits="Patient_Demographics_ViewPatient" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
     <p>
-    <asp:Button ID="button_Search" runat="server" onclick="ButtonSearch_Click" 
+    <asp:Button ID="button_Search" runat="server"  onClick="ButtonSearch_Click"
         style="top: 56px; left: 245px; position: absolute; width: 56px" 
         Text="Search" />
     <asp:TextBox ID="txtPatientId" runat="server" 
@@ -18,6 +20,12 @@
             
             SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
         </asp:SqlDataSource>
+        <asp:TextBox ID="txtFName" runat="server" 
+            style="top: 99px; left: 388px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
+        <asp:TextBox ID="txtMName" runat="server" 
+            style="top: 98px; left: 528px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
+        <asp:TextBox ID="txtSuffix" runat="server" 
+            style="top: 97px; left: 662px; position: absolute; height: 22px; width: 71px"></asp:TextBox>
 </p>
 <p>
     <asp:Label ID="Label1" runat="server" Font-Bold="True" ForeColor="#006666" 
@@ -70,9 +78,10 @@
         Text="Barangay"></asp:Label>
 </p>
 <p>
-    <asp:TextBox ID="txtName" runat="server" 
+    <asp:TextBox ID="txtLName" runat="server" 
         
-        style="top: 98px; left: 219px; position: absolute; height: 22px; width: 519px"></asp:TextBox>
+        
+        style="top: 99px; left: 221px; position: absolute; height: 22px; width: 157px"></asp:TextBox>
 </p>
 <p>
 </p>
