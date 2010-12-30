@@ -39,7 +39,7 @@
                     Text="Name"></asp:Label>
             </td>
             <td class="style12" style="height: 52px">
-                <asp:TextBox ID="txtLName" runat="server" Height="25px" Width="203px"></asp:TextBox>
+                <asp:TextBox ID="txtLName" runat="server" Height="21px" Width="203px"></asp:TextBox>
                 <br />
                 Last name</td>
             <td class="style10" colspan="2" style="height: 52px">

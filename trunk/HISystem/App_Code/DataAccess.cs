@@ -121,7 +121,10 @@ public class DataAccess
         SqlDataReader dtrPatient;
         DataTable patientData = new DataTable();
         patientData.Columns.Add("PatientID");
-        patientData.Columns.Add("PatientName");
+        patientData.Columns.Add("PatientLName");
+        patientData.Columns.Add("PatientFName");
+        patientData.Columns.Add("PatientMName");
+        patientData.Columns.Add("PatientSuffix");
         patientData.Columns.Add("PatientSex");
         patientData.Columns.Add("PatientCompany");
         patientData.Columns.Add("PatientCity");
@@ -148,8 +151,8 @@ public class DataAccess
             dtrPatient.Read();
 
             patientData.Rows.Add(dtrPatient["PatientID"].ToString(),
-                dtrPatient["PtLname"].ToString().Trim() + "," + dtrPatient["PtFname"].ToString().Trim() + ","
-                + dtrPatient["PtMname"].ToString().Trim() + "," + dtrPatient["PtSuffix"].ToString().Trim(),
+                dtrPatient["PtLname"].ToString().Trim(), dtrPatient["PtFname"].ToString().Trim(),
+                dtrPatient["PtMname"].ToString().Trim(), dtrPatient["PtSuffix"].ToString().Trim(),
                 dtrPatient["PtGender"].ToString().Trim(),
                 dtrPatient["PtCompany"].ToString().Trim(),
                 dtrPatient["PtBusinessCty"].ToString().Trim(),

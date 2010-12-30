@@ -6,6 +6,15 @@
 <head id="Head1" runat="server">
     <title></title>
     
+    
+      <script type="text/javascript" language="javascript">
+
+          function myPopup() {
+              window.open("http://www.google.com/")
+          }
+
+      </script>
+
       <script type="text/javascript" language="javascript">
 
 

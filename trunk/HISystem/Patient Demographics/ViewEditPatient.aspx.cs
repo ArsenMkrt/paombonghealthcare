@@ -28,7 +28,10 @@ public partial class Patient_Demographics_ViewPatient : System.Web.UI.Page
         {
             foreach (DataRow dr in patientData.Rows)
             {
-                txtName.Text = dr["PatientName"].ToString().Trim();
+                txtLName.Text = dr["PatientLName"].ToString().Trim();
+                txtFName.Text = dr["PatientFName"].ToString().Trim();
+                txtMName.Text = dr["PatientMName"].ToString().Trim();
+                txtSuffix.Text = dr["PatientSuffix"].ToString().Trim();
                 txtContactNum.Text = dr["PatientContactNumber"].ToString().Trim();
                 txtFaxNum.Text = dr["PatientFaxNumber"].ToString().Trim();
 
@@ -74,7 +77,7 @@ public partial class Patient_Demographics_ViewPatient : System.Web.UI.Page
         if (radiobutton_Female.Checked)
             Gender = "Female";
 
-        string toSplit = txtName.Text.ToString();
+        string toSplit = txtLName.Text.ToString();
         string[] Name = toSplit.Split(',');
         data = new DataAccess();
 
