@@ -128,3 +128,38 @@ h1 {
     color: Red;
 }
 
+
+
+/*MODAL*/
+#mask 
+   {
+      position:absolute;
+      left:0;
+      top:0;
+      z-index:9000;
+      background-color:grey;
+      display:none;
+    }
+     
+   #boxes .window {
+     position:absolute;
+     left:0;
+    top:0;
+     width:440px;
+     height:200px;
+    display:none;
+     z-index:9999;
+     padding:20px;
+   }
+    
+   #boxes #modalwindow {
+     width:375px; 
+     height:203px;
+     padding:10px;
+     background-color:#ffffff;
+   }
+    
+   .stylecenter
+   {
+    text-align: center;
+  }
