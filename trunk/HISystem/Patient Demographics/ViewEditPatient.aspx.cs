@@ -86,6 +86,6 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
     }
     protected void button_Clear_Click(object sender, EventArgs e)
     {
-
+        
     }
 }
