@@ -197,4 +197,5 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
         gridViewList.DataBind();
         gridViewList.Dispose();
     }
+    
 }
