@@ -161,7 +161,7 @@ h1 {
    
     #boxes .window2 {
      position:absolute;
-     left:0;
+     left:2;
     top:0;
      width:440px;
      height:400px;
@@ -172,8 +172,9 @@ h1 {
     
    #boxes #modalwindow2 {
      width:375px; 
-     height:403px;
-     padding:10px;
+     
+     height:503px;
+     padding:5px;
      background-color:#ffffff;
    }
     
