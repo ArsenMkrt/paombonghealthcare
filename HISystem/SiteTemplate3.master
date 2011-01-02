@@ -7,6 +7,7 @@
     <title></title>
     
     
+     
       <script type="text/javascript" language="javascript">
 
         
@@ -29,13 +30,13 @@
 
 
 
-      <script type="text/javascript" language="javascript">
+     <%-- <script type="text/javascript" language="javascript">
 
                 function myPopup() {
                     window.open("http://www.google.com/")
                 }
 
-      </script>
+      </script>--%>
 
 
      <script type="text/javascript" language="javascript">
@@ -57,9 +58,72 @@
          }
 
     </script>
+   <%--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>--%>
+   
+     <script type="text/javascript" src="../scripts/jquery.js"></script>
+     
+    
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+
+            // Set up for displaying modal dialogs
+            $('a[name=modal]').click(function (e) {
+                // Prevent the default link behavior of navigation so we can use the link to show the Window
+                e.preventDefault();
+
+                // Determine which href was clicked if it was in fact an href(though this demo as only one.) 
+                var id = $(this).attr('href');
+
+                // Determine browser windows dimensions. 
+                var maskHeight = $(document).height();
+                var maskWidth = $(window).width();
+
+                // Set dimensions for the mask to opaque the screen when the modal window is displayed.
+                $('#mask').css({ 'width': maskWidth, 'height': maskHeight });
+
+                // Make the Window Opaque        
+                $('#mask').fadeIn("fast");
+                $('#mask').fadeTo("slow", 0.8);
+
+                //Get the window height and width
+                var winH = $(window).height();
+                var winW = $(window).width();
+
+                // Set the Modal Window's dimensions to center in the browser window.
+                $(id).css('top', winH / 2 - $(id).height() / 2);
+                $(id).css('left', winW / 2 - $(id).width() / 2);
+
+                // Show the Modal Window
+                $(id).fadeIn("fast");
+
+            });
+
+            // Handle Close Button Click Event
+            $('.window .close').click(function (e) {
+                // Cancel the link behavior
+                e.preventDefault();
+
+                $('#mask').hide();
+                $('.window').hide();
+                $('.window2').hide();
+            });
+
+            // The user clicks OUTSIDE the Modal Window and the window will be closed without save.
+            $('#mask').click(function () {
+                $(this).hide();
+                $('.window').hide();
+                $('.window2').hide();
+            });
+
+        });
+    </script>
+
 
 
     
+   
     
     <link href="Themes/Styles.css" rel="stylesheet" type="text/css" />
     <style type="text/css">

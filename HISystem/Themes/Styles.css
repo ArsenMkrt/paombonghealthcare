@@ -158,6 +158,24 @@ h1 {
      padding:10px;
      background-color:#ffffff;
    }
+   
+    #boxes .window2 {
+     position:absolute;
+     left:0;
+    top:0;
+     width:440px;
+     height:400px;
+    display:none;
+     z-index:9999;
+     padding:20px;
+   }
+    
+   #boxes #modalwindow2 {
+     width:375px; 
+     height:403px;
+     padding:10px;
+     background-color:#ffffff;
+   }
     
    .stylecenter
    {
