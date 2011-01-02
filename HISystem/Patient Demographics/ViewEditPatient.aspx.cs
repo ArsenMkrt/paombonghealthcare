@@ -62,11 +62,19 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
             }
         }
     }
-    protected void button_Back_Click(object sender, EventArgs e)
+    
+    
+    protected void radiobutton_Male_CheckedChanged(object sender, EventArgs e)
     {
-
+        radiobutton_Male.Checked = false;
+        radiobutton_Female.Checked = true;
     }
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void radiobutton_Female_CheckedChanged(object sender, EventArgs e)
+    {
+        radiobutton_Female.Checked = false;
+        radiobutton_Male.Checked = true;
+    }
+    protected void button_AddEdit_Click(object sender, EventArgs e)
     {
         string Gender = "Female";
 
@@ -79,20 +87,14 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
         //string[] Name = toSplit.Split(',');
         data = new DataAccess();
 
-        data.UpdateRecord(txtPatientId.Text.Trim(),txtFName.Text,txtMName.Text,txtLName.Text, txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
+        data.UpdateRecord(txtPatientId.Text.Trim(), txtFName.Text, txtMName.Text, txtLName.Text, txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
             txtSuffix.Text, ddlDay.Text.Trim() + "/" + ddlMonth.Text.Trim() + "/" + ddlYear.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
             txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
             Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
         Response.Redirect("ViewEditPatient.aspx");
     }
-    protected void radiobutton_Male_CheckedChanged(object sender, EventArgs e)
+    protected void button_Clear_Click(object sender, EventArgs e)
     {
-        radiobutton_Male.Checked = false;
-        radiobutton_Female.Checked = true;
-    }
-    protected void radiobutton_Female_CheckedChanged(object sender, EventArgs e)
-    {
-        radiobutton_Female.Checked = false;
-        radiobutton_Male.Checked = true;
+
     }
 }
