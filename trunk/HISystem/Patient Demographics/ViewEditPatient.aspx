@@ -42,7 +42,7 @@
     <asp:Label ID="Label2" runat="server" Font-Bold="True" ForeColor="#006666" 
         style="top: 99px; left: 20px; position: absolute; height: 19px; width: 185px" 
         Text="Name (LN,FN,MN,Suffix)"></asp:Label>
-    <asp:RadioButton ID="radiobutton_Male" runat="server" 
+    <asp:RadioButton GroupName="genderList" ID="radiobutton_Male" runat="server" 
         style="top: 181px; left: 110px; position: absolute; height: 21px; width: 59px" 
         Text="Male" />
     <asp:Label ID="Label3" runat="server" Font-Bold="True" ForeColor="#006666" 
@@ -101,8 +101,8 @@
         <asp:ListItem>Divorced</asp:ListItem>
         <asp:ListItem>Married</asp:ListItem>
     </asp:DropDownList>
-    <asp:RadioButton ID="radiobutton_Female" runat="server" 
-        style="top: 180px; left: 191px; position: absolute; height: 21px; width: 114px" 
+    <asp:RadioButton GroupName="genderList" ID="radiobutton_Female" runat="server" 
+        style="top: 180px;  left: 191px; position: absolute; height: 21px; width: 114px" 
         Text="Female" />
 </p>
 <p>

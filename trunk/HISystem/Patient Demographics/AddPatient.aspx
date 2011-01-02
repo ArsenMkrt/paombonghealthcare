@@ -79,12 +79,12 @@
             </td>
             <td class="style12" colspan="2" style="width: 179px">
                 &nbsp;
-                <asp:RadioButton ID="radiobutton_Female" runat="server" 
+                <asp:RadioButton GroupName="genderList" ID="radiobutton_Female" runat="server" 
         Font-Bold="True" ForeColor="#006666" 
         oncheckedchanged="radiobutton_Female_CheckedChanged" 
         
         Text="Female" />
-                <asp:RadioButton ID="radiobutton_Male" runat="server" 
+                <asp:RadioButton GroupName="genderList" ID="radiobutton_Male" runat="server" 
         Font-Bold="True" ForeColor="#006666" 
         oncheckedchanged="radiobutton_Male_CheckedChanged" 
         
