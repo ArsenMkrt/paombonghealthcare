@@ -42,18 +42,15 @@
     <asp:Label ID="Label2" runat="server" Font-Bold="True" ForeColor="#006666" 
         style="top: 99px; left: 20px; position: absolute; height: 19px; width: 185px" 
         Text="Name (LN,FN,MN,Suffix)"></asp:Label>
+    <asp:RadioButton ID="radiobutton_Male" runat="server" 
+        style="top: 181px; left: 110px; position: absolute; height: 21px; width: 59px" 
+        Text="Male" />
     <asp:Label ID="Label3" runat="server" Font-Bold="True" ForeColor="#006666" 
         style="top: 139px; left: 20px; position: absolute; height: 19px; width: 110px" 
         Text="Contact Number"></asp:Label>
     <asp:Label ID="Label14" runat="server" Font-Bold="True" ForeColor="#006666" 
         style="top: 177px; left: 366px; position: absolute; height: 19px; width: 109px" 
         Text="Civil Status"></asp:Label>
-    <asp:RadioButton ID="radiobutton_Female" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 179px; left: 222px; position: absolute; height: 21px; width: 75px" 
-        Text="Female" />
-    <asp:RadioButton ID="radiobutton_Male" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 180px; left: 120px; position: absolute; height: 21px; width: 75px" 
-        Text="Male" />
     <asp:Label ID="Label4" runat="server" Font-Bold="True" ForeColor="#006666" 
         style="top: 213px; left: 22px; position: absolute; height: 19px; width: 97px" 
         Text="Email Address"></asp:Label>
@@ -104,6 +101,9 @@
         <asp:ListItem>Divorced</asp:ListItem>
         <asp:ListItem>Married</asp:ListItem>
     </asp:DropDownList>
+    <asp:RadioButton ID="radiobutton_Female" runat="server" 
+        style="top: 180px; left: 191px; position: absolute; height: 21px; width: 114px" 
+        Text="Female" />
 </p>
 <p>
     <asp:TextBox ID="txtEmailAdd" runat="server" 
