@@ -42,8 +42,8 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
                 }
                 else
                 {
-                    radiobutton_Male.Checked = true;
-                    radiobutton_Female.Checked = false;
+                    radiobutton_Male.Checked = false;
+                    radiobutton_Female.Checked = true;
                 }
 
                 ddlCivilStatus.Text = dr["PatientCivilStatus"].ToString().Trim();
@@ -86,5 +86,15 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
             txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
             Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
         Response.Redirect("ViewEditPatient.aspx");
+    }
+    protected void radiobutton_Male_CheckedChanged(object sender, EventArgs e)
+    {
+        radiobutton_Male.Checked = false;
+        radiobutton_Female.Checked = true;
+    }
+    protected void radiobutton_Female_CheckedChanged(object sender, EventArgs e)
+    {
+        radiobutton_Female.Checked = false;
+        radiobutton_Male.Checked = true;
     }
 }
