@@ -157,12 +157,13 @@ h1 {
      height:203px;
      padding:10px;
      background-color:#ffffff;
+     overflow:auto;
    }
    
     #boxes .window2 {
      position:absolute;
-     left:2;
-    top:0;
+     left:2px;
+    top:0px;
      width:440px;
      height:400px;
     display:none;
@@ -171,11 +172,13 @@ h1 {
    }
     
    #boxes #modalwindow2 {
-     width:375px; 
-     
-     height:503px;
-     padding:5px;
+     width:360px; 
+     left:5px;
+     height:403px;
+     padding:2px;
      background-color:#ffffff;
+     height:200px;
+     overflow:auto;
    }
     
    .stylecenter
