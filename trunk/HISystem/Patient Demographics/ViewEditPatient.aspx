@@ -14,7 +14,7 @@
           }
     </script>
 
-    <asp:Button ID="button_Search" runat="server"  onClick="Popup()"
+    <asp:Button ID="button_Search" runat="server"  onClick="ButtonSearch_Click"
         style="top: 56px; left: 245px; position: absolute; width: 56px" 
         Text="Search" />
     <asp:TextBox ID="txtPatientId" runat="server" 
