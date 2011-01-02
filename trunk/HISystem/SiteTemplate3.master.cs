@@ -19,6 +19,8 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
             
             return;
         }
+
+       
     }
     protected void imgBtn_addUser_Click(object sender, ImageClickEventArgs e)
     {

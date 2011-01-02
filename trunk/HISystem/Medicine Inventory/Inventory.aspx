@@ -54,8 +54,9 @@
             </td>
         </tr>
     </table>
-        <a href="#modalwindow" name="modal" style="color: #990033">checkout item</a>
-        <br />
+        <a href="#modalwindow" name="modal" style="color: #990033">add checkout item</a><br />
+        <a href="#modalwindow2" name="modal" style="color: #990033">view checkout items</a>
+        
         <br />
         <br />
 
@@ -178,7 +179,17 @@
             </tr>
         </table>
    
-   <br />
+  
+
+
+    </div>           
+            </div>
+           
+           
+           
+            <!-- div for checkout cart -->
+            <div id="modalwindow2" class="window2">
+            <br />
    <br />
     <table style="width: 46%;" border="1">
             <tr>
@@ -227,15 +238,6 @@
             </tr>
         </table>
 
-
-
-    <br/>
-
-
-        <br />
-
-
-    </div>           
             </div>
             <!-- Mask to cover the whole screen -->
             <div id="mask"></div>
