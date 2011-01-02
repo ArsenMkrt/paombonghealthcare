@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate.master" AutoEventWireup="true" CodeFile="ViewEditPatient.aspx.cs" Inherits="Patient_Demographics_ViewEditPatient" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate3.master" AutoEventWireup="true" CodeFile="ViewEditPatient.aspx.cs" Inherits="Patient_Demographics_ViewEditPatient" %>
 
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
     <p>
 
@@ -14,226 +13,254 @@
           }
     </script>
 
-    <asp:Button ID="button_Search" runat="server"  onClick="ButtonSearch_Click"
-        style="top: 56px; left: 245px; position: absolute; width: 56px" 
-        Text="Search" />
-    <asp:TextBox ID="txtPatientId" runat="server" 
-        style="top: 58px; left: 101px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
-        <asp:DropDownList ID="ddlBarangay" runat="server" DataSourceID="Barangay" 
-            DataTextField="BarangayName" DataValueField="BarangayName" 
-            style="top: 58px; left: 458px; position: absolute; height: 22px; width: 77px">
-        </asp:DropDownList>
-        <asp:SqlDataSource ID="Barangay" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
-            
-            SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
-        </asp:SqlDataSource>
-        <asp:TextBox ID="txtFName" runat="server" 
-            style="top: 99px; left: 388px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
-        <asp:TextBox ID="txtMName" runat="server" 
-            style="top: 98px; left: 528px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
-        <asp:TextBox ID="txtSuffix" runat="server" 
-            style="top: 97px; left: 662px; position: absolute; height: 22px; width: 71px"></asp:TextBox>
-</p>
+   
+        <table 84%"="" bgcolor="#99CCFF" border="1" height="93px" style="width=">
+            <tr>
+                <td class="style3" colspan="2">
+            <asp:Label ID="Label1" runat="server" Font-Bold="True" ForeColor="#006666" 
+                Text="Patient Id"></asp:Label>
+                <br />
+                    <asp:TextBox ID="txtPatientId" runat="server" Width="85px" 
+                       ></asp:TextBox>
+                    <asp:Button ID="ButtonSearch" runat="server" onClick="ButtonSearch_Click" 
+                        Text="Search" Width="86px" />
+                </td>
+                <td class="style3" colspan="4">
+                    <center>
+                    <asp:SqlDataSource ID="Barangay0" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+                        SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
+                    </asp:SqlDataSource>
+                        <asp:Image ID="Image3" runat="server" Height="42px" 
+                            ImageUrl="~/images/image3.png" Width="52px" />
+                        <asp:Image ID="Image2" runat="server" Height="43px" 
+                            ImageUrl="~/images/phis_name.png" Width="244px" />
+                        <asp:Image ID="Image4" runat="server" Height="42px" 
+                            ImageUrl="~/images/image5.png" Width="54px" />
+                    </center>
+                </td>
+                <td class="style3">
+                    <asp:Label ID="Label21" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="Barangay"></asp:Label>
+                    <br />
+                    <asp:DropDownList ID="ddlBarangay" runat="server" datasourceid="Barangay0" 
+                        DataTextField="BarangayName" DataValueField="BarangayName">
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="style1" style="width: 161px; height: 52px;">
+                    <asp:Label ID="Label22" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="Name"></asp:Label>
+                </td>
+                <td class="style12" style="height: 52px" colspan="2">
+                    <asp:TextBox ID="txtLName" runat="server" Height="21px" Width="203px"></asp:TextBox>
+                    <br />
+                    Last name</td>
+                <td class="style10" colspan="2" style="height: 52px">
+                    <asp:TextBox ID="txtFName" runat="server" Width="147px"></asp:TextBox>
+                    <br />
+                    First name</td>
+                <td class="style13">
+                    <asp:TextBox ID="txtMName" runat="server" Width="107px"></asp:TextBox>
+                    <br />
+                    MI</td>
+                <td class="style10" style="height: 52px">
+                    <asp:TextBox ID="txtSuffix" runat="server" Height="23px" Width="71px"></asp:TextBox>
+                    <br />
+                    Suffix</td>
+            </tr>
+            <tr>
+                <td class="style1" style="width: 161px">
+                    <asp:Label ID="Label23" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="Contact Number"></asp:Label>
+                </td>
+                <td class="style5" colspan="3" style="width: 179px">
+                    <asp:TextBox ID="txtContactNum" runat="server" Width="203px"></asp:TextBox>
+                </td>
+                <td class="style14">
+                    <asp:Label ID="Label24" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="Fax Number"></asp:Label>
+                </td>
+                <td class="style6" colspan="2">
+                    <asp:TextBox ID="txtFaxNum" runat="server" Width="227px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style1" style="width: 161px">
+                    <asp:Label ID="Label25" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="Sex"></asp:Label>
+                </td>
+                <td class="style12" colspan="3" style="width: 179px">
+                    &nbsp;
+                    <asp:RadioButton ID="radiobutton_Female" runat="server" Font-Bold="True" 
+                        ForeColor="#006666" GroupName="genderList" 
+                        oncheckedchanged="radiobutton_Female_CheckedChanged" Text="Female" />
+                    <asp:RadioButton ID="radiobutton_Male" runat="server" Font-Bold="True" 
+                        ForeColor="#006666" GroupName="genderList" 
+                        oncheckedchanged="radiobutton_Male_CheckedChanged" Text="Male" />
+                </td>
+                <td class="style14">
+                    <asp:Label ID="Label26" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="Civil Status"></asp:Label>
+                </td>
+                <td class="style6" colspan="2">
+                    <asp:DropDownList ID="ddlCivilStatus" runat="server">
+                        <asp:ListItem>Single</asp:ListItem>
+                        <asp:ListItem>Divorced</asp:ListItem>
+                        <asp:ListItem>Married</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="style1" style="width: 161px">
+                    <asp:Label ID="Label27" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="Email Address"></asp:Label>
+                </td>
+                <td class="style5" colspan="3" style="width: 179px">
+                    <asp:TextBox ID="txtEmailAdd" runat="server" Width="206px"></asp:TextBox>
+                </td>
+                <td class="style14">
+                    <asp:Label ID="Label28" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="City"></asp:Label>
+                </td>
+                <td class="style6" colspan="2">
+                    <asp:TextBox ID="txtCity" runat="server" Width="227px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style1" style="width: 161px">
+                    <asp:Label ID="Label29" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="Birthdate"></asp:Label>
+                </td>
+                <td class="style5" colspan="3" style="width: 179px">
+                    <asp:DropDownList ID="ddlMonth" runat="server">
+                        <asp:ListItem>Jan</asp:ListItem>
+                        <asp:ListItem>Feb</asp:ListItem>
+                        <asp:ListItem>Mar</asp:ListItem>
+                        <asp:ListItem>Apr</asp:ListItem>
+                        <asp:ListItem>May</asp:ListItem>
+                        <asp:ListItem>Jun</asp:ListItem>
+                        <asp:ListItem>Jul</asp:ListItem>
+                        <asp:ListItem>Aug</asp:ListItem>
+                        <asp:ListItem>Sept</asp:ListItem>
+                        <asp:ListItem>Oct</asp:ListItem>
+                        <asp:ListItem>Nov</asp:ListItem>
+                        <asp:ListItem>Dec</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:DropDownList ID="ddlDay" runat="server">
+                        <asp:ListItem>1</asp:ListItem>
+                        <asp:ListItem>2</asp:ListItem>
+                        <asp:ListItem>3</asp:ListItem>
+                        <asp:ListItem>4</asp:ListItem>
+                        <asp:ListItem>5</asp:ListItem>
+                        <asp:ListItem>6</asp:ListItem>
+                        <asp:ListItem>7</asp:ListItem>
+                        <asp:ListItem>8</asp:ListItem>
+                        <asp:ListItem>9</asp:ListItem>
+                        <asp:ListItem>10</asp:ListItem>
+                        <asp:ListItem>11</asp:ListItem>
+                        <asp:ListItem>12</asp:ListItem>
+                        <asp:ListItem>13</asp:ListItem>
+                        <asp:ListItem>14</asp:ListItem>
+                        <asp:ListItem>15</asp:ListItem>
+                        <asp:ListItem>16</asp:ListItem>
+                        <asp:ListItem>17</asp:ListItem>
+                        <asp:ListItem>18</asp:ListItem>
+                        <asp:ListItem>19</asp:ListItem>
+                        <asp:ListItem>20</asp:ListItem>
+                        <asp:ListItem>21</asp:ListItem>
+                        <asp:ListItem>22</asp:ListItem>
+                        <asp:ListItem>23</asp:ListItem>
+                        <asp:ListItem>24</asp:ListItem>
+                        <asp:ListItem>25</asp:ListItem>
+                        <asp:ListItem>26</asp:ListItem>
+                        <asp:ListItem>27</asp:ListItem>
+                        <asp:ListItem>28</asp:ListItem>
+                        <asp:ListItem>29</asp:ListItem>
+                        <asp:ListItem>30</asp:ListItem>
+                        <asp:ListItem>31</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:DropDownList ID="ddlYear" runat="server">
+                        <asp:ListItem>1989</asp:ListItem>
+                        <asp:ListItem>1990</asp:ListItem>
+                        <asp:ListItem>1991</asp:ListItem>
+                        <asp:ListItem>1992</asp:ListItem>
+                        <asp:ListItem>1993</asp:ListItem>
+                        <asp:ListItem>1994</asp:ListItem>
+                        <asp:ListItem>1995</asp:ListItem>
+                        <asp:ListItem>1996</asp:ListItem>
+                        <asp:ListItem>1997</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td class="style14">
+                    <asp:Label ID="Label30" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="Birthplace"></asp:Label>
+                </td>
+                <td class="style6" colspan="2">
+                    <asp:TextBox ID="txtBirthplace" runat="server" Width="227px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style7" style="width: 161px">
+                    <asp:Label ID="Label31" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="Address"></asp:Label>
+                </td>
+                <td class="style8" colspan="6">
+                    <asp:TextBox ID="txtAddress" runat="server" Height="51px" Width="615px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style1" style="width: 161px">
+                    <asp:Label ID="Label32" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="Company"></asp:Label>
+                </td>
+                <td class="style5" colspan="3" style="width: 179px">
+                    <asp:TextBox ID="txtCompany" runat="server" Width="207px"></asp:TextBox>
+                </td>
+                <td class="style14">
+                    <asp:Label ID="Label33" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="Spouse Name"></asp:Label>
+                </td>
+                <td class="style6" colspan="2">
+                    <asp:TextBox ID="txtSpouseName" runat="server" Width="228px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style1" style="width: 161px">
+                    <asp:Label ID="Label34" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="Nationality"></asp:Label>
+                </td>
+                <td class="style12" colspan="3" style="width: 179px">
+                    <asp:TextBox ID="txtNationality" runat="server" Width="208px"></asp:TextBox>
+                </td>
+                <td class="style14">
+                    <asp:Label ID="Label35" runat="server" Font-Bold="True" ForeColor="#006666" 
+                        Text="Doctor"></asp:Label>
+                </td>
+                <td class="style6" colspan="2">
+                    <asp:TextBox ID="txtDoctor" runat="server" Width="227px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style1" style="width: 161px">
+                    &nbsp;</td>
+                <td class="style5" colspan="3" style="width: 179px">
+                    <asp:Button ID="Button1" runat="server" Height="36px" 
+                        onclick="button_AddEdit_Click" Text="Save Patient Details" Width="219px" />
+                </td>
+                <td class="style9" colspan="2">
+                    <asp:Button ID="button_Clear" runat="server" Height="38px" 
+                        onclick="button_Clear_Click" Text="Clear Details" Width="209px" />
+                </td>
+                <td class="style10">
+                    &nbsp;</td>
+            </tr>
+        </table>
+    
+       
 <p>
-    <asp:Label ID="Label1" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 59px; left: 22px; position: absolute; height: 19px; width: 65px" 
-        Text="Patient Id"></asp:Label>
-    <asp:Label ID="Label2" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 99px; left: 20px; position: absolute; height: 19px; width: 185px" 
-        Text="Name (LN,FN,MN,Suffix)"></asp:Label>
-    <asp:RadioButton GroupName="genderList" ID="radiobutton_Male" runat="server" 
-        style="top: 181px; left: 110px; position: absolute; height: 21px; width: 59px" 
-        Text="Male" />
-    <asp:Label ID="Label3" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 139px; left: 20px; position: absolute; height: 19px; width: 110px" 
-        Text="Contact Number"></asp:Label>
-    <asp:Label ID="Label14" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 177px; left: 366px; position: absolute; height: 19px; width: 109px" 
-        Text="Civil Status"></asp:Label>
-    <asp:Label ID="Label4" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 213px; left: 22px; position: absolute; height: 19px; width: 97px" 
-        Text="Email Address"></asp:Label>
-    <asp:Label ID="Label6" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 250px; left: 21px; position: absolute; height: 19px; width: 63px" 
-        Text="Birthdate"></asp:Label>
-    <asp:Label ID="Label7" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 288px; left: 22px; position: absolute; height: 19px; width: 55px" 
-        Text="Address"></asp:Label>
-    <asp:Label ID="Label8" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 138px; left: 379px; position: absolute; height: 19px; width: 92px" 
-        Text="Fax Number"></asp:Label>
-    <asp:Label ID="Label10" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 346px; left: 22px; position: absolute; height: 19px; width: 75px" 
-        Text="Company"></asp:Label>
-    <asp:Label ID="Label11" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 387px; left: 23px; position: absolute; height: 19px; width: 74px" 
-        Text="Nationality"></asp:Label>
-    <asp:Label ID="Label12" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 212px; left: 390px; position: absolute; height: 19px; width: 25px" 
-        Text="City"></asp:Label>
-    <asp:Label ID="Label13" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 175px; left: 25px; position: absolute; height: 21px; width: 23px" 
-        Text="Sex"></asp:Label>
-    <asp:Label ID="Label9" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 386px; left: 370px; position: absolute; height: 58px; width: 43px" 
-        Text="Doctor"></asp:Label>
-    <asp:Label ID="Label20" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 60px; left: 357px; position: absolute; height: 19px; width: 34px" 
-        Text="Barangay"></asp:Label>
 </p>
-<p>
-    <asp:TextBox ID="txtLName" runat="server" 
-        
-        
-        style="top: 99px; left: 221px; position: absolute; height: 22px; width: 157px"></asp:TextBox>
-</p>
-<p>
-</p>
-<p>
-    <asp:TextBox ID="txtFaxNum" runat="server" 
-        
-        style="top: 137px; left: 480px; position: absolute; height: 22px; width: 182px"></asp:TextBox>
-    <asp:DropDownList ID="ddlCivilStatus" runat="server" 
-        
-        style="top: 173px; left: 482px; position: absolute; height: 22px; width: 178px">
-        <asp:ListItem>Single</asp:ListItem>
-        <asp:ListItem>Divorced</asp:ListItem>
-        <asp:ListItem>Married</asp:ListItem>
-    </asp:DropDownList>
-    <asp:RadioButton GroupName="genderList" ID="radiobutton_Female" runat="server" 
-        style="top: 180px;  left: 191px; position: absolute; height: 21px; width: 114px" 
-        Text="Female" />
-</p>
-<p>
-    <asp:TextBox ID="txtEmailAdd" runat="server" 
-        
-        style="top: 213px; left: 165px; position: absolute; height: 22px; width: 175px"></asp:TextBox>
-    <asp:TextBox ID="txtCity" runat="server" 
-        
-        style="top: 213px; left: 481px; position: absolute; height: 22px; width: 177px"></asp:TextBox>
-</p>
-<p>
-    <asp:DropDownList ID="ddlDay" runat="server" 
-        
-        style="top: 251px; left: 131px; position: absolute; height: 21px; width: 42px">
-        <asp:ListItem>1</asp:ListItem>
-        <asp:ListItem>2</asp:ListItem>
-        <asp:ListItem>3</asp:ListItem>
-        <asp:ListItem>4</asp:ListItem>
-        <asp:ListItem>5</asp:ListItem>
-        <asp:ListItem>6</asp:ListItem>
-        <asp:ListItem>7</asp:ListItem>
-        <asp:ListItem>8</asp:ListItem>
-        <asp:ListItem>9</asp:ListItem>
-        <asp:ListItem>10</asp:ListItem>
-        <asp:ListItem>11</asp:ListItem>
-        <asp:ListItem>12</asp:ListItem>
-        <asp:ListItem>13</asp:ListItem>
-        <asp:ListItem>14</asp:ListItem>
-        <asp:ListItem>15</asp:ListItem>
-        <asp:ListItem>16</asp:ListItem>
-        <asp:ListItem>17</asp:ListItem>
-        <asp:ListItem>18</asp:ListItem>
-        <asp:ListItem>19</asp:ListItem>
-        <asp:ListItem>20</asp:ListItem>
-        <asp:ListItem>21</asp:ListItem>
-        <asp:ListItem>22</asp:ListItem>
-        <asp:ListItem>23</asp:ListItem>
-        <asp:ListItem>24</asp:ListItem>
-        <asp:ListItem>25</asp:ListItem>
-        <asp:ListItem>26</asp:ListItem>
-        <asp:ListItem>27</asp:ListItem>
-        <asp:ListItem>28</asp:ListItem>
-        <asp:ListItem>29</asp:ListItem>
-        <asp:ListItem>30</asp:ListItem>
-        <asp:ListItem>31</asp:ListItem>
-    </asp:DropDownList>
-    <asp:DropDownList ID="ddlMonth" runat="server" 
-        
-        style="top: 250px; left: 196px; position: absolute; height: 21px; width: 63px">
-        <asp:ListItem>Jan</asp:ListItem>
-        <asp:ListItem>Feb</asp:ListItem>
-        <asp:ListItem>Mar</asp:ListItem>
-        <asp:ListItem>Apr</asp:ListItem>
-        <asp:ListItem>May</asp:ListItem>
-        <asp:ListItem>Jun</asp:ListItem>
-        <asp:ListItem>Jul</asp:ListItem>
-        <asp:ListItem>Aug</asp:ListItem>
-        <asp:ListItem>Sept</asp:ListItem>
-        <asp:ListItem>Oct</asp:ListItem>
-        <asp:ListItem>Nov</asp:ListItem>
-        <asp:ListItem>Dec</asp:ListItem>
-    </asp:DropDownList>
-    <asp:DropDownList ID="ddlYear" runat="server" 
-        
-        style="top: 250px; left: 283px; position: absolute; height: 21px; width: 56px">
-        <asp:ListItem>1989</asp:ListItem>
-        <asp:ListItem>1990</asp:ListItem>
-        <asp:ListItem>1991</asp:ListItem>
-        <asp:ListItem>1992</asp:ListItem>
-        <asp:ListItem>1993</asp:ListItem>
-        <asp:ListItem>1994</asp:ListItem>
-        <asp:ListItem>1995</asp:ListItem>
-        <asp:ListItem>1996</asp:ListItem>
-        <asp:ListItem>1997</asp:ListItem>
-    </asp:DropDownList>
-    <asp:TextBox ID="txtBirthplace" runat="server" 
-        style="top: 250px; left: 482px; position: absolute; height: 22px; width: 177px"></asp:TextBox>
-</p>
-<p>
-    <asp:TextBox ID="txtAddress" runat="server" 
-        
-        style="top: 289px; left: 130px; position: absolute; height: 44px; width: 612px"></asp:TextBox>
-    <asp:Label ID="Label18" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="z-index: 1; left: 381px; top: 251px; position: absolute; height: 19px; width: 69px;" 
-        Text="Birthplace"></asp:Label>
-</p>
-<p>
-</p>
-<p>
-    <asp:TextBox ID="txtCompany" runat="server" 
-        
-        style="top: 347px; left: 132px; position: absolute; height: 22px; width: 201px"></asp:TextBox>
-    <asp:Label ID="Label19" runat="server" Font-Bold="True" ForeColor="#006666" 
-        style="top: 348px; left: 368px; position: absolute; height: 19px; width: 111px" 
-        Text="Spouse Name"></asp:Label>
-    <asp:TextBox ID="txtSpouseName" runat="server" 
-        style="top: 347px; left: 483px; position: absolute; height: 22px; width: 172px"></asp:TextBox>
-</p>
-<p>
-    <asp:TextBox ID="txtNationality" runat="server" 
-        
-        style="top: 387px; left: 132px; position: absolute; height: 22px; width: 201px"></asp:TextBox>
-</p>
-<p>
-    <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
-        style="top: 448px; left: 225px; position: absolute; height: 26px; width: 88px" 
-        Text="Save" />
-</p>
-<p>
-    <asp:TextBox ID="txtContactNum" runat="server" 
-        
-        style="top: 137px; left: 165px; position: absolute; height: 22px; width: 179px"></asp:TextBox>
-    <asp:TextBox ID="txtDoctor" runat="server" 
-        
-        style="top: 386px; left: 484px; position: absolute; height: 23px; width: 171px"></asp:TextBox>
-        <asp:Button ID="button_Bank0" runat="server" 
-        style="top: 446px; left: 398px; position: absolute; height: 26px; width: 117px" 
-        Text="Back" onclick="button_Back_Click" />
-        </p>
-<p>
-        <asp:Button ID="button_Bank" runat="server" 
-        style="top: 446px; left: 398px; position: absolute; height: 26px; width: 117px" 
-        Text="Back" onclick="button_Back_Click" />
-</p>
-<p>
-</p>
-<p>
-</p>
-<p>
-</p>
-<p>
-</p>
+
 </asp:Content>
 
