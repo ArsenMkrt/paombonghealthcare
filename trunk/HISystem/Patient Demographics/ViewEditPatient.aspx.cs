@@ -64,25 +64,14 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
             }
         }
     }
-    
-    
-    protected void radiobutton_Male_CheckedChanged(object sender, EventArgs e)
-    {
-        radiobutton_Male.Checked = false;
-        radiobutton_Female.Checked = true;
-    }
-    protected void radiobutton_Female_CheckedChanged(object sender, EventArgs e)
-    {
-        radiobutton_Female.Checked = false;
-        radiobutton_Male.Checked = true;
-    }
+   
     protected void button_AddEdit_Click(object sender, EventArgs e)
     {
         string Gender = "";
 
         if (radiobutton_Male.Checked)
             Gender = "Male";
-        if (radiobutton_Female.Checked)
+        else
             Gender = "Female";
 
         //string toSplit = txtLName.Text.ToString();
