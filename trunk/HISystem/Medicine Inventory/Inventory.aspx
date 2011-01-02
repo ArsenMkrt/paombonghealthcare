@@ -2,8 +2,8 @@
 <%@ Register assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI.DataVisualization.Charting" tagprefix="asp" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <div style="float:left"> 
-    <table style="width: 64%;" border="1">
+    <div id="originalContent"> 
+    <table style="width: 43%;" border="1">
         <tr>
             <td style="width: 280px">
                     Category</td>
@@ -29,8 +29,8 @@
         Items</td>
             <td>
                 <asp:GridView ID="gridviewMedicine" runat="server" AutoGenerateColumns="False" DataKeyNames="MedicineId"
-            Height="211px" onselectedindexchanged="gridviewMedicine_SelectedIndexChanged" 
-            Width="330px" AutoGenerateSelectButton="True" HorizontalAlign="Center" 
+            Height="193px" onselectedindexchanged="gridviewMedicine_SelectedIndexChanged" 
+            Width="229px" AutoGenerateSelectButton="True" HorizontalAlign="Center" 
                     BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" 
                     CellPadding="4" GridLines="Horizontal">
                     <Columns>
@@ -54,7 +54,7 @@
             </td>
         </tr>
     </table>
-        <a href="#modalwindow" name="modal" style="color: #990033">add checkout item</a><br />
+        <a href="#modalwindow" name="modal" style="color: #990033">add checkout item</a><br/>
         <a href="#modalwindow2" name="modal" style="color: #990033">view checkout items</a>
         
         <br />
@@ -62,7 +62,7 @@
 
         <table style="width: 37%;" border="1">
             <tr>
-                <td class="style2">
+                <td class="style2" style="width: 54px">
         <asp:Label ID="Label3" runat="server" Text="Category"></asp:Label>
                 </td>
                 <td class="style1">
@@ -76,7 +76,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="style2">
+                <td class="style2" style="width: 54px">
         <asp:Label ID="Label4" runat="server" Text="Show Items Below Quantity"></asp:Label>
                 </td>
                 <td class="style1">
@@ -88,7 +88,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="style2">
+                <td class="style2" style="width: 54px">
                     &nbsp;</td>
                 <td class="style1">
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="MedicineId" 
@@ -190,7 +190,7 @@
             <!-- div for checkout cart -->
             <div id="modalwindow2" class="window2">
             <br />
-   <br />
+   
     <table style="width: 46%;" border="1">
             <tr>
                 <td class="style3" colspan="2">
