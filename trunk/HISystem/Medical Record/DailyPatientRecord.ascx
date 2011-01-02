@@ -70,10 +70,6 @@
         font-size: xx-small;
         height: 43px;
     }
-    .style43
-    {
-        height: 43px;
-    }
     .style45
     {
         width: 485px;
@@ -166,7 +162,7 @@
         <tr>
             <td class="style65" colspan="2">
                 <asp:Label ID="Label1" runat="server" Font-Size="X-Large" 
-                    Text="Daily Patient Record"></asp:Label>
+                    Text="Daily Patient Record" Font-Bold="True" ForeColor="#006600"></asp:Label>
             </td>
             <td class="style13" colspan="4">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -182,7 +178,7 @@
             <td class="style11">
                 Date</td>
             <td class="style37">
-                <asp:TextBox ID="txtDateNow" runat="server" ReadOnly="True" Width="137px"></asp:TextBox>
+                <asp:Label ID="lbl_dateToday" runat="server" Text="dateToday"></asp:Label>
                 </td>
             
         </tr>
@@ -234,7 +230,9 @@
         </tr>
         <tr>
             <td class="style57" colspan="8">
-                Vital Statistics </td>
+                <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="Large" 
+                    ForeColor="#006600" Text="Vital Statistics "></asp:Label>
+            </td>
             
             
         </tr>

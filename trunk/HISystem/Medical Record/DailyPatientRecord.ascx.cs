@@ -61,6 +61,7 @@ public partial class Medical_Record_LifestyleCheck : System.Web.UI.UserControl
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        lbl_dateToday.Text = DateTime.Now.ToShortDateString();
         DateTime tnow = DateTime.Now;
         ArrayList AlYear = new ArrayList();
         int i;
