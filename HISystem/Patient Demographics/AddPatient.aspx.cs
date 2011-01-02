@@ -36,6 +36,27 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
     }
     protected void button_Clear_Click(object sender, EventArgs e)
     {
+        txtFName.Text="";
+        txtMName.Text="";
+        txtLName.Text="";
+        txtContactNum.Text=""; 
+        txtEmailAdd.Text="";
+        txtSuffix.Text="";
+        ddlDay.SelectedIndex = 0;
+        ddlMonth.SelectedIndex = 0;
+        ddlYear.SelectedIndex = 0;
+        txtBirthplace.Text="";
+        txtAddress.Text="";
+        txtFaxNum.Text="";
+        txtDoctor.Text="";
+        txtNationality.Text="";
+        txtCity.Text="";
+        ddlCivilStatus.SelectedIndex = 0;
+        txtSpouseName.Text="";
+        txtCompany.Text="";
+        ddlBarangay.SelectedIndex = 0;
+        radiobutton_Female.Checked = false;
+        radiobutton_Male.Checked = false;
 
     }
     protected void radiobutton_Male_CheckedChanged(object sender, EventArgs e)
