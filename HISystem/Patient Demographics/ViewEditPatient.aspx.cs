@@ -38,11 +38,9 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
                 if (dr["PatientSex"].ToString() == "Male")
                 {
                     radiobutton_Male.Checked = true;
-                    radiobutton_Female.Checked = false;
                 }
                 else
                 {
-                    radiobutton_Male.Checked = false;
                     radiobutton_Female.Checked = true;
                 }
 
