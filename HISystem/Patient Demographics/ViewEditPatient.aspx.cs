@@ -77,12 +77,12 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
         if (radiobutton_Female.Checked)
             Gender = "Female";
 
-        string toSplit = txtLName.Text.ToString();
-        string[] Name = toSplit.Split(',');
+        //string toSplit = txtLName.Text.ToString();
+        //string[] Name = toSplit.Split(',');
         data = new DataAccess();
 
-        data.UpdateRecord(txtPatientId.Text.Trim(), Name[1].Trim(), Name[2].Trim(), Name[0].Trim(), txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
-            Name[3].Trim(), ddlDay.Text.Trim() + "/" + ddlMonth.Text.Trim() + "/" + ddlYear.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
+        data.UpdateRecord(txtPatientId.Text.Trim(),txtFName.Text,txtMName.Text,txtLName.Text, txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
+            txtSuffix.Text, ddlDay.Text.Trim() + "/" + ddlMonth.Text.Trim() + "/" + ddlYear.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
             txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
             Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
         Response.Redirect("ViewEditPatient.aspx");
