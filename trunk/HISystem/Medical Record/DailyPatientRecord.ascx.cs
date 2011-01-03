@@ -101,4 +101,8 @@ public partial class Medical_Record_LifestyleCheck : System.Web.UI.UserControl
         month = Int32.Parse(dropMonth.SelectedValue);
         BindDays(year, month);
     }
+    protected void btnSave_Click(object sender, EventArgs e)
+    {
+
+    }
 }

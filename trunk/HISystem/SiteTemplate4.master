@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SiteTemplate3.master.cs" Inherits="SiteTemplate3" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SiteTemplate4.master.cs" Inherits="SiteTemplate4" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -10,7 +10,7 @@
      
       <script type="text/javascript" language="javascript">
 
-        
+
           var isShift = false;
 
           function keyUP(keyCode) {
@@ -30,28 +30,8 @@
 
 
 
-
-
-     <script type="text/javascript" language="javascript">
-
-         //calculate
-         function CalculateValue(obj) {
-             var tr = obj.parentNode.parentNode //get the entered row object.
-             var txtPopu = tr.cells[2].getElementsByTagName("INPUT")[0] //population textbox
-
-             var txtMale = tr.cells[3].getElementsByTagName("INPUT")[0] //male textbox
-             var txtFemale = tr.cells[4].getElementsByTagName("INPUT")[0] //female textbox
-             var txtTotal = tr.cells[5].getElementsByTagName("INPUT")[0] //total textbox
-             var txtPercent = tr.cells[6].getElementsByTagName("INPUT")[0] //percentage textbox
-
-             // do calculations
-             txtTotal.value = parseInt(txtMale.value) + parseInt(txtFemale.value); //total value calculation.
-             txtPercent.value = (parseInt(txtTotal.value) / parseInt(txtPopu.value)) * 100 //percentage calculation.
-
-         }
-
-    </script>
-   <%--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>--%>
+    
+   
    
      <script type="text/javascript" src="../scripts/jquery.js"></script>
      
@@ -118,7 +98,7 @@
     
    
     
-    <link href="Themes/Styles.css" rel="stylesheet" type="text/css" />
+    <link href="Themes/style2Popup.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         #subheaderWrapper
         {

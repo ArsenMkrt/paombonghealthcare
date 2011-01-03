@@ -9,6 +9,7 @@
     {
         height: 34px;
         font-size: medium;
+        width: 268435488px;
     }
     .style13
     {
@@ -24,11 +25,6 @@
         width: 286px;
         font-size: medium;
         height: 43px;
-    }
-    .style28
-    {
-        font-size: medium;
-        height: 38px;
     }
     .style29
     {
@@ -49,7 +45,6 @@
     }
     .style35
     {
-        width: 635px;
         font-size: medium;
         height: 38px;
     }
@@ -164,7 +159,7 @@
                 <asp:Label ID="Label1" runat="server" Font-Size="X-Large" 
                     Text="Daily Patient Record" Font-Bold="True" ForeColor="#006600"></asp:Label>
             </td>
-            <td class="style13" colspan="4">
+            <td class="style13" colspan="5">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Image ID="Image1" runat="server" Height="59px" 
                     ImageUrl="~/images/image3.png" Width="64px" />
@@ -178,14 +173,15 @@
             <td class="style11">
                 Date</td>
             <td class="style37">
-                <asp:Label ID="lbl_dateToday" runat="server" Text="dateToday"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="lbl_dateToday" runat="server" Text="mm/dd/yyyy" Font-Bold="True"></asp:Label>
                 </td>
             
         </tr>
         <tr>
             <td class="style13">
                 Name<br /> (LN, FN, MN)</td>
-            <td class="style10" colspan="5">
+            <td class="style10" colspan="6">
                 <asp:TextBox ID="txtlname" runat="server" Width="166px"></asp:TextBox>
                 ,
                 <asp:TextBox ID="txtfname" runat="server" Width="182px"></asp:TextBox>
@@ -200,7 +196,7 @@
         <tr>
             <td class="style20">
                 Address</td>
-            <td class="style42" colspan="7">
+            <td class="style42" colspan="8">
                 <asp:TextBox ID="txtAddress" runat="server" TextMode="MultiLine" Width="784px" 
                     Height="32px"></asp:TextBox>
             </td>
@@ -209,27 +205,41 @@
         <tr>
             <td class="style34">
                 Birthdate</td>
-            <td class="style35" colspan="5">
-                Month:
-                <asp:DropDownList ID="dropMonth" runat="server" Height="26px">
+            <td class="style35" colspan="4">
+                Month:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                Day:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Year:<br />
+&nbsp;<asp:DropDownList ID="dropMonth" runat="server" Height="26px">
                 </asp:DropDownList>
-                &nbsp;Day:
+                &nbsp;
                 <asp:DropDownList ID="dropDay" runat="server" 
                     onselectedindexchanged="dropDay_SelectedIndexChanged">
                 </asp:DropDownList>
-                &nbsp;Year: <asp:DropDownList ID="dropYear" runat="server" 
+                &nbsp; <asp:DropDownList ID="dropYear" runat="server" 
                     onselectedindexchanged="dropYear_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
-            <td class="style28" align="right">
-                Age</td>
+            <td class="style35" colspan="3">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Barangay<br />
+                <asp:DropDownList ID="ddlBarangay" runat="server" 
+        DataSourceID="Barangay" DataTextField="BarangayName" 
+        DataValueField="BarangayName" style="margin-left: 56px">
+                </asp:DropDownList>
+            &nbsp;<asp:SqlDataSource ID="Barangay" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+        
+                
+                
+                    SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
+                </asp:SqlDataSource>
+            </td>
             <td class="style38">
+                Age<br />
                 <asp:TextBox ID="txtAge" runat="server" Width="50px"></asp:TextBox>
                 yrs old</td>
             
         </tr>
         <tr>
-            <td class="style57" colspan="8">
+            <td class="style57" colspan="9">
                 <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="Large" 
                     ForeColor="#006600" Text="Vital Statistics "></asp:Label>
             </td>
@@ -239,7 +249,7 @@
         <tr>
             <td class="style48">
                 Temp</td>
-            <td class="style30" colspan="4">
+            <td class="style30" colspan="5">
                 <asp:TextBox ID="txtTemp" runat="server" Width="121px"></asp:TextBox>
                 &nbsp;<span class="style18">Celsius</span></td>
             <td align="right" class="style45">
@@ -251,7 +261,7 @@
         <tr>
             <td class="style52">
                 Height</td>
-            <td class="style64" colspan="4">
+            <td class="style64" colspan="5">
                 <asp:TextBox ID="txtHt_feet" runat="server" Width="40px"></asp:TextBox>
                 ft
                 <asp:TextBox ID="txtHt_inch" runat="server" Width="37px"></asp:TextBox>
@@ -265,7 +275,7 @@
         <tr>
             <td class="style56">
                 Diagnosis</td>
-            <td class="style55" colspan="7">
+            <td class="style55" colspan="8">
                 <asp:TextBox ID="txtDiagnosis" runat="server" Height="81px" TextMode="MultiLine" 
                     Width="780px"></asp:TextBox>
             </td>
@@ -273,7 +283,7 @@
         <tr>
             <td class="style49">
                 Treatment/<br /> Recommendation</td>
-            <td class="style51" colspan="7">
+            <td class="style51" colspan="8">
                 <asp:TextBox ID="txtRecomendation" runat="server" Height="81px" TextMode="MultiLine" 
                     Width="779px"></asp:TextBox>
             </td>
@@ -283,13 +293,13 @@
                 &nbsp;</td>
             <td class="style63" colspan="2">
                 <asp:Button ID="btnSave" runat="server" style="margin-left: 0px" Text="Save" 
-                    Width="145px" />
+                    Width="145px" onclick="btnSave_Click" />
             </td>
             <td class="style63">
                 <asp:Button ID="btnReset" runat="server" style="margin-left: 0px" Text="Reset" 
                     Width="145px" />
             </td>
-            <td class="style62" colspan="4">
+            <td class="style62" colspan="5">
                 &nbsp;</td>
         </tr>
     </table>

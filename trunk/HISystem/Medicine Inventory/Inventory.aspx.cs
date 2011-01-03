@@ -34,23 +34,28 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
     }
     protected void btnAddToList_Click(object sender, EventArgs e)
     {
-        gridViewList.DataSource = null;
-        gridViewList.DataBind();
-        gridViewList.Dispose();
-        if (Session["List"] == null)
-            dt.Rows.Add(ddlMedicineId.Text, txtMedicineName.Text, txtQuantity.Text);
-        else
+        if(txtMedicineName.Text.Trim()==null && txtQuantity.Text.Trim()==null)
         {
-            dt = (DataTable)Session["List"];
-            dt.Rows.Add(ddlMedicineId.Text, txtMedicineName.Text, txtQuantity.Text);
-        }
-        Session["List"] = dt;
-        ds.Tables.Add(dt);
-        gridViewList.DataSource = ds;
-        gridViewList.DataBind();
-        ds.Tables.Clear();
-        ds.Dispose();
-        dt.Dispose();
+                gridViewList.DataSource = null;
+                gridViewList.DataBind();
+                gridViewList.Dispose();
+                if (Session["List"] == null)
+                    dt.Rows.Add(ddlMedicineId.Text, txtMedicineName.Text, txtQuantity.Text);
+                else
+                {
+                    dt = (DataTable)Session["List"];
+                    dt.Rows.Add(ddlMedicineId.Text, txtMedicineName.Text, txtQuantity.Text);
+                }
+                Session["List"] = dt;
+                ds.Tables.Add(dt);
+                gridViewList.DataSource = ds;
+                gridViewList.DataBind();
+                ds.Tables.Clear();
+                ds.Dispose();
+                dt.Dispose();
+         }
+        else
+            Response.Write("<script> window.alert('Input fields cannot be empty. Please Try Again.')</script>");  
     }
     protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -136,33 +141,7 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
         Session["MedicineName"] = txtMedicineName.Text;
         Session["CategoryQuantLimit"] = ddlCategoryForItemShow.Text;
     }
-    protected void txtQuantityLimit_TextChanged(object sender, EventArgs e)
-    {
-        Session["new"] = "NO";
-        gridviewMedicine.DataSource = null;
-        gridviewMedicine.DataBind();
-        gridviewMedicine.Dispose();
-
-        data = new DataAccess();
-        data.RefreshGridviewByQuantityLowConfig(GridView1, Convert.ToInt32(txtQuantityLimit.Text.Trim()));
-
-        if (Session["Category"] == null || Session["MedicineName"] == null)
-        {
-            data.RefreshGridviewMedicine(gridviewMedicine);
-        }
-        else
-        {
-            if (ddlCategory.Text != "")
-                data.RefreshGridviewMedicineByCategory(gridviewMedicine, (string)Session["Category"]);
-            else if (txtMedicineName.Text != "")
-                data.RefreshGridviewMedicineByName(gridviewMedicine, (string)Session["MedicineName"]);
-        }
-
-        Session["Quantity"] = txtQuantityLimit.Text;
-        Session["Category"] = ddlCategory.Text;
-        Session["MedicineName"] = txtMedicineName.Text;
-        Session["CategoryQuantLimit"] = ddlCategoryForItemShow.Text;
-    }
+    
 
     protected void btnCheckOut_Click(object sender, EventArgs e)
     {
@@ -197,5 +176,32 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
         gridViewList.DataBind();
         gridViewList.Dispose();
     }
-    
+
+    protected void btn_belowQty_Click(object sender, EventArgs e)
+    {
+        Session["new"] = "NO";
+        gridviewMedicine.DataSource = null;
+        gridviewMedicine.DataBind();
+        gridviewMedicine.Dispose();
+
+        data = new DataAccess();
+        data.RefreshGridviewByQuantityLowConfig(GridView1, Convert.ToInt32(txtQuantityLimit.Text.Trim()));
+
+        if (Session["Category"] == null || Session["MedicineName"] == null)
+        {
+            data.RefreshGridviewMedicine(gridviewMedicine);
+        }
+        else
+        {
+            if (ddlCategory.Text != "")
+                data.RefreshGridviewMedicineByCategory(gridviewMedicine, (string)Session["Category"]);
+            else if (txtMedicineName.Text != "")
+                data.RefreshGridviewMedicineByName(gridviewMedicine, (string)Session["MedicineName"]);
+        }
+
+        Session["Quantity"] = txtQuantityLimit.Text;
+        Session["Category"] = ddlCategory.Text;
+        Session["MedicineName"] = txtMedicineName.Text;
+        Session["CategoryQuantLimit"] = ddlCategoryForItemShow.Text;
+    }
 }

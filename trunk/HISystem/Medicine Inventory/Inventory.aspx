@@ -2,12 +2,20 @@
 <%@ Register assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI.DataVisualization.Charting" tagprefix="asp" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <div id="originalContent"> 
-    <table style="width: 43%;" border="1">
+   
+   
+       <div id="originalContent"> 
+    <table style="width: 43%;" border="1" align="center">
+        <tr>
+            <td colspan="3">
+                    <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Size="Medium" 
+                        Text="CheckOut Medicine/Update Inventory"></asp:Label>
+            </td>
+        </tr>
         <tr>
             <td style="width: 280px">
                     Category</td>
-            <td>
+            <td colspan="2">
                 <asp:DropDownList ID="ddlCategory" runat="server" AutoPostBack="True" 
             DataSourceID="Category" DataTextField="CategoryName" 
             DataValueField="CategoryName" 
@@ -18,7 +26,7 @@
         <tr>
             <td style="width: 280px">
                     Name</td>
-            <td>
+            <td colspan="2">
                 <asp:TextBox 
             ID="txtNameSearch" runat="server" AutoPostBack="True" 
             ontextchanged="txtNameSearch_TextChanged" Width="231px"></asp:TextBox>
@@ -27,7 +35,7 @@
         <tr>
             <td style="width: 280px">
         Items</td>
-            <td>
+            <td colspan="2">
                 <asp:GridView ID="gridviewMedicine" runat="server" AutoGenerateColumns="False" DataKeyNames="MedicineId"
             Height="193px" onselectedindexchanged="gridviewMedicine_SelectedIndexChanged" 
             Width="229px" AutoGenerateSelectButton="True" HorizontalAlign="Center" 
@@ -53,14 +61,28 @@
                 </asp:GridView>
             </td>
         </tr>
+        <tr>
+            <td style="width: 280px">
+                &nbsp;</td>
+            <td style="width: 246px">
+                  <a href="#modalwindow" name="modal" style="color: #990033">add checkout item</a><br/>
+             </td>
+            <td>
+           
+        <a href="#modalwindow2" name="modal" style="color: #990033">view checkout items</a></td>
+        </tr>
     </table>
-        <a href="#modalwindow" name="modal" style="color: #990033">add checkout item</a><br/>
-        <a href="#modalwindow2" name="modal" style="color: #990033">view checkout items</a>
-        
-        <br />
+      
+        &nbsp;<br />
         <br />
 
-        <table style="width: 37%;" border="1">
+        <table style="width: 37%;" border="1" align="center">
+            <tr>
+                <td class="style2" colspan="2">
+                    <asp:Label ID="Label6" runat="server" Font-Bold="True" Font-Size="Medium" 
+                        Text="Monitor Inventory Items Quantity"></asp:Label>
+                </td>
+            </tr>
             <tr>
                 <td class="style2" style="width: 54px">
         <asp:Label ID="Label3" runat="server" Text="Category"></asp:Label>
@@ -81,10 +103,12 @@
                 </td>
                 <td class="style1">
 
-        <asp:TextBox ID="txtQuantityLimit" runat="server" AutoPostBack="True" 
+        <asp:TextBox ID="txtQuantityLimit" runat="server" 
             onpaste = "return false;" onkeyup ="keyUP(event.keyCode)" 
-                        onkeydown = "return isNumeric(event.keyCode);" ontextchanged="txtQuantityLimit_TextChanged" 
+                        onkeydown = "return isNumeric(event.keyCode);" 
        >20</asp:TextBox>
+                    <asp:Button ID="btn_belowQty" runat="server" Height="23px" 
+                        onclick="btn_belowQty_Click" Text="Enter" />
                 </td>
             </tr>
             <tr>
@@ -239,6 +263,8 @@
         </table>
 
             </div>
+            
+            
             <!-- Mask to cover the whole screen -->
             <div id="mask"></div>
     </div>
@@ -271,6 +297,12 @@
     </asp:SqlDataSource>
 
     
+
+
+
+
+   
+
 
 </asp:Content>
 
