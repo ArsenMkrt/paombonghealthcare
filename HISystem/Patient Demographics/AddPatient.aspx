@@ -2,7 +2,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <table style="width="84%" height="93px" border="1" bgcolor="#99CCFF">
+    <table 84%"="" bgcolor="#a2cc85" style="height:93px;width: 129px; border:solid 2px #2c6402;">
         <tr>
             <td class="style1" colspan="4">
                 <asp:SqlDataSource ID="Barangay" runat="server" 
@@ -23,7 +23,7 @@
             </td>
             <td class="style13" style="width: 129px">
                 <asp:Label ID="Label20" runat="server" Font-Bold="True" 
-        ForeColor="#006666" 
+        ForeColor="#000000" 
         Text="Barangay"></asp:Label>
             </td>
             <td class="style10">
@@ -35,7 +35,7 @@
         </tr>
         <tr>
             <td class="style1" style="width: 161px; height: 52px;">
-                <asp:Label ID="Label2" runat="server" Font-Bold="True" ForeColor="#006666" 
+                <asp:Label ID="Label2" runat="server" Font-Bold="True" ForeColor="#000000" 
                     Text="Name"></asp:Label>
             </td>
             <td class="style12" style="height: 52px">
@@ -58,14 +58,14 @@
         <tr>
             <td class="style1" style="width: 161px">
                 <asp:Label ID="Label3" runat="server" Font-Bold="True" 
-        ForeColor="#006666" Text="Contact Number"></asp:Label>
+        ForeColor="#000000" Text="Contact Number"></asp:Label>
             </td>
             <td class="style5" colspan="2" style="width: 179px">
                 <asp:TextBox ID="txtContactNum" runat="server" Width="203px"></asp:TextBox>
             </td>
             <td class="style11" style="width: 137px">
                 <asp:Label ID="Label8" runat="server" Font-Bold="True" 
-        ForeColor="#006666" 
+        ForeColor="#000000" 
         Text="Fax Number"></asp:Label>
             </td>
             <td class="style6" colspan="2">
@@ -75,24 +75,24 @@
         <tr>
             <td class="style1" style="width: 161px">
                 <asp:Label ID="Label13" runat="server" Font-Bold="True" 
-        ForeColor="#006666" Text="Sex"></asp:Label>
+        ForeColor="#000000" Text="Sex"></asp:Label>
             </td>
             <td class="style12" colspan="2" style="width: 179px">
                 &nbsp;
                 <asp:RadioButton GroupName="genderList" ID="radiobutton_Female" runat="server" 
-        Font-Bold="True" ForeColor="#006666" 
+        Font-Bold="True" ForeColor="#000000" 
         oncheckedchanged="radiobutton_Female_CheckedChanged" 
         
         Text="Female" />
                 <asp:RadioButton GroupName="genderList" ID="radiobutton_Male" runat="server" 
-        Font-Bold="True" ForeColor="#006666" 
+        Font-Bold="True" ForeColor="#000000" 
         oncheckedchanged="radiobutton_Male_CheckedChanged" 
         
         Text="Male" />
             </td>
             <td class="style11" style="width: 137px">
                 <asp:Label ID="Label14" runat="server" Font-Bold="True" 
-        ForeColor="#006666" 
+        ForeColor="#000000" 
        
         Text="Civil Status"></asp:Label>
             </td>
@@ -107,7 +107,7 @@
         <tr>
             <td class="style1" style="width: 161px">
                 <asp:Label ID="Label4" runat="server" Font-Bold="True" 
-        ForeColor="#006666" 
+        ForeColor="#000000" 
          
         Text="Email Address"></asp:Label>
             </td>
@@ -117,7 +117,7 @@
             </td>
             <td class="style11" style="width: 137px">
                 <asp:Label ID="Label12" runat="server" Font-Bold="True" 
-        ForeColor="#006666" 
+        ForeColor="#000000" 
         
         Text="City"></asp:Label>
             </td>
@@ -129,7 +129,7 @@
         <tr>
             <td class="style1" style="width: 161px">
                 <asp:Label ID="Label6" runat="server" Font-Bold="True" 
-        ForeColor="#006666"  
+        ForeColor="#000000"  
         Text="Birthdate"></asp:Label>
             </td>
             <td class="style5" colspan="2" style="width: 179px">
@@ -235,7 +235,7 @@
             </td>
             <td class="style11" style="width: 137px">
                 <asp:Label ID="Label18" runat="server" Font-Bold="True" 
-        ForeColor="#006666" 
+        ForeColor="#000000" 
         
         Text="Birthplace"></asp:Label>
             </td>
@@ -247,7 +247,7 @@
         <tr>
             <td class="style7" style="width: 161px">
                 <asp:Label ID="Label7" runat="server" Font-Bold="True" 
-        ForeColor="#006666" Text="Address"></asp:Label>
+        ForeColor="#000000" Text="Address"></asp:Label>
             </td>
             <td class="style8" colspan="5">
                 <asp:TextBox ID="txtAddress" runat="server" Height="51px" Width="615px" 
@@ -257,7 +257,7 @@
         <tr>
             <td class="style1" style="width: 161px">
                 <asp:Label ID="Label10" runat="server" Font-Bold="True" 
-        ForeColor="#006666" 
+        ForeColor="#000000" 
       
         Text="Company"></asp:Label>
             </td>
@@ -266,7 +266,7 @@
             </td>
             <td class="style11" style="width: 137px">
                 <asp:Label ID="Label19" runat="server" Font-Bold="True" 
-        ForeColor="#006666" 
+        ForeColor="#000000" 
        
         Text="Spouse Name"></asp:Label>
             </td>
@@ -277,7 +277,7 @@
         <tr>
             <td class="style1" style="width: 161px">
                 <asp:Label ID="Label11" runat="server" Font-Bold="True" 
-        ForeColor="#006666" 
+        ForeColor="#000000" 
        
         Text="Nationality"></asp:Label>
             </td>
@@ -287,7 +287,7 @@
             </td>
             <td class="style11" style="width: 137px">
                 <asp:Label ID="Label9" runat="server" Font-Bold="True" 
-        ForeColor="#006666" 
+        ForeColor="#000000" 
        
         Text="Doctor"></asp:Label>
             </td>

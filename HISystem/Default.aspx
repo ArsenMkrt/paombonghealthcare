@@ -8,7 +8,7 @@
     <p>
     <br />
         <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" 
-            ForeColor="#99CCFF" Text="Home"></asp:Label>
+            ForeColor="#a2cc85" Text="Home"></asp:Label>
     </p>
 <p>
         &nbsp;</p>

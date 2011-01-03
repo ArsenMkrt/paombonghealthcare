@@ -17,8 +17,8 @@
     <asp:ListView ID="ListView1" runat="server">
         <LayoutTemplate>
             <table cellpadding="3" cellspacing="0" rules="all" 
-                style="border: solid 2px #336699;" bgcolor="#99CCFF">
-                <tr style="background-color: #336699; color: White;">
+                style="border: solid 2px #2c6402;" bgcolor="#a2cc85">
+                <tr style="background-color: #2c6402; color: White;">
                     <th>
                         BrgyID</th>
                     <th>

@@ -12,7 +12,7 @@
         }
     </style>
 </head>
-<body bgcolor="#99CCFF" >
+<body bgcolor="#a2cc85" >
     <form id="form1" runat="server">
     <asp:Image ID="Image1" runat="server" ImageUrl="~/images/phis_name.png" 
         Width="273px" />
