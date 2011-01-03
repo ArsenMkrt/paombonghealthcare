@@ -21,7 +21,7 @@
             <asp:Label ID="Label1" runat="server" Font-Bold="True" ForeColor="#000000" 
                 Text="Patient Id"></asp:Label>
                 <br />
-                    <asp:TextBox ID="txtPatientId" runat="server" Width="85px" 
+                    <asp:TextBox ID="txtPatientId" runat="server" Width="114px" 
                        ></asp:TextBox>
                     <asp:Button ID="ButtonSearch" runat="server" onClick="ButtonSearch_Click" 
                         Text="Search" Width="86px" />
@@ -80,8 +80,9 @@
                     <asp:TextBox ID="txtContactNum" runat="server" Width="203px"></asp:TextBox>
                 </td>
                 <td class="style14">
-                    <asp:Label ID="Label24" runat="server" Font-Bold="True" ForeColor="#000000" 
-                        Text="Fax Number"></asp:Label>
+                <asp:Label ID="Label8" runat="server" Font-Bold="True" 
+        ForeColor="Black" 
+        Text="PhilHealth #"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">
                     <asp:TextBox ID="txtFaxNum" runat="server" Width="227px"></asp:TextBox>
@@ -289,7 +290,11 @@
                         onclick="button_AddEdit_Click" Text="Save Patient Details" Width="219px" />
                 </td>
                 <td class="style9" colspan="3">
-                    &nbsp;</td>
+                <asp:Button ID="button_ProceedConsultation" runat="server" 
+        onclick="button_ProceedConsultation_Click" 
+       
+        Text="Proceed to Consultation" Width="168px" Height="36px" />
+                </td>
             </tr>
         </table>
     

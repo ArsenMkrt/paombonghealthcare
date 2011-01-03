@@ -1,0 +1,187 @@
+
+
+/* Overall Page */
+
+body {
+	margin: 0;
+	padding-bottom: 2em;
+	background-color: #FFFFFF;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
+}
+
+#subheaderWrapper
+{
+    border-bottom: 4px dotted #2c6402;
+}
+/* Header Section */
+
+#header {
+	border-top: 8px solid #183503;
+	/*border-bottom: 2px dotted #2c6402;*/
+	height: 4.6em;
+}
+#header .title {
+	font: 190% Arial, Helvetica, Georgia, "Times New Roman", Times, serif;
+	color: white;
+	background-color: transparent;
+	float: left;
+	margin-right: 2em;
+	margin-top: 0.3em;
+	margin-left: .8em;
+    height: 54px;
+}
+
+#header a:link, a:visited  {
+	color: #FFFFFF;
+}
+
+/* Navigation */
+
+#navigation {
+	width: 200px;
+	top: 9.6em;
+	left: 1em;
+	width: 204px;	
+	position:absolute;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:90%;
+    height: 243px;
+}
+#navigation ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#navigation li {
+	border-bottom: 1px solid #183503;
+	border-top: 1px solid #183503;
+}
+#navigation li a  {
+	display: block;
+	padding: 5px 5px 5px 0.5em;
+	border-left: 12px solid #183503;
+	border-right: 2px solid #183503;
+	background-color: #2c6402;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+#navigation li a:hover {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+#navigation ul ul {
+	margin-left: 12px;
+}
+#navigation ul ul li {
+	border-bottom: 1px solid #FFFFFF;
+	margin:0;
+	background-color: #a2cc85;
+	color: #000000;
+}
+#navigation ul ul a:link, #navigation ul ul a:visited {
+	background-color: #a2cc85;
+	color: #000000;
+}
+#navigation ul ul a:hover {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+#header .breadcrumb {
+	font: 90% Arial, Helvetica, Georgia, "Times New Roman", Times, serif;
+	color: #2c6402;
+	background-color: transparent;
+	float: right;
+	margin-right: 2em;
+	margin-top: 0.8em;
+	font-weight:bold;
+}
+
+
+/* Main Content */
+
+#content 
+{
+	margin-top:2.8em;
+	margin-left: 16em;
+	margin-right: 2em;
+}
+h1 {
+	font: 150% Arial, Helvetica, Georgia, "Times New Roman", Times, serif;
+}
+#content p {
+	font-size: 80%;
+	line-height: 1.6em;
+    margin-left: 11px;
+}
+
+#content ul {
+	font-size: 80%;
+	line-height: 1.6em; 
+}
+
+
+.Important
+{
+    font-size: large;
+    color: Red;
+}
+
+
+
+/*MODAL*/
+#mask 
+   {
+      position:absolute;
+      left:0;
+      top:0;
+      z-index:9000;
+      background-color:grey;
+      display:none;
+    }
+     
+   #boxes .window {
+     position:absolute;
+     left:0;
+    top:0;
+     width:540px;
+     height:200px;
+    display:none;
+     z-index:9999;
+     padding:20px;
+   }
+    
+   #boxes #modalwindow {
+     width:575px; 
+     height:203px;
+     padding:10px;
+     background-color:#ffffff;
+     overflow:auto;
+   }
+   
+    #boxes .window2 {
+     position:absolute;
+     left:2px;
+    top:0px;
+     width:440px;
+     height:400px;
+    display:none;
+     z-index:9999;
+     padding:20px;
+   }
+    
+   #boxes #modalwindow2 {
+     width:360px; 
+     left:5px;
+     height:403px;
+     padding:2px;
+     background-color:#ffffff;
+     height:200px;
+     overflow:auto;
+   }
+    
+   .stylecenter
+   {
+    text-align: center;
+  }

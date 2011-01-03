@@ -69,4 +69,8 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
         if (radiobutton_Male.Checked)
             radiobutton_Male.Checked = false;
     }
+    protected void button_ProceedConsultation_Click(object sender, EventArgs e)
+    {
+        //Proceed to consultation 
+    }
 }

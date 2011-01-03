@@ -22,7 +22,7 @@
                     ImageUrl="~/images/image5.png" Width="54px" />
                     </center>
             </td>
-            <td class="style13" style="width: 129px">
+            <td class="style13" style="width: 109px">
                 <asp:Label ID="Label20" runat="server" Font-Bold="True" 
         ForeColor="#000000" 
         Text="Barangay"></asp:Label>
@@ -47,12 +47,12 @@
                 <asp:TextBox ID="txtFName" runat="server" Width="147px"></asp:TextBox>
                 <br />
                 First name</td>
-            <td class="style13" style="width: 129px; height: 52px;">
+            <td class="style13" style="width: 109px; height: 52px;">
                 <asp:TextBox ID="txtMName" runat="server" Width="107px"></asp:TextBox>
                 <br />
                 MI</td>
             <td class="style10" style="height: 52px">
-                <asp:TextBox ID="txtSuffix" runat="server" Width="71px" Height="23px" ></asp:TextBox>
+                <asp:TextBox ID="txtSuffix" runat="server" Width="51px" Height="23px" ></asp:TextBox>
                 <br />
                 Suffix</td>
         </tr>
@@ -66,8 +66,8 @@
             </td>
             <td class="style11" style="width: 137px">
                 <asp:Label ID="Label8" runat="server" Font-Bold="True" 
-        ForeColor="#000000" 
-        Text="Fax Number"></asp:Label>
+        ForeColor="Black" 
+        Text="PhilHealth #"></asp:Label>
             </td>
             <td class="style6" colspan="2">
                 <asp:TextBox ID="txtFaxNum" runat="server" Width="227px"></asp:TextBox>
@@ -251,7 +251,7 @@
         ForeColor="#000000" Text="Address"></asp:Label>
             </td>
             <td class="style8" colspan="5">
-                <asp:TextBox ID="txtAddress" runat="server" Height="51px" Width="615px" 
+                <asp:TextBox ID="txtAddress" runat="server" Height="51px" Width="601px" 
         ></asp:TextBox>
             </td>
         </tr>
@@ -313,7 +313,11 @@
         Text="Clear Details" Width="209px" Height="38px" />
             </td>
             <td class="style10">
-                &nbsp;</td>
+                <asp:Button ID="button_ProceedConsultation" runat="server" 
+        onclick="button_ProceedConsultation_Click" 
+       
+        Text="Proceed to Consultation" Width="168px" Height="36px" />
+            </td>
         </tr>
     </table>
    

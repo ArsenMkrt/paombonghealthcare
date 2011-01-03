@@ -8,9 +8,115 @@ using System.Collections;
 
 public partial class Medical_Record_Consultation : System.Web.UI.Page
 {
-   
+    int year, month;
+    private bool CheckLeap(int year)
+    {
+        if ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0))
+            return true;
+        else
+            return false;
+    }
+
+    private void BindDays(int year, int month)
+    {
+        int i;
+        ArrayList AlDay = new ArrayList();
+
+        switch (month)
+        {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                for (i = 1; i <= 31; i++)
+                    AlDay.Add(i);
+                break;
+            case 2:
+                if (CheckLeap(year))
+                {
+                    for (i = 1; i <= 29; i++)
+                        AlDay.Add(i);
+                }
+                else
+                {
+                    for (i = 1; i <= 28; i++)
+                        AlDay.Add(i);
+                }
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                for (i = 1; i <= 30; i++)
+                    AlDay.Add(i);
+                break;
+        }
+        dropDay.DataSource = AlDay;
+        dropDay.DataBind();
+
+    } 
 
     protected void Page_Load(object sender, EventArgs e)
+    {
+        //to load current day as label
+        lbl_dateToday.Text = DateTime.Now.ToShortDateString();
+        
+        
+        DateTime tnow = DateTime.Now;
+        ArrayList AlYear = new ArrayList();
+        int i;
+        for (i = 1970; i <= 2010; i++)
+            AlYear.Add(i);
+        ArrayList AlMonth = new ArrayList();
+        for (i = 1; i <= 12; i++)
+            AlMonth.Add(i);
+        if (!this.IsPostBack)
+        {
+            dropYear.DataSource = AlYear;
+            dropYear.DataBind();
+            dropYear.SelectedValue = tnow.Year.ToString();
+            dropMonth.DataSource = AlMonth;
+            dropMonth.DataBind();
+            dropMonth.SelectedValue = tnow.Month.ToString();
+            year = Int32.Parse(dropYear.SelectedValue);
+            month = Int32.Parse(dropMonth.SelectedValue);
+            BindDays(year, month);
+            dropDay.SelectedValue = tnow.Day.ToString();
+        }
+    }
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+       // DailyPatientRecord1.
+        txtbx_PatientID.Text = grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text;
+    }
+    protected void dropMonth_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+    protected void ddlBarangay_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+    protected void dropDay_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        year = Int32.Parse(dropYear.SelectedValue);
+        month = Int32.Parse(dropMonth.SelectedValue);
+        BindDays(year, month);
+    }
+    protected void dropYear_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        year = Int32.Parse(dropYear.SelectedValue);
+        month = Int32.Parse(dropMonth.SelectedValue);
+        BindDays(year, month);
+    }
+    protected void btnSave_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void grdvw_Users_Load(object sender, EventArgs e)
     {
 
     }
