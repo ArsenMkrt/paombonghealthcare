@@ -316,7 +316,7 @@
                 <asp:Button ID="button_ProceedConsultation" runat="server" 
         onclick="button_ProceedConsultation_Click" 
        
-        Text="Proceed to Consultation" Width="168px" Height="36px" />
+        Text="Proceed to Consultation &gt;&gt;" Width="168px" Height="36px" />
             </td>
         </tr>
     </table>
