@@ -50,6 +50,34 @@
     
             </div>
 
+
+                         <div id="modalwindow3" class="window3">
+                         <asp:SqlDataSource ID="Barangay0" runat="server" 
+                            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+                            SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
+                            </asp:SqlDataSource>
+                            <asp:DropDownList ID="ddlBarangay0" runat="server" 
+                            DataSourceID="Barangay0" DataTextField="BarangayName" 
+                            DataValueField="BarangayName" Height="22px" Width="184px">
+                             </asp:DropDownList>
+                            <br />
+                             <br />
+                             <asp:TextBox ID="txtSearchPatient" runat="server" Height="28px" Width="187px"></asp:TextBox>
+                             <asp:Button ID="btnSearch" runat="server" Text="Search Patient Name" Height="28px" 
+                                 Width="149px" />
+                                 <br/>
+                             <asp:GridView ID="GridSearchName" runat="server">
+                             </asp:GridView>
+                                
+                
+    <asp:SqlDataSource ID="PatientSearchName" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
+        
+                                 SelectCommand="SELECT [PatientID], [PtFname], [PtMname], [PtLname], [PtGender], [PtBdate], [PtAddress] FROM [Patients]">
+    </asp:SqlDataSource>
+                                
+                
+                         </div>
              <div id="mask"></div>
      </div>
     <br />
@@ -58,8 +86,9 @@
   
    
     <br />
-    <asp:SqlDataSource ID="Medicine2" runat="server" 
+    <asp:SqlDataSource ID="PatientSearchAll" runat="server" 
         ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
+        
         SelectCommand="SELECT [PatientID], [PtFname], [PtMname], [PtLname], [PtGender], [PtBdate], [PtAddress] FROM [Patients]">
     </asp:SqlDataSource>
     <br />
@@ -222,7 +251,7 @@
 
 
 <br />
-   <%-- <uc1:DailyPatientRecord ID="DailyPatientRecord1" runat="server" />--%>
+    <%-- <uc1:DailyPatientRecord ID="DailyPatientRecord1" runat="server" />--%>
    
 
 
