@@ -84,8 +84,5 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
             Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
         Response.Redirect("ViewEditPatient.aspx");
     }
-    protected void button_Clear_Click(object sender, EventArgs e)
-    {
-        
-    }
+    
 }
