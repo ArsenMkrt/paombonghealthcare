@@ -89,7 +89,7 @@ public partial class Reports_Bulk_Childcare : System.Web.UI.Page
                     }
                     conn.Close();
                 }
-                Label1.Text = "Records Inserted Successfully.";
+                
                 
             }
             Response.Write("<script> window.alert('Records Inserted Successfully.')</script>");
