@@ -14,7 +14,8 @@
     </script>
 
    
-        <table 84%"="" bgcolor="#a2cc85" style="height:93px;width: 129px; border:solid 2px #2c6402;">
+        <table 84%"="" bgcolor="#a2cc85" 
+        style="height:93px;width: 129px; border:solid 2px #2c6402;" border="2">
             <tr>
                 <td class="style3" colspan="2">
             <asp:Label ID="Label1" runat="server" Font-Bold="True" ForeColor="#000000" 
@@ -287,11 +288,7 @@
                     <asp:Button ID="Button1" runat="server" Height="36px" 
                         onclick="button_AddEdit_Click" Text="Save Patient Details" Width="219px" />
                 </td>
-                <td class="style9" colspan="2">
-                    <asp:Button ID="button_Clear" runat="server" Height="38px" 
-                        onclick="button_Clear_Click" Text="Clear Details" Width="209px" />
-                </td>
-                <td class="style10">
+                <td class="style9" colspan="3">
                     &nbsp;</td>
             </tr>
         </table>

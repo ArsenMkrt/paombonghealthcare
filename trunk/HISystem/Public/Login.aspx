@@ -16,7 +16,7 @@
     <asp:Login ID="LoginUser" runat="server" EnableViewState="False" 
     BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" 
     BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" 
-        Font-Bold="True">
+        Font-Bold="True" Width="281px">
         <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
         <LayoutTemplate>
             <span class="failureNotification">
@@ -28,22 +28,26 @@
                 <fieldset class="login">
                     <legend>Account Information</legend>
                     <p>
-                        <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Username:</asp:Label>
+                        <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName" 
+                            Font-Size="Small" ForeColor="White">Username:</asp:Label>
                         <asp:TextBox ID="UserName" runat="server" CssClass="textEntry"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="UserNameRequired" Display="Dynamic" runat="server" ControlToValidate="UserName" 
                              CssClass="failureNotification" ErrorMessage="User Name is required." ToolTip="User Name is required." 
                              ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
                     </p>
                     <p>
-                        <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
+                        <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" 
+                            Font-Size="Small" ForeColor="White">Password:</asp:Label>
                         <asp:TextBox ID="Password" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="PasswordRequired" Display="Dynamic" runat="server" ControlToValidate="Password" 
                              CssClass="failureNotification" ErrorMessage="Password is required." ToolTip="Password is required." 
                              ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
                     </p>
                     <p>
-                        <asp:CheckBox ID="RememberMe" runat="server"/>
-                        <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline">Keep me logged in</asp:Label>
+                        <asp:CheckBox ID="RememberMe" runat="server" Font-Size="X-Small" 
+                            ForeColor="White"/>
+                        <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" 
+                            CssClass="inline" Font-Size="X-Small" ForeColor="White">Keep me logged in</asp:Label>
                     </p>
                 </fieldset>
                 <p class="submitButton">
