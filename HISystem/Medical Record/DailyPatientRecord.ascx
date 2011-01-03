@@ -219,7 +219,8 @@
                 </asp:DropDownList>
             </td>
             <td class="style35" colspan="3">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Barangay<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                Barangay<br />
                 <asp:DropDownList ID="ddlBarangay" runat="server" 
         DataSourceID="Barangay" DataTextField="BarangayName" 
         DataValueField="BarangayName" style="margin-left: 56px">
