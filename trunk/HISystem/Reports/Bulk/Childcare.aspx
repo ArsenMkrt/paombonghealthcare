@@ -6,10 +6,9 @@
     <h2>Consolidated Report</h2>
     <asp:Label ID="lbl_Indicator" runat="server" Text="Choose Indicator:"></asp:Label>
 &nbsp;
-    <asp:DropDownList ID="dropIndicator" runat="server" Height="28px" 
-    Width="139px">
-        <asp:ListItem>Infant given vit A</asp:ListItem>
-        <asp:ListItem>Infant given ...</asp:ListItem>
+    <asp:DropDownList ID="dropIndicator" runat="server" Height="20px" 
+    Width="261px" DataSourceID="Indicator" DataTextField="IndicatorData" 
+        DataValueField="IndicatorData">
     </asp:DropDownList>
     
     <br />
@@ -79,10 +78,19 @@
     <asp:Button ID="btnSave" runat="server" onclick="Button1_Click" Text="Save" 
         Width="136px" />
     <br />
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
-        SelectCommand="SELECT [BarangayID], [BarangayName] FROM [Barangays]">
+    <asp:SqlDataSource ID="Indicator" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString2 %>" 
+        
+        SelectCommand="SELECT [IndicatorData] FROM [Indicator] WHERE [ProgramCategoryID]='3333'">
     </asp:SqlDataSource>
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+
+    
+
+
+
+
+   
+
+
 </asp:Content>
 
