@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
-    <p>
+    
 
     <script type="text/javascript" language="javascript">
 
@@ -14,10 +14,10 @@
     </script>
 
    
-        <table 84%"="" bgcolor="#99CCFF" border="1" height="93px" style="width=">
+        <table 84%"="" bgcolor="#a2cc85" style="height:93px;width: 129px; border:solid 2px #2c6402;">
             <tr>
                 <td class="style3" colspan="2">
-            <asp:Label ID="Label1" runat="server" Font-Bold="True" ForeColor="#006666" 
+            <asp:Label ID="Label1" runat="server" Font-Bold="True" ForeColor="#000000" 
                 Text="Patient Id"></asp:Label>
                 <br />
                     <asp:TextBox ID="txtPatientId" runat="server" Width="85px" 
@@ -40,7 +40,7 @@
                     </center>
                 </td>
                 <td class="style3">
-                    <asp:Label ID="Label21" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label21" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Barangay"></asp:Label>
                     <br />
                     <asp:DropDownList ID="ddlBarangay" runat="server" datasourceid="Barangay0" 
@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <td class="style1" style="width: 161px; height: 52px;">
-                    <asp:Label ID="Label22" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label22" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Name"></asp:Label>
                 </td>
                 <td class="style12" style="height: 52px" colspan="2">
@@ -72,14 +72,14 @@
             </tr>
             <tr>
                 <td class="style1" style="width: 161px">
-                    <asp:Label ID="Label23" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label23" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Contact Number"></asp:Label>
                 </td>
                 <td class="style5" colspan="3" style="width: 179px">
                     <asp:TextBox ID="txtContactNum" runat="server" Width="203px"></asp:TextBox>
                 </td>
                 <td class="style14">
-                    <asp:Label ID="Label24" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label24" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Fax Number"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">
@@ -88,19 +88,19 @@
             </tr>
             <tr>
                 <td class="style1" style="width: 161px">
-                    <asp:Label ID="Label25" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label25" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Sex"></asp:Label>
                 </td>
                 <td class="style12" colspan="3" style="width: 179px">
                     &nbsp;
                     <asp:RadioButton ID="radiobutton_Female" runat="server" Font-Bold="True" 
-                        ForeColor="#006666" GroupName="genderList" 
+                        ForeColor="#000000" GroupName="genderList" 
                      Text="Female" />
                     <asp:RadioButton ID="radiobutton_Male" runat="server" Font-Bold="True" 
-                        ForeColor="#006666" GroupName="genderList"  Text="Male" />
+                        ForeColor="#000000" GroupName="genderList"  Text="Male" />
                 </td>
                 <td class="style14">
-                    <asp:Label ID="Label26" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label26" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Civil Status"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">
@@ -113,14 +113,14 @@
             </tr>
             <tr>
                 <td class="style1" style="width: 161px">
-                    <asp:Label ID="Label27" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label27" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Email Address"></asp:Label>
                 </td>
                 <td class="style5" colspan="3" style="width: 179px">
                     <asp:TextBox ID="txtEmailAdd" runat="server" Width="206px"></asp:TextBox>
                 </td>
                 <td class="style14">
-                    <asp:Label ID="Label28" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label28" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="City"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">
@@ -129,7 +129,7 @@
             </tr>
             <tr>
                 <td class="style1" style="width: 161px">
-                    <asp:Label ID="Label29" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label29" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Birthdate"></asp:Label>
                 </td>
                 <td class="style5" colspan="3" style="width: 179px">
@@ -181,19 +181,58 @@
                         <asp:ListItem>31</asp:ListItem>
                     </asp:DropDownList>
                     <asp:DropDownList ID="ddlYear" runat="server">
-                        <asp:ListItem>1989</asp:ListItem>
-                        <asp:ListItem>1990</asp:ListItem>
-                        <asp:ListItem>1991</asp:ListItem>
-                        <asp:ListItem>1992</asp:ListItem>
-                        <asp:ListItem>1993</asp:ListItem>
-                        <asp:ListItem>1994</asp:ListItem>
-                        <asp:ListItem>1995</asp:ListItem>
-                        <asp:ListItem>1996</asp:ListItem>
-                        <asp:ListItem>1997</asp:ListItem>
+                         <asp:ListItem>1970</asp:ListItem>
+                    <asp:ListItem>1971</asp:ListItem>
+                    <asp:ListItem>1972</asp:ListItem>
+                    <asp:ListItem>1973</asp:ListItem>
+                    <asp:ListItem>1974</asp:ListItem>
+                    <asp:ListItem>1975</asp:ListItem>
+                    <asp:ListItem>1976</asp:ListItem>
+                    <asp:ListItem>1977</asp:ListItem>
+                    <asp:ListItem>1978</asp:ListItem>
+                    <asp:ListItem>1979</asp:ListItem>
+                    <asp:ListItem>1980</asp:ListItem>
+                    <asp:ListItem>1981</asp:ListItem>
+                    <asp:ListItem>1982</asp:ListItem>
+                    <asp:ListItem>1983</asp:ListItem>
+                    <asp:ListItem>1984</asp:ListItem>
+                    <asp:ListItem>1985</asp:ListItem>
+                    <asp:ListItem>1986</asp:ListItem>
+                    <asp:ListItem>1987</asp:ListItem>
+                    <asp:ListItem>1988</asp:ListItem>
+                    <asp:ListItem>1989</asp:ListItem>
+                    <asp:ListItem>1990</asp:ListItem>
+                    <asp:ListItem>1991</asp:ListItem>
+                    <asp:ListItem>1992</asp:ListItem>
+                    <asp:ListItem>1993</asp:ListItem>
+                    <asp:ListItem>1994</asp:ListItem>
+                    <asp:ListItem>1995</asp:ListItem>
+                    <asp:ListItem>1996</asp:ListItem>
+                    <asp:ListItem>1997</asp:ListItem>
+                    <asp:ListItem>1998</asp:ListItem>
+                    <asp:ListItem>1999</asp:ListItem>
+                    <asp:ListItem>2000</asp:ListItem>
+                    <asp:ListItem>2001</asp:ListItem>
+                    <asp:ListItem>2002</asp:ListItem>
+                    <asp:ListItem>2003</asp:ListItem>
+                    <asp:ListItem>2004</asp:ListItem>
+                    <asp:ListItem>2005</asp:ListItem>
+                    <asp:ListItem>2006</asp:ListItem>
+                    <asp:ListItem>2007</asp:ListItem>
+                    <asp:ListItem>2008</asp:ListItem>
+                    <asp:ListItem>2009</asp:ListItem>
+                    <asp:ListItem>2010</asp:ListItem>
+                    <asp:ListItem>2011</asp:ListItem>
+                    <asp:ListItem>2012</asp:ListItem>
+                    <asp:ListItem>2013</asp:ListItem>
+                    <asp:ListItem>2014</asp:ListItem>
+                    <asp:ListItem>2015</asp:ListItem>
+                    <asp:ListItem>2016</asp:ListItem>
+                    <asp:ListItem>2017</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td class="style14">
-                    <asp:Label ID="Label30" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label30" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Birthplace"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">
@@ -202,7 +241,7 @@
             </tr>
             <tr>
                 <td class="style7" style="width: 161px">
-                    <asp:Label ID="Label31" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label31" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Address"></asp:Label>
                 </td>
                 <td class="style8" colspan="6">
@@ -211,14 +250,14 @@
             </tr>
             <tr>
                 <td class="style1" style="width: 161px">
-                    <asp:Label ID="Label32" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label32" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Company"></asp:Label>
                 </td>
                 <td class="style5" colspan="3" style="width: 179px">
                     <asp:TextBox ID="txtCompany" runat="server" Width="207px"></asp:TextBox>
                 </td>
                 <td class="style14">
-                    <asp:Label ID="Label33" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label33" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Spouse Name"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">
@@ -227,14 +266,14 @@
             </tr>
             <tr>
                 <td class="style1" style="width: 161px">
-                    <asp:Label ID="Label34" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label34" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Nationality"></asp:Label>
                 </td>
                 <td class="style12" colspan="3" style="width: 179px">
                     <asp:TextBox ID="txtNationality" runat="server" Width="208px"></asp:TextBox>
                 </td>
                 <td class="style14">
-                    <asp:Label ID="Label35" runat="server" Font-Bold="True" ForeColor="#006666" 
+                    <asp:Label ID="Label35" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Doctor"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">

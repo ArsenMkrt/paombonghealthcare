@@ -46,11 +46,11 @@
 
 
 
-                    <div class="accountInfo" style="height: 163px;  width: 310px;" style="background-color: #99CCFF">
+                    <div class="accountInfo" style="height: 163px;  width: 310px;" style="background-color: #a2cc85">
                         <fieldset class="register">
                             <legend>Account Information</legend>
                             
-                            <table style="width: 100%; background-color: #99CCFF">
+                            <table style="width: 100%; background-color: #a2cc85">
                                 <tr>
                                     <td>
                                          <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>

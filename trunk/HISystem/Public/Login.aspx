@@ -24,7 +24,7 @@
             </span>
             <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="LoginUserValidationGroup"/>
-            <div class="accountInfo" style="background-color: #99CCFF">
+            <div class="accountInfo" style="background-color: #a2cc85">
                 <fieldset class="login">
                     <legend>Account Information</legend>
                     <p>
