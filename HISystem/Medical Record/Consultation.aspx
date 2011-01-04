@@ -373,7 +373,7 @@
             </td>
             <td class="style63">
                 <asp:Button ID="btnReset" runat="server" style="margin-left: 0px" Text="Reset" 
-                    Width="145px" />
+                    Width="145px" onclick="btnReset_Click" />
             </td>
             <td class="style62" colspan="5">
                 &nbsp;</td>
