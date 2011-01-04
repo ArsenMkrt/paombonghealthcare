@@ -3,7 +3,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-<br />
+    <br />
 <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">Search PatientID</a>
         <br />
          <a href="#modalwindow2" name="modal" style="color: #990033; font-weight: bold;">Search Patient</a>
