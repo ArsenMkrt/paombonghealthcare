@@ -3,16 +3,96 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+<br />
+<a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">Search PatientID</a>
+        <br />
+         <a href="#modalwindow2" name="modal" style="color: #990033; font-weight: bold;">Search Patient</a>
+        
+        
+  <div id="boxes">
+             <div id="modalwindow" class="window">
+            <br />
+             
+                 <table style="width: 87%;">
+                     <tr>
+                         <td>
+                             &nbsp;</td>
+                         <td style="width: 375px">
+                             Please select patient in table below.</td>
+                         <td>
+             
+        &nbsp;&nbsp;&nbsp;
+             
+        <asp:Label ID="Label3" runat="server" Text="PatientID :" Font-Bold="True"></asp:Label>
+    <asp:TextBox ID="txtbx_PatientID" runat="server" ReadOnly="true" style="margin-left: 13px"></asp:TextBox>
+                         </td>
+                     </tr>
+                 </table>
+    <br />
+    <asp:GridView ID="grdvw_Users" runat="server" AutoGenerateColumns="False" 
+        DataKeyNames="PatientID" DataSourceID="Medicine2" 
+            onselectedindexchanged="GridView1_SelectedIndexChanged" 
+            AutoGenerateSelectButton="True" onload="grdvw_Users_Load">
+        <Columns>
+            <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
+                InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
+            <asp:BoundField DataField="PtFname" HeaderText="First name" 
+                SortExpression="PtFname" />
+            <asp:BoundField DataField="PtMname" HeaderText="Middle" 
+                SortExpression="PtMname" />
+            <asp:BoundField DataField="PtLname" HeaderText="Lastname" 
+                SortExpression="PtLname" />
+            <asp:BoundField DataField="PtGender" HeaderText="Gender" 
+                SortExpression="PtGender" />
+            <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
+                SortExpression="PtBdate" />
+            <asp:BoundField DataField="PtAddress" HeaderText="Address" 
+                SortExpression="PtAddress" />
+        </Columns>
+    </asp:GridView>
+    <asp:SqlDataSource ID="Medicine2" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
+        
+        
+        SelectCommand="SELECT [PatientID], [PtFname], [PtMname], [PtLname], [PtGender], [PtBdate], [PtAddress] FROM [Patients]">
+    </asp:SqlDataSource>
+     <asp:Button ID="ButtonProceed" runat="server" Text="Proceed" Width="104px" onClick="ButtonProceed_Click" />
+    
+            </div>
 
+
+                         <div id="modalwindow2" class="window2">
+                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+                            SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
+                            </asp:SqlDataSource>
+                            <asp:DropDownList ID="ddlBarangay0" runat="server" 
+                            DataSourceID="Barangay0" DataTextField="BarangayName" 
+                            DataValueField="BarangayName" Height="22px" Width="184px">
+                             </asp:DropDownList>
+                            <br />
+                             <br />
+                             <asp:TextBox ID="txtSearchPatient" runat="server" Height="28px" Width="187px"></asp:TextBox>
+                             <asp:Button ID="btnSearch" runat="server" Text="Search Patient Name" Height="28px" 
+                                 Width="149px" />
+                                 <br/>
+                             <asp:GridView ID="GridSearchName" runat="server">
+                             </asp:GridView>
+                                
+                
+    <asp:SqlDataSource ID="PatientSearchName" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
+        
+                                 SelectCommand="SELECT [PatientID], [PtFname], [PtMname], [PtLname], [PtGender], [PtBdate], [PtAddress] FROM [Patients]">
+    </asp:SqlDataSource>
+                                
+                
+                         </div>
+             <div id="mask"></div>
+     </div>
     
 
-    <script type="text/javascript" language="javascript">
-
-          function Popup() {
-              window.open("http://www.google.com/")
-          }
-    </script>
-
+    <br />
    
         <table 84%"="" bgcolor="#a2cc85" 
         style="height:93px;width: 129px; border:solid 2px #2c6402;" border="2">
