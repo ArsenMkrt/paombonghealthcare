@@ -1214,7 +1214,7 @@ public class DataAccess
     }
 
     public void SavePatientDailyMedicalRecord(int PatientID,int PatientAge, int Temperature,int PatientWeight,int PatientHeight
-        ,int BloodPressure,string Diagnosis, string Treatment)
+        ,string BloodPressure,string Diagnosis, string Treatment)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
 
@@ -1227,7 +1227,7 @@ public class DataAccess
         cmdTxt.Parameters.Add("@Temp", SqlDbType.Int).Value = Temperature;
         cmdTxt.Parameters.Add("@Weight", SqlDbType.Int).Value = PatientWeight;
         cmdTxt.Parameters.Add("@Height", SqlDbType.Int).Value = PatientHeight;
-        cmdTxt.Parameters.Add("@BP", SqlDbType.Int).Value = BloodPressure;
+        cmdTxt.Parameters.Add("@BP", SqlDbType.VarChar).Value = BloodPressure;
         cmdTxt.Parameters.Add("@Diagnosis", SqlDbType.VarChar).Value = Diagnosis;
         cmdTxt.Parameters.Add("@Treatment", SqlDbType.VarChar).Value = Treatment;
         cmdTxt.ExecuteNonQuery();

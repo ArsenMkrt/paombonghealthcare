@@ -104,7 +104,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                     Convert.ToInt32(txtTemp.Text),
                     Convert.ToInt32(txtWt.Text),
                     Convert.ToInt32(height),
-                    Convert.ToInt32(txtBpressure.Text),
+                    txtBpressure.Text,
                     txtDiagnosis.Text,
                     txtRecomendation.Text
                 
