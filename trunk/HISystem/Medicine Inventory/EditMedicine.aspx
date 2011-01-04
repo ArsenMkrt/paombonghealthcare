@@ -62,7 +62,7 @@
             Text="Save" onclick="btnSave_Click" />
         <asp:Button ID="btnClear" runat="server" 
             style="top: 335px; left: 628px; position: absolute; height: 26px; width: 73px" 
-            Text="Clear" />
+            Text="Clear" onclick="btnClear_Click" />
         <asp:SqlDataSource ID="Category" runat="server" 
             ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
             SelectCommand="SELECT DISTINCT [CategoryName] FROM [Category] ORDER BY [CategoryName]">

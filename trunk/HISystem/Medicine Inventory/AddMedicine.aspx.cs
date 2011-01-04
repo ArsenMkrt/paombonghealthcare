@@ -19,4 +19,8 @@ public partial class Medicine_Inventory_AddMedicine : System.Web.UI.Page
         data.AddMedicine(txtMedicineName.Text,ddlCategory.Text,Convert.ToInt32(txtQuantity.Text.Trim()));
         Response.Redirect("AddMedicine.aspx");
     }
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("AddMedicine.aspx");
+    }
 }

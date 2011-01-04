@@ -42,4 +42,8 @@ public partial class Medicine_Inventory_EditMedicine : System.Web.UI.Page
         data.UpdateMedicine(Convert.ToInt32(txtMedicineId.Text.Trim()),txtMedicineName.Text.Trim(),
             ddlCategory.Text.Trim(),Convert.ToInt32(txtQuantity.Text.Trim()));
     }
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("EditMedicine.aspx");
+    }
 }
