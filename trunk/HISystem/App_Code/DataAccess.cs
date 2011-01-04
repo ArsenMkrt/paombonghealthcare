@@ -1214,65 +1214,23 @@ public class DataAccess
         conn.Close();
     }
 
+    public void SavePatientDailyMedicalRecord(int PatientID,int PatientAge, int Temperature,int PatientWeight,int PatientHeight
+        ,int BloodPressure,string Diagnosis, string Treatment)
+    {
+        SqlConnection connPatient = new SqlConnection(dataconnection);
 
-
-    //public void LoadGridChildCare(GridView gridviewCCChildCare, string IndicatorData,string Quarter, string Year)
-    //{
-    //    int indicatorId = 0;
-    //    string barangayName = "";
-    //    string month = "";
-    //    string year = "";
-    //    string[] monthYear = new string[2];
-    //    string Male = "";
-    //    string Female = "";
-    //    DataSet ds = new DataSet();
-    //    DataTable childCare = new DataTable();
-    //    childCare.Columns.Add("Barangay");
-    //    childCare.Columns.Add("Population");
-    //    childCare.Columns.Add("Target");
-    //    childCare.Columns.Add("Male1");
-    //    childCare.Columns.Add("Female1");
-    //    childCare.Columns.Add("Total1");
-    //    childCare.Columns.Add("Male2");
-    //    childCare.Columns.Add("Female2");
-    //    childCare.Columns.Add("Total2");
-    //    childCare.Columns.Add("Male3");
-    //    childCare.Columns.Add("Female3");
-    //    childCare.Columns.Add("Total3");
-    //    childCare.Columns.Add("Accomplishment");
-    //    childCare.Columns.Add("Percent");
-
-    //    SqlConnection conn = new SqlConnection(dataconnection);
-
-    //    conn.Open();
-    //    indicatorId = GetIndicatorId(IndicatorData);
-    //    SqlCommand cmdTxt = new SqlCommand("GetCcChildCare", conn);
-    //    cmdTxt.CommandType = CommandType.StoredProcedure;
-    //    cmdTxt.Parameters.Add("@IndicatorId", SqlDbType.Int).Value = indicatorId;
-    //    cmdTxt.Parameters.Add("@Quarter", SqlDbType.VarChar).Value = Quarter;
-    //    SqlDataReader dr = cmdTxt.ExecuteReader();
-    //    while (dr.Read())
-    //    {
-    //        monthYear = dr["a.MonthYear"].ToString().Split('-');
-    //        month = monthYear[0];
-    //        year = monthYear[1];
-    //        switch (month.Trim())
-    //        {
-    //            case "1": {  } break;
-
-
-    //        }
-    //        barangayName = GetBarangayName(Convert.ToInt32(dr["a.BarangayID"]));
-    //        childCare.Rows.Add(barangayName.Trim(),dr["b.Population"].ToString(),"Target",
-    //            dr["a.Male"].ToString(), dr["a.Female"].ToString(), Convert.ToString(Convert.ToInt32(dr["a.Male"]) + Convert.ToInt32(dr["a.Female"])),
-    //            dr["a.Male"].ToString(), dr["a.Female"].ToString(), Convert.ToString(Convert.ToInt32(dr["a.Male"]) + Convert.ToInt32(dr["a.Female"])),
-    //            dr["a.Male"].ToString(), dr["a.Female"].ToString(), Convert.ToString(Convert.ToInt32(dr["a.Male"]) + Convert.ToInt32(dr["a.Female"])), 
-    //            dr["a.Accomplishment"].ToString(),
-    //            dr["Percent"].ToString());
-    //    }
-    //    dr.Close();
-
-        
-    //    conn.Close();
-    //}
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Encounters (EncounterDateTime,PatientID,Age,Temp,Weight,Height,BP,Diagnosis,Treatment)"
+            + "VALUES (@EncounterDateTime,@PatientID,@Age,@Temp,@Weight,@Height,@BP,@Diagnosis,@Treatment)", connPatient);
+        cmdTxt.Parameters.Add("@EncounterDateTime", SqlDbType.DateTime).Value = DateTime.Now.ToString("MM/dd/yyyy HH:MM");
+        cmdTxt.Parameters.Add("@PatientID", SqlDbType.Int).Value = PatientID;
+        cmdTxt.Parameters.Add("@Age", SqlDbType.Int).Value = PatientAge;
+        cmdTxt.Parameters.Add("@Temp", SqlDbType.Int).Value = Temperature;
+        cmdTxt.Parameters.Add("@Weight", SqlDbType.Int).Value = PatientWeight;
+        cmdTxt.Parameters.Add("@Height", SqlDbType.Int).Value = PatientHeight;
+        cmdTxt.Parameters.Add("@BP", SqlDbType.Int).Value = BloodPressure;
+        cmdTxt.Parameters.Add("@Diagnosis", SqlDbType.VarChar).Value = Diagnosis;
+        cmdTxt.Parameters.Add("@Treatment", SqlDbType.Decimal).Value = Treatment;
+        cmdTxt.ExecuteNonQuery();
+    }
 }

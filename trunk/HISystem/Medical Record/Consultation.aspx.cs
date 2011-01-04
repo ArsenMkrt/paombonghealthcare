@@ -81,10 +81,23 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     
     
     protected void btnSave_Click(object sender, EventArgs e)
-    {
+    {   
+        /**
+         * Added by Lakhi Save 1/5/2011
+         * This Saves patient daily Medical record
+         */
+        int totalHeight = 0;
+        if (txtHt_inch.MaxLength == 1 && txtHt_feet.MaxLength == 1)
+            totalHeight = Convert.ToInt32(txtHt_feet.Text + "0" + txtHt_inch.Text);
+        else if (txtHt_feet.MaxLength == 1 && txtHt_inch.MaxLength == 0)
+            totalHeight = Convert.ToInt32(txtHt_feet.Text + "00");
+
+        data = new DataAccess();
         if (txtDiagnosis.Text.Trim() != null)
-        { 
-        
+        {
+            data.SavePatientDailyMedicalRecord(Convert.ToInt32(txtbx_PatientID.Text), Convert.ToInt32(txtAge.Text), Convert.ToInt32(txtTemp.Text)
+                , Convert.ToInt32(txtWt.Text),totalHeight
+                , Convert.ToInt32(txtBpressure.Text), txtDiagnosis.Text, txtRecomendation.Text);
         }
         else
             Response.Write("<script> window.alert('Please fillup required fields.')</script>");
