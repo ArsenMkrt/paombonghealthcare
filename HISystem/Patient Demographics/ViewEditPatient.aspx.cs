@@ -93,4 +93,19 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
             Response.Redirect("~/Medical%20Record/Consultation.aspx?id=" + txtPatientId.Text);
         }
     }
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        txtbx_PatientID.Text = grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text;
+        txtPatientId.Text = grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text;
+        ButtonSearch_Click(sender, e);
+
+    }
+    protected void grdvw_Users_Load(object sender, EventArgs e)
+    {
+
+    }
+    protected void ButtonProceed_Click(object sender, EventArgs e)
+    {
+
+    }
 }
