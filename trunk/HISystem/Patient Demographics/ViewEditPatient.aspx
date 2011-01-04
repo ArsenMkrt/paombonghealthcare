@@ -72,20 +72,40 @@
                              </asp:DropDownList>
                             <br />
                              <br />
-                             <asp:TextBox ID="txtSearchPatient" runat="server" Height="28px" Width="187px"></asp:TextBox>
+                             <asp:TextBox ID="txtSearchPatient" OnTextChanged="txtSearchPatient_TextChanged" runat="server" Height="28px" Width="187px"></asp:TextBox>
                              <asp:Button ID="btnSearch" runat="server" Text="Search Patient Name" Height="28px" 
                                  Width="149px" />
                                  <br/>
-                             <asp:GridView ID="GridSearchName" runat="server">
-                             </asp:GridView>
+        <asp:GridView ID="GridSearchName"  runat="server" AutoGenerateColumns="False" 
+        DataKeyNames="PatientID" DataSourceID="PatientSearchName"
+            AutoGenerateSelectButton="True">
+        <Columns>
+            <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
+                InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
+            <asp:BoundField DataField="PtFname" HeaderText="First name" 
+                SortExpression="PtFname" />
+            <asp:BoundField DataField="PtMname" HeaderText="Middle" 
+                SortExpression="PtMname" />
+            <asp:BoundField DataField="PtLname" HeaderText="Lastname" 
+                SortExpression="PtLname" />
+            <asp:BoundField DataField="PtGender" HeaderText="Gender" 
+                SortExpression="PtGender" />
+            <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
+                SortExpression="PtBdate" />
+            <asp:BoundField DataField="PtAddress" HeaderText="Address" 
+                SortExpression="PtAddress" />
+        </Columns>
+    </asp:GridView>
                                 
                 
     <asp:SqlDataSource ID="PatientSearchName" runat="server" 
         ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
-        
-                                 SelectCommand="SELECT [PatientID], [PtFname], [PtMname], [PtLname], [PtGender], [PtBdate], [PtAddress] FROM [Patients]">
+        SelectCommand="SearchPatientByName" SelectCommandType="StoredProcedure">
+        <SelectParameters>
+            <asp:Parameter Name ="PatientLastName" DefaultValue="A"/>
+        </SelectParameters>
     </asp:SqlDataSource>
-                                
+        
                 
                          </div>
              <div id="mask"></div>

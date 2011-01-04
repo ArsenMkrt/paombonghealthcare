@@ -12,7 +12,7 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+      
     }
     protected void ButtonSearch_Click(object sender, EventArgs e)
     {
@@ -107,5 +107,10 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
     protected void ButtonProceed_Click(object sender, EventArgs e)
     {
 
+    }
+    protected void txtSearchPatient_TextChanged(object sender, EventArgs e)
+    {
+        Response.Write("<script type='text/javascript'>" + "alert(\"Hello: " + txtSearchPatient.Text + "\");</script>");
+        PatientSearchName.SelectParameters["PatientLastName"].DefaultValue = txtSearchPatient.Text;
     }
 }
