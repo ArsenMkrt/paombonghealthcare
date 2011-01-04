@@ -32,9 +32,9 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
                  txtSuffix.Text.Trim(), ddlDay.Text.Trim() + "/" + ddlMonth.Text.Trim() + "/" + ddlYear.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
                  txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
                  Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
-            
-        
-        Response.Write("<script> window.alert('Added Patient Successfully.')</script>");
+
+
+            Response.Write("<script> window.alert('Added Patient Successfully.')</script>");
         
         txtFName.Text = "";
         txtMName.Text = "";
@@ -99,5 +99,6 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
     protected void button_ProceedConsultation_Click(object sender, EventArgs e)
     {
         //Proceed to consultation 
+        Response.Redirect("~/Medical%20Record/Consultation.aspx");
     }
 }

@@ -87,11 +87,13 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
 
     protected void button_ProceedConsultation_Click(object sender, EventArgs e)
     {
-        if (txtPatientId.Text.Trim() != null)
+        if (txtPatientId.Text.Trim() != "" && txtPatientId.Text.Length > 0)
         {
             //Proceed to consultation 
             Response.Redirect("~/Medical%20Record/Consultation.aspx?id=" + txtPatientId.Text);
         }
+        else
+            Response.Redirect("~/Medical%20Record/Consultation.aspx");
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {

@@ -21,7 +21,11 @@
         <asp:TextBox ID="txtMedicineId" runat="server" 
             
             
-            style="top: 177px; left: 528px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
+            style="top: 177px; left: 528px; position: absolute; height: 22px; width: 128px"
+            
+            onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;"
+            ></asp:TextBox>
     </p>
     <p>
         <asp:Label ID="Label4" runat="server" 
@@ -44,10 +48,13 @@
             
             
             style="top: 239px; left: 526px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
-        <asp:TextBox ID="txtQuantity" runat="server" 
+        <%--number validations--%>
+        <asp:TextBox ID="txtQuantity" runat="server" style="top: 303px; left: 524px; position: absolute; height: 22px; width: 128px" 
             
             
-            style="top: 303px; left: 524px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
+            
+            onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;"></asp:TextBox>
     </p>
     <p>
         <asp:Button ID="btnSave" runat="server" 

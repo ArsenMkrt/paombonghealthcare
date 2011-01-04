@@ -62,7 +62,8 @@
         ForeColor="#000000" Text="Contact Number"></asp:Label>
             </td>
             <td class="style5" colspan="2" style="width: 179px">
-                <asp:TextBox ID="txtContactNum" runat="server" Width="203px"></asp:TextBox>
+                <asp:TextBox ID="txtContactNum" runat="server" Width="203px" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;"></asp:TextBox>
             </td>
             <td class="style11" style="width: 137px">
                 <asp:Label ID="Label8" runat="server" Font-Bold="True" 
@@ -70,7 +71,8 @@
         Text="PhilHealth #"></asp:Label>
             </td>
             <td class="style6" colspan="2">
-                <asp:TextBox ID="txtFaxNum" runat="server" Width="227px"></asp:TextBox>
+                <asp:TextBox ID="txtFaxNum" runat="server" Width="227px" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;"></asp:TextBox>
             </td>
         </tr>
         <tr>

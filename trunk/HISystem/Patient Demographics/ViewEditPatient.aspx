@@ -185,7 +185,10 @@
         Text="PhilHealth #"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">
-                    <asp:TextBox ID="txtFaxNum" runat="server" Width="227px"></asp:TextBox>
+                    <asp:TextBox ID="txtFaxNum" runat="server" Width="227px"
+                    
+                    onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;"></asp:TextBox>
                 </td>
             </tr>
             <tr>

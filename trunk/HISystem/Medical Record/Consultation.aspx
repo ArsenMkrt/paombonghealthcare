@@ -304,7 +304,8 @@
             </td>
             <td class="style38">
                 Age<br />
-                <asp:TextBox ID="txtAge" runat="server" Width="50px"></asp:TextBox>
+                <asp:TextBox ID="txtAge" runat="server" Width="50px" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;"></asp:TextBox>
                 yrs old</td>
             
         </tr>
@@ -320,26 +321,31 @@
             <td class="style48">
                 Temp</td>
             <td class="style30" colspan="5">
-                <asp:TextBox ID="txtTemp" runat="server" Width="121px"></asp:TextBox>
+                <asp:TextBox ID="txtTemp" runat="server" Width="121px" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;"></asp:TextBox>
                 &nbsp;<span class="style18">Celsius</span></td>
             <td align="right" class="style45">
                 Weight</td>
             <td class="style29" colspan="2">
-                <asp:TextBox ID="txtWt" runat="server" Width="121px"></asp:TextBox>
+                <asp:TextBox ID="txtWt" runat="server" Width="121px" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;"></asp:TextBox>
                 &nbsp;lbs</td>
         </tr>
         <tr>
             <td class="style52">
                 Height</td>
             <td class="style64" colspan="5">
-                <asp:TextBox ID="txtHt_feet" runat="server" Width="40px" MaxLength="1"></asp:TextBox>
+                <asp:TextBox ID="txtHt_feet" runat="server" Width="40px" MaxLength="1" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;"></asp:TextBox>
                 ft
-                <asp:TextBox ID="txtHt_inch" runat="server" Width="37px" MaxLength="2"></asp:TextBox>
+                <asp:TextBox ID="txtHt_inch" runat="server" Width="37px" MaxLength="2" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;"></asp:TextBox>
                 &nbsp;in</td>
             <td class="style46" align="right">
                 Blood Pressure</td>
             <td class="style53" colspan="2">
-                <asp:TextBox ID="txtBpressure" runat="server" Width="121px"></asp:TextBox>
+                <asp:TextBox ID="txtBpressure" runat="server" Width="121px" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;"></asp:TextBox>
             </td>
         </tr>
         <tr>

@@ -33,19 +33,19 @@ public partial class Reports_AddReport : System.Web.UI.Page
                 case "Maternal Care": 
                     {
                         string Program = "MaternalCare";
-                        Response.Redirect("/Paombong/Reports/Templates/addMaternalCare.aspx?&p=" + Server.UrlEncode("Maternal Care") + "&program=" + Server.UrlEncode(Program)); 
+                        Response.Redirect("~/cap/Reports/Templates/addMaternalCare.aspx?&p=" + Server.UrlEncode("Maternal Care") + "&program=" + Server.UrlEncode(Program)); 
                         break; 
                     }
                 case "Family Planning": 
                     {
                         string Program = "FamilyPlanning";
-                        Response.Redirect("/Paombong/Reports/Templates/addFPlanning.aspx?&p=" + Server.UrlEncode("Family Planning") + "&program=" + Server.UrlEncode(Program)); 
+                        Response.Redirect("~/cap/Reports/Templates/addFPlanning.aspx?&p=" + Server.UrlEncode("Family Planning") + "&program=" + Server.UrlEncode(Program)); 
                         break; 
                     }
                 case "Child Care A": 
                     {
                         string Program = "ChildCare";
-                        Response.Redirect("/Paombong/Reports/Templates/addChildCare.aspx?&p=" + Server.UrlEncode("Child Care A") + "&program=" + Server.UrlEncode(Program)); 
+                        Response.Redirect("/cap/Reports/Templates/addChildCare.aspx?&p=" + Server.UrlEncode("Child Care A") + "&program=" + Server.UrlEncode(Program)); 
                         break; 
                     }
                 case "Child Care B": 
