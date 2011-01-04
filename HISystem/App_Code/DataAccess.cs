@@ -184,7 +184,6 @@ public class DataAccess
 
     public DataTable GetValuesConsultation(string Patient_Id)
     {
-
         SqlConnection connPatient = new SqlConnection(dataconnection);
         SqlDataReader dtrPatient;
         DataTable patientData = new DataTable();
