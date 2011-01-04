@@ -11,6 +11,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
 {
     private DataAccess data;
     private DataTable patientData;
+    private string height;
    
 
     protected void Page_Load(object sender, EventArgs e)
@@ -81,7 +82,13 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     
     
     protected void btnSave_Click(object sender, EventArgs e)
-    {   
+    {
+        if (txtHt_inch.Text.Length == 1)
+        {
+            height = txtHt_feet.Text + "0" + txtHt_inch.Text;
+        }
+        else
+             height = txtHt_feet.Text + txtHt_inch.Text;
         /**
          * Added by Lakhi Save 1/5/2011
          * This Saves patient daily Medical record
@@ -89,9 +96,19 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         data = new DataAccess();
         if (txtDiagnosis.Text.Trim() != null)
         {
-            data.SavePatientDailyMedicalRecord(Convert.ToInt32(txtbx_PatientID.Text), Convert.ToInt32(txtAge.Text), Convert.ToInt32(txtTemp.Text)
-                , Convert.ToInt32(txtWt.Text),Convert.ToInt32(txtHt_feet.Text + "0" + txtHt_inch.Text)
-                , Convert.ToInt32(txtBpressure.Text), txtDiagnosis.Text, txtRecomendation.Text);
+            data.SavePatientDailyMedicalRecord
+                (
+                
+                    Convert.ToInt32(txtbx_PatientID.Text), 
+                    Convert.ToInt32(txtAge.Text), 
+                    Convert.ToInt32(txtTemp.Text),
+                    Convert.ToInt32(txtWt.Text),
+                    Convert.ToInt32(height),
+                    Convert.ToInt32(txtBpressure.Text),
+                    txtDiagnosis.Text,
+                    txtRecomendation.Text
+                
+                );
         }
         else
             Response.Write("<script> window.alert('Please fillup required fields.')</script>");

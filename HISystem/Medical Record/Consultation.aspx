@@ -344,8 +344,7 @@
             <td class="style46" align="right">
                 Blood Pressure</td>
             <td class="style53" colspan="2">
-                <asp:TextBox ID="txtBpressure" runat="server" Width="121px" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;"></asp:TextBox>
+                <asp:TextBox ID="txtBpressure" runat="server" Width="121px"></asp:TextBox>
             </td>
         </tr>
         <tr>
