@@ -1,18 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HISystem", "..\", "{A90DC4A2-B3E8-4D90-8B11-93D3D69CD1D9}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HISystem", "..\", "{0FAB9270-0647-4355-AB7D-0F34FB8F44A4}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/HISystem"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\HISystem\"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\HISystem\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\HISystem\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/HISystem"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\HISystem\"
+		Release.AspNetCompiler.PhysicalPath = "..\..\HISystem\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\HISystem\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
@@ -26,8 +26,8 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A90DC4A2-B3E8-4D90-8B11-93D3D69CD1D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A90DC4A2-B3E8-4D90-8B11-93D3D69CD1D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FAB9270-0647-4355-AB7D-0F34FB8F44A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FAB9270-0647-4355-AB7D-0F34FB8F44A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
