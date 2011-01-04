@@ -33,57 +33,57 @@ public partial class Reports_AddReport : System.Web.UI.Page
                 case "Maternal Care": 
                     {
                         string Program = "MaternalCare";
-                        Response.Redirect("~/cap/Reports/Templates/addMaternalCare.aspx?&p=" + Server.UrlEncode("Maternal Care") + "&program=" + Server.UrlEncode(Program)); 
+                        Response.Redirect("/HISystem/Reports/Templates/addMaternalCare.aspx?&p=" + Server.UrlEncode("Maternal Care") + "&program=" + Server.UrlEncode(Program)); 
                         break; 
                     }
                 case "Family Planning": 
                     {
                         string Program = "FamilyPlanning";
-                        Response.Redirect("~/cap/Reports/Templates/addFPlanning.aspx?&p=" + Server.UrlEncode("Family Planning") + "&program=" + Server.UrlEncode(Program)); 
+                        Response.Redirect("/HISystem/Reports/Templates/addFPlanning.aspx?&p=" + Server.UrlEncode("Family Planning") + "&program=" + Server.UrlEncode(Program)); 
                         break; 
                     }
                 case "Child Care A": 
                     {
                         string Program = "ChildCare";
-                        Response.Redirect("/cap/Reports/Templates/addChildCare.aspx?&p=" + Server.UrlEncode("Child Care A") + "&program=" + Server.UrlEncode(Program)); 
+                        Response.Redirect("/HISystem/Reports/Templates/addChildCare.aspx?&p=" + Server.UrlEncode("Child Care A") + "&program=" + Server.UrlEncode(Program)); 
                         break; 
                     }
                 case "Child Care B": 
                     {
                         string Program = "ChildCare";
-                        Response.Redirect("/Paombong/Reports/Templates/addChildCare.aspx?&p=" + Server.UrlEncode("Child Care B") + "&program=" + Server.UrlEncode(Program)); 
+                        Response.Redirect("/HISystem/Reports/Templates/addChildCare.aspx?&p=" + Server.UrlEncode("Child Care B") + "&program=" + Server.UrlEncode(Program)); 
                         break; 
                     }
                 case "Dental Care": 
                     {
                         string Program = "DentalCare";
-                        Response.Redirect("/Paombong/Reports/Templates/addDentalCare.aspx?&p=" + Server.UrlEncode("Dental Care") + "&program=" + Server.UrlEncode(Program)); 
+                        Response.Redirect("/HISystem/Reports/Templates/addDentalCare.aspx?&p=" + Server.UrlEncode("Dental Care") + "&program=" + Server.UrlEncode(Program)); 
                         break; 
                     }
                 case "Malaria": 
                     {
-                        Response.Redirect("/Paombong/Reports/Templates/addMalaria.aspx?&p=" + Server.UrlEncode("Malaria") + "&program=" + Server.UrlEncode(ddlProgram.Text)); 
+                        Response.Redirect("/HISystem/Reports/Templates/addMalaria.aspx?&p=" + Server.UrlEncode("Malaria") + "&program=" + Server.UrlEncode(ddlProgram.Text)); 
                         break; 
                     }
                 case "Schistosomiasis": 
                     {
                         string Program = "Schisto";
-                        Response.Redirect("/Paombong/Reports/Templates/addSchistomiasis.aspx?&p=" + Server.UrlEncode("Schistosomiasis") + "&program=" + Server.UrlEncode(Program)); 
+                        Response.Redirect("/HISystem/Reports/Templates/addSchistomiasis.aspx?&p=" + Server.UrlEncode("Schistosomiasis") + "&program=" + Server.UrlEncode(Program)); 
                         break; 
                     }
                 case "Filariasis": 
                     {
-                        Response.Redirect("/Paombong/Reports/Templates/addFilariasis.aspx?&p=" + Server.UrlEncode("Filariasis") + "&program=" + Server.UrlEncode(ddlProgram.Text)); 
+                        Response.Redirect("/HISystem/Reports/Templates/addFilariasis.aspx?&p=" + Server.UrlEncode("Filariasis") + "&program=" + Server.UrlEncode(ddlProgram.Text)); 
                         break; 
                     }
                 case "Tuberculosis": 
                     {
-                        Response.Redirect("/Paombong/Reports/Templates/addTuberculosis.aspx?&p=" + Server.UrlEncode("Tuberculosis") + "&program=" + Server.UrlEncode(ddlProgram.Text)); 
+                        Response.Redirect("/HISystem/Reports/Templates/addTuberculosis.aspx?&p=" + Server.UrlEncode("Tuberculosis") + "&program=" + Server.UrlEncode(ddlProgram.Text)); 
                         break; 
                     }
                 case "Leprosy": 
                     {
-                        Response.Redirect("/Paombong/Reports/Templates/addLeprosy.aspx?&p=" + Server.UrlEncode("Leprosy") + "&program=" + Server.UrlEncode(ddlProgram.Text));
+                        Response.Redirect("/HISystem/Reports/Templates/addLeprosy.aspx?&p=" + Server.UrlEncode("Leprosy") + "&program=" + Server.UrlEncode(ddlProgram.Text));
                         break; 
                     }
             }

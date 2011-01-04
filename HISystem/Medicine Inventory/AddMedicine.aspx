@@ -48,7 +48,7 @@
             style="top: 272px; left: 571px; position: absolute; height: 22px; width: 128px" ></asp:TextBox>
         <asp:Button ID="btnClear" runat="server" 
             style="top: 316px; left: 577px; position: absolute; height: 26px; width: 97px" 
-            Text="Clear" />
+            Text="Clear" onclick="btnClear_Click" />
     </p>
     <p>
         <asp:Button ID="btnAdd" runat="server" onclick="btnAdd_Click" 

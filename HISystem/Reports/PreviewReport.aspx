@@ -19,10 +19,13 @@
         </asp:DropDownList>
         Quarter:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         Year:<asp:DropDownList ID="DropDownList1" runat="server" 
-            
+             DataSourceID = "DataYear" DataValueField="Year" DataTextField="Year"
             style="top: 200px; left: 605px; position: absolute; height: 24px; width: 120px">
-            <asp:ListItem>2010</asp:ListItem>
         </asp:DropDownList>
+        <asp:SqlDataSource ID="DataYear" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
+        SelectCommand="SELECT DISTINCT [Year] FROM [ChildCare]">
+    </asp:SqlDataSource>
 </p>
 <p>
     Municipality:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Paombong</strong></p>
