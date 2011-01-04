@@ -1229,7 +1229,7 @@ public class DataAccess
         cmdTxt.Parameters.Add("@Height", SqlDbType.Int).Value = PatientHeight;
         cmdTxt.Parameters.Add("@BP", SqlDbType.Int).Value = BloodPressure;
         cmdTxt.Parameters.Add("@Diagnosis", SqlDbType.VarChar).Value = Diagnosis;
-        cmdTxt.Parameters.Add("@Treatment", SqlDbType.Decimal).Value = Treatment;
+        cmdTxt.Parameters.Add("@Treatment", SqlDbType.VarChar).Value = Treatment;
         cmdTxt.ExecuteNonQuery();
     }
 }
