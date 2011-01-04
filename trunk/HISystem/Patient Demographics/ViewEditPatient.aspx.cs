@@ -87,6 +87,10 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
 
     protected void button_ProceedConsultation_Click(object sender, EventArgs e)
     {
-        //Proceed to consultation 
+        if (txtPatientId.Text.Trim() != null)
+        {
+            //Proceed to consultation 
+            Response.Redirect("~/Medical%20Record/Consultation.aspx?id=" + txtPatientId.Text);
+        }
     }
 }

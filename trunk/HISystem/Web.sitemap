@@ -10,7 +10,7 @@
         </siteMapNode>
 
         <siteMapNode title="Medical Records">
-            <siteMapNode url="~/Medical Record/AddMedicalRecord.aspx" title="Add Patient Medical Record" />
+            
             <siteMapNode url="~/Medical Record/Consultation.aspx" title="Daily Patient Record" />
             <siteMapNode url="~/Medical Record/ViewRecordPatient.aspx" title="View Patient Medical Record" />
             
