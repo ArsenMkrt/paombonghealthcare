@@ -34,7 +34,7 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
     }
     protected void btnAddToList_Click(object sender, EventArgs e)
     {
-        if(txtMedicineName.Text.Trim()==null && txtQuantity.Text.Trim()==null)
+        if(txtMedicineName.Text.Trim()!=null && txtQuantity.Text.Trim()!=null)
         {
                 gridViewList.DataSource = null;
                 gridViewList.DataBind();

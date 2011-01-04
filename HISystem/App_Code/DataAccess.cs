@@ -50,8 +50,8 @@ using System.Data.SqlClient;
 public class DataAccess
 {
     private string dataconnection =
-    @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\Paombong\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
-    //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Jay\Desktop\HISystem\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
+   // @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\Paombong\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
+    @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Gerald\Desktop\cap\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
 
     private MonthConverter mc;
 
@@ -179,6 +179,57 @@ public class DataAccess
         }
         return patientData;
     }
+
+
+
+    public DataTable GetValuesConsultation(string Patient_Id)
+    {
+
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+        SqlDataReader dtrPatient;
+        DataTable patientData = new DataTable();
+        patientData.Columns.Add("PatientID");
+        patientData.Columns.Add("PatientLName");
+        patientData.Columns.Add("PatientFName");
+        patientData.Columns.Add("PatientMName");        
+        patientData.Columns.Add("PatientBirthdate");        
+        patientData.Columns.Add("PatientAddress");
+        patientData.Columns.Add("PatientFaxNumber");
+        patientData.Columns.Add("PatientBarangay");
+
+        connPatient.Open();
+        try
+        {
+            SqlCommand cmdTxt = new SqlCommand("GetPatientData2", connPatient);
+            cmdTxt.CommandType = CommandType.StoredProcedure;
+            cmdTxt.Parameters.Add("@Patient_Id", SqlDbType.Char).Value = Patient_Id;
+            dtrPatient = cmdTxt.ExecuteReader();
+            dtrPatient.Read();
+
+            patientData.Rows.Add(dtrPatient["PatientID"].ToString(),
+                dtrPatient["PtLname"].ToString().Trim(), 
+                dtrPatient["PtFname"].ToString().Trim(),
+                dtrPatient["PtMname"].ToString().Trim(), 
+                dtrPatient["PtBdate"].ToString().Trim(),
+               
+                dtrPatient["PtAddress"].ToString().Trim(),
+                
+                dtrPatient["PtFaxNumber"].ToString().Trim(),               
+                dtrPatient["BarangayName"].ToString().Trim());
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error : " + ex.Message);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
+        return patientData;
+    }
+
+
+
 
     /*Update Record Finished - Lakhi 10/5/2010*/
 
@@ -397,6 +448,13 @@ public class DataAccess
         }
 
     }
+
+
+  
+
+
+
+
 
 
     public void RefreshGridviewMedicineByName(GridView gridView, string MedicineName)
