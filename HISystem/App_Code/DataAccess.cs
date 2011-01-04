@@ -100,10 +100,10 @@ public class DataAccess
             cmdTxt.Parameters.Add("@PatientBarangay", SqlDbType.Char).Value = PatientBarangay;
 
             int checker = cmdTxt.ExecuteNonQuery();
-            if (checker > 0)
-                MessageBox.Show("<script>window.alert('Successful.')</script>");
-            else
-                MessageBox.Show("Patient Not Saved! Please Try Again");
+            //if (checker > 0)
+            //    MessageBox.Show("<script>window.alert('Successful.')</script>");
+            //else
+            //    MessageBox.Show("Patient Not Saved! Please Try Again");
         }
         catch (Exception ex)
         {
@@ -265,10 +265,10 @@ public class DataAccess
             cmdTxt.Parameters.Add("@PatientSuffix", SqlDbType.Char).Value = PatientSuffix;
             cmdTxt.Parameters.Add("@PatientBarangay", SqlDbType.Char).Value = PatientBarangay;
             int check = cmdTxt.ExecuteNonQuery();
-            if (check > 0)
-                MessageBox.Show("Updated Patient Information Successfully!");
-            else
-                MessageBox.Show("Unsuccesfull!! Updating Patient Information Please Try Again!");
+        //    if (check > 0)
+        //        MessageBox.Show("Updated Patient Information Successfully!");
+        //    else
+        //        MessageBox.Show("Unsuccesfull!! Updating Patient Information Please Try Again!");
         }
         catch (Exception ex)
         {
