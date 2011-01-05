@@ -83,55 +83,73 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        //To save data on db
-        ddlBarangay.Enabled = true;
 
-        if (txtHt_inch.Text.Length == 1)
+        if (txtAge.Text == null)
         {
-            height = txtHt_feet.Text + "0" + txtHt_inch.Text;
+            txtAge.Text = "1";
         }
-        else
-             height = txtHt_feet.Text + txtHt_inch.Text;
-        /**
-         * Added by Lakhi Save 1/5/2011
-         * This Saves patient daily Medical record
-         */
-        data = new DataAccess();
-        if (txtbx_PatientID.Text.Trim() == null)
+        
+        if (txtTemp.Text== null)
         {
-            Response.Write("<script> window.alert('Please select Patient.')</script>");
+            txtTemp.Text = "37";
         }
+        if (txtBpressure.Text == null)
+            txtBpressure.Text = "200";
+               
+        if (txtWt.Text == null);
+               txtWt.Text="150";
 
-        else if (txtDiagnosis.Text.Length>0 && txtbx_PatientID.Text.Trim()!=null && txtDiagnosis.Text.Trim()!="")
-        {
-            data.SavePatientDailyMedicalRecord
-                (
-                
-                    Convert.ToInt32(txtbx_PatientID.Text), 
-                    Convert.ToInt32(txtAge.Text), 
-                    Convert.ToInt32(txtTemp.Text),
-                    Convert.ToInt32(txtWt.Text),
-                    Convert.ToInt32(height),
-                    txtBpressure.Text,
-                    txtDiagnosis.Text,
-                    txtRecomendation.Text
-                
-                );
-            Response.Write("<script> window.alert('Saved Consultation Successfully.')</script>");
-            //reset upon save
-            txtbx_PatientID.Text=null;
-            txtAge.Text = null;
-            txtTemp.Text = null;
-            txtWt.Text = null;
-            txtHt_feet.Text = null;
-            txtHt_inch.Text=null;
-            txtBpressure.Text = null;
-            txtDiagnosis.Text = null;
-            txtRecomendation.Text = null;
-            Response.Redirect("~/Medical%20Record/Consultation.aspx");
-        }
-        else
-            Response.Write("<script> window.alert('Please fillup required fields.')</script>");
+
+            //To save data on db
+            ddlBarangay.Enabled = true;
+
+            if (txtHt_inch.Text.Length == 1)
+            {
+                height = txtHt_feet.Text + "0" + txtHt_inch.Text;
+            }
+            else
+                height = txtHt_feet.Text + txtHt_inch.Text;
+            /**
+             * Added by Lakhi Save 1/5/2011
+             * This Saves patient daily Medical record
+             */
+            data = new DataAccess();
+            if (txtbx_PatientID.Text.Trim() == null)
+            {
+                Response.Write("<script> window.alert('Please select Patient.')</script>");
+            }
+
+            else if (txtDiagnosis.Text.Length > 0 && txtbx_PatientID.Text.Trim() != null && txtDiagnosis.Text.Trim() != "")
+            {
+                data.SavePatientDailyMedicalRecord
+                    (
+
+                        Convert.ToInt32(txtbx_PatientID.Text),
+                        Convert.ToInt32(txtAge.Text),
+                        Convert.ToInt32(txtTemp.Text),
+                        Convert.ToInt32(txtWt.Text),
+                        Convert.ToInt32(height),
+                        txtBpressure.Text,
+                        txtDiagnosis.Text,
+                        txtRecomendation.Text
+
+                    );
+                Response.Write("<script> window.alert('Saved Consultation Successfully.')</script>");
+                //reset upon save
+                txtbx_PatientID.Text = null;
+                txtAge.Text = null;
+                txtTemp.Text = null;
+                txtWt.Text = null;
+                txtHt_feet.Text = null;
+                txtHt_inch.Text = null;
+                txtBpressure.Text = null;
+                txtDiagnosis.Text = null;
+                txtRecomendation.Text = null;
+                Response.Redirect("~/Medical%20Record/Consultation.aspx");
+            }
+            else
+                Response.Write("<script> window.alert('Please fillup required fields.')</script>");
+        
     }
     protected void grdvw_Users_Load(object sender, EventArgs e)
     {
@@ -173,6 +191,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                ddlBarangay.Text = dr["PatientBarangay"].ToString().Trim();
             }
         }
+
     }
     protected void btnReset_Click(object sender, EventArgs e)
     {

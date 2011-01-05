@@ -22,28 +22,7 @@
                 </tr>
             </table>
             <br />
-            <asp:GridView ID="grdvw_Users" runat="server" AutoGenerateColumns="False" 
-                AutoGenerateSelectButton="True" DataKeyNames="PatientID" 
-                DataSourceID="Medicine2" onload="grdvw_Users_Load" 
-                onselectedindexchanged="GridView1_SelectedIndexChanged">
-                <Columns>
-                    <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
-                        InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
-                    <asp:BoundField DataField="PtFname" HeaderText="First name" 
-                        SortExpression="PtFname" />
-                    <asp:BoundField DataField="PtMname" HeaderText="Middle" 
-                        SortExpression="PtMname" />
-                    <asp:BoundField DataField="PtLname" HeaderText="Lastname" 
-                        SortExpression="PtLname" />
-                    <asp:BoundField DataField="PtGender" HeaderText="Gender" 
-                        SortExpression="PtGender" />
-                    <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
-                        SortExpression="PtBdate" />
-                    <asp:BoundField DataField="PtAddress" HeaderText="Address" 
-                        SortExpression="PtAddress" />
-                </Columns>
-            </asp:GridView>
-            <asp:Button ID="ButtonProceed" runat="server" onClick="ButtonProceed_Click" 
+            F<asp:Button ID="ButtonProceed" runat="server" onClick="ButtonProceed_Click" 
                 Text="Proceed" Width="104px" />
         </div>
 
@@ -101,47 +80,50 @@
 
 
 
+                             <div id="modalwindow2" class="window2">
+                         
+                            <br />
+                             <br />
+                             <asp:TextBox ID="txtSearchPatient" OnTextChanged="txtSearchPatient_TextChanged" runat="server" Height="28px" Width="187px"></asp:TextBox>
+                             <asp:Button ID="btnSearch" runat="server" Text="Search Patient Name" Height="28px" 
+                                 Width="149px" onclick="btnSearch_Click" />
+                                 <br/>
+        <asp:GridView ID="GridSearchName"  runat="server" AutoGenerateColumns="False" 
+        DataKeyNames="PatientID" DataSourceID="PatientSearchName"
+            AutoGenerateSelectButton="True" onselectedindexchanged="GridSearchName_SelectedIndexChanged">
+        <Columns>
+            <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
+                InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
+            <asp:BoundField DataField="PtFname" HeaderText="First name" 
+                SortExpression="PtFname" />
+            <asp:BoundField DataField="PtMname" HeaderText="Middle" 
+                SortExpression="PtMname" />
+            <asp:BoundField DataField="PtLname" HeaderText="Lastname" 
+                SortExpression="PtLname" />
+            <asp:BoundField DataField="PtGender" HeaderText="Gender" 
+                SortExpression="PtGender" />
+            <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
+                SortExpression="PtBdate" />
+            <asp:BoundField DataField="PtAddress" HeaderText="Address" 
+                SortExpression="PtAddress" />
+        </Columns>
+    </asp:GridView>
+                                
+                
+    <asp:SqlDataSource ID="PatientSearchName" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
+        SelectCommand="SearchPatientByName" SelectCommandType="StoredProcedure">
+        <SelectParameters>
+            <asp:Parameter Name ="PatientLastName" DefaultValue="A"/>
+        </SelectParameters>
+    </asp:SqlDataSource>
+        
+                
+</div>
 
 
 
-
-                          <div id="modalwindow2" class="window2">
-                              <br />
-                              <br />
-                              <asp:TextBox ID="txtSearchPatient" runat="server" Height="28px" 
-                                  OnTextChanged="txtSearchPatient_TextChanged" Width="187px"></asp:TextBox>
-                              <asp:Button ID="btnSearch" runat="server" Height="28px" 
-                                  onclick="btnSearch_Click" Text="Search Patient Name" Width="149px" />
-                              <br />
-                              <asp:GridView ID="GridSearchName" runat="server" AutoGenerateColumns="False" 
-                                  AutoGenerateSelectButton="True" DataKeyNames="PatientID" 
-                                  DataSourceID="PatientSearchName" 
-                                  onselectedindexchanged="GridSearchName_SelectedIndexChanged">
-                                  <Columns>
-                                      <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
-                                          InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
-                                      <asp:BoundField DataField="PtFname" HeaderText="First name" 
-                                          SortExpression="PtFname" />
-                                      <asp:BoundField DataField="PtMname" HeaderText="Middle" 
-                                          SortExpression="PtMname" />
-                                      <asp:BoundField DataField="PtLname" HeaderText="Lastname" 
-                                          SortExpression="PtLname" />
-                                      <asp:BoundField DataField="PtGender" HeaderText="Gender" 
-                                          SortExpression="PtGender" />
-                                      <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
-                                          SortExpression="PtBdate" />
-                                      <asp:BoundField DataField="PtAddress" HeaderText="Address" 
-                                          SortExpression="PtAddress" />
-                                  </Columns>
-                              </asp:GridView>
-                              <asp:SqlDataSource ID="PatientSearchName" runat="server" 
-                                  ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
-                                  SelectCommand="SearchPatientByName" SelectCommandType="StoredProcedure">
-                                  <SelectParameters>
-                                      <asp:Parameter DefaultValue="A" Name="PatientLastName" />
-                                  </SelectParameters>
-                              </asp:SqlDataSource>
-        </div>
+                      
         <div id="mask">
         </div>
     </div>
@@ -229,5 +211,9 @@ ORDER BY c.EncounterDateTime ASC">
         </SelectParameters>
     </asp:SqlDataSource>
     <br/>
+   
+    <br />
+    <br />
+
 </asp:Content>
 

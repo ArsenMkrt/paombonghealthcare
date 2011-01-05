@@ -131,7 +131,7 @@
 
 
 
-                          <div id="modalwindow2" class="window2">
+                       <div id="modalwindow2" class="window2">
                          
                             <br />
                              <br />
@@ -170,7 +170,8 @@
     </asp:SqlDataSource>
         
                 
-                         </div>
+</div>
+
 
 
 
@@ -393,8 +394,10 @@
             <td class="style64" colspan="5">
                 <asp:TextBox ID="txtHt_feet" runat="server" Width="40px" MaxLength="1" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
                         onpaste="return false;"></asp:TextBox>
-                ft
-                <asp:TextBox ID="txtHt_inch" runat="server" Width="37px" MaxLength="2" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                ft<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                    ControlToValidate="txtHt_feet" ErrorMessage="(enter feet)" Font-Italic="True" 
+                    Font-Size="Small"></asp:RequiredFieldValidator>
+&nbsp;<asp:TextBox ID="txtHt_inch" runat="server" Width="37px" MaxLength="2" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
                         onpaste="return false;"></asp:TextBox>
                 &nbsp;in</td>
             <td class="style46" align="right">
@@ -408,7 +411,10 @@
                 Diagnosis</td>
             <td class="style55" colspan="8">
                 <asp:TextBox ID="txtDiagnosis" runat="server" Height="81px" TextMode="MultiLine" 
-                    Width="780px"></asp:TextBox>
+                    Width="686px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                    ControlToValidate="txtDiagnosis" ErrorMessage="(enter diagnosis)" 
+                    Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -416,7 +422,10 @@
                 Treatment/<br /> Recommendation</td>
             <td class="style51" colspan="8">
                 <asp:TextBox ID="txtRecomendation" runat="server" Height="81px" TextMode="MultiLine" 
-                    Width="779px"></asp:TextBox>
+                    Width="685px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+                    ControlToValidate="txtRecomendation" ErrorMessage="(enter recommendation)" 
+                    Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
