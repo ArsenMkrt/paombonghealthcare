@@ -11,8 +11,9 @@
 
         <siteMapNode title="Medical Records">
             
-            <siteMapNode url="~/Medical Record/Consultation.aspx" title="Daily Patient Record" />
+            <siteMapNode url="~/Medical Record/Consultation.aspx" title="Patient Consultation" />
             <siteMapNode url="~/Medical Record/ViewRecordPatient.aspx" title="View Patient Medical Record" />
+          <siteMapNode url="~/Medical Record/MedicalHistory.aspx" title="View Patient Medical Records/History" />
             
         </siteMapNode>
         <siteMapNode title="Inventory">
