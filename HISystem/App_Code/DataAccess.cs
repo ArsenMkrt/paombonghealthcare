@@ -1,4 +1,30 @@
-﻿using System;
+﻿
+/* ACKNOWLEDGMENTS 2011
+ * 
+ * INSPIRED BY CHRIZZI.. - SuperDevLester
+ * Gerald Magno inspired by his greatness
+ * 
+ * TECHNICAL ADVISER
+ * 1. Elcid Serrano
+ * 
+ * TEAM LEAD
+ * 1. Gerald Aldana Magno
+ * 
+ * FRONT END DEVELOPER
+ * 1. Gerald Aldana Magno
+ * 
+ * BACK END DEVELOPERS
+ * 1. Gerald Aldana Magno
+ * 2. Lakhi Lester T. Calantoc
+ * 
+ * BUSINESS ANALYST/SOFTWARE QUALITY ASSURANCE
+ * 1. Kendrick Bacani
+ * 2. Lakhi Lester T. Calantoc
+ * 3. Gerald Aldana Magno
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
