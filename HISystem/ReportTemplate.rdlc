@@ -55,7 +55,7 @@
       </Query>
       <rd:DataSetInfo>
         <rd:DataSetName>Report_Quarterly</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Lakhi\Desktop\Paombong\App_Code\Report_Quarterly.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Lakhi\Desktop\HISystem\App_Code\Report_Quarterly.xsd</rd:SchemaPath>
         <rd:TableName>Report_Malaria</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -5220,6 +5220,7 @@
                       </Style>
                     </Textbox>
                     <ColSpan>6</ColSpan>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
@@ -6052,7 +6053,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.44792in</Height>
+              <Height>0.6875in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -6060,6 +6061,21 @@
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontStyle>Italic</FontStyle>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
@@ -7093,7 +7109,7 @@
         </PageBreak>
         <Top>11.10083in</Top>
         <Left>0.21541in</Left>
-        <Height>1.38542in</Height>
+        <Height>1.625in</Height>
         <Width>10.83854in</Width>
         <ZIndex>4</ZIndex>
         <Style>
