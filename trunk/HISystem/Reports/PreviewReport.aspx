@@ -6,12 +6,13 @@
     <p>
     <br />
         <asp:Button ID="btn_runReport" runat="server" onclick="btn_runReport_Click" 
-            style="top: 197px; left: 801px; position: absolute; height: 26px; width: 109px" 
+            style="top: 199px; left: 776px; position: absolute; height: 26px; width: 109px" 
             Text="Run Report" />
         <asp:DropDownList ID="ddlQuarter" runat="server" 
             
             
             style="top: 199px; left: 380px; position: absolute; height: 20px; width: 120px">
+            <asp:ListItem>All</asp:ListItem>
             <asp:ListItem>1st Quarter</asp:ListItem>
             <asp:ListItem>2nd Quarter</asp:ListItem>
             <asp:ListItem>3rd Quarter</asp:ListItem>
@@ -20,7 +21,8 @@
         Quarter:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         Year:<asp:DropDownList ID="DropDownList1" runat="server" 
              DataSourceID = "DataYear" DataValueField="Year" DataTextField="Year"
-            style="top: 200px; left: 605px; position: absolute; height: 24px; width: 120px">
+            
+            style="top: 200px; left: 605px; position: absolute; height: 20px; width: 120px">
         </asp:DropDownList>
         <asp:SqlDataSource ID="DataYear" runat="server" 
         ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
@@ -37,6 +39,7 @@
     Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
     WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="738px" 
         SizeToReportContent="True">
+        <ServerReport ReportServerUrl="http://localhost:2705/HISystem/ReportTemplate.rdlc" />
     <LocalReport ReportPath="ReportTemplate.rdlc">
         <DataSources>
             <rsweb:ReportDataSource DataSourceId="MalariaObject2" Name="Malaria" />
