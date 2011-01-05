@@ -17,17 +17,19 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
     }
     protected void button_AddEdit_Click(object sender, EventArgs e)
     {
-        string Gender = "Female";
+        if (radiobutton_Female.Checked || radiobutton_Male.Checked)
+        {
+            string Gender = "Female";
 
-        if (radiobutton_Male.Checked)
-           Gender = "Male";
-        if (radiobutton_Female.Checked)
-           Gender = "Female";
+            if (radiobutton_Male.Checked)
+                Gender = "Male";
+            if (radiobutton_Female.Checked)
+                Gender = "Female";
 
-        data = new DataAccess();
- 
-        //Add Patient
-        
+            data = new DataAccess();
+
+            //Add Patient
+
             data.AddPatient(txtFName.Text.Trim(), txtMName.Text.Trim(), txtLName.Text.Trim(), txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
                  txtSuffix.Text.Trim(), ddlDay.Text.Trim() + "/" + ddlMonth.Text.Trim() + "/" + ddlYear.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
                  txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
@@ -35,28 +37,31 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
 
 
             Response.Write("<script> window.alert('Added Patient Successfully.')</script>");
-        
-        txtFName.Text = "";
-        txtMName.Text = "";
-        txtLName.Text = "";
-        txtContactNum.Text = "";
-        txtEmailAdd.Text = "";
-        txtSuffix.Text = "";
-        ddlDay.SelectedIndex = 0;
-        ddlMonth.SelectedIndex = 0;
-        ddlYear.SelectedIndex = 0;
-        txtBirthplace.Text = "";
-        txtAddress.Text = "";
-        txtFaxNum.Text = "";
-        txtDoctor.Text = "";
-        txtNationality.Text = "";
-        txtCity.Text = "";
-        ddlCivilStatus.SelectedIndex = 0;
-        txtSpouseName.Text = "";
-        txtCompany.Text = "";
-        ddlBarangay.SelectedIndex = 0;
-        radiobutton_Female.Checked = false;
-        radiobutton_Male.Checked = false;
+
+            txtFName.Text = "";
+            txtMName.Text = "";
+            txtLName.Text = "";
+            txtContactNum.Text = "";
+            txtEmailAdd.Text = "";
+            txtSuffix.Text = "";
+            ddlDay.SelectedIndex = 0;
+            ddlMonth.SelectedIndex = 0;
+            ddlYear.SelectedIndex = 0;
+            txtBirthplace.Text = "";
+            txtAddress.Text = "";
+            txtFaxNum.Text = "";
+            txtDoctor.Text = "";
+            txtNationality.Text = "";
+            txtCity.Text = "";
+            ddlCivilStatus.SelectedIndex = 0;
+            txtSpouseName.Text = "";
+            txtCompany.Text = "";
+            ddlBarangay.SelectedIndex = 0;
+            radiobutton_Female.Checked = false;
+            radiobutton_Male.Checked = false;
+        }
+        else
+            Response.Write("<script> window.alert('please select gender')</script>");
     }
     protected void button_Clear_Click(object sender, EventArgs e)
     {

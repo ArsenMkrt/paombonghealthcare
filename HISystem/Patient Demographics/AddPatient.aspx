@@ -38,22 +38,32 @@
             <td class="style1" style="width: 161px; height: 52px;">
                 <asp:Label ID="Label2" runat="server" Font-Bold="True" ForeColor="#000000" 
                     Text="Name"></asp:Label>
-            </td>
+                *</td>
             <td class="style12" style="height: 52px">
                 <asp:TextBox ID="txtLName" runat="server" Height="21px" Width="203px"></asp:TextBox>
                 <br />
-                Last name</td>
+                Last name
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                    ControlToValidate="txtLName" ErrorMessage="(cannot be empty)" 
+                    Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
+            </td>
             <td class="style10" colspan="2" style="height: 52px">
                 <asp:TextBox ID="txtFName" runat="server" Width="147px"></asp:TextBox>
                 <br />
-                First name</td>
-            <td class="style13" style="width: 109px; height: 52px;">
-                <asp:TextBox ID="txtMName" runat="server" Width="107px"></asp:TextBox>
-                <br />
-                Middle name</td>
-            <td class="style10" style="height: 52px">
-                <asp:TextBox ID="txtSuffix" runat="server" Width="51px" Height="23px" 
+                First name
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                    ControlToValidate="txtFName" ErrorMessage="(cannot be empty)" 
+                    Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
+            </td>
+            <td class="style13" style="height: 52px;" colspan="2">
+                <asp:TextBox ID="txtMName" runat="server" Width="107px" style="margin-top: 0px"></asp:TextBox>
+                &nbsp;<asp:TextBox ID="txtSuffix" runat="server" Width="51px" Height="23px" 
                     Visible="False" ></asp:TextBox>
+                <br />
+                Middle name
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                    ControlToValidate="txtMName" Display="Dynamic" ErrorMessage="(cannot be empty)" 
+                    Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
                 <br />
                 </td>
         </tr>
@@ -80,7 +90,7 @@
             <td class="style1" style="width: 161px">
                 <asp:Label ID="Label13" runat="server" Font-Bold="True" 
         ForeColor="#000000" Text="Sex"></asp:Label>
-            </td>
+                *</td>
             <td class="style12" colspan="2" style="width: 179px">
                 &nbsp;
                 <asp:RadioButton GroupName="genderList" ID="radiobutton_Female" runat="server" 
@@ -253,10 +263,14 @@
             <td class="style7" style="width: 161px">
                 <asp:Label ID="Label7" runat="server" Font-Bold="True" 
         ForeColor="#000000" Text="Address"></asp:Label>
-            </td>
+                *</td>
             <td class="style8" colspan="5">
                 <asp:TextBox ID="txtAddress" runat="server" Height="51px" Width="601px" 
         ></asp:TextBox>
+            &nbsp;
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                    ControlToValidate="txtAddress" ErrorMessage="(cannot be empty)" 
+                    Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>

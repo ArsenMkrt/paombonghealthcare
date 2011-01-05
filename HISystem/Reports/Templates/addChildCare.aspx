@@ -1,8 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate.master" AutoEventWireup="true" CodeFile="addChildCare.aspx.cs" Inherits="Reports_Templates_addChildCare" %>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="addChildCare.aspx.cs" Inherits="Reports_Templates_addChildCare" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+
     <asp:SqlDataSource ID="childCare" runat="server" 
         ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
         SelectCommand="SELECT * FROM [ChildCare] WHERE ChildData = @childData"></asp:SqlDataSource>
@@ -403,5 +402,5 @@
     </p>
     <p>
     </p>
-</asp:Content>
+
 
