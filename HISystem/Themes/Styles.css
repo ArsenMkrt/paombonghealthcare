@@ -145,7 +145,7 @@ h1 {
      position:absolute;
      left:0;
     top:0;
-     width:440px;
+     width:auto;
      height:200px;
     display:none;
      z-index:9999;
@@ -153,8 +153,8 @@ h1 {
    }
     
    #boxes #modalwindow {
-     width:375px; 
-     height:203px;
+     width:auto; 
+     height:200px;
      padding:10px;
      background-color:#ffffff;
      overflow:auto;
@@ -162,9 +162,9 @@ h1 {
    
     #boxes .window2 {
      position:absolute;
-     left:2px;
-    top:0px;
-     width:440px;
+     left:0;
+    top:0;
+     width:auto;
      height:400px;
     display:none;
      z-index:9999;
@@ -172,9 +172,9 @@ h1 {
    }
     
    #boxes #modalwindow2 {
-     width:360px; 
-     left:5px;
-     height:403px;
+     width:auto; 
+     left:2px;
+     height:400px;
      padding:2px;
      background-color:#ffffff;
      height:200px;

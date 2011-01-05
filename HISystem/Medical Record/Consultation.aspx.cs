@@ -83,6 +83,9 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     
     protected void btnSave_Click(object sender, EventArgs e)
     {
+        //To save data on db
+        ddlBarangay.Enabled = true;
+
         if (txtHt_inch.Text.Length == 1)
         {
             height = txtHt_feet.Text + "0" + txtHt_inch.Text;
@@ -94,7 +97,12 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
          * This Saves patient daily Medical record
          */
         data = new DataAccess();
-        if (txtDiagnosis.Text.Trim() != null)
+        if (txtbx_PatientID.Text.Trim() == null)
+        {
+            Response.Write("<script> window.alert('Please select Patient.')</script>");
+        }
+
+        else if (txtDiagnosis.Text.Length>0 && txtbx_PatientID.Text.Trim()!=null && txtDiagnosis.Text.Trim()!="")
         {
             data.SavePatientDailyMedicalRecord
                 (
@@ -109,6 +117,18 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                     txtRecomendation.Text
                 
                 );
+            Response.Write("<script> window.alert('Saved Consultation Successfully.')</script>");
+            //reset upon save
+            txtbx_PatientID.Text=null;
+            txtAge.Text = null;
+            txtTemp.Text = null;
+            txtWt.Text = null;
+            txtHt_feet.Text = null;
+            txtHt_inch.Text=null;
+            txtBpressure.Text = null;
+            txtDiagnosis.Text = null;
+            txtRecomendation.Text = null;
+            Response.Redirect("~/Medical%20Record/Consultation.aspx");
         }
         else
             Response.Write("<script> window.alert('Please fillup required fields.')</script>");
@@ -156,6 +176,52 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     }
     protected void btnReset_Click(object sender, EventArgs e)
     {
+
+    }
+    protected void txtSearchPatient_TextChanged(object sender, EventArgs e)
+    {
+        //Response.Write("<script type='text/javascript'>" + "alert(\"Hello: " + txtSearchPatient.Text + "\");</script>");
+        //PatientSearchName.SelectParameters["PatientLastName"].DefaultValue = txtSearchPatient.Text;
+    }
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        PatientSearchName.SelectParameters["PatientLastName"].DefaultValue = txtSearchPatient.Text;
+    }
+
+    
+    protected void GridSearchName_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        txtbx_PatientID.Text = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;
+
+        data = new DataAccess();
+
+
+
+        patientData = data.GetValuesConsultation(txtbx_PatientID.Text);
+        Session["PatientData"] = patientData;
+
+        if (patientData.Rows.Count > 0)
+        {
+            foreach (DataRow dr in patientData.Rows)
+            {
+                //txtlname.Text = dr["PatientLName"].ToString().Trim();
+                txtlname.Text = dr["PatientLName"].ToString().Trim();
+
+                txtfname.Text = dr["PatientFName"].ToString().Trim();
+                txtmname.Text = dr["PatientMName"].ToString().Trim();
+
+
+                txtPhilhealthNum.Text = dr["PatientFaxNumber"].ToString().Trim();
+
+
+                string[] bDate = dr["PatientBirthdate"].ToString().Trim().Split('/');
+                ddlDay.Text = bDate[0].Trim();
+                ddlMonth.Text = bDate[1].Trim();
+                ddlYear.Text = bDate[2].Trim();
+                txtAddress.Text = dr["PatientAddress"].ToString().Trim();
+                ddlBarangay.Text = dr["PatientBarangay"].ToString().Trim();
+            }
+        }
 
     }
 }

@@ -112,7 +112,19 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
     }
     protected void txtSearchPatient_TextChanged(object sender, EventArgs e)
     {
-        Response.Write("<script type='text/javascript'>" + "alert(\"Hello: " + txtSearchPatient.Text + "\");</script>");
+        //Response.Write("<script type='text/javascript'>" + "alert(\"Hello: " + txtSearchPatient.Text + "\");</script>");
+        //PatientSearchName.SelectParameters["PatientLastName"].DefaultValue = txtSearchPatient.Text;
+    }
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
         PatientSearchName.SelectParameters["PatientLastName"].DefaultValue = txtSearchPatient.Text;
+        
+    }
+    protected void GridSearchName_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        txtbx_PatientID.Text = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;
+        txtPatientId.Text = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;
+        ButtonSearch_Click(sender, e);
+
     }
 }

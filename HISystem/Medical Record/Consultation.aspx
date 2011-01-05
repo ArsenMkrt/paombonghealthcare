@@ -42,7 +42,7 @@
                              Select Patient on table below.</td>
                          <td>
              
-        <asp:Label ID="Label3" runat="server" Text="PatientID :" Font-Bold="True"></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="Display Selected PatientID :" Font-Bold="True"></asp:Label>
     <asp:TextBox ID="txtbx_PatientID" runat="server" ReadOnly="true" style="margin-left: 13px"></asp:TextBox>
                          </td>
                      </tr>
@@ -74,7 +74,7 @@
             </div>
 
 
-                         <div id="modalwindow2" class="window2">
+                 <%--        <div id="modalwindow2" class="window2">
                          <br />
                          <br />
                          <table border="1" cellpadding="1" cellspacing="1">
@@ -122,7 +122,62 @@
                          </table>
                         
                 
+                         </div>--%>
+
+
+
+
+
+
+
+
+                          <div id="modalwindow2" class="window2">
+                         
+                            <br />
+                             <br />
+                             <asp:TextBox ID="txtSearchPatient" OnTextChanged="txtSearchPatient_TextChanged" runat="server" Height="28px" Width="187px"></asp:TextBox>
+                             <asp:Button ID="btnSearch" runat="server" Text="Search Patient Name" Height="28px" 
+                                 Width="149px" onclick="btnSearch_Click" />
+                                 <br/>
+        <asp:GridView ID="GridSearchName"  runat="server" AutoGenerateColumns="False" 
+        DataKeyNames="PatientID" DataSourceID="PatientSearchName"
+            AutoGenerateSelectButton="True" onselectedindexchanged="GridSearchName_SelectedIndexChanged">
+        <Columns>
+            <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
+                InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
+            <asp:BoundField DataField="PtFname" HeaderText="First name" 
+                SortExpression="PtFname" />
+            <asp:BoundField DataField="PtMname" HeaderText="Middle" 
+                SortExpression="PtMname" />
+            <asp:BoundField DataField="PtLname" HeaderText="Lastname" 
+                SortExpression="PtLname" />
+            <asp:BoundField DataField="PtGender" HeaderText="Gender" 
+                SortExpression="PtGender" />
+            <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
+                SortExpression="PtBdate" />
+            <asp:BoundField DataField="PtAddress" HeaderText="Address" 
+                SortExpression="PtAddress" />
+        </Columns>
+    </asp:GridView>
+                                
+                
+    <asp:SqlDataSource ID="PatientSearchName" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
+        SelectCommand="SearchPatientByName" SelectCommandType="StoredProcedure">
+        <SelectParameters>
+            <asp:Parameter Name ="PatientLastName" DefaultValue="A"/>
+        </SelectParameters>
+    </asp:SqlDataSource>
+        
+                
                          </div>
+
+
+
+
+
+
+
              <div id="mask"></div>
      </div>
     <br />
@@ -292,7 +347,7 @@
         DataSourceID="Barangay" DataTextField="BarangayName" 
         DataValueField="BarangayName" 
                     onselectedindexchanged="ddlBarangay_SelectedIndexChanged" 
-                    style="margin-left: 56px">
+                    style="margin-left: 56px" Enabled="False">
                 </asp:DropDownList>
             &nbsp;<asp:SqlDataSource ID="Barangay" runat="server" 
         ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
@@ -321,8 +376,9 @@
             <td class="style48">
                 Temp</td>
             <td class="style30" colspan="5">
-                <asp:TextBox ID="txtTemp" runat="server" Width="121px" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;"></asp:TextBox>
+                <asp:TextBox ID="txtTemp" runat="server" Width="121px" 
+                    onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;" MaxLength="2"></asp:TextBox>
                 &nbsp;<span class="style18">Celsius</span></td>
             <td align="right" class="style45">
                 Weight</td>
@@ -344,7 +400,7 @@
             <td class="style46" align="right">
                 Blood Pressure</td>
             <td class="style53" colspan="2">
-                <asp:TextBox ID="txtBpressure" runat="server" Width="121px"></asp:TextBox>
+                <asp:TextBox ID="txtBpressure" runat="server" Width="121px" MaxLength="7"></asp:TextBox>
             </td>
         </tr>
         <tr>

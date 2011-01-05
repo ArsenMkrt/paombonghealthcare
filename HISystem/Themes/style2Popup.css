@@ -145,36 +145,36 @@ h1 {
      position:absolute;
      left:0;
     top:0;
-     width:540px;
-     height:200px;
+     width:auto;
+     height:350px;
     display:none;
      z-index:9999;
      padding:20px;
    }
     
    #boxes #modalwindow {
-     width:575px; 
-     height:203px;
+     width:auto; 
+     height:250px;
      padding:10px;
      background-color:#ffffff;
-     overflow:auto;
+     overflow:scroll;
    }
    
     #boxes .window2 {
      position:absolute;
      left:2px;
     top:0px;
-     width:440px;
-     height:400px;
+     width:auto;
+     height:250px;
     display:none;
      z-index:9999;
      padding:20px;
    }
     
    #boxes #modalwindow2 {
-     width:360px; 
+     width:auto; 
      left:5px;
-     height:403px;
+     height:303px;
      padding:2px;
      background-color:#ffffff;
      height:200px;

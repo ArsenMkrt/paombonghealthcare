@@ -23,7 +23,7 @@
              
         &nbsp;&nbsp;&nbsp;
              
-        <asp:Label ID="Label3" runat="server" Text="PatientID :" Font-Bold="True"></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="Display Selected PatientID :" Font-Bold="True"></asp:Label>
     <asp:TextBox ID="txtbx_PatientID" runat="server" ReadOnly="true" style="margin-left: 13px"></asp:TextBox>
                          </td>
                      </tr>
@@ -62,23 +62,16 @@
 
 
                          <div id="modalwindow2" class="window2">
-                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-                            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
-                            SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
-                            </asp:SqlDataSource>
-                            <asp:DropDownList ID="ddlBarangay0" runat="server" 
-                            DataSourceID="Barangay0" DataTextField="BarangayName" 
-                            DataValueField="BarangayName" Height="22px" Width="184px">
-                             </asp:DropDownList>
+                         
                             <br />
                              <br />
                              <asp:TextBox ID="txtSearchPatient" OnTextChanged="txtSearchPatient_TextChanged" runat="server" Height="28px" Width="187px"></asp:TextBox>
                              <asp:Button ID="btnSearch" runat="server" Text="Search Patient Name" Height="28px" 
-                                 Width="149px" />
+                                 Width="149px" onclick="btnSearch_Click" />
                                  <br/>
         <asp:GridView ID="GridSearchName"  runat="server" AutoGenerateColumns="False" 
         DataKeyNames="PatientID" DataSourceID="PatientSearchName"
-            AutoGenerateSelectButton="True">
+            AutoGenerateSelectButton="True" onselectedindexchanged="GridSearchName_SelectedIndexChanged">
         <Columns>
             <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
                 InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
