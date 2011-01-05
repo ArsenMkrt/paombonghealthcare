@@ -157,9 +157,7 @@
 
     <div id="boxes">
             <div id="modalwindow" class="window">
-                 <div id="leftpane" style="float:right; width: 369px;">
-   
-
+               
         <table style="width:46%;" border="1">
             <tr>
                 <td class="style5" colspan="2">
@@ -206,7 +204,7 @@
   
 
 
-    </div>           
+               
             </div>
            
            
