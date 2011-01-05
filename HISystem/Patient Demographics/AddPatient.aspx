@@ -50,7 +50,7 @@
             <td class="style13" style="width: 109px; height: 52px;">
                 <asp:TextBox ID="txtMName" runat="server" Width="107px"></asp:TextBox>
                 <br />
-                MI</td>
+                Middle name</td>
             <td class="style10" style="height: 52px">
                 <asp:TextBox ID="txtSuffix" runat="server" Width="51px" Height="23px" 
                     Visible="False" ></asp:TextBox>
