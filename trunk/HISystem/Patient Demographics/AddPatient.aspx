@@ -52,9 +52,10 @@
                 <br />
                 MI</td>
             <td class="style10" style="height: 52px">
-                <asp:TextBox ID="txtSuffix" runat="server" Width="51px" Height="23px" ></asp:TextBox>
+                <asp:TextBox ID="txtSuffix" runat="server" Width="51px" Height="23px" 
+                    Visible="False" ></asp:TextBox>
                 <br />
-                Suffix</td>
+                </td>
         </tr>
         <tr>
             <td class="style1" style="width: 161px">
@@ -104,6 +105,7 @@
                     <asp:ListItem>Single</asp:ListItem>
                     <asp:ListItem>Divorced</asp:ListItem>
                     <asp:ListItem>Married</asp:ListItem>
+                    <asp:ListItem>Widowed</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>
