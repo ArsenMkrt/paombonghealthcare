@@ -1,8 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate.master" AutoEventWireup="true" CodeFile="addDentalCare.aspx.cs" Inherits="Reports_Templates_addDentalCare" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate5.master" AutoEventWireup="true" CodeFile="addDentalCare.aspx.cs" Inherits="Reports_Templates_addDentalCare" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <p> 
     <asp:SqlDataSource ID="dentalCare" runat="server" 
         ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
@@ -21,7 +20,7 @@
     <br />
     <asp:DropDownList ID="ddlIndicator" runat="server" AutoPostBack="True" 
         onselectedindexchanged="ddlIndicator_SelectedIndexChanged" 
-        style="top: 60px; left: 54px; position: absolute; height: 20px; width: 542px">
+        >
     </asp:DropDownList>
     <br />
     <asp:DropDownList ID="ddlMonth" runat="server" 
@@ -34,7 +33,7 @@
     <p>
     </p>
     <asp:Panel ID="pnl_listview" runat="server" ScrollBars="Both" 
-        style="top: 110px; left: 50px; position: absolute; height: 502px; width: 1164px">
+        >
         <asp:ListView ID="listviewDentalCare" runat="server" 
             InsertItemPosition="LastItem" 
             oniteminserting="listviewDentalCare_ItemInserting" 
