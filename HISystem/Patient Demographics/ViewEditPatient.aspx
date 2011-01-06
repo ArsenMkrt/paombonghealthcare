@@ -165,7 +165,8 @@
                     <br />
                     MI</td>
                 <td class="style10" style="height: 52px">
-                    <asp:TextBox ID="txtSuffix" runat="server" Height="23px" Width="71px"></asp:TextBox>
+                    <asp:TextBox ID="txtSuffix" runat="server" Height="23px" Width="71px" 
+                        Visible="False"></asp:TextBox>
                     <br />
                     Suffix</td>
             </tr>

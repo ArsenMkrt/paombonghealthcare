@@ -17,7 +17,15 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
     }
     protected void button_AddEdit_Click(object sender, EventArgs e)
     {
-        if (radiobutton_Female.Checked || radiobutton_Male.Checked)
+        data = new DataAccess();
+
+        bool checker = data.HasPatient(txtFName.Text, txtMName.Text, txtLName.Text, txtAddress.Text);
+        
+        if(checker == true)
+            Response.Write("<script> window.alert('Patient exists.')</script>");
+        else
+        {
+            if (radiobutton_Female.Checked || radiobutton_Male.Checked)
         {
             string Gender = "Female";
 
@@ -25,8 +33,6 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
                 Gender = "Male";
             if (radiobutton_Female.Checked)
                 Gender = "Female";
-
-            data = new DataAccess();
 
             //Add Patient
 
@@ -37,31 +43,10 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
 
 
             Response.Write("<script> window.alert('Added Patient Successfully.')</script>");
-
-            txtFName.Text = "";
-            txtMName.Text = "";
-            txtLName.Text = "";
-            txtContactNum.Text = "";
-            txtEmailAdd.Text = "";
-            txtSuffix.Text = "";
-            ddlDay.SelectedIndex = 0;
-            ddlMonth.SelectedIndex = 0;
-            ddlYear.SelectedIndex = 0;
-            txtBirthplace.Text = "";
-            txtAddress.Text = "";
-            txtFaxNum.Text = "";
-            txtDoctor.Text = "";
-            txtNationality.Text = "";
-            txtCity.Text = "";
-            ddlCivilStatus.SelectedIndex = 0;
-            txtSpouseName.Text = "";
-            txtCompany.Text = "";
-            ddlBarangay.SelectedIndex = 0;
-            radiobutton_Female.Checked = false;
-            radiobutton_Male.Checked = false;
         }
         else
             Response.Write("<script> window.alert('please select gender')</script>");
+        }
     }
     protected void button_Clear_Click(object sender, EventArgs e)
     {
