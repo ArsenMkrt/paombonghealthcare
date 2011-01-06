@@ -1,0 +1,204 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SiteTemplate5.master.cs" Inherits="SiteTemplate3" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    
+    
+     
+      <script type="text/javascript" language="javascript">
+
+
+          var isShift = false;
+
+          function keyUP(keyCode) {
+              if (keyCode == 16)
+                  isShift = false;
+          }
+
+
+
+          function isNumeric(keyCode) {
+              if (keyCode == 16)
+                  isShift = true;
+
+              return ((keyCode >= 48 && keyCode <= 57 || keyCode == 8 || (keyCode >= 96 && keyCode <= 105)) && isShift == false);
+          }
+    </script>
+
+
+
+
+
+     <script type="text/javascript" language="javascript">
+
+         //calculate
+         function CalculateValue(obj) {
+             var tr = obj.parentNode.parentNode //get the entered row object.
+             var txtPopu = tr.cells[2].getElementsByTagName("INPUT")[0] //population textbox
+
+             var txtMale = tr.cells[3].getElementsByTagName("INPUT")[0] //male textbox
+             var txtFemale = tr.cells[4].getElementsByTagName("INPUT")[0] //female textbox
+             var txtTotal = tr.cells[5].getElementsByTagName("INPUT")[0] //total textbox
+             var txtPercent = tr.cells[6].getElementsByTagName("INPUT")[0] //percentage textbox
+
+             // do calculations
+             txtTotal.value = parseInt(txtMale.value) + parseInt(txtFemale.value); //total value calculation.
+             txtPercent.value = (parseInt(txtTotal.value) / parseInt(txtPopu.value)) * 100 //percentage calculation.
+
+         }
+
+    </script>
+   <%--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>--%>
+   
+     <script type="text/javascript" src="../scripts/jquery.js"></script>
+     
+    
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+
+            // Set up for displaying modal dialogs
+            $('a[name=modal]').click(function (e) {
+                // Prevent the default link behavior of navigation so we can use the link to show the Window
+                e.preventDefault();
+
+                // Determine which href was clicked if it was in fact an href(though this demo as only one.) 
+                var id = $(this).attr('href');
+
+                // Determine browser windows dimensions. 
+                var maskHeight = $(document).height();
+                var maskWidth = $(window).width();
+
+                // Set dimensions for the mask to opaque the screen when the modal window is displayed.
+                $('#mask').css({ 'width': maskWidth, 'height': maskHeight });
+
+                // Make the Window Opaque        
+                $('#mask').fadeIn("fast");
+                $('#mask').fadeTo("slow", 0.8);
+
+                //Get the window height and width
+                var winH = $(window).height();
+                var winW = $(window).width();
+
+                // Set the Modal Window's dimensions to center in the browser window.
+                $(id).css('top', winH / 2 - $(id).height() / 2);
+                $(id).css('left', winW / 2 - $(id).width() / 2);
+
+                // Show the Modal Window
+                $(id).fadeIn("fast");
+
+            });
+
+            // Handle Close Button Click Event
+            $('.window .close').click(function (e) {
+                // Cancel the link behavior
+                e.preventDefault();
+
+                $('#mask').hide();
+                $('.window').hide();
+                $('.window2').hide();
+            });
+
+            // The user clicks OUTSIDE the Modal Window and the window will be closed without save.
+            $('#mask').click(function () {
+                $(this).hide();
+                $('.window').hide();
+                $('.window2').hide();
+            });
+
+        });
+    </script>
+
+
+
+    
+   
+    
+    <link href="Themes/Styles.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #subheaderWrapper
+        {
+            height: 38px;
+            
+        }
+        #content2
+        {
+            margin-top: 44px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+
+        <form id="form1" runat="server">
+        
+            <div id="header" style="background-color:#a2cc85; margin-top: 7px;">
+                <span class="title">Paombong Healthcare Information System
+                <asp:Image ID="Image1" runat="server" Height="46px" 
+                    ImageUrl="~/images/icon hd2.png" style="margin-left: 15px" Width="59px" />
+                </span><br />
+                <span class="breadcrumb">
+                    <asp:SiteMapPath ID="SiteMapPath1" runat="server">
+                    </asp:SiteMapPath>
+                </span>
+            </div>
+            <div id="subheaderWrapper" style="background-color:#d3e7c5">
+            <div id="adminFunctions" style="float:right; height: 31px;">
+            <span>
+                <asp:Label ID="lbl_AdminPrivileges" runat="server" Font-Bold="True" 
+                    Font-Size="Small" Text="Admin:"></asp:Label>
+                
+                <asp:ImageButton ID="imgBtn_addUser" runat="server" 
+                    ImageUrl="~/images/addUsers.png" onclick="imgBtn_addUser_Click" 
+                    ToolTip="Add Users" Width="41px" Height="37px" style="margin-left: 16px" />
+                <asp:ImageButton ID="imgBtn_ManageUser" runat="server" 
+                    ImageUrl="~/images/business_users_process.png" onclick="imgBtn_ManageUser_Click" 
+                    ToolTip="Manage Users" Width="41px" Height="30px" 
+                    style="margin-left: 15px" />
+                <br />
+                </span>
+                </div>
+            <div id="welcomeUser" style="float:left; height: 31px; width: 321px;">
+                <asp:ContentPlaceHolder ID="LoginContent" runat="server">
+                    
+                     <asp:LoginView ID="LoginView1" runat="server">
+                         <LoggedInTemplate>
+                             Welcome back,
+                             <asp:LoginName ID="HeadLoginName0" runat="server" />
+                             </span>!
+                        
+                        [
+                             <asp:LoginStatus ID="HeadLoginStatus2" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/" LogoutText="Log Out" />
+                             ]
+                         </LoggedInTemplate>
+                         <AnonymousTemplate>
+                             Welcome Guest, [
+                             <a ID="HeadLoginStatus1" runat="server" href="~/Public/Login.aspx">Log In</a> ]
+                         </AnonymousTemplate>
+                     </asp:LoginView>
+                </asp:ContentPlaceHolder>
+               
+               
+                </div>
+            </div>
+            <div id="content2">
+                <asp:contentplaceholder id="MainContent" runat="server">
+                  <!-- Page-specific content will go here... -->
+                </asp:contentplaceholder>
+            </div>
+            
+        </form>
+        </div>
+         <br />
+
+
+
+
+           
+</body>
+</html>
+

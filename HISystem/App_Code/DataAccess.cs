@@ -3,7 +3,7 @@
  * 
  * INSPIRED BY CHRIZZI.. - SuperDevLester
  * Gerald Magno inspired by his greatness
- * 
+ *
  * TECHNICAL ADVISER
  * 1. Elcid Serrano
  * 
@@ -76,8 +76,8 @@ using System.Data.SqlClient;
 public class DataAccess
 {
     private string dataconnection =
-    @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\HISystem\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
-    //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Gerald\Desktop\cap\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
+    //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\HISystem\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
+    @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Gerald\Desktop\cap\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
 
     private MonthConverter mc;
 
@@ -126,14 +126,10 @@ public class DataAccess
             cmdTxt.Parameters.Add("@PatientBarangay", SqlDbType.Char).Value = PatientBarangay;
 
             int checker = cmdTxt.ExecuteNonQuery();
-            //if (checker > 0)
-            //    MessageBox.Show("<script>window.alert('Successful.')</script>");
-            //else
-            //    MessageBox.Show("Patient Not Saved! Please Try Again");
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Error : " + ex.Message);
+           
         }
         finally
         {
@@ -197,7 +193,7 @@ public class DataAccess
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Error : " + ex.Message);
+            MessageBox.Show("No Patient Found for Patient ID: " + Patient_Id);
         }
         finally
         {

@@ -1,14 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate.master" AutoEventWireup="true" CodeFile="addFilariasis.aspx.cs" Inherits="Reports_Templates_addFilariasis" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate5.master" AutoEventWireup="true" CodeFile="addFilariasis.aspx.cs" Inherits="Reports_Templates_addFilariasis" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <p>
      <asp:SqlDataSource ID="childCare" runat="server" 
         ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
         SelectCommand="SELECT * FROM [ChildCare] WHERE ChildData = @childData"></asp:SqlDataSource>
     <asp:Label ID="Label3" runat="server" 
-        style="top: 59px; left: 649px; position: absolute; height: 19px; width: 34px" 
+        style="top: 187px; left: 649px; position: absolute; height: 19px; width: 34px" 
         Text="Month"></asp:Label>
     <asp:Label ID="Label4" runat="server" 
         style="top: 59px; left: 901px; position: absolute; height: 19px; width: 34px" 
@@ -21,12 +20,12 @@
     <br />
     <asp:DropDownList ID="ddlIndicator" runat="server" AutoPostBack="True" 
         onselectedindexchanged="ddlIndicator_SelectedIndexChanged" 
-        style="top: 60px; left: 54px; position: absolute; height: 20px; width: 542px">
+        >
     </asp:DropDownList>
     <br />
     <asp:DropDownList ID="ddlMonth" runat="server" 
         
-        style="top: 57px; left: 716px; position: absolute; height: 20px; width: 149px" 
+        style="top: 78px; left: 716px; position: absolute; height: 115px; width: 149px" 
         AutoPostBack="True" onselectedindexchanged="ddlMonth_SelectedIndexChanged">
     </asp:DropDownList>
         <br />
@@ -34,7 +33,7 @@
     <p>
     </p>
     <asp:Panel ID="pnl_listview" runat="server" ScrollBars="Both" 
-        style="top: 110px; left: 50px; position: absolute; height: 502px; width: 1164px">
+        >
         <asp:ListView ID="listviewFilariasis" runat="server" 
             InsertItemPosition="LastItem" 
             oniteminserting="listviewFilariasis_ItemInserting" 

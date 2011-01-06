@@ -33,7 +33,7 @@
                       &nbsp;</td>
                 <td style="width: 54px">
                       <asp:Button ID="btnManagePopulation" runat="server"  
-            Text="Manage Population" />
+            Text="Manage Population" Visible="False" />
                     </td>
                 <td style="width: 366px">
                     &nbsp;</td>

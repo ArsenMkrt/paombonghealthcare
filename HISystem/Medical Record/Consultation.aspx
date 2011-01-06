@@ -380,7 +380,11 @@
                 <asp:TextBox ID="txtTemp" runat="server" Width="121px" 
                     onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
                         onpaste="return false;" MaxLength="2"></asp:TextBox>
-                &nbsp;<span class="style18">Celsius</span></td>
+                &nbsp;<span class="style18">Celsius
+                <asp:RangeValidator ID="RangeValidator1" runat="server" 
+                    ControlToValidate="txtTemp" ErrorMessage="(temperature range exceeded)" 
+                    Font-Italic="True" Font-Size="Small" MaximumValue="40" MinimumValue="35"></asp:RangeValidator>
+                </span></td>
             <td align="right" class="style45">
                 Weight</td>
             <td class="style29" colspan="2">
@@ -399,7 +403,15 @@
                     Font-Size="Small"></asp:RequiredFieldValidator>
 &nbsp;<asp:TextBox ID="txtHt_inch" runat="server" Width="37px" MaxLength="2" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
                         onpaste="return false;"></asp:TextBox>
-                &nbsp;in</td>
+                &nbsp;in <span class="style18">
+                <asp:RangeValidator ID="RangeValidator2" runat="server" 
+                    ControlToValidate="txtHt_inch" ErrorMessage="(inch input exceeded)" 
+                    Font-Italic="True" Font-Size="Small" MaximumValue="11" MinimumValue="1"></asp:RangeValidator>
+                <br />
+                <asp:RangeValidator ID="RangeValidator3" runat="server" 
+                    ControlToValidate="txtHt_feet" ErrorMessage="(height input exceeded)" 
+                    Font-Italic="True" Font-Size="Small" MaximumValue="8" MinimumValue="1"></asp:RangeValidator>
+                </span>&nbsp;</td>
             <td class="style46" align="right">
                 Blood Pressure</td>
             <td class="style53" colspan="2">
