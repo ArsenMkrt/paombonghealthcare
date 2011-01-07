@@ -12,19 +12,13 @@
     <table style="width: 365px">
 <tr>
 <td>
-        <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">Search PatientID</a>
-    <asp:SqlDataSource ID="Medicine2" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
-        
-        
-        SelectCommand="SELECT [PatientID], [PtFname], [PtMname], [PtLname], [PtGender], [PtBdate], [PtAddress] FROM [Patients]">
-    </asp:SqlDataSource>
+        <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">List Of Patients</a>
         
         </td>
 
 <td>
        
-         <a href="#modalwindow2" name="modal"  style="color: #990033; font-weight: bold;">Search Patient</a>
+         <a href="#modalwindow2" name="modal"  style="color: #990033; font-weight: bold;">List Of Patient Search By Name</a>
 
         
         </td>
@@ -50,70 +44,58 @@
                  </table>
     <br />
     <asp:GridView ID="grdvw_Users" runat="server" AutoGenerateColumns="False" 
-        DataKeyNames="PatientID" DataSourceID="Medicine2" 
+        DataKeyNames="PatientID" DataSourceID="PatientList" 
             onselectedindexchanged="GridView1_SelectedIndexChanged" 
             AutoGenerateSelectButton="True" onload="grdvw_Users_Load">
         <Columns>
             <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
                 InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
-            <asp:BoundField DataField="PtFname" HeaderText="First name" 
-                SortExpression="PtFname" />
-            <asp:BoundField DataField="PtMname" HeaderText="Middle" 
-                SortExpression="PtMname" />
-            <asp:BoundField DataField="PtLname" HeaderText="Lastname" 
-                SortExpression="PtLname" />
+            <asp:BoundField DataField="PtFullname" HeaderText="Name" 
+                SortExpression="PtFullname" />
             <asp:BoundField DataField="PtGender" HeaderText="Gender" 
                 SortExpression="PtGender" />
             <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
                 SortExpression="PtBdate" />
-            <asp:BoundField DataField="PtAddress" HeaderText="Address" 
-                SortExpression="PtAddress" />
         </Columns>
     </asp:GridView>
-     <asp:Button ID="ButtonProceed" runat="server" Text="Proceed" Width="104px" 
-                     onClick="ButtonProceed_Click" CausesValidation="False" />
-    
+ 
             </div>
-
-
-
 
                        <div id="modalwindow2" class="window2">
                          
                             <br />
                              <br />
-                             <asp:TextBox ID="txtSearchPatient" OnTextChanged="txtSearchPatient_TextChanged" runat="server" Height="28px" Width="187px"></asp:TextBox>
+                             <asp:TextBox ID="txtSearchPatient" AutoPostBack="true" OnTextChanged="txtSearchPatient_TextChanged" runat="server" Height="28px" Width="187px"></asp:TextBox>
                              <asp:Button ID="btnSearch" runat="server" Text="Search Patient Name" Height="28px" 
                                  Width="149px" onclick="btnSearch_Click" CausesValidation="False" />
                                  <br/>
         <asp:GridView ID="GridSearchName"  runat="server" AutoGenerateColumns="False" 
-        DataKeyNames="PatientID" DataSourceID="PatientSearchName"
+        DataKeyNames="PatientID" DataSourceID="PatientList"
             AutoGenerateSelectButton="True" onselectedindexchanged="GridSearchName_SelectedIndexChanged">
         <Columns>
-            <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
+         <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
                 InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
-            <asp:BoundField DataField="PtFname" HeaderText="First name" 
-                SortExpression="PtFname" />
-            <asp:BoundField DataField="PtMname" HeaderText="Middle" 
-                SortExpression="PtMname" />
-            <asp:BoundField DataField="PtLname" HeaderText="Lastname" 
-                SortExpression="PtLname" />
+            <asp:BoundField DataField="PtFullname" HeaderText="Name" 
+                SortExpression="PtFullname" />
             <asp:BoundField DataField="PtGender" HeaderText="Gender" 
                 SortExpression="PtGender" />
             <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
                 SortExpression="PtBdate" />
-            <asp:BoundField DataField="PtAddress" HeaderText="Address" 
-                SortExpression="PtAddress" />
         </Columns>
     </asp:GridView>
                                 
                 
+              
     <asp:SqlDataSource ID="PatientSearchName" runat="server" 
         ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
         SelectCommand="SearchPatientByName" SelectCommandType="StoredProcedure">
         <SelectParameters>
-            <asp:Parameter Name ="PatientLastName" DefaultValue="A"/>
+            <asp:Parameter Name ="PatientLastName" DefaultValue="a"/>
         </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="PatientList" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
+        SelectCommand="RetrievePatientAll" SelectCommandType="StoredProcedure">
     </asp:SqlDataSource>
         
                 
