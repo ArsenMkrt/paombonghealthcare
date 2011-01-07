@@ -83,20 +83,20 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     protected void btnSave_Click(object sender, EventArgs e)
     {
 
-        if (txtAge.Text == null)
-        {
-            txtAge.Text = "1";
-        }
-        
-        if (txtTemp.Text== null)
-        {
-            txtTemp.Text = "37";
-        }
-        if (txtBpressure.Text == null)
-            txtBpressure.Text = "200";
-               
-        if (txtWt.Text == null);
-               txtWt.Text="150";
+        //if (txtAge.Text.Trim() == null || txtAge.Text.Length==0)
+        //{
+        //    txtAge.Text = "1";
+        //}
+
+        //if (txtTemp.Text.Trim() == null)
+        //{
+        //    txtTemp.Text = "37";
+        //}
+        //if (txtBpressure.Text.Trim() == null)
+        //    txtBpressure.Text = "200";
+
+        //if (txtWt.Text.Trim() == null) 
+        //       txtWt.Text="150";
 
 
             //To save data on db
@@ -194,7 +194,15 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     }
     protected void btnReset_Click(object sender, EventArgs e)
     {
-
+        txtbx_PatientID.Text = null;
+        txtAge.Text = null;
+        txtTemp.Text = null;
+        txtWt.Text = null;
+        txtHt_feet.Text = null;
+        txtHt_inch.Text = null;
+        txtBpressure.Text = null;
+        txtDiagnosis.Text = null;
+        txtRecomendation.Text = null;
     }
     protected void txtSearchPatient_TextChanged(object sender, EventArgs e)
     {
