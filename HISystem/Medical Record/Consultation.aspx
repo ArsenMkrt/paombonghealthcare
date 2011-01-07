@@ -9,7 +9,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
-<table style="width: 365px">
+    <table style="width: 365px">
 <tr>
 <td>
         <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">Search PatientID</a>
@@ -396,7 +396,7 @@
             </td>
             <td class="style63">
                 <asp:Button ID="btnReset" runat="server" style="margin-left: 0px" Text="Reset" 
-                    Width="145px" onclick="btnReset_Click" />
+                    Width="145px" onclick="btnReset_Click" CausesValidation="false" />
             </td>
             <td class="style62" colspan="5">
                 &nbsp;</td>
