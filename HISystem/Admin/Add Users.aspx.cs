@@ -14,19 +14,7 @@ public partial class Admin_Add_Users : System.Web.UI.Page
 
     private void Page_Load()
     {
-        if (IsPostBack)
-        {
-            try
-            {
-                AddUser();
-
-               // Response.Redirect("~/Public/Login.aspx");
-            }
-            catch (Exception ex)
-            {
-                ConfirmationMessage.InnerText = "Insert Failure: " + ex.Message;
-            }
-        }
+       
     }
 
     protected void AddUser()
@@ -68,6 +56,19 @@ public partial class Admin_Add_Users : System.Web.UI.Page
 
 
 
+    protected void btn_addUser_Click(object sender, EventArgs e)
+    {
 
-
+        try
+        {
+            AddUser();
+           
+            // Response.Redirect("~/Public/Login.aspx");
+        }
+        catch (Exception ex)
+        {
+            ConfirmationMessage.InnerText = "Insert Failure: " + ex.Message;
+        }
+       
+    }
 }
