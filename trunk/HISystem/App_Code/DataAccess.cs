@@ -657,33 +657,21 @@ public class DataAccess
 
     }
     
-    public void UpdateMedicine(int MedicineId,string MedicineName, string CategoryName, int Quantity)
+    public bool UpdateMedicine(int MedicineId,string MedicineName, string CategoryName, int Quantity)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
-        try
-        {
-            connPatient.Open();
-            SqlCommand cmdTxt = new SqlCommand("Update Medicine SET MedicineName = @MedicineName,"+
-                "CategoryId = (SELECT CategoryId FROM Category WHERE CategoryName = @CategoryName),"+
-                "Quantity = @Quantity WHERE MedicineId ="+MedicineId, connPatient);
-            cmdTxt.Parameters.Add("@MedicineName", SqlDbType.Char).Value = MedicineName;
-            cmdTxt.Parameters.Add("@Quantity", SqlDbType.BigInt).Value = Quantity;
-            cmdTxt.Parameters.Add("@CategoryName", SqlDbType.Char).Value = CategoryName;
-            int checker = cmdTxt.ExecuteNonQuery();
-            if (checker > 0)
-                MessageBox.Show("Successfully Updated Medicine");
-            else
-                MessageBox.Show("Please Try Again!!");
-
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Error : " + ex.Message);
-        }
-        finally
-        {
-            connPatient.Close();
-        }
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("Update Medicine SET MedicineName = @MedicineName,"+
+            "CategoryId = (SELECT CategoryId FROM Category WHERE CategoryName = @CategoryName),"+
+            "Quantity = @Quantity WHERE MedicineId ="+MedicineId, connPatient);
+        cmdTxt.Parameters.Add("@MedicineName", SqlDbType.Char).Value = MedicineName;
+        cmdTxt.Parameters.Add("@Quantity", SqlDbType.BigInt).Value = Quantity;
+        cmdTxt.Parameters.Add("@CategoryName", SqlDbType.Char).Value = CategoryName;
+        int checker = cmdTxt.ExecuteNonQuery();
+        if (checker > 0)
+            return true;
+        else
+            return false;
     }
 
     public List<string> GetDiseaseCategory()
@@ -1228,7 +1216,20 @@ public class DataAccess
         else
             return false;
     }
-    public bool HasMedicine(string MedicineName)
+    public bool HasMedicine(int MedicineId)
+    {
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM Medicine WHERE MedicineId = @medicineId", connPatient);
+        cmdTxt.Parameters.Add("@medicineId", SqlDbType.Int).Value = MedicineId;
+
+        if ((int)cmdTxt.ExecuteScalar() > 0)
+            return true;
+        else
+            return false;
+    }
+    public bool HasMedicineName(string MedicineName)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
 
@@ -1246,6 +1247,7 @@ public class DataAccess
         SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
+
         SqlCommand cmdTxt = new SqlCommand("SELECT MedicineName FROM Medicine WHERE MedicineId = @aa", connPatient);
         cmdTxt.Parameters.Add("@aa", SqlDbType.Int).Value = MedicineId;
         SqlDataReader name = cmdTxt.ExecuteReader();
