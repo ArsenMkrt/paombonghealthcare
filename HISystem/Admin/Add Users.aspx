@@ -1,70 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate3.master" AutoEventWireup="true" CodeFile="Add Users.aspx.cs" Inherits="Admin_Add_Users" %>
 
-<script runat="server">
-	
-	MembershipUser user;
-	
-	private void Page_Load()
-	{
-		if (IsPostBack)
-		{
-			try
-			{
-				AddUser();
 
-				Response.Redirect("login.aspx");
-			}
-			catch (Exception ex)
-			{
-				ConfirmationMessage.InnerText = "Insert Failure: " + ex.Message;
-			}
-		}
-	}
-
-	protected void AddUser()
-	{
-		// Add User.
-		MembershipUser newUser = Membership.CreateUser(username.Text, password.Text, email.Text);
-		newUser.Comment = comment.Text;
-		Membership.UpdateUser(newUser);
-		
-		// Add Roles.
-		foreach (ListItem rolebox in UserRoles.Items)
-		{
-			if (rolebox.Selected)
-			{
-				Roles.AddUserToRole(username.Text, rolebox.Text);
-			}
-		}
-	}
-
-	private void Page_PreRender()
-	{
-		UserRoles.DataSource = Roles.GetAllRoles();
-		UserRoles.DataBind();
-	}
-
-
-	
-
-	
-</script>
-
-
-
-
-<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style type="text/css">
-        .webparts
-        {
-            width: 253px;
-        }
-        .style1
-        {
-            height: 23px;
-        }
-    </style>
-</asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 
@@ -72,7 +8,7 @@
 <br />
 <center>
     
-        <table align="left" class="webparts" bgcolor="#a2cc85">
+        <table align="left" class="webparts" bgcolor="#a2cc85" style="width: 1000px">
             <tr>
                 <th class="style1">
                     Add User</th>
@@ -104,7 +40,7 @@
                             <td class="detailheader">
                                 Password</td>
                             <td>
-                                <asp:TextBox ID="password" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
