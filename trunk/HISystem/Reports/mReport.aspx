@@ -32,9 +32,7 @@
                 <td style="width: 65px">
                       &nbsp;</td>
                 <td style="width: 138px">
-                      <asp:Button ID="btnManagePopulation" runat="server"  
-            Text="Manage Population" />
-                    </td>
+                      &nbsp;</td>
                 <td style="width: 366px">
                     &nbsp;</td>
             </tr>

@@ -8,29 +8,101 @@
         <asp:Button ID="btn_runReport" runat="server" onclick="btn_runReport_Click" 
             style="top: 199px; left: 776px; position: absolute; height: 26px; width: 109px" 
             Text="Run Report" />
-        <asp:DropDownList ID="ddlQuarter" runat="server" 
-            
-            
-            style="top: 199px; left: 380px; position: absolute; height: 20px; width: 120px">
+        Quarter:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        Year:<asp:SqlDataSource ID="DataYear" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
+        SelectCommand="SELECT DISTINCT [Year] FROM [ChildCare]">
+    </asp:SqlDataSource>
+</p>
+<p>
+    Municipality:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Paombong</strong><table 
+        style="width:100%;">
+        <tr>
+            <td style="width: 120px; text-align: center; height: 42px">
+                Type</td>
+            <td style="width: 159px; height: 42px">
+                </td>
+            <td style="height: 42px; width: 78px">
+                &nbsp;</td>
+            <td style="height: 42px">
+                </td>
+        </tr>
+        <tr>
+            <td style="width: 120px">
+                <asp:RadioButton ID="rdbtn_Reports" runat="server" Text="Reports" 
+                    oncheckedchanged="rdbtn_Reports_CheckedChanged" />
+            </td>
+            <td style="width: 159px; text-align: center">
+                Type of Report</td>
+            <td style="width: 78px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 120px">
+                &nbsp;</td>
+            <td style="width: 159px">
+                <asp:RadioButton ID="RadioButton3" runat="server" Text="Month" 
+                    oncheckedchanged="RadioButton3_CheckedChanged" Visible="False" />
+            </td>
+            <td style="width: 78px">
+                <asp:DropDownList ID="DropDownList2" runat="server" Height="20px" Width="123px" 
+                    Visible="False">
+                </asp:DropDownList>
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 120px">
+                &nbsp;</td>
+            <td style="width: 159px">
+                <asp:RadioButton ID="RadioButton4" runat="server" Text="Quarter" 
+                    oncheckedchanged="RadioButton4_CheckedChanged" Visible="False" />
+            </td>
+            <td style="width: 78px">
+        <asp:DropDownList ID="ddlQuarter" runat="server" Height="20px" Width="123px" 
+                    Visible="False">
             <asp:ListItem>All</asp:ListItem>
             <asp:ListItem>1st Quarter</asp:ListItem>
             <asp:ListItem>2nd Quarter</asp:ListItem>
             <asp:ListItem>3rd Quarter</asp:ListItem>
             <asp:ListItem>4th Quarter</asp:ListItem>
         </asp:DropDownList>
-        Quarter:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        Year:<asp:DropDownList ID="DropDownList1" runat="server" 
-             DataSourceID = "DataYear" DataValueField="Year" DataTextField="Year"
-            
-            style="top: 200px; left: 605px; position: absolute; height: 20px; width: 120px">
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 120px">
+                &nbsp;</td>
+            <td style="width: 159px">
+                <asp:RadioButton ID="RadioButton5" runat="server" Text="Year" 
+                    oncheckedchanged="RadioButton5_CheckedChanged" Visible="False" />
+            </td>
+            <td style="width: 78px">
+                <asp:DropDownList ID="DropDownList1" runat="server" 
+             DataSourceID = "DataYear" DataValueField="Year" DataTextField="Year" 
+                    Height="20px" Width="123px" Visible="False">
         </asp:DropDownList>
-        <asp:SqlDataSource ID="DataYear" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
-        SelectCommand="SELECT DISTINCT [Year] FROM [ChildCare]">
-    </asp:SqlDataSource>
-</p>
-<p>
-    Municipality:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Paombong</strong></p>
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 120px">
+                <asp:RadioButton ID="rdbtn_Inventory" runat="server" Text="Inventory" />
+            </td>
+            <td style="width: 159px">
+                &nbsp;</td>
+            <td style="width: 78px">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+    </p>
     <p>
         Province: <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         Bulacan</strong></p>

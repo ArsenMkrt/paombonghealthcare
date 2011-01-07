@@ -125,7 +125,7 @@
                 <td class="style3" colspan="4">
                     <center>
                     <asp:SqlDataSource ID="Barangay0" runat="server" 
-                        ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+                        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>"
                         SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
                     </asp:SqlDataSource>
                         <asp:Image ID="Image3" runat="server" Height="42px" 
@@ -165,8 +165,7 @@
                 <td class="style10" style="height: 52px">
                     <asp:TextBox ID="txtSuffix" runat="server" Height="23px" Width="71px" 
                         Visible="False"></asp:TextBox>
-                    <br />
-                    Suffix</td>
+                    </td>
             </tr>
             <tr>
                 <td class="style1" style="width: 161px">
