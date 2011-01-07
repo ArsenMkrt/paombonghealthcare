@@ -50,8 +50,8 @@
                 var id = $(this).attr('href');
 
                 // Determine browser windows dimensions. 
-                var maskHeight = $(document).height();
-                var maskWidth = $(window).width();
+                var maskHeight = $(document).height() + 90;
+                var maskWidth = $(window).width() + 60;
 
                 // Set dimensions for the mask to opaque the screen when the modal window is displayed.
                 $('#mask').css({ 'width': maskWidth, 'height': maskHeight });
@@ -77,7 +77,7 @@
             $('.window .close').click(function (e) {
                 // Cancel the link behavior
                 e.preventDefault();
-
+                
                 $('#mask').hide();
                 $('.window').hide();
                 $('.window2').hide();
