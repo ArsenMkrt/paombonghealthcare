@@ -159,11 +159,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     {
         string Patient_id= txtbx_PatientID.Text.Trim();
 
-
-
         data = new DataAccess();
-
-
 
         patientData = data.GetValuesConsultation(Patient_id);
         Session["PatientData"] = patientData;
@@ -206,8 +202,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     }
     protected void txtSearchPatient_TextChanged(object sender, EventArgs e)
     {
-        //Response.Write("<script type='text/javascript'>" + "alert(\"Hello: " + txtSearchPatient.Text + "\");</script>");
-        //PatientSearchName.SelectParameters["PatientLastName"].DefaultValue = txtSearchPatient.Text;
+        GridSearchName.DataSourceID = "PatientSearchName";
+        PatientSearchName.SelectParameters["PatientLastName"].DefaultValue = txtSearchPatient.Text;
     }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
