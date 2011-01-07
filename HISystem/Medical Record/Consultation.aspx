@@ -24,7 +24,8 @@
 
 <td>
        
-         <a href="#modalwindow2" name="modal" style="color: #990033; font-weight: bold;">Search Patient</a>
+         <a href="#modalwindow2" name="modal"  style="color: #990033; font-weight: bold;">Search Patient</a>
+
         
         </td>
 
@@ -69,64 +70,10 @@
                 SortExpression="PtAddress" />
         </Columns>
     </asp:GridView>
-     <asp:Button ID="ButtonProceed" runat="server" Text="Proceed" Width="104px" onClick="ButtonProceed_Click" />
+     <asp:Button ID="ButtonProceed" runat="server" Text="Proceed" Width="104px" 
+                     onClick="ButtonProceed_Click" CausesValidation="False" />
     
             </div>
-
-
-                 <%--        <div id="modalwindow2" class="window2">
-                         <br />
-                         <br />
-                         <table border="1" cellpadding="1" cellspacing="1">
-                         <tr>
-                         <td>Select Barangay</td>
-                         <td> <asp:DropDownList ID="ddlBarangay0" runat="server" 
-                            DataSourceID="Barangay0" DataTextField="BarangayName" 
-                            DataValueField="BarangayName" Height="22px" Width="184px">
-                             </asp:DropDownList></td>
-                         </tr>
-                         <tr>
-                         <td>
-                         <asp:TextBox ID="txtSearchPatient" runat="server" Height="28px" Width="187px"></asp:TextBox>
-                         </td>
-                         <td>
-                         <asp:Button ID="btnSearch" runat="server" Text="Search Patient Name" Height="28px" 
-                                 Width="182px" />
-                         </td>
-                         </tr>
-                         <tr>
-                         
-                         <td colspan="2">
-                                                      <asp:SqlDataSource ID="Barangay0" runat="server" 
-                                                        ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
-                                                        SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
-                                                        </asp:SqlDataSource>
-                           
-                            
-                         
-                             
-                                 
-                                                         <asp:GridView ID="GridSearchName" runat="server">
-                                                         </asp:GridView>
-                                
-                
-                                <asp:SqlDataSource ID="PatientSearchName" runat="server" 
-                                    ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
-        
-                                                             SelectCommand="SELECT [PatientID], [PtFname], [PtMname], [PtLname], [PtGender], [PtBdate], [PtAddress] FROM [Patients]">
-                                </asp:SqlDataSource>
-                                
-                         
-                         </td>
-                         </tr>
-                         </table>
-                        
-                
-                         </div>--%>
-
-
-
-
 
 
 
@@ -137,7 +84,7 @@
                              <br />
                              <asp:TextBox ID="txtSearchPatient" OnTextChanged="txtSearchPatient_TextChanged" runat="server" Height="28px" Width="187px"></asp:TextBox>
                              <asp:Button ID="btnSearch" runat="server" Text="Search Patient Name" Height="28px" 
-                                 Width="149px" onclick="btnSearch_Click" />
+                                 Width="149px" onclick="btnSearch_Click" CausesValidation="False" />
                                  <br/>
         <asp:GridView ID="GridSearchName"  runat="server" AutoGenerateColumns="False" 
         DataKeyNames="PatientID" DataSourceID="PatientSearchName"
