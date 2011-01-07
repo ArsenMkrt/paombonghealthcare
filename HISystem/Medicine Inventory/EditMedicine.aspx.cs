@@ -15,7 +15,7 @@ public partial class Medicine_Inventory_EditMedicine : System.Web.UI.Page
     {
 
     }
-    protected void btnSearch_Click(object sender, EventArgs e)
+    protected void SearchMedicine()
     {
         data = new DataAccess();
         medicineData = new DataTable();
@@ -45,5 +45,12 @@ public partial class Medicine_Inventory_EditMedicine : System.Web.UI.Page
     protected void btnClear_Click(object sender, EventArgs e)
     {
         Response.Redirect("EditMedicine.aspx");
+    }
+
+    protected void gridViewMedicine_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        txtMedicineId.Text = gridViewMedicine.Rows[gridViewMedicine.SelectedIndex].Cells[1].Text;
+        txtMedicineId.ReadOnly = true;
+        SearchMedicine();
     }
 }

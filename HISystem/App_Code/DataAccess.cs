@@ -76,8 +76,8 @@ using System.Data.SqlClient;
 public class DataAccess
 {
     private string dataconnection =
-    //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\HISystem\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
-    @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Gerald\Desktop\cap\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
+    @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\HISystem\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
+    //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Gerald\Desktop\cap\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
 
     private MonthConverter mc;
 
@@ -391,10 +391,6 @@ public class DataAccess
             SqlCommand cmdTxt = new SqlCommand("Delete From Medicine Where MedicineId = @aa", connPatient);
             cmdTxt.Parameters.Add("@aa", SqlDbType.Int).Value = MedicineId;
             int check = cmdTxt.ExecuteNonQuery();
-            if (check > 0)
-                MessageBox.Show("Successfully Deleted Medicine");
-            else
-                MessageBox.Show("Please Try Again!!");
         }
         catch (Exception ex)
         {
@@ -892,14 +888,6 @@ public class DataAccess
         cmdTxt.Parameters.Add("@Pregnant", SqlDbType.Int).Value = Pregnant;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
-        //SqlCommand cmdTxt2 = new SqlCommand("INSERT INTO Population (BarangayID,Target,Quarter,Year,Population)"
-        //    +"VALUES (@BarangayID,@Target,@Quarter,@Year,@Pop)", connPatient);
-        //cmdTxt2.Parameters.Add("@BarangayID",SqlDbType.Int).Value = BarangayID;
-        //cmdTxt2.Parameters.Add("@Target", SqlDbType.Int).Value = Target;
-        //cmdTxt2.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
-        //cmdTxt2.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        //cmdTxt2.Parameters.Add("@Pop", SqlDbType.Int).Value = Population;
-        //cmdTxt2.ExecuteNonQuery();
 
         connPatient.Close();
     }
@@ -924,14 +912,7 @@ public class DataAccess
         cmdTxt.Parameters.Add("@Percent", SqlDbType.Decimal).Value = percent;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
-        //SqlCommand cmdTxt2 = new SqlCommand("INSERT INTO Population (BarangayID,Target,Quarter,Year,Population)"
-        //    +"VALUES (@BarangayID,@Target,@Quarter,@Year,@Pop)", connPatient);
-        //cmdTxt2.Parameters.Add("@BarangayID",SqlDbType.Int).Value = BarangayID;
-        //cmdTxt2.Parameters.Add("@Target", SqlDbType.Int).Value = Target;
-        //cmdTxt2.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
-        //cmdTxt2.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        //cmdTxt2.Parameters.Add("@Pop", SqlDbType.Int).Value = Population;
-        //cmdTxt2.ExecuteNonQuery();
+  
 
         connPatient.Close();
     }
@@ -955,15 +936,7 @@ public class DataAccess
         cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
-        //SqlCommand cmdTxt2 = new SqlCommand("INSERT INTO Population (BarangayID,Target,Quarter,Year,Population)"
-        //    +"VALUES (@BarangayID,@Target,@Quarter,@Year,@Pop)", connPatient);
-        //cmdTxt2.Parameters.Add("@BarangayID",SqlDbType.Int).Value = BarangayID;
-        //cmdTxt2.Parameters.Add("@Target", SqlDbType.Int).Value = Target;
-        //cmdTxt2.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
-        //cmdTxt2.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        //cmdTxt2.Parameters.Add("@Pop", SqlDbType.Int).Value = Population;
-        //cmdTxt2.ExecuteNonQuery();
-
+   
         connPatient.Close();
     }
 
@@ -986,14 +959,6 @@ public class DataAccess
         cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
-        //SqlCommand cmdTxt2 = new SqlCommand("INSERT INTO Population (BarangayID,Target,Quarter,Year,Population)"
-        //    +"VALUES (@BarangayID,@Target,@Quarter,@Year,@Pop)", connPatient);
-        //cmdTxt2.Parameters.Add("@BarangayID",SqlDbType.Int).Value = BarangayID;
-        //cmdTxt2.Parameters.Add("@Target", SqlDbType.Int).Value = Target;
-        //cmdTxt2.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
-        //cmdTxt2.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        //cmdTxt2.Parameters.Add("@Pop", SqlDbType.Int).Value = Population;
-        //cmdTxt2.ExecuteNonQuery();
 
         connPatient.Close();
     }
@@ -1017,14 +982,6 @@ public class DataAccess
         cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
-        //SqlCommand cmdTxt2 = new SqlCommand("INSERT INTO Population (BarangayID,Target,Quarter,Year,Population)"
-        //    +"VALUES (@BarangayID,@Target,@Quarter,@Year,@Pop)", connPatient);
-        //cmdTxt2.Parameters.Add("@BarangayID",SqlDbType.Int).Value = BarangayID;
-        //cmdTxt2.Parameters.Add("@Target", SqlDbType.Int).Value = Target;
-        //cmdTxt2.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
-        //cmdTxt2.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        //cmdTxt2.Parameters.Add("@Pop", SqlDbType.Int).Value = Population;
-        //cmdTxt2.ExecuteNonQuery();
 
         connPatient.Close();
     }
@@ -1253,5 +1210,49 @@ public class DataAccess
         cmdTxt.Parameters.Add("@Diagnosis", SqlDbType.VarChar).Value = Diagnosis;
         cmdTxt.Parameters.Add("@Treatment", SqlDbType.VarChar).Value = Treatment;
         cmdTxt.ExecuteNonQuery();
+    }
+    public bool HasPatient(string firstName, string middleName, string lastname, string address)
+    {
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM Patients WHERE PtFname = @firstname AND PtMname = @middlename" +
+            " AND PtLname = @lastname AND PtAddress = @address", connPatient);
+        cmdTxt.Parameters.Add("@firstname", SqlDbType.VarChar).Value = firstName;
+        cmdTxt.Parameters.Add("@middlename", SqlDbType.VarChar).Value = middleName;
+        cmdTxt.Parameters.Add("@lastname", SqlDbType.VarChar).Value = lastname;
+        cmdTxt.Parameters.Add("@address", SqlDbType.VarChar).Value = address;
+
+        if ((int)cmdTxt.ExecuteScalar() > 0)
+            return true;
+        else
+            return false;
+    }
+    public bool HasMedicine(string MedicineName)
+    {
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM Medicine WHERE MedicineName = @medicineName", connPatient);
+        cmdTxt.Parameters.Add("@medicineName", SqlDbType.VarChar).Value = MedicineName;
+
+        if ((int)cmdTxt.ExecuteScalar() > 0)
+            return true;
+        else
+            return false;
+    }
+    public string GetMedicineName(int MedicineId)
+    {
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("SELECT MedicineName FROM Medicine WHERE MedicineId = @aa", connPatient);
+        cmdTxt.Parameters.Add("@aa", SqlDbType.Int).Value = MedicineId;
+        SqlDataReader name = cmdTxt.ExecuteReader();
+        name.Read();
+        string medName = name.GetString(0);
+        name.Close();
+        connPatient.Close();
+        return medName;
     }
 }

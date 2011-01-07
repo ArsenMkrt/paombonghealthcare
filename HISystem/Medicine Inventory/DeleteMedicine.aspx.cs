@@ -12,28 +12,32 @@ public partial class Medicine_Inventory_DeleteMedicine : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
-        txtMedicineId.Enabled = false;
-        txtMedicineId.ReadOnly = true;
+        txtMedicineId.Enabled = true;
+        txtMedicineId.ReadOnly = false;
     }
-    protected void listboxMedicine_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        data = new DataAccess();
-
-        int x = listboxMedicine.SelectedIndex;
-        int medId = data.GetMedicineId(listboxMedicine.Items[x].Value.ToString());
-
-        txtMedicineId.Text = medId.ToString().Trim();
-    }
-  
-    protected void btnDelete_Click(object sender, EventArgs e)
+ 
+    protected void btn_delMedicine_Click(object sender, EventArgs e)
     {
         data = new DataAccess();
         if (txtMedicineId.Text == null || txtMedicineId.Text == "")
-            MessageBox.Show("No Medicine To Delete");
+            Response.Write("<script> window.alert('No Medicine to Delete.')</script>");
         else
         {
-            data.DeleteMedicine(txtMedicineId.Text);
-            Response.Redirect("DeleteMedicine.aspx");
+            if (data.HasMedicine(data.GetMedicineName(Int32.Parse(txtMedicineId.Text))))
+            {
+                data.DeleteMedicine(txtMedicineId.Text);
+                Response.Redirect("DeleteMedicine.aspx");
+            }
+            else
+                Response.Write("<script> window.alert('Medicine Does not Exist in the list of Medicine, Try Other Medicine Id.')</script>");
         }
     }
+
+    protected void gridViewMedicine_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        txtMedicineId.Text = gridViewMedicine.Rows[gridViewMedicine.SelectedIndex].Cells[1].Text;
+        txtMedicineId.ReadOnly = true;
+        txtMedicineId.Enabled = false;
+    }
+    
 }

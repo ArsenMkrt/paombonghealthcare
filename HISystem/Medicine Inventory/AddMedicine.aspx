@@ -28,7 +28,8 @@
         <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="Category" 
             DataTextField="CategoryName" DataValueField="CategoryName" 
             
-            style="top: 224px; left: 571px; position: absolute; height: 22px; width: 126px">
+            
+            style="top: 224px; left: 571px; position: absolute; height: 20px; width: 126px">
         </asp:DropDownList>
     </p>
     <p>
