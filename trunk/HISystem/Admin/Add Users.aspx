@@ -5,10 +5,9 @@
 
 
 <br />
-<br />
 <center>
     
-        <table align="left" class="webparts" bgcolor="#a2cc85" style="width: 1000px">
+        <table align="left" class="webparts" bgcolor="#a2cc85" style="width: 470px">
             <tr>
                 <th class="style1">
                     Add User</th>
@@ -20,7 +19,7 @@
                     <asp:CheckBoxList ID="UserRoles" runat="server" />
                     <h3>
                         Main Info:</h3>
-                    <table>
+                    <table style="width: 316px">
                         <tr>
                             <td class="detailheader">
                                 Active User</td>
@@ -31,21 +30,40 @@
                         </tr>
                         <tr>
                             <td class="detailheader">
-                                User Name</td>
+                                User Name*
+                                <br />
+                                <asp:RequiredFieldValidator 
+                                    ID="RequiredFieldValidator1" runat="server" ErrorMessage="required field" 
+                                    Font-Italic="True" Font-Size="Small" ControlToValidate="username"></asp:RequiredFieldValidator>
+                            </td>
                             <td>
                                 <asp:TextBox ID="username" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="detailheader">
-                                Password</td>
+                                Password*
+                                <br />
+
+                                <asp:RequiredFieldValidator 
+                                    ID="RequiredFieldValidator2" runat="server" ErrorMessage="required field" 
+                                    Font-Italic="True" Font-Size="Small" ControlToValidate="password"></asp:RequiredFieldValidator>
+
+                                </td>
                             <td>
                                 <asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="detailheader">
-                                Email</td>
+                                Email*
+                                <br />
+                                
+                                <asp:RequiredFieldValidator 
+                                    ID="RequiredFieldValidator3" runat="server" ErrorMessage="required field" 
+                                    Font-Italic="True" Font-Size="Small" ControlToValidate="email"></asp:RequiredFieldValidator>
+                                
+                                </td>
                             <td>
                                 <asp:TextBox ID="email" runat="server"></asp:TextBox>
                             </td>
@@ -60,9 +78,10 @@
                         <tr>
                             <td colspan="2">
                                 <br />
-                                <input type="submit" value="Add User" />
+                                &nbsp;<asp:Button ID="btn_addUser" runat="server" 
+                                    Text="Add User" onclick="btn_addUser_Click" Width="67px" />
                                 &nbsp;
-                                <input type="reset" />
+                                <input type="reset" style="width: 60px" />
                             </td>
                         </tr>
                         <tr>
