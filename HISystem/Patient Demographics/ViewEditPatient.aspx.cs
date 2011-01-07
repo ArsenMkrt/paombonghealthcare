@@ -81,8 +81,6 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
         else
             Gender = "Female";
 
-        //string toSplit = txtLName.Text.ToString();
-        //string[] Name = toSplit.Split(',');
         data = new DataAccess();
 
         data.UpdateRecord(txtPatientId.Text.Trim(), txtFName.Text, txtMName.Text, txtLName.Text, txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
@@ -113,18 +111,12 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
 
     }
 
-    protected void txtSearchPatient_TextChanged(object sender, EventArgs e)
+    protected void btnSearch_Click(object sender, EventArgs e)
     {
         GridSearchName.DataSourceID = "PatientSearchName";
         PatientSearchName.SelectParameters["PatientLastName"].DefaultValue = txtSearchPatient.Text;
     }
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        ////PatientSearchName.SelectCommand = "SearchPatientByName";
-        ////PatientSearchName.SelectCommandType = SqlDataSourceCommandType.StoredProcedure;
-        //Response.Write("<script type='text/javascript'>" + "alert(\"Hello: " + txtSearchPatient.Text + "\");</script>");
-        //PatientSearchName.SelectParameters["PatientLastName"].DefaultValue = txtSearchPatient.Text;
-    }
+
     protected void GridSearchName_SelectedIndexChanged(object sender, EventArgs e)
     {
         txtbx_PatientID.Text = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;

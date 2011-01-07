@@ -54,7 +54,7 @@
                          
                             <br />
                              <br />
-                             <asp:TextBox ID="txtSearchPatient" AutoPostBack="true" OnTextChanged="txtSearchPatient_TextChanged" runat="server" Height="28px" Width="187px"></asp:TextBox>
+                             <asp:TextBox ID="txtSearchPatient" runat="server" Height="28px" Width="187px"></asp:TextBox>
                              <asp:Button ID="btnSearch" runat="server" Text="Search Patient Last Name" Height="28px" 
                                  Width="175px" onclick="btnSearch_Click" />
                                  <br/>

@@ -51,7 +51,6 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
     protected void button_Clear_Click(object sender, EventArgs e)
     {
         Response.Redirect("AddPatient.aspx");
-        
     }
     protected void radiobutton_Male_CheckedChanged(object sender, EventArgs e)
     {
