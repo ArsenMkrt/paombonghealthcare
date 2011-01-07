@@ -59,15 +59,13 @@
      <asp:Button ID="ButtonProceed" runat="server" Text="Proceed" Width="104px" onClick="ButtonProceed_Click" />
     
             </div>
-
-
                          <div id="modalwindow2" class="window2">
                          
                             <br />
                              <br />
                              <asp:TextBox ID="txtSearchPatient" AutoPostBack="true" OnTextChanged="txtSearchPatient_TextChanged" runat="server" Height="28px" Width="187px"></asp:TextBox>
                              <asp:Button ID="btnSearch" runat="server" Text="Search Patient Last Name" Height="28px" 
-                                 Width="149px" onclick="btnSearch_Click" />
+                                 Width="175px" onclick="btnSearch_Click" />
                                  <br/>
         <asp:GridView ID="GridSearchName"  runat="server" AutoGenerateColumns="False" 
         DataKeyNames="PatientID" DataSourceID="PatientList"

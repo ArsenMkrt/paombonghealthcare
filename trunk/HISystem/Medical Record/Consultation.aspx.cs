@@ -37,7 +37,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
-       
         txtbx_PatientID.Text = grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text;
 
         data = new DataAccess();
