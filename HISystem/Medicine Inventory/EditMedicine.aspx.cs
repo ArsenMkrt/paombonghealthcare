@@ -39,8 +39,36 @@ public partial class Medicine_Inventory_EditMedicine : System.Web.UI.Page
     protected void btnSave_Click(object sender, EventArgs e)
     {
         data = new DataAccess();
-        data.UpdateMedicine(Convert.ToInt32(txtMedicineId.Text.Trim()),txtMedicineName.Text.Trim(),
-            ddlCategory.Text.Trim(),Convert.ToInt32(txtQuantity.Text.Trim()));
+        if (txtMedicineId.Text == "" || txtMedicineId.Text == null)
+        {
+            Response.Write("<script> window.alert('Please Select a Medicine to Edit before Saving.')</script>");
+        }
+        else
+        {
+            if (txtMedicineName.Text == "" || txtMedicineName.Text == null)
+            {
+                Response.Write("<script> window.alert('Medicine Field Should not be Empty.')</script>");
+            }
+            else
+            {
+                if (txtQuantity.Text == "" || txtQuantity.Text == null)
+                {
+                    Response.Write("<script> window.alert('Quantity Field Should not be Empty.')</script>");
+                }
+                else
+                {
+                    bool checker = data.UpdateMedicine(Convert.ToInt32(txtMedicineId.Text.Trim()), txtMedicineName.Text.Trim(),
+                       ddlCategory.Text.Trim(), Convert.ToInt32(txtQuantity.Text.Trim()));
+                    if (checker == true)
+                        Response.Write("<script> window.alert('Updated Medicine Successful.')</script>");
+                    else
+                        Response.Write("<script> window.alert('Updating is Unsuccessful.')</script>");
+                    
+                    gridViewMedicine.DataBind();
+                        
+                }
+            }
+        }
     }
     protected void btnClear_Click(object sender, EventArgs e)
     {
@@ -50,7 +78,10 @@ public partial class Medicine_Inventory_EditMedicine : System.Web.UI.Page
     protected void gridViewMedicine_SelectedIndexChanged(object sender, EventArgs e)
     {
         txtMedicineId.Text = gridViewMedicine.Rows[gridViewMedicine.SelectedIndex].Cells[1].Text;
-        txtMedicineId.ReadOnly = true;
+        txtMedicineId.ReadOnly = false;
+        txtMedicineName.ReadOnly = false;
+        ddlCategory.Enabled = true;
+        txtQuantity.ReadOnly = false;
         SearchMedicine();
     }
 }

@@ -23,13 +23,16 @@ public partial class Medicine_Inventory_DeleteMedicine : System.Web.UI.Page
             Response.Write("<script> window.alert('No Medicine to Delete.')</script>");
         else
         {
-            if (data.HasMedicine(data.GetMedicineName(Int32.Parse(txtMedicineId.Text))))
+            if (data.HasMedicine(Int32.Parse(txtMedicineId.Text)))
             {
                 data.DeleteMedicine(txtMedicineId.Text);
                 Response.Redirect("DeleteMedicine.aspx");
             }
             else
+            {
                 Response.Write("<script> window.alert('Medicine Does not Exist in the list of Medicine, Try Other Medicine Id.')</script>");
+                txtMedicineId.Text = "";
+            }
         }
     }
 

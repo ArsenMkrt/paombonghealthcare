@@ -107,16 +107,12 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
         txtbx_PatientID.Text = grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text;
         txtPatientId.Text = grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text;
         ButtonSearch_Click(sender, e);
-
     }
     protected void grdvw_Users_Load(object sender, EventArgs e)
     {
 
     }
-    protected void ButtonProceed_Click(object sender, EventArgs e)
-    {
 
-    }
     protected void txtSearchPatient_TextChanged(object sender, EventArgs e)
     {
         GridSearchName.DataSourceID = "PatientSearchName";

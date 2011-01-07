@@ -16,7 +16,7 @@ public partial class Medicine_Inventory_AddMedicine : System.Web.UI.Page
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         data = new DataAccess();
-        if (data.HasMedicine(txtMedicineName.Text))
+        if (data.HasMedicineName(txtMedicineName.Text))
             Response.Write("<script> window.alert('Medicine Exists.')</script>");
         else
         {
