@@ -1257,4 +1257,20 @@ public class DataAccess
         connPatient.Close();
         return medName;
     }
+    public int CountIndicatorPerProgram(string Program)
+    {
+        int count = 0;
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+
+        connPatient.Open();
+
+        SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM Indicator WHERE ProgramCategoryID = " +
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)", connPatient);
+        cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = Program;
+        count = (int)cmdTxt.ExecuteScalar();
+        
+        connPatient.Close();
+
+        return count;
+    }
 }
