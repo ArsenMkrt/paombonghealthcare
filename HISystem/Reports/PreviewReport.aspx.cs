@@ -16,12 +16,12 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     private DataAccess data;
     private int month1;
     private int month2;
-    private Report_Quarterly.ChildCareDataTable childTable;
-    private Report_Quarterly.DentalCareDataTable dentalTable;
-    private Report_Quarterly.FamilyPlanningDataTable fpTable;
-    private Report_Quarterly.Report_LeprosyDataTable leprosyTable;
-    private Report_Quarterly.Report_MalariaDataTable malariaTable;
-    private Report_Quarterly.MaternalCareDataTable maternalTable;
+    //private Report_Quarterly.ChildCareDataTable childTable;
+    //private Report_Quarterly.DentalCareDataTable dentalTable;
+    //private Report_Quarterly.FamilyPlanningDataTable fpTable;
+    //private Report_Quarterly.Report_LeprosyDataTable leprosyTable;
+    //private Report_Quarterly.Report_MalariaDataTable malariaTable;
+    //private Report_Quarterly.MaternalCareDataTable maternalTable;
 
     public SqlParameter[] month = new SqlParameter[2];
 
@@ -68,37 +68,37 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
         //ReportViewer1.LocalReport.Refresh();
 
         /*Leprosy*/
-        LeprosyObject2.SelectParameters["month1"].DefaultValue = month1.ToString();
-        LeprosyObject2.SelectParameters["month"].DefaultValue = month2.ToString();
-        LeprosyObject2.SelectParameters["year"].DefaultValue = DropDownList1.Text;
-        /*Malaria*/
-        MalariaObject2.SelectParameters["month1"].DefaultValue = month1.ToString();
-        MalariaObject2.SelectParameters["month"].DefaultValue = month2.ToString();
-        MalariaObject2.SelectParameters["year"].DefaultValue = DropDownList1.Text;
-        /*MaternalCare*/
-        MaternalCareObject2.SelectParameters["month1"].DefaultValue = month1.ToString();
-        MaternalCareObject2.SelectParameters["month"].DefaultValue = month2.ToString();
-        MaternalCareObject2.SelectParameters["year"].DefaultValue = DropDownList1.Text;
-        /*ChildCare*/
-        ChildCareObject2.SelectParameters["month1"].DefaultValue = month1.ToString();
-        ChildCareObject2.SelectParameters["month"].DefaultValue = month2.ToString();
-        ChildCareObject2.SelectParameters["year"].DefaultValue = DropDownList1.Text;
-        /*DentalObject*/
-        DentalObject.SelectParameters["month1"].DefaultValue = month1.ToString();
-        DentalObject.SelectParameters["month"].DefaultValue = month2.ToString();
-        DentalObject.SelectParameters["year"].DefaultValue = DropDownList1.Text;
-        /*FamilyPlanning*/
-        FamilyPlanObject.SelectParameters["month1"].DefaultValue = month1.ToString();
-        FamilyPlanObject.SelectParameters["month"].DefaultValue = month2.ToString();
-        FamilyPlanObject.SelectParameters["year"].DefaultValue = DropDownList1.Text;
-        /*Tuberculosis*/
-        TuberObject.SelectParameters["month1"].DefaultValue = month1.ToString();
-        TuberObject.SelectParameters["month"].DefaultValue = month2.ToString();
-        TuberObject.SelectParameters["year"].DefaultValue = DropDownList1.Text;
-        /*Schistomiasis*/
-        SchistoObject.SelectParameters["month1"].DefaultValue = month1.ToString();
-        SchistoObject.SelectParameters["month"].DefaultValue = month2.ToString();
-        SchistoObject.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+        //LeprosyObject2.SelectParameters["month1"].DefaultValue = month1.ToString();
+        //LeprosyObject2.SelectParameters["month"].DefaultValue = month2.ToString();
+        //LeprosyObject2.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+        ///*Malaria*/
+        //MalariaObject2.SelectParameters["month1"].DefaultValue = month1.ToString();
+        //MalariaObject2.SelectParameters["month"].DefaultValue = month2.ToString();
+        //MalariaObject2.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+        ///*MaternalCare*/
+        //MaternalCareObject2.SelectParameters["month1"].DefaultValue = month1.ToString();
+        //MaternalCareObject2.SelectParameters["month"].DefaultValue = month2.ToString();
+        //MaternalCareObject2.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+        ///*ChildCare*/
+        //ChildCareObject2.SelectParameters["month1"].DefaultValue = month1.ToString();
+        //ChildCareObject2.SelectParameters["month"].DefaultValue = month2.ToString();
+        //ChildCareObject2.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+        ///*DentalObject*/
+        //DentalObject.SelectParameters["month1"].DefaultValue = month1.ToString();
+        //DentalObject.SelectParameters["month"].DefaultValue = month2.ToString();
+        //DentalObject.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+        ///*FamilyPlanning*/
+        //FamilyPlanObject.SelectParameters["month1"].DefaultValue = month1.ToString();
+        //FamilyPlanObject.SelectParameters["month"].DefaultValue = month2.ToString();
+        //FamilyPlanObject.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+        ///*Tuberculosis*/
+        //TuberObject.SelectParameters["month1"].DefaultValue = month1.ToString();
+        //TuberObject.SelectParameters["month"].DefaultValue = month2.ToString();
+        //TuberObject.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+        ///*Schistomiasis*/
+        //SchistoObject.SelectParameters["month1"].DefaultValue = month1.ToString();
+        //SchistoObject.SelectParameters["month"].DefaultValue = month2.ToString();
+        //SchistoObject.SelectParameters["year"].DefaultValue = DropDownList1.Text;
 
         //Report_QuarterlyTableAdapters.ChildCareTableAdapter child = new Report_QuarterlyTableAdapters.ChildCareTableAdapter();
         //child.Dispose();
