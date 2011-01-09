@@ -218,7 +218,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         data = new DataAccess();
 
 
-
         patientData = data.GetValuesConsultation(txtbx_PatientID.Text);
         Session["PatientData"] = patientData;
 
