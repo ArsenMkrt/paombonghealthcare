@@ -298,9 +298,9 @@
                 <asp:TextBox ID="txtTemp" runat="server" Width="121px" 
                     onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
                         onpaste="return false;" MaxLength="2"></asp:TextBox>
-                &nbsp;<span class="style18">Celsius
+                &nbsp;<span class="style18">Celsius<br />
                 <asp:RangeValidator ID="RangeValidator1" runat="server" 
-                    ControlToValidate="txtTemp" ErrorMessage="(temperature range exceeded)" 
+                    ControlToValidate="txtTemp" ErrorMessage="(please input number from35-40)" 
                     Font-Italic="True" Font-Size="Small" MaximumValue="40" MinimumValue="35"></asp:RangeValidator>
                 </span></td>
             <td align="right" class="style45">
@@ -338,10 +338,10 @@
         </tr>
         <tr>
             <td class="style56">
-                Diagnosis</td>
+                Diagnosis*</td>
             <td class="style55" colspan="8">
                 <asp:TextBox ID="txtDiagnosis" runat="server" Height="81px" TextMode="MultiLine" 
-                    Width="686px"></asp:TextBox>
+                    Width="686px"></asp:TextBox><br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                     ControlToValidate="txtDiagnosis" ErrorMessage="(enter diagnosis)" 
                     Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
@@ -349,10 +349,10 @@
         </tr>
         <tr>
             <td class="style49">
-                Treatment/<br /> Recommendation</td>
+                Treatment/<br /> Recommendation*</td>
             <td class="style51" colspan="8">
                 <asp:TextBox ID="txtRecomendation" runat="server" Height="81px" TextMode="MultiLine" 
-                    Width="685px"></asp:TextBox>
+                    Width="685px"></asp:TextBox><br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                     ControlToValidate="txtRecomendation" ErrorMessage="(enter recommendation)" 
                     Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
