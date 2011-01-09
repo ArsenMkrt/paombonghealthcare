@@ -87,6 +87,7 @@
         Width="129px" />
         <asp:Button ID="Button2" OnClick="Button2_Click" runat="server" 
         Text="Clear" Width="130px" />
+    <asp:ListBox ID="ListBox1" runat="server" Width="189px"></asp:ListBox>
     <br />
     <br />
     <br />
