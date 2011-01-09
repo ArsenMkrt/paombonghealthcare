@@ -36,18 +36,18 @@
                       &nbsp;</td>
                 <td style="width: 366px">
                     <asp:DropDownList ID="ddlMonth" runat="server" Height="20px" Width="122px">
-                        <asp:ListItem Value="1">January</asp:ListItem>
-                        <asp:ListItem Value="2">February</asp:ListItem>
-                        <asp:ListItem Value="3">March</asp:ListItem>
-                        <asp:ListItem Value="4">April</asp:ListItem>
-                        <asp:ListItem Value="5">May</asp:ListItem>
-                        <asp:ListItem Value="6">June</asp:ListItem>
-                        <asp:ListItem Value="7">July</asp:ListItem>
-                        <asp:ListItem Value="8">August</asp:ListItem>
-                        <asp:ListItem Value="9">September</asp:ListItem>
-                        <asp:ListItem Value="10">October</asp:ListItem>
-                        <asp:ListItem Value="11">November</asp:ListItem>
-                        <asp:ListItem Value="12">December</asp:ListItem>
+                        <asp:ListItem Value="January">January</asp:ListItem>
+                        <asp:ListItem Value="February">February</asp:ListItem>
+                        <asp:ListItem Value="March">March</asp:ListItem>
+                        <asp:ListItem Value="April">April</asp:ListItem>
+                        <asp:ListItem Value="May">May</asp:ListItem>
+                        <asp:ListItem Value="June">June</asp:ListItem>
+                        <asp:ListItem Value="July">July</asp:ListItem>
+                        <asp:ListItem Value="August">August</asp:ListItem>
+                        <asp:ListItem Value="September">September</asp:ListItem>
+                        <asp:ListItem Value="October">October</asp:ListItem>
+                        <asp:ListItem Value="November">November</asp:ListItem>
+                        <asp:ListItem Value="December">December</asp:ListItem>
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -80,7 +80,7 @@
                 <td style="width: 366px">
                     <asp:TextBox ID="txtPopulation" runat="server" 
                         onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;" Height="23px" Width="122px"></asp:TextBox>
+                        onpaste="return false;" Height="20px" Width="122px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
