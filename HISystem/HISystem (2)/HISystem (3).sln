@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HISystem", "..\", "{774F3A81-7890-4906-9958-90972164A36D}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HISystem", "..\", "{1C4BD4E5-D35D-4ED3-A94C-D1BB5CCA6D56}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/HISystem"
@@ -26,8 +26,8 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{774F3A81-7890-4906-9958-90972164A36D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{774F3A81-7890-4906-9958-90972164A36D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C4BD4E5-D35D-4ED3-A94C-D1BB5CCA6D56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C4BD4E5-D35D-4ED3-A94C-D1BB5CCA6D56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
