@@ -146,7 +146,7 @@
                 <td class="style13">
                     <asp:TextBox ID="txtMName" runat="server" Width="107px"></asp:TextBox>
                     <br />
-                    MI</td>
+                    Middle name</td>
                 <td class="style10" style="height: 52px">
                     <asp:TextBox ID="txtSuffix" runat="server" Height="23px" Width="71px" 
                         Visible="False"></asp:TextBox>

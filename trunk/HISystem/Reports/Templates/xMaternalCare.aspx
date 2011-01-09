@@ -4,6 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
+<br />
+    Program: <asp:Label ID="lblProgram" Font-Bold="true" Font-Size="Large" runat="server" Text="Program"></asp:Label>
+    <br />
     <table border="1" 
         style="border-color: #008000; width:100%; table-layout: fixed;">
         <tr>
@@ -66,24 +69,15 @@
         </tr>
     </table>
 
-    <table border="1" style="width:100%;">
-        <tr>
-            <td style="font-size: large; width: 564px">
-                <em><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                Maternal Care</strong></em></td>
-            <td>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>&nbsp;No.</strong></td>
-        </tr>    
-    </table>
-    <asp:Table ID="tblDynamic" GridLines="Both" runat="server" Width="739px">
+    
+    <asp:Table ID="tblDynamic" GridLines="Both" runat="server" Width="100%">
     </asp:Table>
-    <%--  <table id="table" runat="server" style="width: 100%;">
-    </table>--%>
+    
     <br />
  
     <br />
     <br />
-        <asp:Button ID="Button1" OnClick="Button1_Click" runat="server" Text="Save" 
+        <asp:Button ID="Button1" EnableViewState="true" OnClientClick="return false" OnClick="Button1_Click" runat="server" Text="Save" 
         Width="129px" />
         <asp:Button ID="Button2" OnClick="Button2_Click" runat="server" 
         Text="Clear" Width="130px" />

@@ -8,23 +8,11 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-
-    <table style="width: 365px">
-<tr>
-<td>
+<br />
         <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">List Of Patients</a>
-        
-        </td>
-
-<td>
-       
-         <a href="#modalwindow2" name="modal"  style="color: #990033; font-weight: bold;">List Of Patient Search By Name</a>
-
-        
-        </td>
-
-</tr>
-</table>
+    <br />
+         <a href="#modalwindow2" name="modal"  style="color: #990033; font-weight: bold;">List Of Patients Search By Name</a>
+   
      <div id="boxes">
              <div id="modalwindow" class="window">
             <br />
@@ -289,8 +277,9 @@
             </td>
             <td class="style38">
                 Age<br />
-                <asp:TextBox ID="txtAge" runat="server" Width="50px" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;"></asp:TextBox>
+                <asp:TextBox ID="txtAge" runat="server" Width="50px" 
+                    onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;" ReadOnly="True"></asp:TextBox>
                 yrs old</td>
             
         </tr>
