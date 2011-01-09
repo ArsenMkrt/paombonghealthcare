@@ -73,7 +73,7 @@
         ForeColor="#000000" Text="Contact Number"></asp:Label>
             </td>
             <td class="style5" colspan="2" style="width: 179px">
-                <asp:TextBox ID="txtContactNum" runat="server" Width="203px" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                <asp:TextBox ID="txtContactNum" runat="server" Width="203px" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)"  
                         onpaste="return false;"></asp:TextBox>
             </td>
             <td class="style11" style="width: 137px">
@@ -82,8 +82,15 @@
         Text="PhilHealth #"></asp:Label>
             </td>
             <td class="style6" colspan="2">
-                <asp:TextBox ID="txtFaxNum" runat="server" Width="227px" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;"></asp:TextBox>
+                <asp:TextBox ID="txtFaxNum" runat="server" Width="227px" 
+                    onKeyUp="javascript:return mask(this.value,this,'2,12','-');" 
+                    onBlur="javascript:return mask(this.value,this,'2,12','-');" MaxLength="14" onpaste="return false;"></asp:TextBox><br />
+
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
+                    ControlToValidate="txtFaxNum" 
+                    ErrorMessage="(input valid philhealth number format)" Font-Italic="True" 
+                    Font-Size="Small" ValidationExpression="\b\d{2}-\d{9}-\d{1}"></asp:RegularExpressionValidator>
+
             </td>
         </tr>
         <tr>
@@ -128,7 +135,13 @@
             </td>
             <td class="style5" colspan="2" style="width: 179px">
                 <asp:TextBox ID="txtEmailAdd" runat="server" Width="206px" 
-       ></asp:TextBox>
+       ></asp:TextBox><br />
+
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                    ControlToValidate="txtEmailAdd" ErrorMessage="(input valid email format)" 
+                    Font-Italic="True" Font-Size="Small" 
+                    ValidationExpression="([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})"></asp:RegularExpressionValidator>
+
             </td>
             <td class="style11" style="width: 137px">
                 <asp:Label ID="Label12" runat="server" Font-Bold="True" 
@@ -263,7 +276,8 @@
             <td class="style7" style="width: 161px">
                 <asp:Label ID="Label7" runat="server" Font-Bold="True" 
         ForeColor="#000000" Text="Address"></asp:Label>
-                *</td>
+                *
+            </td>
             <td class="style8" colspan="5">
                 <asp:TextBox ID="txtAddress" runat="server" Height="51px" Width="601px" 
         ></asp:TextBox>
