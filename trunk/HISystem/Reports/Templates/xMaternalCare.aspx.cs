@@ -109,20 +109,15 @@ public partial class Reports_Templates_xMaternalCare : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string data = "";
-        Table table = new Table();
-        
-        table.ID = "tblDynamic";
-        TableCell td2 = new TableCell();
-        ListBox1.Items.Add(table.Rows.Count.ToString());
-        for (int j = 0; j < table.Rows.Count; j++)
-        {
-            TextBox temp = td2.FindControl("txt_" + j.ToString()) as TextBox;
-            data = temp.Text;
-            //Session["txt" + j.ToString()] = temp.Text;
-            Response.Write("<script type='text/javascript'>" + "alert(\"Accomplishment: " + table.Rows.Count.ToString() + "\");</script>");
-            ListBox1.Items.Add(j.ToString());
-            ListBox1.Items.Add(data);
+        string noPerIndicator = "";
+        data = new DataAccess();
+
+        for (int j = 0; j < data.CountIndicatorPerProgram(p); j++)
+        { 
+            TextBox temp =  tblDynamic.FindControl("txt_" + j.ToString()) as TextBox;
+            noPerIndicator = temp.Text;
+
+            Response.Write("<script type='text/javascript'>" + "alert(\"No: " + noPerIndicator + "\");</script>");
         }
     }
     protected void Button2_Click(object sender, EventArgs e)

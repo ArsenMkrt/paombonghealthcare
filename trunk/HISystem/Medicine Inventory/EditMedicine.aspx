@@ -21,7 +21,7 @@
         <asp:Label ID="Label3" runat="server" 
             Text="Medicine ID "></asp:Label>
                 </td>
-                <td style="width: 204px">
+                <td style="width: 159px">
         <asp:TextBox ID="txtMedicineId" runat="server" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
                         onpaste="return false;" Width="150px" ReadOnly="True"
             ></asp:TextBox>
@@ -32,7 +32,7 @@
             <tr>
                 <td style="width: 117px">
                     &nbsp;</td>
-                <td style="width: 204px">
+                <td style="width: 159px">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
@@ -42,7 +42,7 @@
         <asp:Label ID="Label4" runat="server"
             Text="Medicine Name"></asp:Label>
                 </td>
-                <td style="width: 204px">
+                <td style="width: 159px">
         <asp:TextBox ID="txtMedicineName" runat="server" Width="150px" ReadOnly="True"></asp:TextBox>
                 </td>
                 <td>
@@ -53,7 +53,7 @@
         <asp:Label ID="Label5" runat="server"
             Text="Category"></asp:Label>
                 </td>
-                <td style="width: 204px">
+                <td style="width: 159px">
         <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="Category" 
             DataTextField="CategoryName" DataValueField="CategoryName" Height="20px" Width="153px" 
                         Enabled="False">
@@ -67,7 +67,7 @@
         <asp:Label ID="Label6" runat="server" 
             Text="Quantity"></asp:Label>
                 </td>
-                <td style="width: 204px">
+                <td style="width: 159px">
         <asp:TextBox ID="txtQuantity" runat="server" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
                         onpaste="return false;" Width="150px" ReadOnly="True"></asp:TextBox>
                 </td>
@@ -77,7 +77,7 @@
             <tr>
                 <td style="width: 117px">
                     &nbsp;</td>
-                <td style="width: 204px">
+                <td style="width: 159px">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
@@ -85,15 +85,14 @@
             <tr>
                 <td style="width: 117px">
                     &nbsp;</td>
-                <td style="width: 204px">
+                <td style="width: 159px">
         <asp:Button ID="btnSave" runat="server" 
             Text="Save" onclick="btnSave_Click" Width="94px" />
-                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;</td>
+                <td>
         <asp:Button ID="btnClear" runat="server" 
             Text="Clear" onclick="btnClear_Click" Width="94px" />
                 </td>
-                <td>
-                    &nbsp;</td>
             </tr>
         </table>
     </p>
