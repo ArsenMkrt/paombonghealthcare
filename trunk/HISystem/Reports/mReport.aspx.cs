@@ -23,149 +23,153 @@ public partial class Reports_AddReport : System.Web.UI.Page
     {
         data = new DataAccess();
         mc = new MonthConverter();
-
+        
         if (txtPopulation.Text != "")
         {
-            switch (ddlProgram.Text)
+            if (Int32.Parse(txtPopulation.Text) > 0)
             {
-                case "Maternal Care": 
-                    {
-                        string Program = "MaternalCare";
-                        if(data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text),Int32.Parse(ddlYear.Text),Program))
-                            Response.Write("<script type='text/javascript'>" + "alert(\"Month "+ddlMonth.Text+" and Year " +
-                                ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
-                        else
+                switch (ddlProgram.Text)
+                {
+                    case "Maternal Care":
                         {
-                            Response.Redirect("~/Reports/Templates/xMaternalCare.aspx?&p=" + Server.UrlEncode("Maternal Care") + "&program=" + Server.UrlEncode(Program) +
-                                "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
-                                "&population=" + Server.UrlEncode(txtPopulation.Text)); 
+                            string Program = "MaternalCare";
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
+                                Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
+                                    ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
+                            else
+                            {
+                                Response.Redirect("~/Reports/Templates/xMaternalCare.aspx?&p=" + Server.UrlEncode("Maternal Care") + "&program=" + Server.UrlEncode(Program) +
+                                    "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
+                                    "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            }
+                            break;
                         }
-                        break; 
-                    }
-                case "Family Planning": 
-                    {
-                        string Program = "FamilyPlanning";
-                        if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
-                            Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
-                                ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
-                        else
+                    case "Family Planning":
                         {
-                            Response.Redirect("~/Reports/Templates/xFPlanning.aspx?&p=" + Server.UrlEncode("Family Planning") + "&program=" + Server.UrlEncode(Program) +
-                                "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
-                                "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            string Program = "FamilyPlanning";
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
+                                Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
+                                    ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
+                            else
+                            {
+                                Response.Redirect("~/Reports/Templates/xFPlanning.aspx?&p=" + Server.UrlEncode("Family Planning") + "&program=" + Server.UrlEncode(Program) +
+                                    "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
+                                    "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            }
+                            break;
                         }
-                        break; 
-                    }
-                case "Child Care A": 
-                    {
-                        string Program = "ChildCare";
-                        if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
-                            Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
-                                ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
-                        else
+                    case "Child Care A":
                         {
-                            Response.Redirect("~/Reports/Templates/xChildCare.aspx?&p=" + Server.UrlEncode("Child Care A") + "&program=" + Server.UrlEncode(Program) +
-                                "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
-                                "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            string Program = "ChildCare";
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
+                                Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
+                                    ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
+                            else
+                            {
+                                Response.Redirect("~/Reports/Templates/xChildCare.aspx?&p=" + Server.UrlEncode("Child Care A") + "&program=" + Server.UrlEncode(Program) +
+                                    "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
+                                    "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            }
+                            break;
                         }
-                        break; 
-                    }
-                case "Child Care B": 
-                    {
-                        string Program = "ChildCare";
-                        if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
-                            Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
-                                ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
-                        else
+                    case "Child Care B":
                         {
-                            Response.Redirect("~/Reports/Templates/xChildCare.aspx?&p=" + Server.UrlEncode("Child Care B") + "&program=" + Server.UrlEncode(Program) +
-                                "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
-                                "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            string Program = "ChildCare";
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
+                                Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
+                                    ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
+                            else
+                            {
+                                Response.Redirect("~/Reports/Templates/xChildCare.aspx?&p=" + Server.UrlEncode("Child Care B") + "&program=" + Server.UrlEncode(Program) +
+                                    "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
+                                    "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            }
+                            break;
                         }
-                        break; 
-                    }
-                case "Dental Care": 
-                    {
-                        string Program = "DentalCare";
-                        if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
-                            Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
-                                ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
-                        else
+                    case "Dental Care":
                         {
-                            Response.Redirect("~/Reports/Templates/xDentalCare.aspx?&p=" + Server.UrlEncode("Dental Care") + "&program=" + Server.UrlEncode(Program) +
-                                "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
-                                "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            string Program = "DentalCare";
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
+                                Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
+                                    ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
+                            else
+                            {
+                                Response.Redirect("~/Reports/Templates/xDentalCare.aspx?&p=" + Server.UrlEncode("Dental Care") + "&program=" + Server.UrlEncode(Program) +
+                                    "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
+                                    "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            }
+                            break;
                         }
-                        break; 
-                    }
-                case "Malaria": 
-                    {
-                        if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Malaria"))
-                            Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
-                                ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
-                        else
+                    case "Malaria":
                         {
-                            Response.Redirect("~/Reports/Templates/xMalaria.aspx?&p=" + Server.UrlEncode("Malaria") + "&program=" + Server.UrlEncode(ddlProgram.Text) +
-                                "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
-                                "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Malaria"))
+                                Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
+                                    ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
+                            else
+                            {
+                                Response.Redirect("~/Reports/Templates/xMalaria.aspx?&p=" + Server.UrlEncode("Malaria") + "&program=" + Server.UrlEncode(ddlProgram.Text) +
+                                    "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
+                                    "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            }
+                            break;
                         }
-                        break; 
-                    }
-                case "Schistosomiasis": 
-                    {
-                        string Program = "Schisto";
-                        if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
-                            Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
-                                ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
-                        else
+                    case "Schistosomiasis":
                         {
-                            Response.Redirect("~/Reports/Templates/xSchistomiasis.aspx?&p=" + Server.UrlEncode("Schistosomiasis") + "&program=" + Server.UrlEncode(Program) +
-                                "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
-                                "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            string Program = "Schisto";
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
+                                Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
+                                    ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
+                            else
+                            {
+                                Response.Redirect("~/Reports/Templates/xSchistomiasis.aspx?&p=" + Server.UrlEncode("Schistosomiasis") + "&program=" + Server.UrlEncode(Program) +
+                                    "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
+                                    "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            }
+                            break;
                         }
-                        break; 
-                    }
-                case "Filariasis": 
-                    {
-                        if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Filariasis"))
-                            Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
-                                ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
-                        else
+                    case "Filariasis":
                         {
-                            Response.Redirect("~/Reports/Templates/xFilariasis.aspx?&p=" + Server.UrlEncode("Filariasis") + "&program=" + Server.UrlEncode(ddlProgram.Text) +
-                                "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
-                                "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Filariasis"))
+                                Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
+                                    ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
+                            else
+                            {
+                                Response.Redirect("~/Reports/Templates/xFilariasis.aspx?&p=" + Server.UrlEncode("Filariasis") + "&program=" + Server.UrlEncode(ddlProgram.Text) +
+                                    "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
+                                    "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            }
+                            break;
                         }
-                        break; 
-                    }
-                case "Tuberculosis": 
-                    {
-                        if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Tuberculosis"))
-                            Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
-                                ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
-                        else
+                    case "Tuberculosis":
                         {
-                            Response.Redirect("~/Reports/Templates/xTuberculosis.aspx?&p=" + Server.UrlEncode("Tuberculosis") + "&program=" + Server.UrlEncode(ddlProgram.Text) +
-                                "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
-                                "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Tuberculosis"))
+                                Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
+                                    ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
+                            else
+                            {
+                                Response.Redirect("~/Reports/Templates/xTuberculosis.aspx?&p=" + Server.UrlEncode("Tuberculosis") + "&program=" + Server.UrlEncode(ddlProgram.Text) +
+                                    "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
+                                    "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            }
+                            break;
                         }
-                        break; 
-                    }
-                case "Leprosy": 
-                    {
-                        if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Leprosy"))
-                            Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
-                                ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
-                        else
+                    case "Leprosy":
                         {
-                            Response.Redirect("~/Reports/Templates/xLeprosy.aspx?&p=" + Server.UrlEncode("Leprosy") + "&program=" + Server.UrlEncode(ddlProgram.Text) +
-                                "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
-                                "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Leprosy"))
+                                Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
+                                    ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
+                            else
+                            {
+                                Response.Redirect("~/Reports/Templates/xLeprosy.aspx?&p=" + Server.UrlEncode("Leprosy") + "&program=" + Server.UrlEncode(ddlProgram.Text) +
+                                    "&month=" + Server.UrlEncode(ddlMonth.Text) + "&year=" + Server.UrlEncode(ddlYear.Text) + "&barangay=" + Server.UrlEncode(ddlBarangay.Text) +
+                                    "&population=" + Server.UrlEncode(txtPopulation.Text));
+                            }
+                            break;
                         }
-                        break; 
-                    }
+                }
             }
-
+            else
+                Response.Write("<script> window.alert('Population should be greater than zero.')</script>");
         }
         else
             Response.Write("<script> window.alert('Please Fill the Population Field.')</script>");
