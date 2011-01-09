@@ -11,27 +11,30 @@ using System.Web.UI.HtmlControls;
 
 public partial class Reports_Templates_xMaternalCare : System.Web.UI.Page
 {
-    private string program;
-    private string p; //For DB Tables
+    private string program; //For DB Tables
+    private string p; 
     private int month;
+    private string monthName;
     private int year;
     private string barangay;
     private int population;
     private DataAccess data;
-    //private DataTable dt; 
+    private MonthConverter mc;
 
     protected void Page_Load(object sender, EventArgs e)
     {
+            mc = new MonthConverter();
             data = new DataAccess();
             program = Request["program"].ToString().Trim();
             p = Request["p"].ToString().Trim();
-            month = Int32.Parse(Request["month"].ToString().Trim());
+            monthName = Request["month"].ToString().Trim();
+            month = mc.MonthNameToIndex(monthName);
             year = Int32.Parse(Request["year"].ToString().Trim());
             barangay = Request["barangay"].ToString().Trim();
             population = Int32.Parse(Request["population"].ToString().Trim());
 
             lbl_Barangay.Text = barangay;
-            lbl_month.Text = month.ToString();
+            lbl_month.Text = monthName;
             lbl_Population.Text = population.ToString();
             lblYear.Text = year.ToString();
             lblProgram.Text = p.ToString();
@@ -95,6 +98,10 @@ public partial class Reports_Templates_xMaternalCare : System.Web.UI.Page
                 td2.Attributes["align"] = "Center";
                 TextBox text = new TextBox();
                 text.ID = "txt_" + i.ToString();
+                text.Attributes["onkeydown"] = "return isNumeric(event.keyCode);";
+                text.Attributes["onkeyup"] = "keyUP(event.keyCode)";
+                text.Attributes["onpaste"] = "return false";
+                text.Text = "0";
                 //text.Attributes["runat"] = "server";
                 // Add control to the table cell
                 td2.Controls.Add(text);
@@ -110,25 +117,43 @@ public partial class Reports_Templates_xMaternalCare : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         string noPerIndicator = "";
+        string indicatorData = "";
         data = new DataAccess();
+        mc = new MonthConverter();
 
-        for (int j = 0; j < data.CountIndicatorPerProgram(p); j++)
-        { 
-            TextBox temp =  tblDynamic.FindControl("txt_" + j.ToString()) as TextBox;
-            noPerIndicator = temp.Text;
+        if (data.HasDataPARAM_MonthYear(month,year, program))
+            Response.Write("<script type='text/javascript'>" + "alert(\"Month " + lbl_month.Text + " and Year " +
+            year + " exists in the database. Please Try other Month and Year.\");</script>");
+        else
+        {
+            for (int j = 0; j < data.CountIndicatorPerProgram(p); j++)
+            {
+                TextBox temp = tblDynamic.FindControl("txt_" + j.ToString()) as TextBox;
+                noPerIndicator = temp.Text;
+                Label label = tblDynamic.FindControl("lbl" + j.ToString()) as Label;
+                indicatorData = label.Text;
 
-            Response.Write("<script type='text/javascript'>" + "alert(\"No: " + noPerIndicator + "\");</script>");
+                data.InsertMaternalCareReport(indicatorData, Int32.Parse(noPerIndicator), data.GetBarangayID(lbl_Barangay.Text),
+                    month, year);
+            }
+
+            //InsertPopulation Lakhi 
+            //NOT YET FINISHED TARGET
+            //
+            data.InsertPopulation(data.GetBarangayID(lbl_Barangay.Text), Int32.Parse(lbl_Population.Text),
+            Int32.Parse("0"), month, Int32.Parse(lblYear.Text));
+
+            Response.Write("<script type='text/javascript'>" + "alert(\"Inserted Successfully\");</script>");
         }
+  
     }
     protected void Button2_Click(object sender, EventArgs e)
     {
         for (int i = 0; i < data.CountIndicatorPerProgram(p); i++)
         {
-            //TextBox text = new TextBox();
-            //text.ID = "txt_" + i.ToString();
-            //text.Text = "";
-             
-
+            TextBox text = new TextBox();
+            text.ID = "txt_" + i.ToString();
+            text.Text = "0";
         }
     }
 }

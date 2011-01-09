@@ -1070,34 +1070,68 @@ public class DataAccess
 
         connPatient.Close();
     }
-    public void InsertMaternalCareReport(string MaternalData, int NumberOfPatients, int BarangayID,
-        int Month, int Year, string Accomplishment, decimal percent)
+
+    public bool HasDataPARAM_MonthYear(int Month,int Year,string Program)
+    {
+        int count = 0;
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+
+        connPatient.Open();
+
+        SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM "+ Program +" WHERE Month = " +
+            "@month AND Year = @year", connPatient);
+        cmdTxt.Parameters.Add("@month", SqlDbType.Int).Value = Month;
+        cmdTxt.Parameters.Add("@year", SqlDbType.Int).Value = Year;
+        count = (int)cmdTxt.ExecuteScalar();
+
+        connPatient.Close();
+
+        if (count > 0)
+            return true;
+        else
+            return false;
+    }
+
+    //COMPLETE LAKHI
+    public void InsertPopulation(int BarangayID,int Population,int Target,int Month, int Year)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
         mc = new MonthConverter();
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO MaternalCare (MaternalData,NumberOfPatients,InputDate,BarangayID,Month,Year,Accomplishment,[Percent],Quarter)"
-            + "VALUES (@MaternalData,@NumberOfPatients,@InputDate,@BarangayID,@Month,@Year,@Accomplishment,@Percent,@Quarter)", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Population (BarangayID,Population,Target,Year,Quarter)"
+            + "VALUES (@BarangayID,@Population,@Target,@Year,@Quarter)", connPatient);
+        cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
+        cmdTxt.Parameters.Add("@Population", SqlDbType.Int).Value = Population;
+        cmdTxt.Parameters.Add("@Target", SqlDbType.Int).Value = Target;
+        cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
+        cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
+        cmdTxt.ExecuteNonQuery();
+
+        connPatient.Close();
+    }
+
+    //COMPLETE LAKHI
+    public void InsertMaternalCareReport(string MaternalData, int NumberOfPatients, int BarangayID,
+        int Month, int Year)
+    {
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+        mc = new MonthConverter();
+
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO MaternalCare (MaternalData,NumberOfPatients,InputDate,BarangayID,Month,Year,Quarter)"
+            + "VALUES (@MaternalData,@NumberOfPatients,@InputDate,@BarangayID,@Month,@Year,@Quarter)", connPatient);
         cmdTxt.Parameters.Add("@MaternalData", SqlDbType.VarChar).Value = MaternalData;
         cmdTxt.Parameters.Add("@NumberOfPatients", SqlDbType.Int).Value = NumberOfPatients;
         cmdTxt.Parameters.Add("@InputDate", SqlDbType.DateTime).Value = DateTime.Now.ToString("MM/dd/yyyy HH:MM");
         cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
         cmdTxt.Parameters.Add("@Month", SqlDbType.Int).Value = Month;
         cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
-        cmdTxt.Parameters.Add("@Percent", SqlDbType.Decimal).Value = percent;
+        //cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
+        //cmdTxt.Parameters.Add("@Percent", SqlDbType.Decimal).Value = percent;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
-        //SqlCommand cmdTxt2 = new SqlCommand("INSERT INTO Population (BarangayID,Target,Quarter,Year,Population)"
-        //    + "VALUES (@BarangayID,@Target,@Quarter,@Year,@Pop)", connPatient);
-        //cmdTxt2.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
-        //cmdTxt2.Parameters.Add("@Target", SqlDbType.Int).Value = Target;
-        //cmdTxt2.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
-        //cmdTxt2.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        //cmdTxt2.Parameters.Add("@Pop", SqlDbType.Int).Value = Population;
-        //cmdTxt2.ExecuteNonQuery();
-
+     
         connPatient.Close();
     }
     public int GetBarangayID(string BarangayName)

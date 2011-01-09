@@ -96,13 +96,13 @@ public partial class Reports_Templates_addMaternalCare : System.Web.UI.Page
         //Response.Write("<script type='text/javascript'>" + "alert(\"Year: " + Year + "\");</script>");
         //Response.Write("<script type='text/javascript'>" + "alert(\"Percent: " + Percent + "\");</script>");
         //Response.Write("<script type='text/javascript'>" + "alert(\"Target: " + Target + "\");</script>");
-        data.InsertMaternalCareReport(ddlIndicator.Text.Trim(),
-                            Convert.ToInt32(NoPatients.Trim()),
-                            Convert.ToInt32(BarangayID.Trim()),
-                            Convert.ToInt32(Month.Trim()),
-                            Convert.ToInt32(Year.Trim()),
-                            Accomplishment.Trim(),
-                            Convert.ToDecimal(Percent.Trim()));
+        //data.InsertMaternalCareReport(ddlIndicator.Text.Trim(),
+        //                    Convert.ToInt32(NoPatients.Trim()),
+        //                    Convert.ToInt32(BarangayID.Trim()),
+        //                    Convert.ToInt32(Month.Trim()),
+        //                    Convert.ToInt32(Year.Trim()),
+        //                    Accomplishment.Trim(),
+        //                    Convert.ToDecimal(Percent.Trim()));
         LoadListView(listviewMaternalCare);
     }
     protected void listviewMaternalCare_ItemDeleting(object sender, ListViewDeleteEventArgs e)
