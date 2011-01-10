@@ -253,7 +253,7 @@ public partial class Reports_Templates_xFamilyPlanning : System.Web.UI.Page
         data = new DataAccess();
         mc = new MonthConverter();
 
-        if (data.HasDataPARAM_MonthYear(month, year, program))
+        if (data.HasDataPARAM_MonthYear(month, year, program, data.GetBarangayID(barangay)))
             Response.Write("<script type='text/javascript'>" + "alert(\"Month " + lbl_month.Text + " and Year " +
             year + " exists in the database. Please Try other Month and Year.\");</script>");
         else

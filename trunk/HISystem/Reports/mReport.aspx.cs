@@ -33,7 +33,7 @@ public partial class Reports_AddReport : System.Web.UI.Page
                     case "Maternal Care":
                         {
                             string Program = "MaternalCare";
-                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program, data.GetBarangayID(ddlBarangay.Text)))
                                 Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
                                     ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
                             else
@@ -47,7 +47,7 @@ public partial class Reports_AddReport : System.Web.UI.Page
                     case "Family Planning":
                         {
                             string Program = "FamilyPlanning";
-                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program, data.GetBarangayID(ddlBarangay.Text)))
                                 Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
                                     ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
                             else
@@ -61,7 +61,7 @@ public partial class Reports_AddReport : System.Web.UI.Page
                     case "Child Care":
                         {
                             string Program = "ChildCare";
-                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program, data.GetBarangayID(ddlBarangay.Text)))
                                 Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
                                     ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
                             else
@@ -75,7 +75,7 @@ public partial class Reports_AddReport : System.Web.UI.Page
                     case "Dental Care":
                         {
                             string Program = "DentalCare";
-                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program, data.GetBarangayID(ddlBarangay.Text)))
                                 Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
                                     ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
                             else
@@ -88,7 +88,7 @@ public partial class Reports_AddReport : System.Web.UI.Page
                         }
                     case "Malaria":
                         {
-                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Malaria"))
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Malaria", data.GetBarangayID(ddlBarangay.Text)))
                                 Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
                                     ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
                             else
@@ -102,7 +102,7 @@ public partial class Reports_AddReport : System.Web.UI.Page
                     case "Schistosomiasis":
                         {
                             string Program = "Schisto";
-                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program))
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), Program, data.GetBarangayID(ddlBarangay.Text)))
                                 Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
                                     ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
                             else
@@ -115,7 +115,7 @@ public partial class Reports_AddReport : System.Web.UI.Page
                         }
                     case "Filariasis":
                         {
-                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Filariasis"))
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Filariasis", data.GetBarangayID(ddlBarangay.Text)))
                                 Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
                                     ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
                             else
@@ -128,7 +128,7 @@ public partial class Reports_AddReport : System.Web.UI.Page
                         }
                     case "Tuberculosis":
                         {
-                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Tuberculosis"))
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Tuberculosis", data.GetBarangayID(ddlBarangay.Text)))
                                 Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
                                     ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
                             else
@@ -141,7 +141,7 @@ public partial class Reports_AddReport : System.Web.UI.Page
                         }
                     case "Leprosy":
                         {
-                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Leprosy"))
+                            if (data.HasDataPARAM_MonthYear(mc.MonthNameToIndex(ddlMonth.Text), Int32.Parse(ddlYear.Text), "Leprosy", data.GetBarangayID(ddlBarangay.Text)))
                                 Response.Write("<script type='text/javascript'>" + "alert(\"Month " + ddlMonth.Text + " and Year " +
                                     ddlYear.Text + " exists in the database. Please Try other Month and Year.\");</script>");
                             else
