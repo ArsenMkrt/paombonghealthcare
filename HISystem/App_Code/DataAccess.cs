@@ -1045,7 +1045,7 @@ public class DataAccess
         connPatient.Close();
     }
 
-    public bool HasDataPARAM_MonthYear(int Month,int Year,string Program)
+    public bool HasDataPARAM_MonthYear(int Month,int Year,string Program, int BarangayID)
     {
         int count = 0;
         SqlConnection connPatient = new SqlConnection(dataconnection);
@@ -1053,9 +1053,10 @@ public class DataAccess
         connPatient.Open();
 
         SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM "+ Program +" WHERE Month = " +
-            "@month AND Year = @year", connPatient);
+            "@month AND Year = @year AND BarangayID = @barangayID", connPatient);
         cmdTxt.Parameters.Add("@month", SqlDbType.Int).Value = Month;
         cmdTxt.Parameters.Add("@year", SqlDbType.Int).Value = Year;
+        cmdTxt.Parameters.Add("@barangayID", SqlDbType.Int).Value = BarangayID;
         count = (int)cmdTxt.ExecuteScalar();
 
         connPatient.Close();
