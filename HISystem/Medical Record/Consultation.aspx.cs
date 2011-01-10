@@ -41,8 +41,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
 
         data = new DataAccess();
 
-
-
         patientData = data.GetValuesConsultation(txtbx_PatientID.Text);
         Session["PatientData"] = patientData;
 
@@ -66,6 +64,16 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 ddlYear.Text = bDate[2].Trim();
                 txtAddress.Text = dr["PatientAddress"].ToString().Trim();
                 ddlBarangay.Text = dr["PatientBarangay"].ToString().Trim();
+                txtAddress.ReadOnly = true;
+                txtlname.ReadOnly = true;
+                txtfname.ReadOnly = true;
+                txtmname.ReadOnly = true;
+                txtPhilhealthNum.ReadOnly = true;
+                ddlDay.Enabled = false;
+                ddlMonth.Enabled = false;
+                ddlYear.Enabled = false;
+                txtAge.Text = (Int32.Parse(DateTime.Now.ToString("yyyy")) - Int32.Parse(ddlYear.Text)).ToString();
+                txtAge.ReadOnly = true;
             }
         }
 
@@ -182,23 +190,25 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 ddlDay.Text = bDate[0].Trim();
                 ddlMonth.Text = bDate[1].Trim();
                 ddlYear.Text = bDate[2].Trim();
-                 txtAddress.Text = dr["PatientAddress"].ToString().Trim();
-               ddlBarangay.Text = dr["PatientBarangay"].ToString().Trim();
+                txtAddress.Text = dr["PatientAddress"].ToString().Trim();
+                ddlBarangay.Text = dr["PatientBarangay"].ToString().Trim();
+                txtAddress.ReadOnly = true;
+                txtlname.ReadOnly = true;
+                txtfname.ReadOnly = true;
+                txtmname.ReadOnly = true;
+                txtPhilhealthNum.ReadOnly = true;
+                ddlDay.Enabled = false;
+                ddlMonth.Enabled = false;
+                ddlYear.Enabled = false;
+                txtAge.Text = (Int32.Parse(DateTime.Now.ToString("yyyy")) - Int32.Parse(ddlYear.Text)).ToString();
+                txtAge.ReadOnly = true;
             }
         }
 
     }
     protected void btnReset_Click(object sender, EventArgs e)
     {
-        txtbx_PatientID.Text = null;
-        txtAge.Text = null;
-        txtTemp.Text = null;
-        txtWt.Text = null;
-        txtHt_feet.Text = null;
-        txtHt_inch.Text = null;
-        txtBpressure.Text = null;
-        txtDiagnosis.Text = null;
-        txtRecomendation.Text = null;
+        Response.Redirect("~/Medical%20Record/Consultation.aspx");
     }
     protected void txtSearchPatient_TextChanged(object sender, EventArgs e)
     {
@@ -241,6 +251,16 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 ddlYear.Text = bDate[2].Trim();
                 txtAddress.Text = dr["PatientAddress"].ToString().Trim();
                 ddlBarangay.Text = dr["PatientBarangay"].ToString().Trim();
+                //txtAddress.ReadOnly = true;
+                //txtlname.ReadOnly = true;
+                //txtfname.ReadOnly = true;
+                //txtmname.ReadOnly = true;
+                //txtPhilhealthNum.ReadOnly = true;
+                //ddlDay.Enabled = false;
+                //ddlMonth.Enabled = false;
+                //ddlYear.Enabled = false;
+                //txtAge.Text = (Int32.Parse(DateTime.Now.ToString("yyyy")) - Int32.Parse(ddlYear.Text)).ToString();
+                //txtAge.ReadOnly = true;
             }
         }
 
