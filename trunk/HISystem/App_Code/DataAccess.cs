@@ -879,14 +879,14 @@ public class DataAccess
     }
 
     public void InsertChildReport(string ChildData,int Male,int Female,int BarangayID, 
-        int Month, int Year,string Accomplishment,decimal percent)
+        int Month, int Year)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
         mc = new MonthConverter();
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO ChildCare (ChildData,Male,Female,InputDate,BarangayID,Month,Year,Accomplishment,[Percent],Quarter)"
-            +"VALUES (@ChildData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Accomplishment,@Percent,@Quarter)", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO ChildCare (ChildData,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
+            +"VALUES (@ChildData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)", connPatient);
         cmdTxt.Parameters.Add("@ChildData", SqlDbType.VarChar).Value = ChildData;
         cmdTxt.Parameters.Add("@Male", SqlDbType.Int).Value = Male;
         cmdTxt.Parameters.Add("@Female", SqlDbType.Int).Value = Female;
@@ -894,8 +894,6 @@ public class DataAccess
         cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
         cmdTxt.Parameters.Add("@Month", SqlDbType.Int).Value = Month;
         cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
-        cmdTxt.Parameters.Add("@Percent", SqlDbType.Decimal).Value = percent;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
   
@@ -904,14 +902,14 @@ public class DataAccess
     }
 
     public void InsertTbReport(string TuberculosisData, int Male, int Female, int BarangayID,
-        int Month, int Year, string Accomplishment)
+        int Month, int Year)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
         mc = new MonthConverter();
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Tuberculosis (TuberculosisData,Male,Female,InputDate,BarangayID,Month,Year,Accomplishment,Quarter)"
-            + "VALUES (@TbData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Accomplishment,@Quarter)", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Tuberculosis (TuberculosisData,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
+            + "VALUES (@TbData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)", connPatient);
         cmdTxt.Parameters.Add("@TbData", SqlDbType.VarChar).Value = TuberculosisData;
         cmdTxt.Parameters.Add("@Male", SqlDbType.Int).Value = Male;
         cmdTxt.Parameters.Add("@Female", SqlDbType.Int).Value = Female;
@@ -919,7 +917,6 @@ public class DataAccess
         cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
         cmdTxt.Parameters.Add("@Month", SqlDbType.Int).Value = Month;
         cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
    
@@ -927,14 +924,14 @@ public class DataAccess
     }
 
     public void InsertSchisReport(string SchisData, int Male, int Female, int BarangayID,
-       int Month, int Year, string Accomplishment)
+       int Month, int Year)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
         mc = new MonthConverter();
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Schisto (SchistoData,Male,Female,InputDate,BarangayID,Month,Year,Accomplishment,Quarter)"
-            + "VALUES (@SchisData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Accomplishment,@Quarter)", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Schisto (SchistoData,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
+            + "VALUES (@SchisData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)", connPatient);
         cmdTxt.Parameters.Add("@SchisData", SqlDbType.VarChar).Value = SchisData;
         cmdTxt.Parameters.Add("@Male", SqlDbType.Int).Value = Male;
         cmdTxt.Parameters.Add("@Female", SqlDbType.Int).Value = Female;
@@ -942,7 +939,6 @@ public class DataAccess
         cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
         cmdTxt.Parameters.Add("@Month", SqlDbType.Int).Value = Month;
         cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
 
@@ -950,14 +946,14 @@ public class DataAccess
     }
 
     public void InsertFilariasisReport(string FilariasisData, int Male, int Female, int BarangayID,
-       int Month, int Year, string Accomplishment)
+       int Month, int Year)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
         mc = new MonthConverter();
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Filariasis (FilariasisData,Male,Female,InputDate,BarangayID,Month,Year,Accomplishment,Quarter)"
-            + "VALUES (@FilariasisData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Accomplishment,@Quarter)", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Filariasis (FilariasisData,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
+            + "VALUES (@FilariasisData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)", connPatient);
         cmdTxt.Parameters.Add("@FilariasisData", SqlDbType.VarChar).Value = FilariasisData;
         cmdTxt.Parameters.Add("@Male", SqlDbType.Int).Value = Male;
         cmdTxt.Parameters.Add("@Female", SqlDbType.Int).Value = Female;
@@ -965,20 +961,19 @@ public class DataAccess
         cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
         cmdTxt.Parameters.Add("@Month", SqlDbType.Int).Value = Month;
         cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
 
         connPatient.Close();
     }
     public void InsertFPReport(string FPData, int SU, int New, int Others,int DO,
-       int EU,int BarangayID,int Month, int Year, string Accomplishment)
+       int EU,int BarangayID,int Month, int Year)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
         mc = new MonthConverter();
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO FamilyPlanning (FPData,StartUser,New,Others,DropOut,EndUser,InputDate,BarangayID,Month,Year,Accomplishment,Quarter)"
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO FamilyPlanning (FPData,StartUser,New,Others,DropOut,EndUser,InputDate,BarangayID,Month,Year,Quarter)"
             + "VALUES (@FPData,@SU,@New,@Others,@DO,@EU,@InputDate,@BarangayID,@Month,@Year,@Accomplishment,@Quarter)", connPatient);
         cmdTxt.Parameters.Add("@FPData", SqlDbType.VarChar).Value = FPData;
         cmdTxt.Parameters.Add("@SU", SqlDbType.Int).Value = SU;
@@ -990,7 +985,6 @@ public class DataAccess
         cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
         cmdTxt.Parameters.Add("@Month", SqlDbType.Int).Value = Month;
         cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
         //SqlCommand cmdTxt2 = new SqlCommand("INSERT INTO Population (BarangayID,Target,Quarter,Year,Population)"
@@ -1006,14 +1000,14 @@ public class DataAccess
     }
 
     public void InsertDentalCareReport(string DentalData, int Male, int Female, int BarangayID,
-        int Month, int Year, string Accomplishment, decimal percent)
+        int Month, int Year)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
         mc = new MonthConverter();
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO DentalCare (DentalData,Male,Female,InputDate,BarangayID,Month,Year,Accomplishment,[Percent],Quarter)"
-            + "VALUES (@DentalData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Accomplishment,@Percent,@Quarter)", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO DentalCare (DentalData,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
+            + "VALUES (@DentalData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)", connPatient);
         cmdTxt.Parameters.Add("@DentalData", SqlDbType.VarChar).Value = DentalData;
         cmdTxt.Parameters.Add("@Male", SqlDbType.Int).Value = Male;
         cmdTxt.Parameters.Add("@Female", SqlDbType.Int).Value = Female;
@@ -1021,31 +1015,21 @@ public class DataAccess
         cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
         cmdTxt.Parameters.Add("@Month", SqlDbType.Int).Value = Month;
         cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
-        cmdTxt.Parameters.Add("@Percent", SqlDbType.Decimal).Value = percent;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
-        //SqlCommand cmdTxt2 = new SqlCommand("INSERT INTO Population (BarangayID,Target,Quarter,Year,Population)"
-        //    + "VALUES (@BarangayID,@Target,@Quarter,@Year,@Pop)", connPatient);
-        //cmdTxt2.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
-        //cmdTxt2.Parameters.Add("@Target", SqlDbType.Int).Value = Target;
-        //cmdTxt2.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
-        //cmdTxt2.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        //cmdTxt2.Parameters.Add("@Pop", SqlDbType.Int).Value = Population;
-        //cmdTxt2.ExecuteNonQuery();
 
         connPatient.Close();
     }
 
     public void InsertLeprosyReport(string LeprosyData, int Male, int Female, int BarangayID,
-        int Month, int Year, string Accomplishment, decimal percent)
+        int Month, int Year)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
         mc = new MonthConverter();
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Leprosy (LeprosyData,Male,Female,InputDate,BarangayID,Month,Year,Accomplishment,[Percent],Quarter)"
-            + "VALUES (@LeprosyData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Accomplishment,@Percent,@Quarter)", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Leprosy (LeprosyData,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
+            + "VALUES (@LeprosyData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)", connPatient);
         cmdTxt.Parameters.Add("@LeprosyData", SqlDbType.VarChar).Value = LeprosyData;
         cmdTxt.Parameters.Add("@Male", SqlDbType.Int).Value = Male;
         cmdTxt.Parameters.Add("@Female", SqlDbType.Int).Value = Female;
@@ -1053,19 +1037,11 @@ public class DataAccess
         cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
         cmdTxt.Parameters.Add("@Month", SqlDbType.Int).Value = Month;
         cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
-        cmdTxt.Parameters.Add("@Percent", SqlDbType.Decimal).Value = percent;
+        //cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
+        //cmdTxt.Parameters.Add("@Percent", SqlDbType.Decimal).Value = percent;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
-        //SqlCommand cmdTxt2 = new SqlCommand("INSERT INTO Population (BarangayID,Target,Quarter,Year,Population)"
-        //    + "VALUES (@BarangayID,@Target,@Quarter,@Year,@Pop)", connPatient);
-        //cmdTxt2.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
-        //cmdTxt2.Parameters.Add("@Target", SqlDbType.Int).Value = Target;
-        //cmdTxt2.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
-        //cmdTxt2.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        //cmdTxt2.Parameters.Add("@Pop", SqlDbType.Int).Value = Population;
-        //cmdTxt2.ExecuteNonQuery();
-
+   
         connPatient.Close();
     }
 

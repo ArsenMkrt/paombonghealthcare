@@ -112,7 +112,15 @@ public partial class Reports_Templates_xMalaria : System.Web.UI.Page
             text.Attributes["onpaste"] = "return false";
             text.Text = "0";
             // Add control to the table cell
+            RequiredFieldValidator rfv = new RequiredFieldValidator();
+            rfv.ID = "maleRFV_" + i.ToString();
+            rfv.Display = ValidatorDisplay.Dynamic;
+            rfv.ControlToValidate = text.ID;
+            rfv.ErrorMessage = "*";
+            rfv.Font.Size = FontUnit.Small;
+            // Add control to the table cell
             td2.Controls.Add(text);
+            td2.Controls.Add(rfv);
 
             // Create column 3 Female
             TableCell td3 = new TableCell();
@@ -124,7 +132,15 @@ public partial class Reports_Templates_xMalaria : System.Web.UI.Page
             text2.Attributes["onkeyup"] = "keyUP(event.keyCode)";
             text2.Attributes["onpaste"] = "return false";
             text2.Text = "0";
+            RequiredFieldValidator rfv2 = new RequiredFieldValidator();
+            rfv2.ID = "femRFV_" + i.ToString();
+            rfv2.Display = ValidatorDisplay.Dynamic;
+            rfv2.ControlToValidate = text2.ID;
+            rfv2.ErrorMessage = "*";
+            rfv2.Font.Size = FontUnit.Small;
+            // Add control to the table cell
             td3.Controls.Add(text2);
+            td3.Controls.Add(rfv2);
 
             // Add cell to the row
             tr.Cells.Add(td1);
@@ -150,6 +166,7 @@ public partial class Reports_Templates_xMalaria : System.Web.UI.Page
         {
             for (int j = 0; j < data.CountIndicatorPerProgram(p); j++)
             {
+
                 TextBox temp = tblDynamic.FindControl("txt_" + j.ToString()) as TextBox;
                 male = temp.Text;
                 TextBox temp2 = tblDynamic.FindControl("txt2_" + j.ToString()) as TextBox;
@@ -157,7 +174,7 @@ public partial class Reports_Templates_xMalaria : System.Web.UI.Page
                 Label label = tblDynamic.FindControl("lbl" + j.ToString()) as Label;
                 indicatorData = label.Text;
 
-                data.InsertMalariaReport(indicatorData,Int32.Parse(male),Int32.Parse(female), data.GetBarangayID(lbl_Barangay.Text),
+                data.InsertMalariaReport(indicatorData, Int32.Parse(male), Int32.Parse(female), data.GetBarangayID(lbl_Barangay.Text),
                     month, year);
             }
 
@@ -178,9 +195,10 @@ public partial class Reports_Templates_xMalaria : System.Web.UI.Page
             //NOT YET FINISHED TARGET
             //
             data.InsertPopulation(data.GetBarangayID(lbl_Barangay.Text), Int32.Parse(lbl_Population.Text),
-            Int32.Parse("0"), month, Int32.Parse(lblYear.Text), indicatorID);
+                Int32.Parse("0"), month, Int32.Parse(lblYear.Text), indicatorID);
 
             Response.Write("<script type='text/javascript'>" + "alert(\"Inserted Successfully\");</script>");
+
         }
 
     }

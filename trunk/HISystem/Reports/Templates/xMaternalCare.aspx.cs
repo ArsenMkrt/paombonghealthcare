@@ -104,7 +104,15 @@ public partial class Reports_Templates_xMaternalCare : System.Web.UI.Page
                 text.Text = "0";
                 //text.Attributes["runat"] = "server";
                 // Add control to the table cell
+                RequiredFieldValidator rfv = new RequiredFieldValidator();
+                rfv.ID = "maleRFV_" + i.ToString();
+                rfv.Display = ValidatorDisplay.Dynamic;
+                rfv.ControlToValidate = text.ID;
+                rfv.ErrorMessage = "*";
+                rfv.Font.Size = FontUnit.Small;
+                // Add control to the table cell
                 td2.Controls.Add(text);
+                td2.Controls.Add(rfv);
 
                 // Add cell to the row
                 tr.Cells.Add(td1);
@@ -120,43 +128,64 @@ public partial class Reports_Templates_xMaternalCare : System.Web.UI.Page
         string indicatorData = "";
         data = new DataAccess();
         mc = new MonthConverter();
+        bool validated = false;
 
         if (data.HasDataPARAM_MonthYear(month,year, program))
             Response.Write("<script type='text/javascript'>" + "alert(\"Month " + lbl_month.Text + " and Year " +
             year + " exists in the database. Please Try other Month and Year.\");</script>");
         else
         {
+             //Check Values
             for (int j = 0; j < data.CountIndicatorPerProgram(p); j++)
             {
+
                 TextBox temp = tblDynamic.FindControl("txt_" + j.ToString()) as TextBox;
                 noPerIndicator = temp.Text;
-                Label label = tblDynamic.FindControl("lbl" + j.ToString()) as Label;
-                indicatorData = label.Text;
 
-                data.InsertMaternalCareReport(indicatorData, Int32.Parse(noPerIndicator), data.GetBarangayID(lbl_Barangay.Text),
-                    month, year);
+                if (noPerIndicator == "")
+                    validated = false;
+                else
+                    validated = true;
             }
 
-            //Get ProgramCategory - Lakhi
-            SqlConnection connPatient = new SqlConnection(data.Dataconnection);
-            connPatient.Open();
+            if (!validated)
+            {
+                Response.Write("<script type='text/javascript'>" + "alert(\"Please Input a value in the textbox\");</script>");
+            }
+            else
+            {
+                for (int j = 0; j < data.CountIndicatorPerProgram(p); j++)
+                {
+                    TextBox temp = tblDynamic.FindControl("txt_" + j.ToString()) as TextBox;
+                    noPerIndicator = temp.Text;
+                    Label label = tblDynamic.FindControl("lbl" + j.ToString()) as Label;
+                    indicatorData = label.Text;
 
-            SqlCommand cmdTxt = new SqlCommand("SELECT ProgramCategoryID FROM Indicator WHERE IndicatorData = " +
-                "@indicatorData", connPatient);
-            cmdTxt.Parameters.Add("@indicatorData", SqlDbType.VarChar).Value = indicatorData;
-            SqlDataReader indicatorReader = cmdTxt.ExecuteReader();
-            indicatorReader.Read();
-            int indicatorID = indicatorReader.GetInt32(0);
-            indicatorReader.Close();
-            //End
+                    data.InsertMaternalCareReport(indicatorData, Int32.Parse(noPerIndicator), data.GetBarangayID(lbl_Barangay.Text),
+                        month, year);
+                }
 
-            //InsertPopulation Lakhi 
-            //NOT YET FINISHED TARGET
-            //
-            data.InsertPopulation(data.GetBarangayID(lbl_Barangay.Text), Int32.Parse(lbl_Population.Text),
-            Int32.Parse("0"), month, Int32.Parse(lblYear.Text),indicatorID);
+                //Get ProgramCategory - Lakhi
+                SqlConnection connPatient = new SqlConnection(data.Dataconnection);
+                connPatient.Open();
 
-            Response.Write("<script type='text/javascript'>" + "alert(\"Inserted Successfully\");</script>");
+                SqlCommand cmdTxt = new SqlCommand("SELECT ProgramCategoryID FROM Indicator WHERE IndicatorData = " +
+                    "@indicatorData", connPatient);
+                cmdTxt.Parameters.Add("@indicatorData", SqlDbType.VarChar).Value = indicatorData;
+                SqlDataReader indicatorReader = cmdTxt.ExecuteReader();
+                indicatorReader.Read();
+                int indicatorID = indicatorReader.GetInt32(0);
+                indicatorReader.Close();
+                //End
+
+                //InsertPopulation Lakhi 
+                //NOT YET FINISHED TARGET
+                //
+                data.InsertPopulation(data.GetBarangayID(lbl_Barangay.Text), Int32.Parse(lbl_Population.Text),
+                Int32.Parse("0"), month, Int32.Parse(lblYear.Text), indicatorID);
+
+                Response.Write("<script type='text/javascript'>" + "alert(\"Inserted Successfully\");</script>");
+            }
         }
   
     }
