@@ -100,14 +100,14 @@ public partial class Reports_Templates_addMalaria : System.Web.UI.Page
         //Response.Write("<script type='text/javascript'>" + "alert(\"Year: " + Year + "\");</script>");
         //Response.Write("<script type='text/javascript'>" + "alert(\"Percent: " + Percent + "\");</script>");
         //Response.Write("<script type='text/javascript'>" + "alert(\"Target: " + Target + "\");</script>");
-        data.InsertMalariaReport(ddlIndicator.Text.Trim(),
-                            Convert.ToInt32(Male.Trim()),
-                            Convert.ToInt32(Female.Trim()),
-                            Convert.ToInt32(Pregnant.Trim()),
-                            Convert.ToInt32(BarangayID.Trim()),
-                            Convert.ToInt32(Month.Trim()),
-                            Convert.ToInt32(Year.Trim()),
-                            Accomplishment.Trim());
+        //data.InsertMalariaReport(ddlIndicator.Text.Trim(),
+        //                    Convert.ToInt32(Male.Trim()),
+        //                    Convert.ToInt32(Female.Trim()),
+        //                    Convert.ToInt32(Pregnant.Trim()),
+        //                    Convert.ToInt32(BarangayID.Trim()),
+        //                    Convert.ToInt32(Month.Trim()),
+        //                    Convert.ToInt32(Year.Trim()),
+        //                    Accomplishment.Trim());
         LoadListView(listviewMalaria);
     }
     protected void listviewMalaria_ItemDeleting(object sender, ListViewDeleteEventArgs e)

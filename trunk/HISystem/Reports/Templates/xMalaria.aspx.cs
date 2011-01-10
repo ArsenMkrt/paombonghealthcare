@@ -137,7 +137,8 @@ public partial class Reports_Templates_xMalaria : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string noPerIndicator = "";
+        string male = "";
+        string female = "";
         string indicatorData = "";
         data = new DataAccess();
         mc = new MonthConverter();
@@ -150,19 +151,34 @@ public partial class Reports_Templates_xMalaria : System.Web.UI.Page
             for (int j = 0; j < data.CountIndicatorPerProgram(p); j++)
             {
                 TextBox temp = tblDynamic.FindControl("txt_" + j.ToString()) as TextBox;
-                noPerIndicator = temp.Text;
+                male = temp.Text;
+                TextBox temp2 = tblDynamic.FindControl("txt2_" + j.ToString()) as TextBox;
+                female = temp2.Text;
                 Label label = tblDynamic.FindControl("lbl" + j.ToString()) as Label;
                 indicatorData = label.Text;
 
-                data.InsertMaternalCareReport(indicatorData, Int32.Parse(noPerIndicator), data.GetBarangayID(lbl_Barangay.Text),
+                data.InsertMalariaReport(indicatorData,Int32.Parse(male),Int32.Parse(female), data.GetBarangayID(lbl_Barangay.Text),
                     month, year);
             }
+
+            //Get ProgramCategory - Lakhi
+            SqlConnection connPatient = new SqlConnection(data.Dataconnection);
+            connPatient.Open();
+
+            SqlCommand cmdTxt = new SqlCommand("SELECT ProgramCategoryID FROM Indicator WHERE IndicatorData = " +
+                "@indicatorData", connPatient);
+            cmdTxt.Parameters.Add("@indicatorData", SqlDbType.VarChar).Value = indicatorData;
+            SqlDataReader indicatorReader = cmdTxt.ExecuteReader();
+            indicatorReader.Read();
+            int indicatorID = indicatorReader.GetInt32(0);
+            indicatorReader.Close();
+            //End
 
             //InsertPopulation Lakhi 
             //NOT YET FINISHED TARGET
             //
             data.InsertPopulation(data.GetBarangayID(lbl_Barangay.Text), Int32.Parse(lbl_Population.Text),
-            Int32.Parse("0"), month, Int32.Parse(lblYear.Text));
+            Int32.Parse("0"), month, Int32.Parse(lblYear.Text), indicatorID);
 
             Response.Write("<script type='text/javascript'>" + "alert(\"Inserted Successfully\");</script>");
         }

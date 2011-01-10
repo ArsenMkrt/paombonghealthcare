@@ -137,11 +137,24 @@ public partial class Reports_Templates_xMaternalCare : System.Web.UI.Page
                     month, year);
             }
 
+            //Get ProgramCategory - Lakhi
+            SqlConnection connPatient = new SqlConnection(data.Dataconnection);
+            connPatient.Open();
+
+            SqlCommand cmdTxt = new SqlCommand("SELECT ProgramCategoryID FROM Indicator WHERE IndicatorData = " +
+                "@indicatorData", connPatient);
+            cmdTxt.Parameters.Add("@indicatorData", SqlDbType.VarChar).Value = indicatorData;
+            SqlDataReader indicatorReader = cmdTxt.ExecuteReader();
+            indicatorReader.Read();
+            int indicatorID = indicatorReader.GetInt32(0);
+            indicatorReader.Close();
+            //End
+
             //InsertPopulation Lakhi 
             //NOT YET FINISHED TARGET
             //
             data.InsertPopulation(data.GetBarangayID(lbl_Barangay.Text), Int32.Parse(lbl_Population.Text),
-            Int32.Parse("0"), month, Int32.Parse(lblYear.Text));
+            Int32.Parse("0"), month, Int32.Parse(lblYear.Text),indicatorID);
 
             Response.Write("<script type='text/javascript'>" + "alert(\"Inserted Successfully\");</script>");
         }
