@@ -251,16 +251,16 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 ddlYear.Text = bDate[2].Trim();
                 txtAddress.Text = dr["PatientAddress"].ToString().Trim();
                 ddlBarangay.Text = dr["PatientBarangay"].ToString().Trim();
-                //txtAddress.ReadOnly = true;
-                //txtlname.ReadOnly = true;
-                //txtfname.ReadOnly = true;
-                //txtmname.ReadOnly = true;
-                //txtPhilhealthNum.ReadOnly = true;
-                //ddlDay.Enabled = false;
-                //ddlMonth.Enabled = false;
-                //ddlYear.Enabled = false;
-                //txtAge.Text = (Int32.Parse(DateTime.Now.ToString("yyyy")) - Int32.Parse(ddlYear.Text)).ToString();
-                //txtAge.ReadOnly = true;
+                txtAddress.ReadOnly = true;
+                txtlname.ReadOnly = true;
+                txtfname.ReadOnly = true;
+                txtmname.ReadOnly = true;
+                txtPhilhealthNum.ReadOnly = true;
+                ddlDay.Enabled = false;
+                ddlMonth.Enabled = false;
+                ddlYear.Enabled = false;
+                txtAge.Text = (Int32.Parse(DateTime.Now.ToString("yyyy")) - Int32.Parse(ddlYear.Text)).ToString();
+                txtAge.ReadOnly = true;
             }
         }
 
