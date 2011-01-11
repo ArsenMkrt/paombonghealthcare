@@ -4,7 +4,9 @@
     <p>
         <asp:SqlDataSource ID="Program" runat="server" 
             ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
-            SelectCommand="SELECT DISTINCT [ProgramData] FROM [ProgramCategory] ORDER BY [ProgramData]">
+            
+            SelectCommand="SELECT DISTINCT [ProgramData] FROM [ProgramCategory] ORDER BY [ProgramData]" 
+            onselecting="Program_Selecting">
         </asp:SqlDataSource>
          <asp:SqlDataSource ID="Barangay" runat="server" 
             ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
@@ -19,13 +21,13 @@
         <table style="width: 100%; height: 133px;">
             <tr>
                 <td style="width: 239px">
-                    Program</td>
+                    &nbsp;</td>
                 <td style="width: 153px">
                     &nbsp;</td>
                 <td style="width: 366px">
         <asp:DropDownList ID="ddlProgram" runat="server" 
             DataSourceID="Program" DataTextField="ProgramData" DataValueField="ProgramData" 
-                        Height="20px" Width="122px">
+                        Height="20px" Width="122px" Visible="False">
         </asp:DropDownList>
                 </td>
             </tr>

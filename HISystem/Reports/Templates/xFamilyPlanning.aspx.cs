@@ -253,53 +253,53 @@ public partial class Reports_Templates_xFamilyPlanning : System.Web.UI.Page
         data = new DataAccess();
         mc = new MonthConverter();
 
-        if (data.HasDataPARAM_MonthYear(month, year, program, data.GetBarangayID(barangay)))
-            Response.Write("<script type='text/javascript'>" + "alert(\"Month " + lbl_month.Text + " and Year " +
-            year + " exists in the database. Please Try other Month and Year.\");</script>");
-        else
-        {
-            for (int j = 0; j < data.CountIndicatorPerProgram(p); j++)
-            {
+        //if (data.HasDataPARAM_MonthYear(month, year, program, data.GetBarangayID(barangay)))
+        //    Response.Write("<script type='text/javascript'>" + "alert(\"Month " + lbl_month.Text + " and Year " +
+        //    year + " exists in the database. Please Try other Month and Year.\");</script>");
+        //else
+        //{
+        //    for (int j = 0; j < data.CountIndicatorPerProgram(p); j++)
+        //    {
 
-                TextBox temp = tblDynamic.FindControl("txtSU_" + j.ToString()) as TextBox;
-                startUser = temp.Text;
-                TextBox temp2 = tblDynamic.FindControl("txtNew_" + j.ToString()) as TextBox;
-                _new = temp2.Text;
-                TextBox temp3 = tblDynamic.FindControl("txtOthers_" + j.ToString()) as TextBox;
-                others = temp3.Text;
-                TextBox temp4 = tblDynamic.FindControl("txtDO_" + j.ToString()) as TextBox;
-                dropOut = temp4.Text;
-                TextBox temp5 = tblDynamic.FindControl("txtEU_" + j.ToString()) as TextBox;
-                endUser = temp5.Text;
-                Label label = tblDynamic.FindControl("lbl" + j.ToString()) as Label;
-                indicatorData = label.Text;
+        //        TextBox temp = tblDynamic.FindControl("txtSU_" + j.ToString()) as TextBox;
+        //        startUser = temp.Text;
+        //        TextBox temp2 = tblDynamic.FindControl("txtNew_" + j.ToString()) as TextBox;
+        //        _new = temp2.Text;
+        //        TextBox temp3 = tblDynamic.FindControl("txtOthers_" + j.ToString()) as TextBox;
+        //        others = temp3.Text;
+        //        TextBox temp4 = tblDynamic.FindControl("txtDO_" + j.ToString()) as TextBox;
+        //        dropOut = temp4.Text;
+        //        TextBox temp5 = tblDynamic.FindControl("txtEU_" + j.ToString()) as TextBox;
+        //        endUser = temp5.Text;
+        //        Label label = tblDynamic.FindControl("lbl" + j.ToString()) as Label;
+        //        indicatorData = label.Text;
 
-                data.InsertFPReport(indicatorData,Int32.Parse(startUser),Int32.Parse(_new),Int32.Parse(others),Int32.Parse(dropOut),Int32.Parse(endUser), data.GetBarangayID(lbl_Barangay.Text),
-                    month, year);
-            }
+        //        data.InsertFPReport(indicatorData,Int32.Parse(startUser),Int32.Parse(_new),Int32.Parse(others),Int32.Parse(dropOut),Int32.Parse(endUser), data.GetBarangayID(lbl_Barangay.Text),
+        //            month, year);
+        //    }
 
-            //Get ProgramCategory - Lakhi
-            SqlConnection connPatient = new SqlConnection(data.Dataconnection);
-            connPatient.Open();
+        //    //Get ProgramCategory - Lakhi
+        //    SqlConnection connPatient = new SqlConnection(data.Dataconnection);
+        //    connPatient.Open();
 
-            SqlCommand cmdTxt = new SqlCommand("SELECT ProgramCategoryID FROM Indicator WHERE IndicatorData = " +
-                "@indicatorData", connPatient);
-            cmdTxt.Parameters.Add("@indicatorData", SqlDbType.VarChar).Value = indicatorData;
-            SqlDataReader indicatorReader = cmdTxt.ExecuteReader();
-            indicatorReader.Read();
-            int indicatorID = indicatorReader.GetInt32(0);
-            indicatorReader.Close();
-            //End
+        //    SqlCommand cmdTxt = new SqlCommand("SELECT ProgramCategoryID FROM Indicator WHERE IndicatorData = " +
+        //        "@indicatorData", connPatient);
+        //    cmdTxt.Parameters.Add("@indicatorData", SqlDbType.VarChar).Value = indicatorData;
+        //    SqlDataReader indicatorReader = cmdTxt.ExecuteReader();
+        //    indicatorReader.Read();
+        //    int indicatorID = indicatorReader.GetInt32(0);
+        //    indicatorReader.Close();
+        //    //End
 
-            //InsertPopulation Lakhi 
-            //NOT YET FINISHED TARGET
-            //
-            data.InsertPopulation(data.GetBarangayID(lbl_Barangay.Text), Int32.Parse(lbl_Population.Text),
-                Int32.Parse("0"), month, Int32.Parse(lblYear.Text), indicatorID);
+        //    //InsertPopulation Lakhi 
+        //    //NOT YET FINISHED TARGET
+        //    //
+        //    //data.InsertPopulation(data.GetBarangayID(lbl_Barangay.Text), Int32.Parse(lbl_Population.Text),
+        //    //    Int32.Parse("0"), month, Int32.Parse(lblYear.Text), indicatorID);
 
-            Response.Write("<script type='text/javascript'>" + "alert(\"Inserted Successfully\");</script>");
+        //    Response.Write("<script type='text/javascript'>" + "alert(\"Inserted Successfully\");</script>");
 
-        }
+        //}
 
     }
     protected void Button2_Click(object sender, EventArgs e)
