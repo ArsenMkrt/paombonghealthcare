@@ -8,7 +8,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-<br />
+    <br />
         <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">List Of Patients</a>
     <br />
          <a href="#modalwindow2" name="modal"  style="color: #990033; font-weight: bold;">List Of Patients Search By Name</a>
@@ -333,7 +333,8 @@
             <td class="style46" align="right">
                 Blood Pressure</td>
             <td class="style53" colspan="2">
-                <asp:TextBox ID="txtBpressure" runat="server" Width="121px" MaxLength="7"></asp:TextBox>
+                <asp:TextBox ID="txtBpressure" runat="server" Width="121px"  onKeyUp="javascript:return mask(this.value,this,'3','/');" 
+                    onBlur="javascript:return mask(this.value,this,'3','/');" MaxLength="7" onpaste="return false;"></asp:TextBox>
             </td>
         </tr>
         <tr>
