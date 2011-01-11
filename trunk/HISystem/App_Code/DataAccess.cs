@@ -969,7 +969,7 @@ public class DataAccess
 
         connPatient.Open();
         SqlCommand cmdTxt = new SqlCommand("INSERT INTO FamilyPlanning (FPData,StartUser,New,Others,DropOut,EndUser,InputDate,BarangayID,Month,Year,Quarter)"
-            + "VALUES (@FPData,@SU,@New,@Others,@DO,@EU,@InputDate,@BarangayID,@Month,@Year,@Accomplishment,@Quarter)", connPatient);
+            + "VALUES (@FPData,@SU,@New,@Others,@DO,@EU,@InputDate,@BarangayID,@Month,@Year,@Quarter)", connPatient);
         cmdTxt.Parameters.Add("@FPData", SqlDbType.VarChar).Value = FPData;
         cmdTxt.Parameters.Add("@SU", SqlDbType.Int).Value = SU;
         cmdTxt.Parameters.Add("@New", SqlDbType.Int).Value = New;
@@ -982,14 +982,7 @@ public class DataAccess
         cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
-        //SqlCommand cmdTxt2 = new SqlCommand("INSERT INTO Population (BarangayID,Target,Quarter,Year,Population)"
-        //    +"VALUES (@BarangayID,@Target,@Quarter,@Year,@Pop)", connPatient);
-        //cmdTxt2.Parameters.Add("@BarangayID",SqlDbType.Int).Value = BarangayID;
-        //cmdTxt2.Parameters.Add("@Target", SqlDbType.Int).Value = Target;
-        //cmdTxt2.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
-        //cmdTxt2.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        //cmdTxt2.Parameters.Add("@Pop", SqlDbType.Int).Value = Population;
-        //cmdTxt2.ExecuteNonQuery();
+    
 
         connPatient.Close();
     }
@@ -1040,16 +1033,15 @@ public class DataAccess
         connPatient.Close();
     }
 
-    public bool HasDataPARAM_MonthYear(int Month,int Year,string Program, int BarangayID)
+    public bool HasDataForTheYear(int Year, int BarangayID)
     {
         int count = 0;
         SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
 
-        SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM "+ Program +" WHERE Month = " +
-            "@month AND Year = @year AND BarangayID = @barangayID", connPatient);
-        cmdTxt.Parameters.Add("@month", SqlDbType.Int).Value = Month;
+        SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM Population WHERE Year = " +
+            "@year AND BarangayID = @barangayID", connPatient);
         cmdTxt.Parameters.Add("@year", SqlDbType.Int).Value = Year;
         cmdTxt.Parameters.Add("@barangayID", SqlDbType.Int).Value = BarangayID;
         count = (int)cmdTxt.ExecuteScalar();
@@ -1063,24 +1055,29 @@ public class DataAccess
     }
 
     //COMPLETE LAKHI
-    public void InsertPopulation(int BarangayID,int Population,int Target,int Month, int Year,int IndicatorID)
+    public bool InsertPopulation(int BarangayID,int Population,int Target,int Month, int Year)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
         mc = new MonthConverter();
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Population (BarangayID,Population,Target,Year,Quarter,Month,ProgramCategoryID)"
-            + "VALUES (@BarangayID,@Population,@Target,@Year,@Quarter,@Month,@ID)", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Population (BarangayID,Population,Target,Year)"
+            + "VALUES (@BarangayID,@Population,@Target,@Year)", connPatient);
         cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
         cmdTxt.Parameters.Add("@Population", SqlDbType.Int).Value = Population;
         cmdTxt.Parameters.Add("@Target", SqlDbType.Int).Value = Target;
         cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
-        cmdTxt.Parameters.Add("@Month", SqlDbType.Int).Value = Month;
-        cmdTxt.Parameters.Add("@ID", SqlDbType.Int).Value = IndicatorID;
-        cmdTxt.ExecuteNonQuery();
+
+
+
+        int checker = cmdTxt.ExecuteNonQuery();
 
         connPatient.Close();
+
+        if (checker > 0)
+            return true;
+        else
+            return false;
     }
 
     //COMPLETE LAKHI

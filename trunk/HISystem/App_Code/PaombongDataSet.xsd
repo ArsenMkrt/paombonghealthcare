@@ -238,7 +238,7 @@ GROUP BY le.LeprosyData, p.Population, le.[Percent], le.Accomplishment, b.Barang
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TuberculosisTableAdapter" GeneratorDataComponentClassName="TuberculosisTableAdapter" Name="Tuberculosis" UserDataComponentName="TuberculosisTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="paombongdbConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
@@ -507,7 +507,7 @@ GROUP BY tu.TuberculosisData, p.Population, tu.Accomplishment, b.BarangayName, t
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="Tuberculosis" msprop:Generator_TableClassName="TuberculosisDataTable" msprop:Generator_TableVarName="tableTuberculosis" msprop:Generator_TablePropName="Tuberculosis" msprop:Generator_RowDeletingName="TuberculosisRowDeleting" msprop:Generator_UserTableName="Tuberculosis" msprop:Generator_RowChangingName="TuberculosisRowChanging" msprop:Generator_RowEvHandlerName="TuberculosisRowChangeEventHandler" msprop:Generator_RowDeletedName="TuberculosisRowDeleted" msprop:Generator_RowEvArgName="TuberculosisRowChangeEvent" msprop:Generator_RowChangedName="TuberculosisRowChanged" msprop:Generator_RowClassName="TuberculosisRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TuberculosisData" msprop:Generator_ColumnVarNameInTable="columnTuberculosisData" msprop:Generator_ColumnPropNameInRow="TuberculosisData" msprop:Generator_ColumnPropNameInTable="TuberculosisDataColumn" msprop:Generator_UserColumnName="TuberculosisData">
