@@ -94,14 +94,13 @@ public class DataAccess
 
     /*Add Patient Finished - Lakhi 10/5/2010*/
 
-    public void AddPatient(string PatientFirstName, string PatientMiddleName, string PatientLastName,
+    public bool AddPatient(string PatientFirstName, string PatientMiddleName, string PatientLastName,
         string PatientContactNumber, string PatientEmailAddress, string PatientSuffix, string PatientBirthdate, string PatientBirthplace, string PatientAddress,
         string PatientFaxNumber, string PatientDoctor, string PatientNationality, string PatientCity,
         string PatientSex, string PatientMaritalStatus, string PatientSpouseName, string PatientCompany, string DateRegistered, string PatientBarangay)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
-        try
-        {
+
             connPatient.Open();
             SqlCommand cmdTxt = new SqlCommand("AddPatient", connPatient);
             cmdTxt.CommandType = CommandType.StoredProcedure;
@@ -124,17 +123,13 @@ public class DataAccess
             cmdTxt.Parameters.Add("@DateRegistered", SqlDbType.Char).Value = DateRegistered;
             cmdTxt.Parameters.Add("@PatientSuffix", SqlDbType.Char).Value = PatientSuffix;
             cmdTxt.Parameters.Add("@PatientBarangay", SqlDbType.Char).Value = PatientBarangay;
+            cmdTxt.Parameters.Add("@DateYear", SqlDbType.Char).Value = DateTime.Now.Year.ToString();
 
             int checker = cmdTxt.ExecuteNonQuery();
-        }
-        catch (Exception ex)
-        {
-           
-        }
-        finally
-        {
-            connPatient.Close();
-        }
+            if (checker > 0)
+                return true;
+            else
+                return false;
     }
 
     public DataTable GetValues(string Patient_Id)

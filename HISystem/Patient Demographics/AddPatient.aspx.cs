@@ -36,13 +36,15 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
 
                 //Add Patient
 
-                data.AddPatient(txtFName.Text.Trim(), txtMName.Text.Trim(), txtLName.Text.Trim(), txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
+                bool statusAdd = data.AddPatient(txtFName.Text.Trim(), txtMName.Text.Trim(), txtLName.Text.Trim(), txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
                     txtSuffix.Text.Trim(), ddlDay.Text.Trim() + "/" + ddlMonth.Text.Trim() + "/" + ddlYear.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
                     txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
                     Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
 
-
-                Response.Write("<script> window.alert('Added Patient Successfully.')</script>");
+                if (statusAdd)
+                    Response.Write("<script> window.alert('Added Patient Successfully.')</script>");
+                else
+                    Response.Write("<script> window.alert('Added Patient Failed.')</script>");
             }
             else
                 Response.Write("<script> window.alert('Please select gender')</script>");
