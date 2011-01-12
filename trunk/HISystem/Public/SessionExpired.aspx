@@ -8,9 +8,20 @@
 <h2>
         Session Expired</h2>
     <p>
-        Your Session has Timed-Out due to inactivity.
-       <br /> Please login. &nbsp;
-    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Public/Login.aspx">Click Here</asp:HyperLink>
+        Your Session has timed out.
+       For increased security on this application, login credentials expire after 10 
+       minutes of inactivity.
+    </p>
+    <p>
+        You will be automatically redirected to Login page in<b> 5 seconds</b>. 
+    </p>
+    <p>
+        If you do not get redirected Please
+    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Public/Login.aspx" 
+            ForeColor="#0000CC">Click Here</asp:HyperLink>
+        .</p>
+    <p>
+        <br /> 
     </p>
     <p>
         If you have any questions, please contact the site administrator.

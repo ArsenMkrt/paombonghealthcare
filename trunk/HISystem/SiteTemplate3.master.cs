@@ -26,7 +26,7 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
         //    //do not redirect if page is login
         else if (!Request.Url.AbsolutePath.EndsWith("Login.aspx", StringComparison.InvariantCultureIgnoreCase))
         {
-            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 25)) + "; Url=./Public/SessionExpired.aspx");
+            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 60)) + "; Url=./Public/SessionExpired.aspx");
         }
 
 
