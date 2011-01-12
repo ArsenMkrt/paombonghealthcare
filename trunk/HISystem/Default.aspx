@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 
-<asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" 
+    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" 
             ForeColor="#a2cc85" Text="Home"></asp:Label>
     
     

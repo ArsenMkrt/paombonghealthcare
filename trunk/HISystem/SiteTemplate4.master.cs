@@ -13,7 +13,7 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
     {
         // if(Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
 
-
+       
         //redirect to login in 5 seconds
         if (Request.Url.AbsolutePath.EndsWith("SessionExpired.aspx", StringComparison.InvariantCultureIgnoreCase))
         {
@@ -24,7 +24,8 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
         }
         else if (!Request.Url.AbsolutePath.EndsWith("Login.aspx", StringComparison.InvariantCultureIgnoreCase))
         {
-            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 60)) + "; Url=./Public/SessionExpired.aspx");
+            string url1 = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
+            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 10)) + "; Url=" + url1);
         }
        // else
         //    HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 60)) + "; Url=./Public/SessionExpired.aspx");
