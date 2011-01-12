@@ -21,4 +21,13 @@ public partial class Public_Login : System.Web.UI.Page
         }
         RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
     }
+    protected void ClearButton_Click(object sender, EventArgs e)
+    {
+        //does not clear username field
+        TextBox txtUserName = LoginUser.FindControl("UserName") as TextBox;
+        txtUserName.Text = string.Empty;
+        TextBox txtPassword= LoginUser.FindControl("Password") as TextBox;
+        txtPassword.Text = string.Empty;
+        
+    }
 }
