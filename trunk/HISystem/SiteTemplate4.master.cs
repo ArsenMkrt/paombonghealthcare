@@ -27,9 +27,7 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
             string url1 = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
             HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 10)) + "; Url=" + url1);
         }
-       // else
-        //    HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 60)) + "; Url=./Public/SessionExpired.aspx");
-    }
+      }
 
     protected void Page_Load(object sender, EventArgs e)
     {
