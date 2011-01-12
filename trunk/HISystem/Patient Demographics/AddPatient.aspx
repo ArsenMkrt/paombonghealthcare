@@ -43,14 +43,14 @@
                 <asp:TextBox ID="txtLName" runat="server" Height="21px" Width="203px"></asp:TextBox>
                 <br />
                 Last name
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                <br /><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                     ControlToValidate="txtLName" ErrorMessage="(cannot be empty)" 
                     Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
             </td>
             <td class="style10" colspan="2" style="height: 52px">
                 <asp:TextBox ID="txtFName" runat="server" Width="147px"></asp:TextBox>
                 <br />
-                First name
+                First name<br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                     ControlToValidate="txtFName" ErrorMessage="(cannot be empty)" 
                     Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
@@ -60,7 +60,7 @@
                 &nbsp;<asp:TextBox ID="txtSuffix" runat="server" Width="51px" Height="23px" 
                     Visible="False" ></asp:TextBox>
                 <br />
-                Middle name
+                Middle name<br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                     ControlToValidate="txtMName" Display="Dynamic" ErrorMessage="(cannot be empty)" 
                     Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
