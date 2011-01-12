@@ -86,6 +86,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     
     protected void btnSave_Click(object sender, EventArgs e)
     {
+        
 
         
 
@@ -96,6 +97,10 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
             if (txtHt_inch.Text.Length == 1)
             {
                 height = txtHt_feet.Text + "0" + txtHt_inch.Text;
+            }
+            else if (txtHt_inch.Text.Length == 0 || txtHt_inch.Text.Trim() == null)
+            {
+                height = txtHt_feet.Text + "00";
             }
             else
                 height = txtHt_feet.Text + txtHt_inch.Text;
@@ -111,13 +116,14 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
 
             else if (txtDiagnosis.Text.Length > 0 && txtbx_PatientID.Text.Trim() != null && txtDiagnosis.Text.Trim() != "")
             {
+
                 data.SavePatientDailyMedicalRecord
                     (
 
                         Convert.ToInt32(txtbx_PatientID.Text),
                         Convert.ToInt32(txtAge.Text),
-                        Convert.ToInt32(txtTemp.Text),
-                        Convert.ToInt32(txtWt.Text),
+                        Convert.ToDecimal(txtTemp.Text),
+                        Convert.ToDecimal(txtWt.Text),
                         Convert.ToInt32(height),
                         Convert.ToInt32(txtBpressure.Text),
                         Convert.ToInt32(txtBpressure0.Text),
@@ -126,22 +132,25 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                         (string)Page.User.Identity.Name
 
                     );
-                Response.Write("<script> window.alert('Saved Consultation Successfully.')</script>");
+
                 //reset upon save
-                txtbx_PatientID.Text = null;
-                txtAge.Text = null;
-                txtTemp.Text = null;
-                txtWt.Text = null;
-                txtHt_feet.Text = null;
-                txtHt_inch.Text = null;
-                txtBpressure.Text = null;
-                txtDiagnosis.Text = null;
-                txtRecomendation.Text = null;
-                Response.Redirect("~/Medical%20Record/Consultation.aspx");
+                txtbx_PatientID.Text = string.Empty;
+                txtAge.Text = string.Empty;
+                txtTemp.Text = string.Empty;
+                txtWt.Text = string.Empty;
+                txtHt_feet.Text = string.Empty;
+                txtHt_inch.Text = string.Empty;
+                txtBpressure.Text = string.Empty;
+                txtBpressure0.Text = string.Empty;
+                txtDiagnosis.Text = string.Empty;
+                txtRecomendation.Text = string.Empty;
+                Response.Write("<script> window.alert('Saved Consultation Successfully.')</script>");
             }
             else
+            {
                 Response.Write("<script> window.alert('Please fillup required fields.')</script>");
-        
+            }
+            
     }
     protected void grdvw_Users_Load(object sender, EventArgs e)
     {

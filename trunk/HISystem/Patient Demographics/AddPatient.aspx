@@ -73,8 +73,14 @@
         ForeColor="#000000" Text="Contact Number"></asp:Label>
             </td>
             <td class="style5" colspan="2" style="width: 179px">
-                <asp:TextBox ID="txtContactNum" runat="server" Width="203px" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)"  
-                        onpaste="return false;"></asp:TextBox>
+                <asp:TextBox ID="txtContactNum" runat="server" Width="203px" 
+                    onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)"  
+                        onpaste="return false;" MaxLength="11"></asp:TextBox>
+                <br />
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
+                    ControlToValidate="txtContactNum" ErrorMessage="(number too short)" 
+                    Font-Italic="True" Font-Size="Small" ValidationExpression="\d{7}\d?\d?\d?\d?"></asp:RegularExpressionValidator>
+                <br />
             </td>
             <td class="style11" style="width: 137px">
                 <asp:Label ID="Label8" runat="server" Font-Bold="True" 
