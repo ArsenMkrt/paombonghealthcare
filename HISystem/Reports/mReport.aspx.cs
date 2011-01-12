@@ -29,7 +29,7 @@ public partial class Reports_AddReport : System.Web.UI.Page
         {
             if (Int32.Parse(txtPopulation.Text) > 0)
             {
-                if (data.HasDataForTheYear(Int32.Parse(ddlYear.Text),data.GetBarangayID(ddlBarangay.Text)))
+                if (data.HasDataForTheYear(Int32.Parse(ddlYear.Text), Int32.Parse(ddlMonth.Text),data.GetBarangayID(ddlBarangay.Text)))
                 {
                     Response.Write("<script> window.alert('Barangay: "+ddlBarangay.Text+" of the Year: "+
                         ddlYear.Text+" has data in the database. Please Try Other Year for the Barangay')</script>");
