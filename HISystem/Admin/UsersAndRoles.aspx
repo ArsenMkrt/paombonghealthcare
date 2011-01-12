@@ -36,16 +36,27 @@
             onselectedindexchanged="UserList_SelectedIndexChanged">
         </asp:DropDownList>
     </p>
+        <p>
+            <b>Choose Role:</b>&nbsp;
+            
+            <asp:DropDownList ID="RoleList1" runat="server" AutoPostBack="true" 
+            onselectedindexchanged="RoleList1_SelectedIndexChanged">
+        </asp:DropDownList>
+        </p>
     <p>
     
-        <asp:Repeater ID="UsersRoleList" runat="server">
-            <ItemTemplate>
-                <asp:CheckBox runat="server" ID="RoleCheckBox" AutoPostBack="true" Text='<%# Container.DataItem %>' OnCheckedChanged="RoleCheckBox_CheckChanged" />
-                <br />
-            </ItemTemplate>
-        </asp:Repeater>
+        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
+            Text="Assign/Change Role" Width="187px" />
         
     </p>
+    <br />
+
+            <br />
+
+
+
+
+
     
         <hr style="height: -12px" />
     
@@ -70,24 +81,10 @@
             </Columns>
         </asp:GridView>
     </p>
+    
+    
+    
     <br />
-    <br />
-    <table>
-    <tr>
-    <td><b>UserName:</b></td>
-    <td> <asp:TextBox ID="UserNameToAddToRole" runat="server"></asp:TextBox></td>
-    </tr>
-    <tr>
-    <td colspan="2">
-     <asp:Button ID="AddUserToRoleButton" runat="server" Text="Add User to Role" 
-            onclick="AddUserToRoleButton_Click" Width="208px" />
-    </td>
-    </tr>
-    </table>
-    
-    
-    
-
 
 
 
