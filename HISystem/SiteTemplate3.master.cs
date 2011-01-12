@@ -24,10 +24,15 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
             Page.Header.Controls.Add(meta);
         }
         //    //do not redirect if page is login
-        else if (!Request.Url.AbsolutePath.EndsWith("Login.aspx", StringComparison.InvariantCultureIgnoreCase))
+        else if (!Request.Url.AbsolutePath.EndsWith("Login.aspx", StringComparison.InvariantCultureIgnoreCase) && (!Request.Url.AbsolutePath.EndsWith("Default.aspx", StringComparison.InvariantCultureIgnoreCase)))
         {
             string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
             HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 10)) + "; Url="+ url);
+        }
+        else if ( ((Request.Url.AbsolutePath.EndsWith("Default.aspx", StringComparison.InvariantCultureIgnoreCase)) && Page.Request.IsAuthenticated))
+        {
+            string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
+            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 10)) + "; Url=" + url);
         }
 
 
