@@ -851,16 +851,17 @@ public class DataAccess
         connPatient.Close();
     }
 
-    public void InsertMalariaReport(string MalariaData, int Male, int Female, int BarangayID,
+    public void InsertMalariaReport(string MalariaData,int Pregnant, int Male, int Female, int BarangayID,
         int Month, int Year)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
         mc = new MonthConverter();
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Malaria (MalariaData,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
-            + "VALUES (@MalariaData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Malaria (MalariaData,Pregnant,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
+            + "VALUES (@MalariaData,@Pregnant,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)", connPatient);
         cmdTxt.Parameters.Add("@MalariaData", SqlDbType.VarChar).Value = MalariaData;
+        cmdTxt.Parameters.Add("@Pregnant", SqlDbType.Int).Value = Pregnant;
         cmdTxt.Parameters.Add("@Male", SqlDbType.Int).Value = Male;
         cmdTxt.Parameters.Add("@Female", SqlDbType.Int).Value = Female;
         cmdTxt.Parameters.Add("@InputDate", SqlDbType.DateTime).Value = DateTime.Now.ToString("MM/dd/yyyy HH:MM");
@@ -1033,7 +1034,7 @@ public class DataAccess
         connPatient.Close();
     }
 
-    public bool HasDataForTheYear(int Year, int BarangayID)
+    public bool HasDataForTheYear(int Year,int Month, int BarangayID)
     {
         int count = 0;
         SqlConnection connPatient = new SqlConnection(dataconnection);
@@ -1043,6 +1044,7 @@ public class DataAccess
         SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM Population WHERE Year = " +
             "@year AND BarangayID = @barangayID", connPatient);
         cmdTxt.Parameters.Add("@year", SqlDbType.Int).Value = Year;
+        cmdTxt.Parameters.Add("@month", SqlDbType.Int).Value = Month;
         cmdTxt.Parameters.Add("@barangayID", SqlDbType.Int).Value = BarangayID;
         count = (int)cmdTxt.ExecuteScalar();
 
