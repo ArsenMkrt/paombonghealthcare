@@ -1185,23 +1185,25 @@ public class DataAccess
         conn.Close();
     }
 
-    public void SavePatientDailyMedicalRecord(int PatientID,int PatientAge, int Temperature,int PatientWeight,int PatientHeight
-        ,string BloodPressure,string Diagnosis, string Treatment)
+    public void SavePatientDailyMedicalRecord(int PatientID, int PatientAge, int Temperature, int PatientWeight, int PatientHeight
+        , int BloodPressure1, int BloodPressure2, string Diagnosis, string Treatment, string userAccount)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Encounters (EncounterDateTime,PatientID,Age,Temp,Weight,Height,BP,Diagnosis,Treatment)"
-            + "VALUES (@EncounterDateTime,@PatientID,@Age,@Temp,@Weight,@Height,@BP,@Diagnosis,@Treatment)", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Encounters (EncounterDateTime,PatientID,Age,Temp,Weight,Height,BP1,BP2,Diagnosis,Treatment,Facilitatedby)"
+            + "VALUES (@EncounterDateTime,@PatientID,@Age,@Temp,@Weight,@Height,@BP1,@BP2,@Diagnosis,@Treatment,@Facilitatedby)", connPatient);
         cmdTxt.Parameters.Add("@EncounterDateTime", SqlDbType.DateTime).Value = DateTime.Now.ToString("MM/dd/yyyy HH:MM");
         cmdTxt.Parameters.Add("@PatientID", SqlDbType.Int).Value = PatientID;
         cmdTxt.Parameters.Add("@Age", SqlDbType.Int).Value = PatientAge;
         cmdTxt.Parameters.Add("@Temp", SqlDbType.Int).Value = Temperature;
         cmdTxt.Parameters.Add("@Weight", SqlDbType.Int).Value = PatientWeight;
         cmdTxt.Parameters.Add("@Height", SqlDbType.Int).Value = PatientHeight;
-        cmdTxt.Parameters.Add("@BP", SqlDbType.VarChar).Value = BloodPressure;
+        cmdTxt.Parameters.Add("@BP1", SqlDbType.Int).Value = BloodPressure1;
+        cmdTxt.Parameters.Add("@BP2", SqlDbType.Int).Value = BloodPressure2;
         cmdTxt.Parameters.Add("@Diagnosis", SqlDbType.VarChar).Value = Diagnosis;
         cmdTxt.Parameters.Add("@Treatment", SqlDbType.VarChar).Value = Treatment;
+        cmdTxt.Parameters.Add("@Facilitatedby", SqlDbType.VarChar).Value = userAccount;
         cmdTxt.ExecuteNonQuery();
     }
     public bool HasPatient(string firstName, string middleName, string lastname, string address)
