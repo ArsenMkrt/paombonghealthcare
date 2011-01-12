@@ -9,8 +9,8 @@
         Session Expired</h2>
     <p>
         Your Session has timed out.
-       For increased security on this application, login credentials expire after 10 
-       minutes of inactivity.
+       For increased security on this application, login credentials expire after 1 
+       minute of inactivity.
     </p>
     <p>
         You will be automatically redirected to Login page in<b> 5 seconds</b>. 
