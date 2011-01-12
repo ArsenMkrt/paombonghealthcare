@@ -44,6 +44,14 @@
           <DataField>Target</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
         </Field>
+        <Field Name="quarter">
+          <DataField>quarter</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="year">
+          <DataField>year</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>PaombongDataSet</DataSourceName>
@@ -1243,7 +1251,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=Fields!quarter.Value</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -1303,7 +1311,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=Fields!year.Value</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -1483,7 +1491,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>=Fields!POP.Value</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>

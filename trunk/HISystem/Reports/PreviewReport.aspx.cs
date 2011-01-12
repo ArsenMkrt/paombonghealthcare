@@ -82,48 +82,52 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Reports.Checked)
         {
-            RadioButton3.Visible = true;
-            RadioButton4.Visible = true;
-            RadioButton5.Visible = true;
-        }
-        else
-        {
-            RadioButton3.Visible = false;
-            RadioButton4.Visible = false;
-            RadioButton5.Visible = false;
-        }
-    }
-    protected void RadioButton3_CheckedChanged(object sender, EventArgs e)
-    {
-        if (RadioButton3.Checked)
-        {
-            DropDownList2.Visible = true;
-        }
-        else
-        {
-            DropDownList2.Visible = false;
-        }
-    }
-    protected void RadioButton4_CheckedChanged(object sender, EventArgs e)
-    {
-        if (RadioButton4.Checked)
-        {
+            Label1.Visible = true;
+            Label2.Visible = true;
+            Label3.Visible = true;
+            DropDownList1.Visible = true;
             ddlQuarter.Visible = true;
         }
         else
         {
+            Label1.Visible = false;
+            Label2.Visible = false;
+            Label3.Visible = false;
+            DropDownList1.Visible = false;
             ddlQuarter.Visible = false;
         }
     }
+    protected void RadioButton3_CheckedChanged(object sender, EventArgs e)
+    {
+        //if (RadioButton3.Checked)
+        //{
+        //    DropDownList2.Visible = true;
+        //}
+        //else
+        //{
+        //    DropDownList2.Visible = false;
+        //}
+    }
+    protected void RadioButton4_CheckedChanged(object sender, EventArgs e)
+    {
+        //if (RadioButton4.Checked)
+        //{
+        //    ddlQuarter.Visible = true;
+        //}
+        //else
+        //{
+        //    ddlQuarter.Visible = false;
+        //}
+    }
     protected void RadioButton5_CheckedChanged(object sender, EventArgs e)
     {
-        if (RadioButton5.Checked)
-        {
-            DropDownList1.Visible = true;
-        }
-        else
-        {
-            DropDownList1.Visible = false;
-        }
+        //if (RadioButton5.Checked)
+        //{
+        //    DropDownList1.Visible = true;
+        //}
+        //else
+        //{
+        //    DropDownList1.Visible = false;
+        //}
     }
 }

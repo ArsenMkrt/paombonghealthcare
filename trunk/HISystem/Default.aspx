@@ -12,15 +12,15 @@
     <br />
     <br />
 
-    <p><b>Paombong Healthcare Information system</b> is Capstone project of Mapua 
+    <p><b>Paombong Healthcare Information system</b> is a Capstone project of Mapua 
         Institute of Technology, School of Information Technology students aimed to 
         develop an information system to aid the nurses in generating reports, 
         collecting patient information, medicine and equipment inventory and patient 
         medical history.</p>
-<p>some paragraphs here</p>
-<p>some paragraphs here</p>
-<p>some paragraphs here</p>
-<p>some paragraphs here</p>
+<p>This system offers Recording and Management of Patient Information.</p>
+<p>Medical Records of such Patient Information.</p>
+<p>Inventory of the Medicines of Paombong Healthcenter.</p>
+
     <%--<center>
     <img alt="" src="images/bg3.png" style="margin-top: 38px" />
     </center>--%>

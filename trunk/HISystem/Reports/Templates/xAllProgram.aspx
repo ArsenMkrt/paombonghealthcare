@@ -72,7 +72,7 @@
     <asp:Table ID="tblMaternal" GridLines ="Both" Width = "100%" runat="server">
     </asp:Table>
     <br />
-    <asp:Table ID="tblMalaria" runat="server">
+    <asp:Table ID="tblMalaria" GridLines="Both" Width = "100%" runat="server">
     </asp:Table>
     <br />
     <asp:Table ID="tblDynamic" GridLines="Both" runat="server" Width="100%">
