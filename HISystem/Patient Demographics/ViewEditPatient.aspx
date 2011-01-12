@@ -138,18 +138,28 @@
                 <td class="style12" style="height: 52px" colspan="2">
                     <asp:TextBox ID="txtLName" runat="server" Height="21px" Width="203px"></asp:TextBox>
                     <br />
-                    Last name</td>
+                    Last name<br /><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                    ControlToValidate="txtLName" ErrorMessage="(cannot be empty)" 
+                    Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
+                </td>
                 <td class="style10" colspan="2" style="height: 52px">
                     <asp:TextBox ID="txtFName" runat="server" Width="147px"></asp:TextBox>
                     <br />
-                    First name</td>
-                <td class="style13">
+                    First name<br /><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                    ControlToValidate="txtFName" ErrorMessage="(cannot be empty)" 
+                    Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
+                </td>
+                <td class="style13" colspan="2">
                     <asp:TextBox ID="txtMName" runat="server" Width="107px"></asp:TextBox>
-                    <br />
-                    Middle name</td>
-                <td class="style10" style="height: 52px">
+                    
                     <asp:TextBox ID="txtSuffix" runat="server" Height="23px" Width="71px" 
                         Visible="False"></asp:TextBox>
+                    <br />
+                    Middle name<br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                    ControlToValidate="txtMName" Display="Dynamic" ErrorMessage="(cannot be empty)" 
+                    Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
+                    
                     </td>
             </tr>
             <tr>
@@ -170,6 +180,13 @@
                     
                     onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
                         onpaste="return false;"></asp:TextBox>
+                    <br />
+
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
+                    ControlToValidate="txtFaxNum" 
+                    ErrorMessage="(input valid philhealth number format)" Font-Italic="True" 
+                    Font-Size="Small" ValidationExpression="\b\d{2}-\d{9}-\d{1}"></asp:RegularExpressionValidator>
+
                 </td>
             </tr>
             <tr>
@@ -205,6 +222,13 @@
                 </td>
                 <td class="style5" colspan="3" style="width: 179px">
                     <asp:TextBox ID="txtEmailAdd" runat="server" Width="206px"></asp:TextBox>
+                    <br />
+
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                    ControlToValidate="txtEmailAdd" ErrorMessage="(input valid email format)" 
+                    Font-Italic="True" Font-Size="Small" 
+                    ValidationExpression="([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})"></asp:RegularExpressionValidator>
+
                 </td>
                 <td class="style14">
                     <asp:Label ID="Label28" runat="server" Font-Bold="True" ForeColor="#000000" 
@@ -333,6 +357,10 @@
                 </td>
                 <td class="style8" colspan="6">
                     <asp:TextBox ID="txtAddress" runat="server" Height="51px" Width="615px"></asp:TextBox>
+                    <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                    ControlToValidate="txtAddress" ErrorMessage="(cannot be empty)" 
+                    Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
