@@ -12,7 +12,7 @@ using System.Web.UI.HtmlControls;
 public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
 {
     //private string program; //For DB Tables
-    private string p;
+    //private string p;
     private int month;
     private string monthName;
     private int year;
@@ -1424,11 +1424,9 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
     }
     protected void Button2_Click(object sender, EventArgs e)
     {
-        for (int i = 0; i < data.CountIndicatorPerProgram(p); i++)
-        {
-            TextBox text = new TextBox();
-            text.ID = "txt_" + i.ToString();
-            text.Text = "0";
-        }
+        Response.Redirect("~/Reports/Templates/xAllProgram.aspx?&month=" + Server.UrlEncode(monthName) +
+                            "&year=" + Server.UrlEncode(year.ToString()) +
+                            "&barangay=" + Server.UrlEncode(barangay) +
+                            "&population=" + Server.UrlEncode(population.ToString()));
     }
 }

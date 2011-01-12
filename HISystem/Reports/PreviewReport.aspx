@@ -4,61 +4,36 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <p>
-        <asp:SqlDataSource ID="DataYear" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
-        SelectCommand="SELECT DISTINCT [Year] FROM [ChildCare]">
-    </asp:SqlDataSource>
     <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 <p>
-    Municipality:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Paombong</strong><table 
-        style="width:100%;">
+    Municipality:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Paombong&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>Province: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <strong>Bulacan</strong></p>
+    <p>
+        <table border="1" style="width:100%;">
         <tr>
-            <td style="width: 120px; text-align: center; height: 42px">
+            <td style="width: 81px; text-align: center; height: 42px">
                 Type</td>
             <td style="width: 159px; height: 42px">
                 </td>
             <td style="height: 42px; width: 78px">
                 &nbsp;</td>
-            <td style="height: 42px">
-                </td>
         </tr>
         <tr>
-            <td style="width: 120px">
-                <asp:RadioButton ID="rdbtn_Reports" runat="server" Text="Reports" 
+            <td style="width: 81px">
+                <asp:RadioButton ID="rdbtn_Reports" GroupName="TypeReport" runat="server" Text="Reports" 
                     oncheckedchanged="rdbtn_Reports_CheckedChanged" AutoPostBack="True" />
             </td>
-            <td style="width: 159px; text-align: center">
-                Type of Report</td>
-            <td style="width: 78px">
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
+            <td style="text-align: center" colspan="2">
+                <asp:Label ID="Label1" runat="server" Text="Type of Report" Visible="False"></asp:Label>
+            </td>
         </tr>
         <tr>
-            <td style="width: 120px">
+            <td style="width: 81px">
                 &nbsp;</td>
             <td style="width: 159px">
-                <asp:RadioButton ID="RadioButton3" runat="server" Text="Month" 
-                    oncheckedchanged="RadioButton3_CheckedChanged" Visible="False" 
-                    AutoPostBack="True" />
-            </td>
-            <td style="width: 78px">
-                <asp:DropDownList ID="DropDownList2" runat="server" Height="20px" Width="123px" 
-                    Visible="False">
-                </asp:DropDownList>
-            </td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="width: 120px">
-                &nbsp;</td>
-            <td style="width: 159px">
-                <asp:RadioButton ID="RadioButton4" runat="server" Text="Quarter" 
-                    oncheckedchanged="RadioButton4_CheckedChanged" Visible="False" 
-                    AutoPostBack="True" />
+                <asp:Label ID="Label2" runat="server" Text="Quarter:" Visible="False"></asp:Label>
             </td>
             <td style="width: 78px">
         <asp:DropDownList ID="ddlQuarter" runat="server" Height="20px" Width="123px" 
@@ -70,54 +45,52 @@
             <asp:ListItem Value="4">4th Quarter</asp:ListItem>
         </asp:DropDownList>
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 120px">
+            <td style="width: 81px">
                 &nbsp;</td>
             <td style="width: 159px">
-                <asp:RadioButton ID="RadioButton5" runat="server" Text="Year" 
-                    oncheckedchanged="RadioButton5_CheckedChanged" Visible="False" 
-                    AutoPostBack="True" />
+                <asp:Label ID="Label3" runat="server" Text="Year:" Visible="False"></asp:Label>
             </td>
             <td style="width: 78px">
                 <asp:DropDownList ID="DropDownList1" runat="server" 
-             DataSourceID = "DataYear" DataValueField="Year" DataTextField="Year" 
-                    Height="20px" Width="123px">
+              
+                    Height="20px" Width="123px" Visible="False">
         </asp:DropDownList>
             </td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 120px">
-                <asp:RadioButton ID="rdbtn_Inventory" runat="server" Text="Inventory" />
+            <td style="width: 81px">
+                <asp:RadioButton ID="rdbtn_Inventory" GroupName="TypeReport" runat="server" 
+                    Text="Inventory" Visible="False" />
             </td>
             <td style="width: 159px">
                 &nbsp;</td>
             <td style="width: 78px">
                 &nbsp;</td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 120px">
+            <td style="width: 81px">
                 &nbsp;</td>
             <td style="width: 159px">
+                &nbsp;</td>
+            <td style="width: 78px">
         <asp:Button ID="btn_runReport" runat="server" onclick="btn_runReport_Click"
-            Text="Run Report" Width="119px" />
+            Text="Run Report" Width="120px" />
             </td>
-            <td style="width: 78px">
+        </tr>
+        <tr>
+            <td style="width: 81px">
                 &nbsp;</td>
-            <td>
+            <td style="width: 159px">
+                &nbsp;</td>
+            <td style="width: 78px">
                 &nbsp;</td>
         </tr>
     </table>
     </p>
     <p>
-        Province: <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        Bulacan</strong></p>
+        &nbsp;</p>
      <asp:ScriptManager id="SM1" runat="server" />
 <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" 
     Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
