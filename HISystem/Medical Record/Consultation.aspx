@@ -8,6 +8,10 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+    
+    
+
+    
     <br />
         <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">List Of Patients</a>
     <br />
@@ -264,7 +268,7 @@
                 <asp:DropDownList ID="ddlBarangay" runat="server" 
         DataSourceID="Barangay" DataTextField="BarangayName" 
         DataValueField="BarangayName" 
-                    onselectedindexchanged="ddlBarangay_SelectedIndexChanged" 
+                    
                     style="margin-left: 56px" Enabled="False">
                 </asp:DropDownList>
             &nbsp;<asp:SqlDataSource ID="Barangay" runat="server" 
@@ -301,7 +305,8 @@
                 &nbsp;<span class="style18">Celsius<br />
                 <asp:RangeValidator ID="RangeValidator1" runat="server" 
                     ControlToValidate="txtTemp" ErrorMessage="(please input number from35-40)" 
-                    Font-Italic="True" Font-Size="Small" MaximumValue="40" MinimumValue="35"></asp:RangeValidator>
+                    Font-Italic="True" Font-Size="Small" MaximumValue="40" MinimumValue="35" 
+                    Display="Dynamic" Type="Integer"></asp:RangeValidator>
                 </span></td>
             <td align="right" class="style45">
                 Weight</td>
@@ -318,23 +323,44 @@
                         onpaste="return false;"></asp:TextBox>
                 ft<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                     ControlToValidate="txtHt_feet" ErrorMessage="(enter feet)" Font-Italic="True" 
-                    Font-Size="Small"></asp:RequiredFieldValidator>
+                    Font-Size="Small" Display="Dynamic"></asp:RequiredFieldValidator>
 &nbsp;<asp:TextBox ID="txtHt_inch" runat="server" Width="37px" MaxLength="2" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
                         onpaste="return false;"></asp:TextBox>
                 &nbsp;in <span class="style18">
                 <asp:RangeValidator ID="RangeValidator2" runat="server" 
                     ControlToValidate="txtHt_inch" ErrorMessage="(inch input exceeded)" 
-                    Font-Italic="True" Font-Size="Small" MaximumValue="11" MinimumValue="1"></asp:RangeValidator>
+                    Font-Italic="True" Font-Size="Small" MaximumValue="11" MinimumValue="1" 
+                    Display="Dynamic" Type="Integer"></asp:RangeValidator>
                 <br />
                 <asp:RangeValidator ID="RangeValidator3" runat="server" 
                     ControlToValidate="txtHt_feet" ErrorMessage="(height input exceeded)" 
-                    Font-Italic="True" Font-Size="Small" MaximumValue="8" MinimumValue="1"></asp:RangeValidator>
+                    Font-Italic="True" Font-Size="Small" MaximumValue="8" MinimumValue="1" 
+                    Display="Dynamic" Type="Integer"></asp:RangeValidator>
                 </span>&nbsp;</td>
             <td class="style46" align="right">
                 Blood Pressure</td>
             <td class="style53" colspan="2">
-                <asp:TextBox ID="txtBpressure" runat="server" Width="121px"  onKeyUp="javascript:return mask(this.value,this,'3','/');" 
-                    onBlur="javascript:return mask(this.value,this,'3','/');" MaxLength="7" onpaste="return false;"></asp:TextBox>
+                <asp:TextBox ID="txtBpressure" runat="server" Width="37px" MaxLength="3" 
+                    onpaste="return false;" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)"></asp:TextBox>
+                <asp:Label ID="Lbl_slash" runat="server" Font-Bold="True" Font-Size="X-Large" 
+                    Text="/"></asp:Label>
+                <asp:TextBox ID="txtBpressure0" runat="server" Width="37px"  MaxLength="3" 
+                    onpaste="return false;" Height="22px"  onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)"></asp:TextBox>
+            &nbsp;
+                <asp:Label ID="Lbl_BPunit" runat="server" Font-Bold="False" Font-Size="Medium" 
+                    Text="mmHg"></asp:Label><br />
+
+                <span class="style18">
+                <asp:RangeValidator ID="BPRangeValidator1" runat="server" 
+                    ControlToValidate="txtBpressure" ErrorMessage="(invalid blood pressure1)" 
+                    Font-Italic="True" Font-Size="Small" MaximumValue="190" Display="Dynamic" 
+                    MinimumValue="90" Type="Integer"></asp:RangeValidator>
+                <br />
+                <asp:RangeValidator ID="BPRangeValidator2" runat="server" 
+                    ControlToValidate="txtBpressure0" ErrorMessage="(invalid blood pressure2)" 
+                    Font-Italic="True" Font-Size="Small" MaximumValue="120" MinimumValue="60" 
+                    Display="Dynamic" Type="Integer"></asp:RangeValidator>
+                </span>
             </td>
         </tr>
         <tr>
@@ -345,7 +371,7 @@
                     Width="686px"></asp:TextBox><br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                     ControlToValidate="txtDiagnosis" ErrorMessage="(enter diagnosis)" 
-                    Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
+                    Font-Italic="True" Font-Size="Small" Display="Dynamic"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -356,7 +382,7 @@
                     Width="685px"></asp:TextBox><br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                     ControlToValidate="txtRecomendation" ErrorMessage="(enter recommendation)" 
-                    Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
+                    Font-Italic="True" Font-Size="Small" Display="Dynamic"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
