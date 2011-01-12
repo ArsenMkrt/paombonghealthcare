@@ -8,9 +8,9 @@ using System.Web.Security;
 
 public partial class Admin_UsersAndRoles : System.Web.UI.Page
 {
-   
 
 
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -25,17 +25,19 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
             // Display those users belonging to the currently selected role
             DisplayUsersBelongingToRole();
         }
+        
     }
 
     private void BindRolesToList()
     {
         // Get all of the roles
         string[] roles = Roles.GetAllRoles();
-        UsersRoleList.DataSource = roles;
-        UsersRoleList.DataBind();
+      
 
         RoleList.DataSource = roles;
+        RoleList1.DataSource = roles;
         RoleList.DataBind();
+        RoleList1.DataBind();
     }
 
     #region 'By User' Interface-Specific Methods
@@ -57,27 +59,42 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
         // Determine what roles the selected user belongs to
         string selectedUserName = UserList.SelectedValue;
         string[] selectedUsersRoles = Roles.GetRolesForUser(selectedUserName);
-
-        // Loop through the Repeater's Items and check or uncheck the checkbox as needed
-        foreach (RepeaterItem ri in UsersRoleList.Items)
+        
+        if (Roles.IsUserInRole(selectedUserName, "Doctor"))
         {
-            // Programmatically reference the CheckBox
-            CheckBox RoleCheckBox = ri.FindControl("RoleCheckBox") as CheckBox;
-
-            // See if RoleCheckBox.Text is in selectedUsersRoles
-            if (selectedUsersRoles.Contains<string>(RoleCheckBox.Text))
-                RoleCheckBox.Checked = true;
-            else
-                RoleCheckBox.Checked = false;
+            RoleList1.SelectedValue = "Doctor";
+            Session["selectedUsersRole"] = "Doctor";
+        }
+        else if (Roles.IsUserInRole(selectedUserName, "Nurse"))
+        {
+            RoleList1.SelectedValue = "Nurse";
+            Session["selectedUsersRole"] = "Nurse";
+        }
+        else if (Roles.IsUserInRole(selectedUserName, "Midwife"))
+        {
+            RoleList1.SelectedValue = "Midwife";
+           Session["selectedUsersRole"] = "Midwife";
         }
     }
 
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        if (Session["selectedUsersRole"] != null)
+        {
+            Roles.RemoveUserFromRole(UserList.SelectedValue, Session["selectedUsersRole"].ToString());
+            Roles.AddUserToRole(UserList.SelectedValue, RoleList1.SelectedValue);
+            ActionStatus.Text = "Successfully assigned/changed to role!";
+        }
+        else
+            ActionStatus.Text = "Please select User first.";
+    }
     protected void RoleCheckBox_CheckChanged(object sender, EventArgs e)
     {
         // Reference the CheckBox that raised this event
         CheckBox RoleCheckBox = sender as CheckBox;
 
-        // Get the currently selected user and role
+        // Get the currently selected user and role 
         string selectedUserName = UserList.SelectedValue;
         string roleName = RoleCheckBox.Text;
 
@@ -144,48 +161,52 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
         CheckRolesForSelectedUser();
     }
 
-    protected void AddUserToRoleButton_Click(object sender, EventArgs e)
-    {
-        // Get the selected role and username
-        string selectedRoleName = RoleList.SelectedValue;
-        string userNameToAddToRole = UserNameToAddToRole.Text;
+    //protected void AddUserToRoleButton_Click(object sender, EventArgs e)
+    //{
+    //    // Get the selected role and username
+    //    string selectedRoleName = RoleList.SelectedValue;
+    //    string userNameToAddToRole = UserNameToAddToRole.Text;
 
-        // Make sure that a value was entered
-        if (userNameToAddToRole.Trim().Length == 0)
-        {
-            ActionStatus.Text = "You must enter a username in the textbox.";
-            return;
-        }
+    //    // Make sure that a value was entered
+    //    if (userNameToAddToRole.Trim().Length == 0)
+    //    {
+    //        ActionStatus.Text = "You must enter a username in the textbox.";
+    //        return;
+    //    }
 
-        // Make sure that the user exists in the system
-        MembershipUser userInfo = Membership.GetUser(userNameToAddToRole);
-        if (userInfo == null)
-        {
-            ActionStatus.Text = string.Format("The user {0} does not exist in the system.", userNameToAddToRole);
-            return;
-        }
+    //    // Make sure that the user exists in the system
+    //    MembershipUser userInfo = Membership.GetUser(userNameToAddToRole);
+    //    if (userInfo == null)
+    //    {
+    //        ActionStatus.Text = string.Format("The user {0} does not exist in the system.", userNameToAddToRole);
+    //        return;
+    //    }
 
-        // Make sure that the user doesn't already belong to this role
-        if (Roles.IsUserInRole(userNameToAddToRole, selectedRoleName))
-        {
-            ActionStatus.Text = string.Format("User {0} already is a member of role {1}.", userNameToAddToRole, selectedRoleName);
-            return;
-        }
+    //    // Make sure that the user doesn't already belong to this role
+    //    if (Roles.IsUserInRole(userNameToAddToRole, selectedRoleName))
+    //    {
+    //        ActionStatus.Text = string.Format("User {0} already is a member of role {1}.", userNameToAddToRole, selectedRoleName);
+    //        return;
+    //    }
 
-        // If we reach here, we need to add the user to the role
-        Roles.AddUserToRole(userNameToAddToRole, selectedRoleName);
+    //    // If we reach here, we need to add the user to the role
+    //    Roles.AddUserToRole(userNameToAddToRole, selectedRoleName);
 
-        // Clear out the TextBox
-        UserNameToAddToRole.Text = string.Empty;
+        
 
-        // Refresh the GridView
-        DisplayUsersBelongingToRole();
+    //    // Refresh the GridView
+    //    DisplayUsersBelongingToRole();
 
-        // Display a status message
-        ActionStatus.Text = string.Format("User {0} was added to role {1}.", userNameToAddToRole, selectedRoleName);
+    //    // Display a status message
+    //    ActionStatus.Text = string.Format("User {0} was added to role {1}.", userNameToAddToRole, selectedRoleName);
 
-        // Refresh the "by user" interface
-        CheckRolesForSelectedUser();
-    }
+    //    // Refresh the "by user" interface
+    //    CheckRolesForSelectedUser();
+    //}
     #endregion
+    protected void RoleList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+   
 }
