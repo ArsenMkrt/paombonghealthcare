@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections;
-using System.Data; 
+using System.Data;
+using System.Web.Security; 
 
 public partial class Medical_Record_Consultation : System.Web.UI.Page
 {
@@ -16,6 +17,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+            
+       
         if (!this.IsPostBack)
         {
             if (Request.QueryString.Count > 0)
@@ -78,33 +81,13 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         }
 
     }
-    protected void dropMonth_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void ddlBarangay_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
+    
     
     
     protected void btnSave_Click(object sender, EventArgs e)
     {
 
-        //if (txtAge.Text.Trim() == null || txtAge.Text.Length==0)
-        //{
-        //    txtAge.Text = "1";
-        //}
-
-        //if (txtTemp.Text.Trim() == null)
-        //{
-        //    txtTemp.Text = "37";
-        //}
-        //if (txtBpressure.Text.Trim() == null)
-        //    txtBpressure.Text = "200";
-
-        //if (txtWt.Text.Trim() == null) 
-        //       txtWt.Text="150";
+        
 
 
             //To save data on db
@@ -136,9 +119,11 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                         Convert.ToInt32(txtTemp.Text),
                         Convert.ToInt32(txtWt.Text),
                         Convert.ToInt32(height),
-                        txtBpressure.Text,
+                        Convert.ToInt32(txtBpressure.Text),
+                        Convert.ToInt32(txtBpressure0.Text),
                         txtDiagnosis.Text,
-                        txtRecomendation.Text
+                        txtRecomendation.Text,
+                        (string)Page.User.Identity.Name
 
                     );
                 Response.Write("<script> window.alert('Saved Consultation Successfully.')</script>");

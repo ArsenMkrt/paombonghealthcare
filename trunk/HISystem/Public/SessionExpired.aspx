@@ -6,11 +6,11 @@
 
 
 <h2>
-        Session Expired</h2>
+        Session has expired</h2>
     <p>
         Your Session has timed out.
-       For increased security on this application, login credentials expire after 1 
-       minute of inactivity.
+       For increased security on this application, login credentials expire after 5 
+        minutes of inactivity or being idle.
     </p>
     <p>
         You will be automatically redirected to Login page in<b> 5 seconds</b>. 

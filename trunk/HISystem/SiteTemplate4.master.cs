@@ -13,8 +13,8 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
     {
         // if(Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
 
-       
-        //redirect to login in 5 seconds
+
+
         if (Request.Url.AbsolutePath.EndsWith("SessionExpired.aspx", StringComparison.InvariantCultureIgnoreCase))
         {
             HtmlMeta meta = new HtmlMeta();
@@ -22,11 +22,27 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
             meta.Content = "5; URL=./Login.aspx";
             Page.Header.Controls.Add(meta);
         }
-        else if (!Request.Url.AbsolutePath.EndsWith("Login.aspx", StringComparison.InvariantCultureIgnoreCase))
+        //    //do not redirect if page is login
+        else if (!Request.Url.AbsolutePath.EndsWith("Login.aspx", StringComparison.InvariantCultureIgnoreCase) && (!Request.Url.AbsolutePath.EndsWith("Default.aspx", StringComparison.InvariantCultureIgnoreCase)))
         {
-            string url1 = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
-            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 10)) + "; Url=" + url1);
+            string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
+            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 300)) + "; Url=" + url);
+
+           
         }
+        else if (((Request.Url.AbsolutePath.EndsWith("Default.aspx", StringComparison.InvariantCultureIgnoreCase)) && Page.Request.IsAuthenticated))
+        {
+            string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
+            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 300)) + "; Url=" + url);
+
+
+          
+        }
+
+
+
+
+
       }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -43,7 +59,7 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
         }
 
 
-
+       
 
         if (Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null &&  Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
         {

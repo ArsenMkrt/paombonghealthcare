@@ -15,7 +15,7 @@
             ForeColor="#3366CC" Font-Underline="True">Register</asp:HyperLink> &nbsp;if you don't have an account.
     </p>
     <asp:Login ID="LoginUser" runat="server" EnableViewState="False" 
-    BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" 
+    BackColor="#FFFFFF" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" 
     BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" 
         Font-Bold="True" Width="281px" DestinationPageUrl="~/Default.aspx">
         <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
