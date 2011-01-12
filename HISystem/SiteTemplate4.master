@@ -6,7 +6,26 @@
 <head id="Head1" runat="server">
     <title></title>
     
-    
+     <%-- for decimal validation--%>
+     <script type="text/javascript" language="javascript">
+
+
+         var isShift = false;
+
+         function keyUPDecimal(keyCode) {
+             if (keyCode == 16)
+                 isShift = false;
+         }
+
+
+
+         function isDecimal(keyCode) {
+             if (keyCode == 16)
+                 isShift = true;
+
+             return ((keyCode >= 48 && keyCode <= 57 || keyCode == 8 || keyCode == 110 || keyCode == 190 || (keyCode >= 96 && keyCode <= 105)) && isShift == false);
+         }
+    </script>
 
     <script type="text/javascript" language="javascript">
         /* The scripts on this page was produced by mordechai Sandhaus - 52action.com,
