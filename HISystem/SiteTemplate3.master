@@ -226,7 +226,7 @@
                 </asp:ContentPlaceHolder>
                
                
-                </div>
+                &nbsp;</div>
             </div>
             <div id="content">
                 <asp:contentplaceholder id="MainContent" runat="server">

@@ -14,7 +14,7 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
        // if(Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
 
 
-
+       
         //redirect to login in 5 seconds
         if (Request.Url.AbsolutePath.EndsWith("SessionExpired.aspx", StringComparison.InvariantCultureIgnoreCase))
         {
@@ -26,13 +26,15 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
         //    //do not redirect if page is login
         else if (!Request.Url.AbsolutePath.EndsWith("Login.aspx", StringComparison.InvariantCultureIgnoreCase))
         {
-            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 60)) + "; Url=./Public/SessionExpired.aspx");
+            string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
+            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 10)) + "; Url="+ url);
         }
 
 
     }
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         if (!Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Doctor"))
         {
             //make hyperlink invisible
