@@ -178,8 +178,8 @@
                 <td class="style6" colspan="2">
                     <asp:TextBox ID="txtFaxNum" runat="server" Width="227px"
                     
-                    onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;"></asp:TextBox>
+                   onKeyUp="javascript:return mask(this.value,this,'2,12','-');" 
+                    onBlur="javascript:return mask(this.value,this,'2,12','-');" MaxLength="14" onpaste="return false;"></asp:TextBox>
                     <br />
 
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 

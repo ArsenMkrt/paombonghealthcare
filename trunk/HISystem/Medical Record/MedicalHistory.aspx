@@ -139,11 +139,11 @@
     <asp:GridView ID="GridView1" runat="server" Width="300px" 
         AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
         <Columns>
-            <asp:BoundField DataField="PtFullname" HeaderText="Name" 
-                SortExpression="PtFullname" />
-            <asp:BoundField DataField="BarangayName" HeaderText="Brgy of Residence" 
+            <asp:BoundField DataField="PtFullName" HeaderText="PtFullName" 
+                SortExpression="PtFullName" ReadOnly="True" />
+            <asp:BoundField DataField="BarangayName" HeaderText="BarangayName" 
                 SortExpression="BarangayName" />
-            <asp:BoundField DataField="EncounterDateTime" HeaderText="Consultation DateTime" 
+            <asp:BoundField DataField="EncounterDateTime" HeaderText="EncounterDateTime" 
                 SortExpression="EncounterDateTime" />
             <asp:BoundField DataField="Age" HeaderText="Age" SortExpression="Age" />
             <asp:BoundField DataField="Temp" HeaderText="Temp" SortExpression="Temp" />
@@ -151,15 +151,18 @@
                 SortExpression="Weight" />
             <asp:BoundField DataField="Height" HeaderText="Height" 
                 SortExpression="Height" />
-            <asp:BoundField DataField="BP" HeaderText="BP" SortExpression="BP" />
+            <asp:BoundField DataField="BP1" HeaderText="BP1" SortExpression="BP1" />
+            <asp:BoundField DataField="BP2" HeaderText="BP2" SortExpression="BP2" />
             <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis" 
                 SortExpression="Diagnosis" />
             <asp:BoundField DataField="Treatment" HeaderText="Treatment" 
                 SortExpression="Treatment" />
+            <asp:BoundField DataField="Facilitatedby" HeaderText="Facilitatedby" 
+                SortExpression="Facilitatedby" />
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" SelectCommand="SELECT DISTINCT a.PtLname + ',' + a.PtFname + ' ' + a.PtMname AS PtFullName, b.BarangayName, c.EncounterDateTime, c.Age, c.Temp, c.Weight, c.Height, c.BP, c.Diagnosis, c.Treatment
+        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" SelectCommand="SELECT DISTINCT a.PtLname + ',' + a.PtFname + ' ' + a.PtMname AS PtFullName, b.BarangayName, c.EncounterDateTime, c.Age, c.Temp, c.Weight, c.Height, c.BP1,c.BP2, c.Diagnosis, c.Treatment, c.Facilitatedby
 FROM            Encounters AS c INNER JOIN
                          Patients AS a ON c.PatientID = a.PatientID CROSS JOIN
                          Barangays AS b INNER JOIN
