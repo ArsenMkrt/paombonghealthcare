@@ -20,32 +20,31 @@
     <center>
 <table border="1" cellpadding="1" cellspacing="1">
 <tr>
+<td rowspan="4">
+    <div style="width: 488px">
+        <p align="left" style="height: 31px">
+            <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="Large" 
+                Text="About &gt;&gt;                             "></asp:Label>
+        </p>
+        <p align="left">
+            <b>Paombong Healthcare Information system</b><br />
+            <br />
+            is a Capstone project of Mapua Institute of Technology, School of Information 
+            Technology students aimed to develop an information system to aid the nurses in 
+            generating reports, collecting patient information, medicine and equipment 
+            inventory and patient medical history.<br />
+            <br />
+            This system offers Recording and Management of Patient Information.<br />
+            <br />
+            Medical Records of such Patient Information.
+            <br />
+            Inventory of the Medicines of Paombong Healthcenter.
+        </p>
+    </div>
+    </td>
 <td>Patient Demographics</td>
 <td><center><asp:Image ID="Image4" runat="server" ImageUrl="~/images/my.png" Height="71px" 
         Width="94px" /></center></td>
-<td rowspan="4">
-
-<div style="width: 488px">
-<p align="left" style="height: 31px">
-    <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="Large" 
-        Text="About &gt;&gt;"></asp:Label>
-</p>
-    <p align="left"><b>Paombong Healthcare Information system</b><br /> 
-        <br />
-        is a Capstone project of Mapua 
-        Institute of Technology, School of Information Technology students aimed to 
-        develop an information system to aid the nurses in generating reports, 
-        collecting patient information, medicine and equipment inventory and patient 
-        medical history.<br /><br />
-This system offers Recording and Management of Patient Information.<br />
-<br/>Medical Records of such Patient Information.
-
-<br/>Inventory of the Medicines of Paombong Healthcenter.
-</p>
-</div>
-    
-
-</td>
 </tr>
 
 
