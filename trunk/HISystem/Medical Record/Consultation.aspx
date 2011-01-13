@@ -109,7 +109,7 @@
         <tr>
             <td class="style65" colspan="2">
                 <asp:Label ID="Label1" runat="server" Font-Size="X-Large" 
-                    Text="Daily Patient Record" Font-Bold="True" ForeColor="#006600"></asp:Label>
+                    Text="Patient Consultation" Font-Bold="True" ForeColor="#006600"></asp:Label>
             </td>
             <td class="style13" colspan="5">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -292,7 +292,7 @@
         <tr>
             <td class="style57" colspan="9">
                 <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="Large" 
-                    ForeColor="#006600" Text="Vital Statistics "></asp:Label>
+                    ForeColor="#006600" Text="Consultation Specifics"></asp:Label>
             </td>
             
             
@@ -392,13 +392,13 @@
         </tr>
         <tr>
             <td class="style56">
-                Diagnosis*</td>
+                Chief Complaint*</td>
             <td class="style55" colspan="8">
                 <asp:TextBox ID="txtDiagnosis" runat="server" Height="81px" TextMode="MultiLine" 
                     Width="686px"></asp:TextBox>
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
-                    ControlToValidate="txtDiagnosis" ErrorMessage="(enter diagnosis)" 
+                    ControlToValidate="txtDiagnosis" ErrorMessage="(enter chief complaint)" 
                     Font-Italic="True" Font-Size="Small" Display="Dynamic"></asp:RequiredFieldValidator>
                 <br />
             </td>
