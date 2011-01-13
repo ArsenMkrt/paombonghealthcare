@@ -243,7 +243,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 txtAge.ReadOnly = true;
             }
         }
-        Response.Write("<script> window.alert('Patient Consultation Saved!')</script>");
+       
     }
     protected void btnReset_Click(object sender, EventArgs e)
     {
