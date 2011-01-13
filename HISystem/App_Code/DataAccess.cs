@@ -1026,8 +1026,6 @@ public class DataAccess
         cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
         cmdTxt.Parameters.Add("@Month", SqlDbType.Int).Value = Month;
         cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
-        //cmdTxt.Parameters.Add("@Accomplishment", SqlDbType.VarChar).Value = Accomplishment;
-        //cmdTxt.Parameters.Add("@Percent", SqlDbType.Decimal).Value = percent;
         cmdTxt.Parameters.Add("@Quarter", SqlDbType.Int).Value = mc.DetermineQuarter(Month.ToString());
         cmdTxt.ExecuteNonQuery();
    
@@ -1042,7 +1040,7 @@ public class DataAccess
 
         connPatient.Open();
 
-        SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM Population WHERE Year = " +
+        SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM MaternalCare WHERE Year = " +
             "@year AND BarangayID = @barangayID AND Month = @month", connPatient);
         cmdTxt.Parameters.Add("@year", SqlDbType.Int).Value = Year;
         cmdTxt.Parameters.Add("@month", SqlDbType.Int).Value = mc.MonthNameToIndex(Month);

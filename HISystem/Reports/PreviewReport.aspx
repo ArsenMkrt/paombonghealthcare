@@ -8,8 +8,8 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <table style="width:100%;">
         <tr>
-            <td style="width: 81px; text-align: center; height: 42px">
-                Municipality: <strong>PAOMBONG</strong></td>
+            <td style="width: 175px; text-align: center; height: 42px">
+                Municipality:<strong>Paombong</strong></td>
             <td style="width: 196px; height: 42px">
                 Province: 
         <strong>Bulacan</strong></td>
@@ -17,7 +17,7 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 81px; text-align: center; height: 42px">
+            <td style="width: 175px; text-align: center; height: 42px">
                 Type</td>
             <td style="width: 196px; height: 42px">
                 </td>
@@ -25,7 +25,7 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 81px">
+            <td style="width: 175px">
                 <asp:RadioButton ID="rdbtn_Reports" GroupName="TypeReport" runat="server" Text="Reports" 
                     oncheckedchanged="rdbtn_Reports_CheckedChanged" AutoPostBack="True" />
             </td>
@@ -34,7 +34,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 81px; height: 23px;">
+            <td style="width: 175px; height: 23px;">
                 </td>
             <td style="width: 196px; height: 23px;">
                 <asp:Label ID="Label2" runat="server" Text="Quarter:" Visible="False"></asp:Label>
@@ -51,7 +51,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 81px">
+            <td style="width: 175px">
                 &nbsp;</td>
             <td style="width: 196px">
                 <asp:Label ID="Label3" runat="server" Text="Year:" Visible="False"></asp:Label>
@@ -64,7 +64,7 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 81px">
+            <td style="width: 175px">
                 <asp:RadioButton ID="rdbtn_Inventory" GroupName="TypeReport" runat="server" 
                     Text="Inventory" Visible="False" />
             </td>
@@ -76,7 +76,7 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 81px">
+            <td style="width: 175px">
                 &nbsp;</td>
             <td style="width: 196px">
                 &nbsp;</td>
@@ -84,7 +84,7 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 81px">
+            <td style="width: 175px">
                 &nbsp;</td>
             <td style="width: 196px">
                 &nbsp;</td>
