@@ -39,7 +39,7 @@
         <p>
             <b>Choose Role:</b>&nbsp;
             
-            <asp:DropDownList ID="RoleList1" runat="server" AutoPostBack="true" 
+            <asp:DropDownList ID="RoleList1" runat="server" 
             onselectedindexchanged="RoleList1_SelectedIndexChanged">
         </asp:DropDownList>
         </p>

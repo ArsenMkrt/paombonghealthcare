@@ -82,9 +82,14 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
     {
         if (Session["selectedUsersRole"] != null)
         {
+            if (Session["selectedUsersRole"] != "Doctor")
+            {
             Roles.RemoveUserFromRole(UserList.SelectedValue, Session["selectedUsersRole"].ToString());
             Roles.AddUserToRole(UserList.SelectedValue, RoleList1.SelectedValue);
             ActionStatus.Text = "Successfully assigned/changed to role!";
+            }
+            else
+                ActionStatus.Text = "You are not allowed to demote or lower the rank of another doctor account.";
         }
         else
             ActionStatus.Text = "Please select User first.";
@@ -142,23 +147,30 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
 
     protected void RolesUserList_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
+        
         // Get the selected role
         string selectedRoleName = RoleList.SelectedValue;
+        if (selectedRoleName != "Doctor")
+        {
+            // Reference the UserNameLabel
+            Label UserNameLabel = RolesUserList.Rows[e.RowIndex].FindControl("UserNameLabel") as Label;
 
-        // Reference the UserNameLabel
-        Label UserNameLabel = RolesUserList.Rows[e.RowIndex].FindControl("UserNameLabel") as Label;
+            // Remove the user from the role
+            Roles.RemoveUserFromRole(UserNameLabel.Text, selectedRoleName);
 
-        // Remove the user from the role
-        Roles.RemoveUserFromRole(UserNameLabel.Text, selectedRoleName);
+            // Refresh the GridView
+            DisplayUsersBelongingToRole();
 
-        // Refresh the GridView
-        DisplayUsersBelongingToRole();
+            // Display a status message
+            ActionStatus.Text = string.Format("User {0} was removed from role {1}.", UserNameLabel.Text, selectedRoleName);
 
-        // Display a status message
-        ActionStatus.Text = string.Format("User {0} was removed from role {1}.", UserNameLabel.Text, selectedRoleName);
-
-        // Refresh the "by user" interface
-        CheckRolesForSelectedUser();
+            // Refresh the "by user" interface
+            CheckRolesForSelectedUser();
+        }
+        else
+        {
+            ActionStatus.Text = "You cannot remove a user from Doctor role.";
+        }
     }
 
     //protected void AddUserToRoleButton_Click(object sender, EventArgs e)
