@@ -1304,127 +1304,127 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
 
             data.InsertMaternalCareReport(indicatorData, Int32.Parse(noPerIndicator),
                 data.GetBarangayID(lbl_Barangay.Text), month, year);
+        }
+
+        //Dental Care ------------------------------------------------------------------------->
+        for (int h = 0; h < data.CountIndicatorPerProgram("Dental Care"); h++)
+        {
+            TextBox tempMale = tblDynamic.FindControl("txtDentalCareMale_" + h.ToString()) as TextBox;
+            male = tempMale.Text;
+            TextBox tempFemale = tblDynamic.FindControl("txtDentalCareFemale_" + h.ToString()) as TextBox;
+            female = tempFemale.Text;
+            Label tempIndicator = tblDynamic.FindControl("lblDentalCareIndicator" + h.ToString()) as Label;
+            indicatorData = tempIndicator.Text;
+
+            data.InsertDentalCareReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
+                data.GetBarangayID(lbl_Barangay.Text), month, year);
+        }
+
+        //Child Care ------------------------------------_------------------------------------->
+        for (int r = 0; r < data.CountIndicatorPerProgram("Dental Care"); r++)
+        {
+            TextBox tempMale = tblDynamic.FindControl("txtChildCareMale_" + r.ToString()) as TextBox;
+            male = tempMale.Text;
+            TextBox tempFemale = tblDynamic.FindControl("txtChildCareFemale_" + r.ToString()) as TextBox;
+            female = tempFemale.Text;
+            Label tempIndicator = tblDynamic.FindControl("lblChildCareIndicator" + r.ToString()) as Label;
+            indicatorData = tempIndicator.Text;
+
+            data.InsertChildReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
+                data.GetBarangayID(lbl_Barangay.Text), month, year);
+        }
+
+        //Filariasis ------------------------------------_------------------------------------->
+        for (int i = 0; i < data.CountIndicatorPerProgram("Filariasis"); i++)
+        {
+            TextBox tempMale = tblDynamic.FindControl("txtFilariasisMale_" + i.ToString()) as TextBox;
+            male = tempMale.Text;
+            TextBox tempFemale = tblDynamic.FindControl("txtFilariasisFemale_" + i.ToString()) as TextBox;
+            female = tempFemale.Text;
+            Label tempIndicator = tblDynamic.FindControl("lblFilariasisIndicator" + i.ToString()) as Label;
+            indicatorData = tempIndicator.Text;
+
+            data.InsertFilariasisReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
+                data.GetBarangayID(lbl_Barangay.Text), month, year);
+        }
+
+        //Leprosy ------------------------------------_----------------------------------------->
+        for (int z = 0; z < data.CountIndicatorPerProgram("Leprosy"); z++)
+        {
+            TextBox tempMale = tblDynamic.FindControl("txtLeprosyMale_" + z.ToString()) as TextBox;
+            male = tempMale.Text;
+            TextBox tempFemale = tblDynamic.FindControl("txtLeprosyFemale_" + z.ToString()) as TextBox;
+            female = tempFemale.Text;
+            Label tempIndicator = tblDynamic.FindControl("lblLeprosyIndicator" + z.ToString()) as Label;
+            indicatorData = tempIndicator.Text;
+
+            data.InsertLeprosyReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
+                data.GetBarangayID(lbl_Barangay.Text), month, year);
+        }
+
+        //Malaria ------------------------------------_----------------------------------------->
+        for (int z = 0; z < data.CountIndicatorPerProgram("Malaria"); z++)
+        {
+            TextBox tempPregnant = tblMalaria.FindControl("txtMalariaPregnant_" + z.ToString()) as TextBox;
+            pregnant = tempPregnant.Text;
+            TextBox tempMale = tblMalaria.FindControl("txtMalariaMale_" + z.ToString()) as TextBox;
+            male = tempMale.Text;
+            TextBox tempFemale = tblMalaria.FindControl("txtMalariaFemale_" + z.ToString()) as TextBox;
+            female = tempFemale.Text;
+            Label tempIndicator = tblMalaria.FindControl("lblMalariaIndicator" + z.ToString()) as Label;
+            indicatorData = tempIndicator.Text;
+
+            data.InsertMalariaReport(indicatorData, Int32.Parse(pregnant), Int32.Parse(male), Int32.Parse(female),
+                data.GetBarangayID(lbl_Barangay.Text), month, year);
+        }
+
+        //Schisto ------------------------------------_----------------------------------------->
+        for (int i = 0; i < data.CountIndicatorPerProgram("Schistomiasis"); i++)
+        {
+            TextBox tempMale = tblDynamic.FindControl("txtSchistomiasisMale_" + i.ToString()) as TextBox;
+            male = tempMale.Text;
+            TextBox tempFemale = tblDynamic.FindControl("txtSchistomiasisFemale_" + i.ToString()) as TextBox;
+            female = tempFemale.Text;
+            Label tempIndicator = tblDynamic.FindControl("lblSchistomiasisIndicator" + i.ToString()) as Label;
+            indicatorData = tempIndicator.Text;
+
+            data.InsertSchisReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
+                data.GetBarangayID(lbl_Barangay.Text), month, year);
+        }
+
+        //Tuberculosis ---------------------------------------------------------------------------->
+        for (int i = 0; i < data.CountIndicatorPerProgram("Tuberculosis"); i++)
+        {
+            TextBox tempMale = tblDynamic.FindControl("txtTuberculosisMale_" + i.ToString()) as TextBox;
+            male = tempMale.Text;
+            TextBox tempFemale = tblDynamic.FindControl("txtTuberculosisFemale_" + i.ToString()) as TextBox;
+            female = tempFemale.Text;
+            Label tempIndicator = tblDynamic.FindControl("lblTuberculosisIndicator" + i.ToString()) as Label;
+            indicatorData = tempIndicator.Text;
+
+            data.InsertTbReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
+                data.GetBarangayID(lbl_Barangay.Text), month, year);
+        }
+
+        //Family Planning ---------------------------------------------------------------------------->
+        for (int i = 0; i < data.CountIndicatorPerProgram("Family Planning"); i++)
+        {
+            TextBox temp1 = tblFamilyPlanning.FindControl("txtFamilyPlanningStartUser_" + i.ToString()) as TextBox;
+            startUser = temp1.Text;
+            TextBox temp2 = tblFamilyPlanning.FindControl("txtFamilyPlanningNew_" + i.ToString()) as TextBox;
+            _new = temp2.Text;
+            TextBox temp3 = tblFamilyPlanning.FindControl("txtFamilyPlanningOthers_" + i.ToString()) as TextBox;
+            others = temp3.Text;
+            TextBox temp4 = tblFamilyPlanning.FindControl("txtFamilyPlanningDropOut_" + i.ToString()) as TextBox;
+            dropOut = temp4.Text;
+            TextBox temp5 = tblFamilyPlanning.FindControl("txtFamilyPlanningEndUser_" + i.ToString()) as TextBox;
+            endUser = temp5.Text;
+            Label tempIndicator = tblFamilyPlanning.FindControl("lblFamilyPlanningIndicator" + i.ToString()) as Label;
+            indicatorData = tempIndicator.Text;
+
+            data.InsertFPReport(indicatorData, Int32.Parse(startUser), Int32.Parse(_new), Int32.Parse(others),
+                Int32.Parse(dropOut), Int32.Parse(endUser), data.GetBarangayID(lbl_Barangay.Text), month, year);
         }   
-        
-        ////Dental Care ------------------------------------------------------------------------->
-        //for (int h = 0; h < data.CountIndicatorPerProgram("Dental Care"); h++)
-        //{
-        //    TextBox tempMale = tblDynamic.FindControl("txtDentalCareMale_" + h.ToString()) as TextBox;
-        //    male = tempMale.Text;
-        //    TextBox tempFemale = tblDynamic.FindControl("txtDentalCareFemale_" + h.ToString()) as TextBox;
-        //    female = tempFemale.Text;
-        //    Label tempIndicator = tblDynamic.FindControl("lblDentalCareIndicator" + h.ToString()) as Label;
-        //    indicatorData = tempIndicator.Text;
-
-        //    data.InsertDentalCareReport(indicatorData, Int32.Parse(male),Int32.Parse(female),
-        //        data.GetBarangayID(lbl_Barangay.Text), month, year);
-        //}
-
-        ////Child Care ------------------------------------_------------------------------------->
-        //for (int r = 0; r < data.CountIndicatorPerProgram("Dental Care"); r++)
-        //{
-        //    TextBox tempMale = tblDynamic.FindControl("txtChildCareMale_" + r.ToString()) as TextBox;
-        //    male = tempMale.Text;
-        //    TextBox tempFemale = tblDynamic.FindControl("txtChildCareFemale_" + r.ToString()) as TextBox;
-        //    female = tempFemale.Text;
-        //    Label tempIndicator = tblDynamic.FindControl("lblChildCareIndicator" + r.ToString()) as Label;
-        //    indicatorData = tempIndicator.Text;
-
-        //    data.InsertChildReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
-        //        data.GetBarangayID(lbl_Barangay.Text), month, year);
-        //}
-
-        ////Filariasis ------------------------------------_------------------------------------->
-        //for (int i = 0; i < data.CountIndicatorPerProgram("Filariasis"); i++)
-        //{
-        //    TextBox tempMale = tblDynamic.FindControl("txtFilariasisMale_" + i.ToString()) as TextBox;
-        //    male = tempMale.Text;
-        //    TextBox tempFemale = tblDynamic.FindControl("txtFilariasisFemale_" + i.ToString()) as TextBox;
-        //    female = tempFemale.Text;
-        //    Label tempIndicator = tblDynamic.FindControl("lblFilariasisIndicator" + i.ToString()) as Label;
-        //    indicatorData = tempIndicator.Text;
-
-        //    data.InsertFilariasisReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
-        //        data.GetBarangayID(lbl_Barangay.Text), month, year);
-        //}
-
-        ////Leprosy ------------------------------------_----------------------------------------->
-        //for (int z = 0; z < data.CountIndicatorPerProgram("Leprosy"); z++)
-        //{
-        //    TextBox tempMale = tblDynamic.FindControl("txtLeprosyMale_" + z.ToString()) as TextBox;
-        //    male = tempMale.Text;
-        //    TextBox tempFemale = tblDynamic.FindControl("txtLeprosyFemale_" + z.ToString()) as TextBox;
-        //    female = tempFemale.Text;
-        //    Label tempIndicator = tblDynamic.FindControl("lblLeprosyIndicator" + z.ToString()) as Label;
-        //    indicatorData = tempIndicator.Text;
-
-        //    data.InsertLeprosyReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
-        //        data.GetBarangayID(lbl_Barangay.Text), month, year);
-        //}
-
-        ////Malaria ------------------------------------_----------------------------------------->
-        //for (int z = 0; z < data.CountIndicatorPerProgram("Malaria"); z++)
-        //{
-        //    TextBox tempPregnant = tblMalaria.FindControl("txtMalariaPregnant_" + z.ToString()) as TextBox;
-        //    pregnant = tempPregnant.Text;
-        //    TextBox tempMale = tblMalaria.FindControl("txtMalariaMale_" + z.ToString()) as TextBox;
-        //    male = tempMale.Text;
-        //    TextBox tempFemale = tblMalaria.FindControl("txtMalariaFemale_" + z.ToString()) as TextBox;
-        //    female = tempFemale.Text;
-        //    Label tempIndicator = tblMalaria.FindControl("lblMalariaIndicator" + z.ToString()) as Label;
-        //    indicatorData = tempIndicator.Text;
-
-        //    data.InsertMalariaReport(indicatorData,Int32.Parse(pregnant), Int32.Parse(male), Int32.Parse(female),
-        //        data.GetBarangayID(lbl_Barangay.Text), month, year);
-        //}
-
-        ////Schisto ------------------------------------_----------------------------------------->
-        //for (int i = 0; i < data.CountIndicatorPerProgram("Schistomiasis"); i++)
-        //{
-        //    TextBox tempMale = tblDynamic.FindControl("txtSchistomiasisMale_" + i.ToString()) as TextBox;
-        //    male = tempMale.Text;
-        //    TextBox tempFemale = tblDynamic.FindControl("txtSchistomiasisFemale_" + i.ToString()) as TextBox;
-        //    female = tempFemale.Text;
-        //    Label tempIndicator = tblDynamic.FindControl("lblSchistomiasisIndicator" + i.ToString()) as Label;
-        //    indicatorData = tempIndicator.Text;
-
-        //    data.InsertSchisReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
-        //        data.GetBarangayID(lbl_Barangay.Text), month, year);
-        //}
-
-        ////Tuberculosis ---------------------------------------------------------------------------->
-        //for (int i = 0; i < data.CountIndicatorPerProgram("Tuberculosis"); i++)
-        //{
-        //    TextBox tempMale = tblDynamic.FindControl("txtTuberculosisMale_" + i.ToString()) as TextBox;
-        //    male = tempMale.Text;
-        //    TextBox tempFemale = tblDynamic.FindControl("txtTuberculosisFemale_" + i.ToString()) as TextBox;
-        //    female = tempFemale.Text;
-        //    Label tempIndicator = tblDynamic.FindControl("lblTuberculosisIndicator" + i.ToString()) as Label;
-        //    indicatorData = tempIndicator.Text;
-
-        //    data.InsertTbReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
-        //        data.GetBarangayID(lbl_Barangay.Text), month, year);
-        //}
-
-        ////Family Planning ---------------------------------------------------------------------------->
-        //for (int i = 0; i < data.CountIndicatorPerProgram("Family Planning"); i++)
-        //{
-        //    TextBox temp1 = tblFamilyPlanning.FindControl("txtFamilyPlanningStartUser_" + i.ToString()) as TextBox;
-        //    startUser  = temp1.Text;
-        //    TextBox temp2 = tblFamilyPlanning.FindControl("txtFamilyPlanningNew_" + i.ToString()) as TextBox;
-        //    _new = temp2.Text;
-        //    TextBox temp3 = tblFamilyPlanning.FindControl("txtFamilyPlanningOthers_" + i.ToString()) as TextBox;
-        //    others = temp3.Text;
-        //    TextBox temp4 = tblFamilyPlanning.FindControl("txtFamilyPlanningDropOut_" + i.ToString()) as TextBox;
-        //    dropOut = temp4.Text;
-        //    TextBox temp5 = tblFamilyPlanning.FindControl("txtFamilyPlanningEndUser_" + i.ToString()) as TextBox;
-        //    endUser = temp5.Text;
-        //    Label tempIndicator = tblFamilyPlanning.FindControl("lblFamilyPlanningIndicator" + i.ToString()) as Label;
-        //    indicatorData = tempIndicator.Text;
-
-        //    data.InsertFPReport(indicatorData, Int32.Parse(startUser), Int32.Parse(_new), Int32.Parse(others),
-        //        Int32.Parse(dropOut), Int32.Parse(endUser),data.GetBarangayID(lbl_Barangay.Text), month, year);
-        //}   
 
         Response.Write("<script type='text/javascript'>" + "alert(\"Inserted Successfully\");</script>");
             
