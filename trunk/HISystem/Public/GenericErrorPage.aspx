@@ -10,7 +10,7 @@
 
     </p>
 <p>
-       Please continue on by clicking the back button and retrying your request or use the left navigation to go to another page. 
+       Please continue on by clicking the back button and retrying your request. 
        
        <br />
        <br />

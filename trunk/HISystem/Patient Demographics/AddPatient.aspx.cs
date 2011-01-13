@@ -42,7 +42,10 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
                     Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
 
                 if (statusAdd)
+                {
                     Response.Write("<script> window.alert('Added Patient Successfully.')</script>");
+                    Response.Redirect("AddPatient.aspx");
+                }
                 else
                     Response.Write("<script> window.alert('Added Patient Failed.')</script>");
             }
