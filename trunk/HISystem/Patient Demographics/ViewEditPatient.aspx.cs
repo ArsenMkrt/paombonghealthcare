@@ -88,7 +88,27 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
             txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
             Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
         
-        Response.Redirect("ViewEditPatient.aspx");
+        Response.Write("<script> window.alert('Edited Patient Successfully.')</script>");
+        
+        //txtPatientId.Text=string.empty;
+        //txtFName.Text
+        //, txtMName.Text
+        //, txtLName.Text,
+        //txtContactNum.Text.Trim(),
+        //txtEmailAdd.Text.Trim(),
+
+        //    txtSuffix.Text
+        //        ddlDay.Text
+        //            ddlMonth.
+        //ddlYear
+        //    txtBirthplace.Text
+        //        txtAddress.Text
+        //    txtFaxNum.Text
+        //        txtDoctor.Text
+        //            txtNationality.Text
+        //                txtCity.Text
+
+        //   ddlCivilStatus. txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim()
     }
 
     protected void button_ProceedConsultation_Click(object sender, EventArgs e)
