@@ -20,6 +20,8 @@ public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
     {
         txtbx_PatientID.Text = grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text;
         BindPatientId();
+        PopulateNameandBrgy();
+
     }
 
     protected void grdvw_Users_Load(object sender, EventArgs e)
@@ -45,10 +47,33 @@ public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
     {
         txtbx_PatientID.Text = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;
         BindPatientId();
+
+        PopulateNameandBrgy();
+
+
+
     }
     protected void BindPatientId()
     {
         SqlDataSource1.SelectParameters["PatientID"].DefaultValue = txtbx_PatientID.Text;
         GridView1.DataBind();
+    }
+
+
+    protected void PopulateNameandBrgy()
+    {
+        data = new DataAccess();
+
+        patientData = data.GetNameForMedHistory(txtbx_PatientID.Text.Trim());
+
+        if (patientData.Rows.Count > 0)
+        {
+            foreach (DataRow dr in patientData.Rows)
+            {
+
+                lbl_PatientName.Text = dr["PatientLName"].ToString().Trim() + ", " + dr["PatientFName"].ToString().Trim() + " " + dr["PatientMName"].ToString().Trim();
+                lbl_PatientBarangay.Text = dr["PatientBarangay"].ToString().Trim();
+            }
+        }
     }
 }
