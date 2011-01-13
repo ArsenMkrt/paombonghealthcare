@@ -156,7 +156,7 @@
 
 
     <div id="boxes">
-            <div id="modalwindowx" class="windowx" style="margin-bottom: 0px">
+            <div id="modalwindow" class="window" style="margin-bottom: 0px">
                
         <table style="width:46%;" border="1">
             <tr>
@@ -210,7 +210,7 @@
            
            
             <!-- div for checkout cart -->
-            <div id="modalwindow2x" class="window2x">
+            <div id="modalwindow2" class="window2">
             <br />
    
     <table style="width: 46%;" border="1">
