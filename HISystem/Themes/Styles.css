@@ -110,11 +110,6 @@ body {
 h1 {
 	font: 150% Arial, Helvetica, Georgia, "Times New Roman", Times, serif;
 }
-#content p {
-	font-size: 80%;
-	line-height: 1.6em;
-    margin-left: 11px;
-}
 
 #content ul {
 	font-size: 80%;

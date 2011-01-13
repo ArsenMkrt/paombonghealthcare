@@ -8,35 +8,9 @@
     
     
 
-
+    <%--javascript for philhealth--%>
      <script type="text/javascript" language="javascript">
-         /* The scripts on this page was produced by mordechai Sandhaus - 52action.com,
-         and is copyrighted . If you like this script, we encourage you to use it,
-         provided that  include this note, and link to 52action.com. */
-
-         /* script explanation for dummies */
-
-         /* NOTE: THE FIRST 2 ARGUMENTS SHOULD ALWAYS REMAIN THE SAME - this.value, this */
-         // the first argument in the function, accepts the "value" of the textbox to be masked
-         // the second argument is the name of the textbox 
-         //although the first 2 could have been done in 1 argument I did it in 2
-         // to make it easier to understand
-
-         //the third argument holds the locations of the separator,
-         // each location should be separated by a comma - (going from lower numbers to higher)
-
-         //the fourth holds the delimiter (or separator) character.
-
-         /* nothing in the function should be edited,
-         to change a delimiter or character location,
-         change it in the calling script
-         - the following code should be inserted into the field(s) to be masked - */
-
-         /*replace 'location1,location2' with the locations where you want the delimiter
-         replace the 'delimiter' with the separating character you would like */
-         // javascript:return mask(this.value,this,'location1,location2','delimiter')
-
-         //-there is no limit to the amount of delimiters you can have added
+        
 
          function mask(str, textbox, loc, delim) {
              var locs = loc.split(',');
@@ -54,17 +28,27 @@
          }
    </script>
      
+
+      <%--to clear login textbox--%>
+      <script type="text/javascript" language="javascript">
+          function ClearLoginTextboxes() {
+
+              document.getElementById('ctl00_MainContent_UserName').value = "";
+              document.getElementById('ctl00_MainContent_Password').value = "";
+          }
+    </script>
+
+
+
+    <%--javascript for numberOnly textboxes--%>
       <script type="text/javascript" language="javascript">
 
-        
           var isShift = false;
 
           function keyUP(keyCode) {
               if (keyCode == 16)
                   isShift = false;
           }
-
-
 
           function isNumeric(keyCode) {
               if (keyCode == 16)
@@ -79,7 +63,7 @@
 
 
 
-
+    <%--javascript for autoCompute module in Bulk Insert--%>
 
      <script type="text/javascript" language="javascript">
 
@@ -100,7 +84,12 @@
          }
 
     </script>
-   <%--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>--%>
+  
+  
+  
+  
+  
+  <%--  javascript for modal popup--%>
    
      <script type="text/javascript" src="../scripts/jquery.js"></script>
      
