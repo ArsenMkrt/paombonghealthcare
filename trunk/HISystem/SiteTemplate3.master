@@ -172,8 +172,8 @@
         
             <div id="header" style="background-color:#a2cc85; margin-top: 7px;">
                 <span class="title">Paombong Healthcare Information System
-                <asp:Image ID="Image1" runat="server" Height="46px" 
-                    ImageUrl="~/images/icon hd2.png" style="margin-left: 15px" Width="59px" />
+                <asp:Image ID="Image1" runat="server" Height="55px" 
+                    ImageUrl="~/images/icon hd2.png" style="margin-left: 15px" Width="80px" />
                 </span><br />
                 <span class="breadcrumb">
                     <asp:SiteMapPath ID="SiteMapPath1" runat="server">
