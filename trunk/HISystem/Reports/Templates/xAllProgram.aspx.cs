@@ -1265,26 +1265,35 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string noPerIndicator = "";
-        string indicatorData = "";
-        string pregnant = "";
-        string male = "";
-        string female = "";
-        string startUser = "";
-        string endUser = "";
-        string _new = "";
-        string others = "";
-        string dropOut = "";
+        //string noPerIndicator = "";
+        //string indicatorData = "";
+        //string pregnant = "";
+        //string male = "";
+        //string female = "";
+        //string startUser = "";
+        //string endUser = "";
+        //string _new = "";
+        //string others = "";
+        //string dropOut = "";
 
         data = new DataAccess();
         mc = new MonthConverter();
 
-        //if (data.HasDataPARAM_MonthYear(month, year, program, data.GetBarangayID(barangay)))
-        //    Response.Write("<script type='text/javascript'>" + "alert(\"Month " + lbl_month.Text + " and Year " +
-        //    year + " exists in the database. Please Try other Month and Year.\");</script>");
-        //else
-        //{
-
+        if (data.HasDataForTheYear(year,monthName, data.GetBarangayID(barangay)))
+            Response.Write("<script type='text/javascript'>" + "alert(\"Month " + lbl_month.Text + " and Year " +
+            year + " exists in the database. Please Try other Month and Year.\");</script>");
+        else
+        {
+            string noPerIndicator = "";
+            string indicatorData = "";
+            string pregnant = "";
+            string male = "";
+            string female = "";
+            string startUser = "";
+            string endUser = "";
+            string _new = "";
+            string others = "";
+            string dropOut = "";
         //Maternal Care ----------------------------------------------------------------------->
         for (int c = 0; c < data.CountIndicatorPerProgram("Maternal Care"); c++)
         {
@@ -1419,7 +1428,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
 
         Response.Write("<script type='text/javascript'>" + "alert(\"Inserted Successfully\");</script>");
             
-        //}
+        }
 
     }
     protected void Button2_Click(object sender, EventArgs e)
