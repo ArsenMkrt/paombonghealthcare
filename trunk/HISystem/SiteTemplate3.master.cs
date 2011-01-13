@@ -46,7 +46,8 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
+
         if (!Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Doctor"))
         {
             //make hyperlink invisible
