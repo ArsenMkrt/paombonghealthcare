@@ -158,7 +158,7 @@
             <td class="style34">
                 Birthdate</td>
             <td class="style35" colspan="4">
-                    <asp:DropDownList ID="ddlMonth" runat="server">
+                    <asp:DropDownList ID="ddlMonth" runat="server" Enabled="False">
                         <asp:ListItem>Jan</asp:ListItem>
                         <asp:ListItem>Feb</asp:ListItem>
                         <asp:ListItem>Mar</asp:ListItem>
@@ -172,7 +172,8 @@
                         <asp:ListItem>Nov</asp:ListItem>
                         <asp:ListItem>Dec</asp:ListItem>
                     </asp:DropDownList>
-                    <asp:DropDownList ID="ddlDay" runat="server" style="margin-left: 15px">
+                    <asp:DropDownList ID="ddlDay" runat="server" style="margin-left: 15px" 
+                        Enabled="False">
                         <asp:ListItem>1</asp:ListItem>
                         <asp:ListItem>2</asp:ListItem>
                         <asp:ListItem>3</asp:ListItem>
@@ -205,7 +206,8 @@
                         <asp:ListItem>30</asp:ListItem>
                         <asp:ListItem>31</asp:ListItem>
                     </asp:DropDownList>
-                    <asp:DropDownList ID="ddlYear" runat="server" style="margin-left: 21px">
+                    <asp:DropDownList ID="ddlYear" runat="server" style="margin-left: 21px" 
+                        Enabled="False">
                          <asp:ListItem>1970</asp:ListItem>
                     <asp:ListItem>1971</asp:ListItem>
                     <asp:ListItem>1972</asp:ListItem>
@@ -283,7 +285,7 @@
                 Age<br />
                 <asp:TextBox ID="txtAge" runat="server" Width="50px" 
                     onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;" ReadOnly="True"></asp:TextBox>
+                        onpaste="return false;" Enabled="False"></asp:TextBox>
                 yrs old</td>
             
         </tr>
@@ -393,10 +395,12 @@
                 Diagnosis*</td>
             <td class="style55" colspan="8">
                 <asp:TextBox ID="txtDiagnosis" runat="server" Height="81px" TextMode="MultiLine" 
-                    Width="686px"></asp:TextBox><br />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                    Width="686px"></asp:TextBox>
+                <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
                     ControlToValidate="txtDiagnosis" ErrorMessage="(enter diagnosis)" 
                     Font-Italic="True" Font-Size="Small" Display="Dynamic"></asp:RequiredFieldValidator>
+                <br />
             </td>
         </tr>
         <tr>
