@@ -117,10 +117,8 @@
 
 </tr>
 </table>
-    <table style="width:100%;">
+    <table style="width:49%;">
         <tr>
-            <td>
-                &nbsp;</td>
             <td>
                 &nbsp;</td>
             <td>
@@ -128,43 +126,52 @@
         </tr>
         <tr>
             <td>
-                &nbsp;</td>
+                Name:</td>
             <td>
-                &nbsp;</td>
+                <asp:Label ID="lbl_PatientName" runat="server" Font-Bold="True">ThePatientName</asp:Label>
+            </td>
+        </tr>
+        <tr>
             <td>
-                &nbsp;</td>
+                Brangay of Residence:</td>
+            <td>
+                <asp:Label ID="lbl_PatientBarangay" runat="server" Font-Bold="True">TheBarangayName</asp:Label>
+            </td>
         </tr>
     </table>
     <br />
-    <asp:GridView ID="GridView1" runat="server" Width="300px" 
-        AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+
+    
+
+    <br />
+    <asp:GridView ID="GridView1" runat="server" Width="696px" 
+        AutoGenerateColumns="False" DataSourceID="SqlDataSource1" 
+        AllowPaging="True">
         <Columns>
-            <asp:BoundField DataField="PtFullName" HeaderText="PtFullName" 
-                SortExpression="PtFullName" ReadOnly="True" />
-            <asp:BoundField DataField="BarangayName" HeaderText="BarangayName" 
-                SortExpression="BarangayName" />
             <asp:BoundField DataField="EncounterDateTime" HeaderText="EncounterDateTime" 
                 SortExpression="EncounterDateTime" />
-            <asp:BoundField DataField="Age" HeaderText="Age" SortExpression="Age" />
-            <asp:BoundField DataField="Temp" HeaderText="Temp" SortExpression="Temp" />
+            <asp:BoundField DataField="Age" HeaderText="Age" 
+                SortExpression="Age" />
+            <asp:BoundField DataField="Temp" HeaderText="Temp" 
+                SortExpression="Temp" />
             <asp:BoundField DataField="Weight" HeaderText="Weight" 
                 SortExpression="Weight" />
             <asp:BoundField DataField="Height" HeaderText="Height" 
                 SortExpression="Height" />
-            <asp:BoundField DataField="BP1" HeaderText="Blood Pressure 1" 
+            <asp:BoundField DataField="BP1" HeaderText="Blood Pressure1" 
                 SortExpression="BP1" />
-            <asp:BoundField DataField="BP2" HeaderText="Blood Pressure 2" 
+            <asp:BoundField DataField="BP2" HeaderText="Blood Pressure2" 
                 SortExpression="BP2" />
-            <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis" 
+            <asp:BoundField DataField="Diagnosis" HeaderText="Complaint" 
                 SortExpression="Diagnosis" />
-            <asp:BoundField DataField="Treatment" HeaderText="Treatment" 
+            <asp:BoundField DataField="Treatment" HeaderText="Recommendation" 
                 SortExpression="Treatment" />
             <asp:BoundField DataField="Facilitatedby" HeaderText="Facilitatedby" 
                 SortExpression="Facilitatedby" />
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" SelectCommand="SELECT DISTINCT a.PtLname + ',' + a.PtFname + ' ' + a.PtMname AS PtFullName, b.BarangayName, c.EncounterDateTime, c.Age, c.Temp, c.Weight, c.Height, c.BP1,c.BP2, c.Diagnosis, c.Treatment, c.Facilitatedby
+        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" SelectCommand="SELECT DISTINCT  c.EncounterDateTime, c.Age, c.Temp, c.Weight, c.Height, c.BP1,c.BP2, c.Diagnosis, c.Treatment, c.Facilitatedby
 FROM            Encounters AS c INNER JOIN
                          Patients AS a ON c.PatientID = a.PatientID CROSS JOIN
                          Barangays AS b INNER JOIN
