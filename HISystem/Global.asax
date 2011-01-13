@@ -26,6 +26,10 @@
         string err = "Error in: " + Request.Url.ToString() +
                           ". Error Message:" + objErr.Message.ToString();
 
+        HttpContext.Current.Server.ClearError();
+        
+        HttpContext.Current.Response.Redirect("~/Public/GenericErrorPage.aspx");
+
     }
 
     void Session_Start(object sender, EventArgs e) 
