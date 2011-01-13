@@ -151,8 +151,10 @@
                 SortExpression="Weight" />
             <asp:BoundField DataField="Height" HeaderText="Height" 
                 SortExpression="Height" />
-            <asp:BoundField DataField="BP1" HeaderText="BP1" SortExpression="BP1" />
-            <asp:BoundField DataField="BP2" HeaderText="BP2" SortExpression="BP2" />
+            <asp:BoundField DataField="BP1" HeaderText="Blood Pressure 1" 
+                SortExpression="BP1" />
+            <asp:BoundField DataField="BP2" HeaderText="Blood Pressure 2" 
+                SortExpression="BP2" />
             <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis" 
                 SortExpression="Diagnosis" />
             <asp:BoundField DataField="Treatment" HeaderText="Treatment" 

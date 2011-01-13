@@ -76,8 +76,8 @@ using System.Data.SqlClient;
 public class DataAccess
 {
     private string dataconnection =
-    //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Lakhi\Desktop\HISystem\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
-    @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Gerald\Desktop\cap\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
+    @"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\paombongdb.mdf;Integrated Security=True;User Instance=True;Initial Catalog=paombongdb";
+    //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Gerald\Desktop\cap\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
 
     private MonthConverter mc;
 
@@ -1043,7 +1043,7 @@ public class DataAccess
         connPatient.Open();
 
         SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM Population WHERE Year = " +
-            "@year AND BarangayID = @barangayID", connPatient);
+            "@year AND BarangayID = @barangayID AND Month = @month", connPatient);
         cmdTxt.Parameters.Add("@year", SqlDbType.Int).Value = Year;
         cmdTxt.Parameters.Add("@month", SqlDbType.Int).Value = mc.MonthNameToIndex(Month);
         cmdTxt.Parameters.Add("@barangayID", SqlDbType.Int).Value = BarangayID;
@@ -1064,11 +1064,12 @@ public class DataAccess
         mc = new MonthConverter();
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Population (BarangayID,Population,Target,Year)"
-            + "VALUES (@BarangayID,@Population,@Target,@Year)", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Population (BarangayID,Population,Target,Month,Year)"
+            + "VALUES (@BarangayID,@Population,@Target,@Month,@Year)", connPatient);
         cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
         cmdTxt.Parameters.Add("@Population", SqlDbType.Int).Value = Population;
         cmdTxt.Parameters.Add("@Target", SqlDbType.Int).Value = Target;
+        cmdTxt.Parameters.Add("@Month", SqlDbType.Int).Value = Month;
         cmdTxt.Parameters.Add("@Year", SqlDbType.Int).Value = Year;
 
 
