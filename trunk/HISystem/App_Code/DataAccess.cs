@@ -1280,4 +1280,38 @@ public class DataAccess
 
         return count;
     }
+    public DataTable GetNameForMedHistory(string Patient_Id)
+    {
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+        SqlDataReader dtrPatient;
+        DataTable patientData = new DataTable();
+
+
+        patientData.Columns.Add("PatientLName");
+        patientData.Columns.Add("PatientFName");
+        patientData.Columns.Add("PatientMName");
+        patientData.Columns.Add("PatientBarangay");
+
+        connPatient.Open();
+        try
+        {
+            SqlCommand cmdTxt = new SqlCommand("GetPatientData", connPatient);
+            cmdTxt.CommandType = CommandType.StoredProcedure;
+            cmdTxt.Parameters.Add("@Patient_Id", SqlDbType.Char).Value = Patient_Id;
+            dtrPatient = cmdTxt.ExecuteReader();
+            dtrPatient.Read();
+
+            patientData.Rows.Add(dtrPatient["PtLname"].ToString().Trim(), dtrPatient["PtFname"].ToString().Trim(),
+                dtrPatient["PtMname"].ToString().Trim(), dtrPatient["BarangayName"].ToString().Trim());
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("No Patient Found for Patient ID: " + Patient_Id);
+        }
+        finally
+        {
+            connPatient.Close();
+        }
+        return patientData;
+    }
 }

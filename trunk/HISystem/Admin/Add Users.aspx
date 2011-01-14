@@ -16,7 +16,13 @@
                 <td class="details" valign="top">
                     <h3>
                         Roles:</h3>
-                    <asp:CheckBoxList ID="UserRoles" runat="server" />
+                    <asp:CheckBoxList ID="UserRoles" runat="server" Visible="False" />
+                                
+            <asp:DropDownList ID="RoleList1" runat="server" 
+            >
+        </asp:DropDownList>
+        
+                    <br />
                     <h3>
                         Main Info:</h3>
                     <table style="width: 316px">
