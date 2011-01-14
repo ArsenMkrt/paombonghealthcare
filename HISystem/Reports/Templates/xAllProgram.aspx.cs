@@ -543,6 +543,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
 
             // Add cell to the row
             tr_Malaria.Cells.Add(td_Malaria);
+            tr_Malaria.Cells.Add(tdMalariaPregnant);
             tr_Malaria.Cells.Add(tdMalariaMale);
             tr_Malaria.Cells.Add(tdMalariaFemale);
 

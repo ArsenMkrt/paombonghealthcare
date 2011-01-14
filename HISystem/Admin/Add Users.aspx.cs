@@ -14,9 +14,28 @@ public partial class Admin_Add_Users : System.Web.UI.Page
 
     private void Page_Load()
     {
+        if (!Page.IsPostBack)
+        {
+            // Bind the users and roles
+            
+            BindRolesToList();
+
        
+            
+        }
     }
 
+    private void BindRolesToList()
+    {
+        // Get all of the roles
+        string[] roles = Roles.GetAllRoles();
+
+
+        
+        RoleList1.DataSource = roles;
+        
+        RoleList1.DataBind();
+    }
     protected void AddUser()
     {
         // Add User.
@@ -25,15 +44,15 @@ public partial class Admin_Add_Users : System.Web.UI.Page
         Membership.UpdateUser(newUser);
 
 
-        
+        Roles.AddUserToRole(username.Text, RoleList1.SelectedValue);
         // Add Roles.
-        foreach (ListItem rolebox in UserRoles.Items)
-        {
-            if (rolebox.Selected)
-            {
-                Roles.AddUserToRole(username.Text, rolebox.Text);
-            }
-        }
+        //foreach (ListItem rolebox in UserRoles.Items)
+        //{
+        //    if (rolebox.Selected)
+        //    {
+        //        Roles.AddUserToRole(username.Text, rolebox.Text);
+        //    }
+        //}
 
        
         Response.Write("<script> window.alert('Added User Successfully.')</script>");

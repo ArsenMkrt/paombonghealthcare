@@ -6,40 +6,43 @@
     <p>
     <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <table style="width:100%;">
+        <table style="width:100%;" border="1" cellpadding="1">
         <tr>
-            <td style="width: 175px; text-align: center; height: 42px">
-                Municipality:<strong>Paombong</strong></td>
-            <td style="width: 196px; height: 42px">
-                Province: 
-        <strong>Bulacan</strong></td>
-            <td style="height: 42px; width: 78px">
-                &nbsp;</td>
+            <td style="width: 142px; text-align: center; height: 42px">
+                Municipality:</td>
+            <td style="text-align: center; height: 42px">
+                <strong>Paombong</strong></td>
+            <td style="width: 142px; text-align: center; height: 42px">
+                Province:</td>
+            <td style="height: 42px">
+                &nbsp;<strong>Bulacan</strong></td>
         </tr>
         <tr>
-            <td style="width: 175px; text-align: center; height: 42px">
+            <td style="width: 142px; text-align: center; height: 42px">
                 Type</td>
-            <td style="width: 196px; height: 42px">
-                </td>
-            <td style="height: 42px; width: 78px">
+            <td style="text-align: center; height: 42px" colspan="3">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 175px">
+            <td colspan="2">
+                <asp:Label ID="Label4" runat="server" Text="Reports"></asp:Label>
                 <asp:RadioButton ID="rdbtn_Reports" GroupName="TypeReport" runat="server" Text="Reports" 
-                    oncheckedchanged="rdbtn_Reports_CheckedChanged" AutoPostBack="True" />
+                    oncheckedchanged="rdbtn_Reports_CheckedChanged" Visible="False" />
             </td>
-            <td style="text-align: center" colspan="2">
-                <asp:Label ID="Label1" runat="server" Text="Type of Report" Visible="False"></asp:Label>
+            <td colspan="2">
+                <asp:Label ID="Label1" runat="server" Text="Type of Report" 
+                    Font-Bold="True"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td style="width: 175px; height: 23px;">
+            <td colspan="2" rowspan="2">
                 </td>
-            <td style="width: 196px; height: 23px;">
-                <asp:Label ID="Label2" runat="server" Text="Quarter:" Visible="False"></asp:Label>
-            &nbsp;<asp:DropDownList ID="ddlQuarter" runat="server" Height="20px" Width="123px" 
-                    Visible="False">
+            <td style="width: 142px; height: 23px;">
+                <asp:Label ID="Label2" runat="server" Text="Quarter:"></asp:Label>
+                </td>
+            <td style="height: 23px;">
+                &nbsp;
+            <asp:DropDownList ID="ddlQuarter" runat="server" Height="20px" Width="123px">
                     <asp:ListItem>All</asp:ListItem>
                     <asp:ListItem>1st Quarter</asp:ListItem>
                     <asp:ListItem>2nd Quarter</asp:ListItem>
@@ -47,51 +50,34 @@
                     <asp:ListItem>4th Quarter</asp:ListItem>
         </asp:DropDownList>
             </td>
-            <td style="width: 78px; height: 23px;">
-            </td>
         </tr>
         <tr>
-            <td style="width: 175px">
-                &nbsp;</td>
-            <td style="width: 196px">
-                <asp:Label ID="Label3" runat="server" Text="Year:" Visible="False"></asp:Label>
+            <td style="width: 142px">
+                <asp:Label ID="Label3" runat="server" Text="Year:"></asp:Label>
+                </td>
+            <td>
+                &nbsp;&nbsp;
                 <asp:DropDownList ID="DropDownList1" runat="server" 
               
-                    Height="20px" Width="123px" Visible="False">
+                    Height="20px" Width="123px">
         </asp:DropDownList>
             </td>
-            <td style="width: 78px">
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 175px">
+            <td colspan="2">
                 <asp:RadioButton ID="rdbtn_Inventory" GroupName="TypeReport" runat="server" 
                     Text="Inventory" Visible="False" />
             </td>
-            <td style="width: 196px">
-        <asp:Button ID="btn_runReport" runat="server" onclick="btn_runReport_Click"
-            Text="Run Report" Width="120px" />
+            <td colspan="2">
+       <center> <asp:Button ID="btn_runReport" runat="server" onclick="btn_runReport_Click"
+            Text="Run Report" Width="193px" /></center>
             </td>
-            <td style="width: 78px">
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 175px">
-                &nbsp;</td>
-            <td style="width: 196px">
-                &nbsp;</td>
-            <td style="width: 78px">
+            <td colspan="4">
                 &nbsp;</td>
         </tr>
-        <tr>
-            <td style="width: 175px">
-                &nbsp;</td>
-            <td style="width: 196px">
-                &nbsp;</td>
-            <td style="width: 78px">
-                &nbsp;</td>
-        </tr>
-    </table>
+        </table>
 </p>
 <p>
     &nbsp;</p>

@@ -40,7 +40,9 @@ public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
     }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
+        GridSearchName.DataSourceID = "PatientSearchName";
         PatientSearchName.SelectParameters["PatientLastName"].DefaultValue = txtSearchPatient.Text;
+        GridSearchName.DataBind();
     }
 
     protected void GridSearchName_SelectedIndexChanged(object sender, EventArgs e)
