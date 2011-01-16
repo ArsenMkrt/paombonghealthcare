@@ -15,6 +15,13 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     private string height;
     private string err;
 
+    protected void Page_Init(object Sender, EventArgs e)
+    {
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+        Response.Cache.SetNoStore();
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
             

@@ -15,6 +15,12 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
     {
 
     }
+    protected void Page_Init(object Sender, EventArgs e)
+    {
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+        Response.Cache.SetNoStore();
+    }
     protected void button_AddEdit_Click(object sender, EventArgs e)
     {
         data = new DataAccess();

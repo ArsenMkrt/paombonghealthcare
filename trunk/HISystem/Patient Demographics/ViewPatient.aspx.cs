@@ -11,6 +11,12 @@ public partial class Patient_Demographics_ViewPatient : System.Web.UI.Page
     private DataAccess data;
     private DataTable patientData;
 
+    protected void Page_Init(object Sender, EventArgs e)
+    {
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+        Response.Cache.SetNoStore();
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
 

@@ -126,6 +126,13 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
     }
     #endregion
 
+    protected void Page_Init(object Sender, EventArgs e)
+    {
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+        Response.Cache.SetNoStore();
+    }
+
     #region 'By Role' Interface-Specific Methods
     protected void RoleList_SelectedIndexChanged(object sender, EventArgs e)
     {

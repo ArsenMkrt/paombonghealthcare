@@ -10,6 +10,12 @@ public partial class Reports_AddReport : System.Web.UI.Page
     private DataAccess data;
     private MonthConverter mc;
 
+    protected void Page_Init(object Sender, EventArgs e)
+    {
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+        Response.Cache.SetNoStore();
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         ddlMonth.Enabled = true;
