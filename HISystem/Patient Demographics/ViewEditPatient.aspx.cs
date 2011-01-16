@@ -14,6 +14,12 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
     {
 
     }
+    protected void Page_Init(object Sender, EventArgs e)
+    {
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+        Response.Cache.SetNoStore();
+    }
     protected void ButtonSearch_Click(object sender, EventArgs e)
     {
         try

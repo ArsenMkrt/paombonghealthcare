@@ -28,6 +28,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     }
     protected void btn_runReport_Click(object sender, EventArgs e)
     {
+        
         switch (ddlQuarter.Text)
         {
             case "1st Quarter": 
@@ -58,7 +59,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
         }
         data = new DataAccess();
         ReportPaombong.Visible = true;
-
+        
         /*Leprosy*/
         _Leprosy.SelectParameters["month1"].DefaultValue = month1.ToString();
         _Leprosy.SelectParameters["month"].DefaultValue = month2.ToString();
@@ -126,4 +127,17 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
 
     }
 
+    protected void Page_Init(object Sender, EventArgs e)
+    {
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+        Response.Cache.SetNoStore();
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        LocalReport report = new LocalReport();
+        
+
+
+    }
 }

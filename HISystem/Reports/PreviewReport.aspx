@@ -82,13 +82,15 @@
 <p>
     &nbsp;</p>
     <p>
-        &nbsp;</p>
+        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Print" 
+            Width="54px" />
+    </p>
     <p>
         &nbsp;</p>
      <asp:ScriptManager id="SM1" runat="server" />
 <rsweb:ReportViewer ID="ReportPaombong" runat="server" Font-Names="Verdana" 
     Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
-    WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="738px" 
+    WaitMessageFont-Names="Verdana" ShowPrintButton="true" WaitMessageFont-Size="14pt" Width="738px" 
         SizeToReportContent="True">
         <ServerReport ReportServerUrl="http://localhost:2705/HISystem/Report.rdlc" />
     <LocalReport ReportPath="Report.rdlc">
@@ -102,9 +104,19 @@
             <rsweb:ReportDataSource DataSourceId="_Schisto" Name="Schisto" />
             <rsweb:ReportDataSource DataSourceId="_Leprosy" Name="Leprosy" />
             <rsweb:ReportDataSource DataSourceId="_Filariasis" Name="Filariasis" />
+<%--            <rsweb:ReportDataSource DataSourceId="_Header" Name="Header" />--%>
         </DataSources>
     </LocalReport>
 </rsweb:ReportViewer>
+<%--    <asp:ObjectDataSource ID="_Header" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
+        TypeName="PaombongDataSetTableAdapters.HeaderTableAdapter">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="1" Name="month1" Type="Int32" />
+            <asp:Parameter DefaultValue="3" Name="month" Type="Int32" />
+            <asp:Parameter DefaultValue="2011" Name="year" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>--%>
     <asp:ObjectDataSource ID="_MaternalCare" runat="server" 
     OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
     TypeName="PaombongDataSetTableAdapters.MaternalCareTableAdapter">

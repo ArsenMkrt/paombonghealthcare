@@ -36,6 +36,12 @@ public partial class Admin_Add_Users : System.Web.UI.Page
         
         RoleList1.DataBind();
     }
+    protected void Page_Init(object Sender, EventArgs e)
+    {
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+        Response.Cache.SetNoStore();
+    }
     protected void AddUser()
     {
         // Add User.
