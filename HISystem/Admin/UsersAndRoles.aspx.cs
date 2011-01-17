@@ -25,6 +25,7 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
             // Display those users belonging to the currently selected role
             DisplayUsersBelongingToRole();
         }
+        ActionStatus.Text = "";
         
     }
 
@@ -52,6 +53,7 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
     protected void UserList_SelectedIndexChanged(object sender, EventArgs e)
     {
         CheckRolesForSelectedUser();
+        
     }
 
     private void CheckRolesForSelectedUser()
@@ -59,7 +61,7 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
         // Determine what roles the selected user belongs to
         string selectedUserName = UserList.SelectedValue;
         string[] selectedUsersRoles = Roles.GetRolesForUser(selectedUserName);
-        
+
         if (Roles.IsUserInRole(selectedUserName, "Doctor"))
         {
             RoleList1.SelectedValue = "Doctor";
@@ -73,21 +75,29 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
         else if (Roles.IsUserInRole(selectedUserName, "Midwife"))
         {
             RoleList1.SelectedValue = "Midwife";
-           Session["selectedUsersRole"] = "Midwife";
+            Session["selectedUsersRole"] = "Midwife";
         }
+
+        else
+        {
+            Session["selectedUsersRole"] = "NoAssignedRole";
+        }
+
     }
-
-
     protected void Button1_Click(object sender, EventArgs e)
     {
         if (Session["selectedUsersRole"] != null)
         {
-            if (Session["selectedUsersRole"] != "Doctor")
+            if (Session["selectedUsersRole"].ToString() != "Doctor")
             {
-            Roles.RemoveUserFromRole(UserList.SelectedValue, Session["selectedUsersRole"].ToString());
-            Roles.AddUserToRole(UserList.SelectedValue, RoleList1.SelectedValue);
-            ActionStatus.Text = "Successfully assigned/changed to role!";
+                if (Session["selectedUsersRole"].ToString() != "NoAssignedRole")
+                {
+                    Roles.RemoveUserFromRole(UserList.SelectedValue, Session["selectedUsersRole"].ToString());
+                }
+                Roles.AddUserToRole(UserList.SelectedValue, RoleList1.SelectedValue);
+                ActionStatus.Text = "Successfully assigned/changed to role!";
             }
+
             else
                 ActionStatus.Text = "You are not allowed to demote or lower the rank of another doctor account.";
         }
@@ -141,15 +151,17 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
 
     private void DisplayUsersBelongingToRole()
     {
+        
         // Get the selected role
         string selectedRoleName = RoleList.SelectedValue;
+        
+            // Get the list of usernames that belong to the role
+            string[] usersBelongingToRole = Roles.GetUsersInRole(selectedRoleName);
 
-        // Get the list of usernames that belong to the role
-        string[] usersBelongingToRole = Roles.GetUsersInRole(selectedRoleName);
-
-        // Bind the list of users to the GridView
-        RolesUserList.DataSource = usersBelongingToRole;
-        RolesUserList.DataBind();
+            // Bind the list of users to the GridView
+            RolesUserList.DataSource = usersBelongingToRole;
+            RolesUserList.DataBind();
+      
     }
 
     protected void RolesUserList_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -180,52 +192,25 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
         }
     }
 
-    //protected void AddUserToRoleButton_Click(object sender, EventArgs e)
-    //{
-    //    // Get the selected role and username
-    //    string selectedRoleName = RoleList.SelectedValue;
-    //    string userNameToAddToRole = UserNameToAddToRole.Text;
-
-    //    // Make sure that a value was entered
-    //    if (userNameToAddToRole.Trim().Length == 0)
-    //    {
-    //        ActionStatus.Text = "You must enter a username in the textbox.";
-    //        return;
-    //    }
-
-    //    // Make sure that the user exists in the system
-    //    MembershipUser userInfo = Membership.GetUser(userNameToAddToRole);
-    //    if (userInfo == null)
-    //    {
-    //        ActionStatus.Text = string.Format("The user {0} does not exist in the system.", userNameToAddToRole);
-    //        return;
-    //    }
-
-    //    // Make sure that the user doesn't already belong to this role
-    //    if (Roles.IsUserInRole(userNameToAddToRole, selectedRoleName))
-    //    {
-    //        ActionStatus.Text = string.Format("User {0} already is a member of role {1}.", userNameToAddToRole, selectedRoleName);
-    //        return;
-    //    }
-
-    //    // If we reach here, we need to add the user to the role
-    //    Roles.AddUserToRole(userNameToAddToRole, selectedRoleName);
-
-        
-
-    //    // Refresh the GridView
-    //    DisplayUsersBelongingToRole();
-
-    //    // Display a status message
-    //    ActionStatus.Text = string.Format("User {0} was added to role {1}.", userNameToAddToRole, selectedRoleName);
-
-    //    // Refresh the "by user" interface
-    //    CheckRolesForSelectedUser();
-    //}
+   
     #endregion
     protected void RoleList1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }
-   
+
+    protected void RolesUserList_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            // Hide the edit button when some condition is true
+            // for example, the row contains a certain property
+            if (RoleList.SelectedValue=="Doctor")
+            {
+                LinkButton lnkbtn = (LinkButton)e.Row.FindControl("LinkBtn_Delete");
+                lnkbtn.Visible = false;
+                
+            }
+        } 
+    }
 }
