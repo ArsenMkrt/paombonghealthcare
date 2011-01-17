@@ -28,7 +28,7 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
         {
            
             string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
-            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 10)) + "; Url="+ url);
+            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 600)) + "; Url="+ url);
 
           
         }
@@ -36,7 +36,7 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
         {
            
             string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
-            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 10)) + "; Url=" + url);
+            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 600)) + "; Url=" + url);
 
 
            

@@ -6,7 +6,7 @@
 
 
 
-    <h2>
+    <h2 style="background-color: #d3e7c5">
         Log In
     </h2>
     <p>

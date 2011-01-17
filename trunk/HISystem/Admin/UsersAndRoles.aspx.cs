@@ -209,8 +209,11 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
             {
                 LinkButton lnkbtn = (LinkButton)e.Row.FindControl("LinkBtn_Delete");
                 lnkbtn.Visible = false;
+                lblHint.Visible = true;
                 
             }
+            else
+                lblHint.Visible = false;
         } 
     }
 }

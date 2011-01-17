@@ -2,7 +2,7 @@
 
 
 
-<%@ Register src="DailyPatientRecord.ascx" tagname="DailyPatientRecord" tagprefix="uc1" %>
+
 
 
 
@@ -432,7 +432,7 @@
 
 
 <br />
-    <%-- <uc1:DailyPatientRecord ID="DailyPatientRecord1" runat="server" />--%>
+   
    
 
 
