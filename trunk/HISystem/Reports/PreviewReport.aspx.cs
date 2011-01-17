@@ -135,9 +135,6 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        LocalReport report = new LocalReport();
         
-
-
     }
 }
