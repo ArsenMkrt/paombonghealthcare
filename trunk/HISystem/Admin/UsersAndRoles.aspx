@@ -70,9 +70,15 @@
     <p>
         <asp:GridView ID="RolesUserList" runat="server" AutoGenerateColumns="False" 
             EmptyDataText="No users belong to this role." 
-            onrowdeleting="RolesUserList_RowDeleting">
+            onrowdeleting="RolesUserList_RowDeleting" 
+            onrowdatabound="RolesUserList_RowDataBound">
             <Columns>
-                <asp:CommandField DeleteText="Remove" ShowDeleteButton="True" />
+                <asp:TemplateField ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkBtn_Delete" runat="server" CausesValidation="True" 
+                            CommandName="Delete" Text="Remove"></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Users">
                     <ItemTemplate>
                         <asp:Label runat="server" id="UserNameLabel" Text='<%# Container.DataItem %>'></asp:Label>
