@@ -16,6 +16,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     private DataAccess data;
     private int month1;
     private int month2;
+    private ReportPrintDocument rpd;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -135,6 +136,8 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        
+        LocalReport lr = new LocalReport();
+        lr.ReportPath = "Report.rdlc";
+        rpd = new ReportPrintDocument(lr);  
     }
 }

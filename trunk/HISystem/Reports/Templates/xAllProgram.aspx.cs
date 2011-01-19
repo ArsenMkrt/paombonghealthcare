@@ -435,8 +435,8 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         TableCell tableCellMalariaPregnant = new TableCell();
         tableCellMalariaPregnant.Attributes["align"] = "Center";
         Label lblMalariaPregnant = new Label();
-        lblMalariaPregnant.ID = "lblMalariaMale";
-        lblMalariaPregnant.Text = "Male";
+        lblMalariaPregnant.ID = "lblMalariaPregnant";
+        lblMalariaPregnant.Text = "Pregnant";
         lblMalariaPregnant.ForeColor = System.Drawing.Color.Green;
         lblMalariaPregnant.Font.Bold = true;
         lblMalariaPregnant.Font.Size = FontUnit.Large;
@@ -461,7 +461,9 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         lblMalariaFemale.ForeColor = System.Drawing.Color.Green;
         lblMalariaFemale.Font.Size = FontUnit.Large;
         tableCellMalaria3.Controls.Add(lblMalariaFemale);
+
         tableRowMalaria.Cells.Add(tableCellMalaria);
+        tableRowMalaria.Cells.Add(tableCellMalariaPregnant);
         tableRowMalaria.Cells.Add(tableCellMalaria2);
         tableRowMalaria.Cells.Add(tableCellMalaria3);
         //End
@@ -1329,7 +1331,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         }
 
         //Child Care ------------------------------------_------------------------------------->
-        for (int r = 0; r < data.CountIndicatorPerProgram("Dental Care"); r++)
+        for (int r = 0; r < data.CountIndicatorPerProgram("Child Care"); r++)
         {
             TextBox tempMale = tblDynamic.FindControl("txtChildCareMale_" + r.ToString()) as TextBox;
             male = tempMale.Text;
