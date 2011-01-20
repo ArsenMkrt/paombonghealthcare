@@ -22,13 +22,13 @@
 
 
        
-        Exception objErr = Server.GetLastError().GetBaseException();
-        string err = "Error in: " + Request.Url.ToString() +
-                          ". Error Message:" + objErr.Message.ToString();
+        //Exception objErr = Server.GetLastError().GetBaseException();
+        //string err = "Error in: " + Request.Url.ToString() +
+        //                  ". Error Message:" + objErr.Message.ToString();
 
-        HttpContext.Current.Server.ClearError();
+        //HttpContext.Current.Server.ClearError();
         
-        HttpContext.Current.Response.Redirect("~/Public/GenericErrorPage.aspx");
+        //HttpContext.Current.Response.Redirect("~/Public/GenericErrorPage.aspx");
 
     }
 
