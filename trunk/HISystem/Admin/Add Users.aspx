@@ -4,28 +4,28 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 
-<br />
-<center>
+                    <h2 style="background-color: #d3e7c5">Add User</h2>
+                    <br />
+
     
-        <table align="left" class="webparts" bgcolor="#a2cc85" style="width: 470px">
-            <tr>
-                <th class="style1">
-                    Add User</th>
-            </tr>
+        <table align="left" class="webparts" bgcolor="#a2cc85" style="width: 308px">
             <tr>
                 <td class="details" valign="top">
                     <h3>
-                        Roles:</h3>
-                    <asp:CheckBoxList ID="UserRoles" runat="server" Visible="False" />
-                                
-            <asp:DropDownList ID="RoleList1" runat="server" 
+                        Roles:<asp:DropDownList 
+                            ID="RoleList1" runat="server" 
+                            onselectedindexchanged="RoleList1_SelectedIndexChanged" style="margin-left: 22px" 
             >
         </asp:DropDownList>
         
+                    </h3>
                     <br />
+        
+                    <br />
+                    <hr />
                     <h3>
                         Main Info:</h3>
-                    <table style="width: 316px">
+                    <table style="width: 277px">
                         <tr>
                             <td class="detailheader">
                                 Active User</td>
@@ -82,13 +82,14 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td>
                                 <br />
-                                &nbsp;<asp:Button ID="btn_addUser" runat="server" 
-                                    Text="Add User" onclick="btn_addUser_Click" Width="67px" />
-                                &nbsp;
-                                <input type="reset" style="width: 60px" />
-                            </td>
+                                <asp:Button ID="btn_addUser" runat="server" 
+                                    Text="Add User" onclick="btn_addUser_Click" Width="83px" Height="30px" />
+                                &nbsp;</td>
+                            <td>
+                                <br />
+                                <input type="reset" style="width: 83px; height: 30px;" /></td>
                         </tr>
                         <tr>
                             <td colspan="2">
@@ -109,7 +110,7 @@
                 </td>
             </tr>
         </table>
-        </center>
+      
     
 
 

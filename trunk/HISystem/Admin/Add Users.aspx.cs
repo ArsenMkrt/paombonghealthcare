@@ -51,14 +51,7 @@ public partial class Admin_Add_Users : System.Web.UI.Page
 
 
         Roles.AddUserToRole(username.Text, RoleList1.SelectedValue);
-        // Add Roles.
-        //foreach (ListItem rolebox in UserRoles.Items)
-        //{
-        //    if (rolebox.Selected)
-        //    {
-        //        Roles.AddUserToRole(username.Text, rolebox.Text);
-        //    }
-        //}
+        
 
        
         Response.Write("<script> window.alert('Added User Successfully.')</script>");
@@ -73,15 +66,7 @@ public partial class Admin_Add_Users : System.Web.UI.Page
 
     }
 
-    private void Page_PreRender()
-    {
-        UserRoles.DataSource = Roles.GetAllRoles();
-        UserRoles.DataBind();
-    }
-
-
-
-    protected void btn_addUser_Click(object sender, EventArgs e)
+       protected void btn_addUser_Click(object sender, EventArgs e)
     {
 
         try
@@ -95,5 +80,9 @@ public partial class Admin_Add_Users : System.Web.UI.Page
             ConfirmationMessage.InnerText = "Insert Failure: " + ex.Message;
         }
        
+    }
+    protected void RoleList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 }
