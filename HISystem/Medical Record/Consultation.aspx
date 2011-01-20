@@ -391,6 +391,25 @@
             </td>
         </tr>
         <tr>
+            <td class="style52">
+                Illness/Disease</td>
+            <td class="style64" colspan="5">
+                <asp:Panel ID="Panel1" runat="server">
+                    <asp:CheckBoxList ID="checkbox_DiseaseList" runat="server" 
+                        DataSourceID="SqlData_diseases" DataTextField="DiseaseName" 
+                        DataValueField="DiseaseName">
+                    </asp:CheckBoxList>
+                    <asp:SqlDataSource ID="SqlData_diseases" runat="server" 
+    ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString2 %>" 
+    SelectCommand="select DiseaseName from diseases"></asp:SqlDataSource>
+                </asp:Panel>
+            </td>
+            <td class="style46" align="right">
+                &nbsp;</td>
+            <td class="style53" colspan="2">
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td class="style56">
                 Chief Complaint*</td>
             <td class="style55" colspan="8">
