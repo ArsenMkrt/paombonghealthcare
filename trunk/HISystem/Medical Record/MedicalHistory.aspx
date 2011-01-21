@@ -149,9 +149,9 @@
         AllowPaging="True" 
         onselectedindexchanged="GridView1_SelectedIndexChanged1">
         <Columns>
-        <asp:BoundField DataField="EncounterID" Visible="false" HeaderText = "id"
+        <asp:BoundField DataField="EncounterID" HeaderText = "id"
                 SortExpression="EncounterID" />
-            <asp:BoundField DataField="EncounterDateTime" HeaderText="EncounterDateTime" 
+            <asp:BoundField DataField="EncounterDateTime" HeaderText="Date-Time" 
                 SortExpression="EncounterDateTime" />
             <asp:BoundField DataField="Age" HeaderText="Age" 
                 SortExpression="Age" />

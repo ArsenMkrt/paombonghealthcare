@@ -87,9 +87,9 @@ public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
     }
     protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
     {
-        TextBox txtId = (TextBox)GridView1.Rows[GridView1.SelectedIndex].FindControl("EncounterID");
-        
-        Response.Redirect("~/Medical%20Record/Consultation.aspx?&id=" + txtbx_PatientID.Text + "&enc=" + 
-            txtId.Text);
+        string encId = "";
+        encId = GridView1.Rows[GridView1.SelectedIndex].Cells[1].Text;
+
+        Response.Redirect("~/Medical%20Record/Consultation.aspx?&id=" + txtbx_PatientID.Text + "&enc=" + encId);
     }
 }
