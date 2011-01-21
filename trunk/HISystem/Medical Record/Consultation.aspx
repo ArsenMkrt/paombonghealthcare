@@ -397,7 +397,7 @@
                 <asp:Panel ID="Panel1" runat="server">
                     <asp:CheckBoxList ID="checkbox_DiseaseList" runat="server" 
                         DataSourceID="SqlData_diseases" DataTextField="DiseaseName" 
-                        DataValueField="DiseaseName">
+                        DataValueField="DiseaseName" RepeatColumns="3">
                     </asp:CheckBoxList>
                     <asp:SqlDataSource ID="SqlData_diseases" runat="server" 
     ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString2 %>" 
