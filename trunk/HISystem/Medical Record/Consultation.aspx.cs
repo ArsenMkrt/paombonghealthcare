@@ -12,8 +12,10 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
 {
     private DataAccess data;
     private DataTable patientData;
+    private DataTable ptData;
     private string height;
     private string err;
+    private string encId;
 
     protected void Page_Init(object Sender, EventArgs e)
     {
@@ -24,15 +26,16 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-            
-       
         if (!this.IsPostBack)
         {
             if (Request.QueryString.Count > 0)
             {
                 txtbx_PatientID.Text = Request.QueryString["id"];
-
-
+                if (Request.QueryString["enc"] != null)
+                {
+                    encId = Request.QueryString["enc"];
+                    LoadDataFromEncounter();
+                }
                 if (txtbx_PatientID.Text.Trim() != null)
                 {
                     ButtonProceed_Click(sender, e);
@@ -41,9 +44,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         }
         //to load current day as label
         lbl_dateToday.Text = DateTime.Now.ToShortDateString();
-        
-        
-      
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -58,7 +58,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         {
             foreach (DataRow dr in patientData.Rows)
             {
-                //txtlname.Text = dr["PatientLName"].ToString().Trim();
                 txtlname.Text = dr["PatientLName"].ToString().Trim();
 
                 txtfname.Text = dr["PatientFName"].ToString().Trim();
@@ -95,12 +94,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     
     protected void btnSave_Click(object sender, EventArgs e)
     {
-
-
-
         try
         {
-
             //To save data on db
             ddlBarangay.Enabled = true;
 
@@ -113,7 +108,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 height = txtHt_feet.Text + "00";
             }
             else
-                height = txtHt_feet.Text + txtHt_inch.Text;
+                height = txtHt_feet.Text + "-" + txtHt_inch.Text;
             /**
              * Added by Lakhi Save 1/5/2011
              * This Saves patient daily Medical record
@@ -129,12 +124,11 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
 
                 data.SavePatientDailyMedicalRecord
                     (
-
                         Convert.ToInt32(txtbx_PatientID.Text),
                         Convert.ToInt32(txtAge.Text),
                         Convert.ToDecimal(txtTemp.Text),
                         Convert.ToDecimal(txtWt.Text),
-                        Convert.ToInt32(height),
+                        (height),
                         Convert.ToInt32(txtBpressure.Text),
                         Convert.ToInt32(txtBpressure0.Text),
                         txtDiagnosis.Text,
@@ -272,6 +266,34 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         PatientSearchName.SelectParameters["PatientLastName"].DefaultValue = txtSearchPatient.Text;
     }
 
+    protected void LoadDataFromEncounter()
+    {
+        data = new DataAccess();
+        ptData = data.GetEncounterData(encId);
+        foreach (DataRow dr in ptData.Rows)
+        {
+            txtTemp.Text = dr["Temp"].ToString().Trim();
+            txtTemp.ReadOnly = true;
+            txtAge.Text = dr["Age"].ToString().Trim();
+            txtAge.ReadOnly = true;
+            txtBpressure0.Text = dr["BP2"].ToString().Trim();
+            txtBpressure0.ReadOnly = true;
+            txtBpressure.Text = dr["BP1"].ToString().Trim();
+            txtBpressure.ReadOnly = true;
+            txtDiagnosis.Text = dr["Diagnosis"].ToString().Trim();
+            txtDiagnosis.ReadOnly = true;
+            string Height = dr["Height"].ToString().Trim();
+            string[] heightDetails = Height.Split('-');
+            txtHt_feet.Text = heightDetails[0];
+            txtHt_feet.ReadOnly = true;
+            txtHt_inch.Text = heightDetails[1];
+            txtHt_inch.ReadOnly = true;
+            txtWt.Text = dr["Weight"].ToString().Trim();
+            txtWt.ReadOnly = true;
+            txtRecomendation.Text = dr["Treatment"].ToString().Trim();
+            txtRecomendation.ReadOnly = true;
+        }
+    }
     
     protected void GridSearchName_SelectedIndexChanged(object sender, EventArgs e)
     {

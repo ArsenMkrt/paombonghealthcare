@@ -109,7 +109,7 @@
         <tr>
             <td class="style65" colspan="2">
                 <asp:Label ID="Label1" runat="server" Font-Size="X-Large" 
-                    Text="Patient Consultation" Font-Bold="True" ForeColor="#006600"></asp:Label>
+                    Text="Consultation Page" Font-Bold="True" ForeColor="#006600"></asp:Label>
             </td>
             <td class="style13" colspan="5">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

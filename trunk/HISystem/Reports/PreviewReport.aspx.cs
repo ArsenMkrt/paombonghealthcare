@@ -138,6 +138,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         LocalReport lr = new LocalReport();
         lr.ReportPath = "Report.rdlc";
-        rpd = new ReportPrintDocument(lr);  
+        rpd = new ReportPrintDocument(lr);
+        rpd.Print();
     }
 }
