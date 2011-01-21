@@ -144,7 +144,13 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                     );
 
 
-                foreach(
+                foreach (ListItem li in checkbox_DiseaseList.Items)
+                {
+                    if (li.Selected)
+                    { 
+                        //do insert here
+                    }
+                }
 
 
 
