@@ -1305,7 +1305,7 @@ public class DataAccess
         ptEncounterData.Rows.Add(dtrPatient["Age"].ToString().Trim(), dtrPatient["Temp"].ToString().Trim(),
             dtrPatient["Weight"].ToString().Trim(), dtrPatient["Height"].ToString().Trim()
             , dtrPatient["BP1"].ToString().Trim(), dtrPatient["BP2"].ToString().Trim()
-            , dtrPatient["Diagnosis"].ToString().Trim(), dtrPatient["Height"].ToString().Trim());
+            , dtrPatient["Diagnosis"].ToString().Trim(), dtrPatient["Treatment"].ToString().Trim());
         return ptEncounterData;
     }
 
