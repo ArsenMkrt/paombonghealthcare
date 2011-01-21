@@ -94,6 +94,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     
     protected void btnSave_Click(object sender, EventArgs e)
     {
+        string timeSave = "";
         try
         {
             //To save data on db
@@ -121,7 +122,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
 
             else if (txtDiagnosis.Text.Length > 0 || txtbx_PatientID.Text.Trim() != null || txtDiagnosis.Text.Trim() != "")
             {
-
+                timeSave = DateTime.Now.ToString("MM/dd/yyyy HH:MM");
                 data.SavePatientDailyMedicalRecord
                     (
                         Convert.ToInt32(txtbx_PatientID.Text),
@@ -134,7 +135,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                         txtDiagnosis.Text,
                         txtRecomendation.Text,
                         (string)Page.User.Identity.Name
-
                     );
 
 
