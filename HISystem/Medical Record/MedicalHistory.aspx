@@ -145,9 +145,12 @@
 
     <br />
     <asp:GridView ID="GridView1" runat="server" Width="696px" 
-        AutoGenerateColumns="False" DataSourceID="SqlDataSource1" 
-        AllowPaging="True">
+        AutoGenerateColumns="False" AutoGenerateSelectButton="true" DataSourceID="SqlDataSource1" 
+        AllowPaging="True" 
+        onselectedindexchanged="GridView1_SelectedIndexChanged1">
         <Columns>
+        <asp:BoundField DataField="EncounterID" Visible="false" HeaderText = "id"
+                SortExpression="EncounterID" />
             <asp:BoundField DataField="EncounterDateTime" HeaderText="EncounterDateTime" 
                 SortExpression="EncounterDateTime" />
             <asp:BoundField DataField="Age" HeaderText="Age" 
@@ -171,7 +174,8 @@
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" SelectCommand="SELECT DISTINCT  c.EncounterDateTime, c.Age, c.Temp, c.Weight, c.Height, c.BP1,c.BP2, c.Diagnosis, c.Treatment, c.Facilitatedby
+        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
+        SelectCommand="SELECT DISTINCT  c.EncounterID,c.EncounterDateTime, c.Age, c.Temp, c.Weight, c.Height, c.BP1,c.BP2, c.Diagnosis, c.Treatment, c.Facilitatedby
 FROM            Encounters AS c INNER JOIN
                          Patients AS a ON c.PatientID = a.PatientID CROSS JOIN
                          Barangays AS b INNER JOIN

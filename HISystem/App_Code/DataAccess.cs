@@ -1185,7 +1185,7 @@ public class DataAccess
         conn.Close();
     }
 
-    public void SavePatientDailyMedicalRecord(int PatientID, int PatientAge, decimal Temperature, decimal PatientWeight, int PatientHeight
+    public void SavePatientDailyMedicalRecord(int PatientID, int PatientAge, decimal Temperature, decimal PatientWeight, string PatientHeight
         , int BloodPressure1, int BloodPressure2, string Diagnosis, string Treatment, string userAccount)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
@@ -1198,7 +1198,7 @@ public class DataAccess
         cmdTxt.Parameters.Add("@Age", SqlDbType.Int).Value = PatientAge;
         cmdTxt.Parameters.Add("@Temp", SqlDbType.Decimal).Value = Temperature;
         cmdTxt.Parameters.Add("@Weight", SqlDbType.Decimal).Value = PatientWeight;
-        cmdTxt.Parameters.Add("@Height", SqlDbType.Int).Value = PatientHeight;
+        cmdTxt.Parameters.Add("@Height", SqlDbType.VarChar).Value = PatientHeight;
         cmdTxt.Parameters.Add("@BP1", SqlDbType.Int).Value = BloodPressure1;
         cmdTxt.Parameters.Add("@BP2", SqlDbType.Int).Value = BloodPressure2;
         cmdTxt.Parameters.Add("@Diagnosis", SqlDbType.VarChar).Value = Diagnosis;
@@ -1280,6 +1280,35 @@ public class DataAccess
 
         return count;
     }
+
+    public DataTable GetEncounterData(string EncounterId)
+    {
+        DataTable ptEncounterData = new DataTable();
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+        SqlDataReader dtrPatient;
+
+        ptEncounterData.Columns.Add("Age");
+        ptEncounterData.Columns.Add("Temp");
+        ptEncounterData.Columns.Add("Weight");
+        ptEncounterData.Columns.Add("Height");
+        ptEncounterData.Columns.Add("BP1");
+        ptEncounterData.Columns.Add("BP2");
+        ptEncounterData.Columns.Add("Diagnosis");
+        ptEncounterData.Columns.Add("Treatment");
+
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("SELECT Age,Temp,Weight,Height,BP1,BP2,Diagnosis,Treatment FROM Encounters WHERE EncounterID = @encId", connPatient);
+        cmdTxt.Parameters.Add("@encId", SqlDbType.Int).Value = Int32.Parse(EncounterId);
+        dtrPatient = cmdTxt.ExecuteReader();
+        dtrPatient.Read();
+
+        ptEncounterData.Rows.Add(dtrPatient["Age"].ToString().Trim(), dtrPatient["Temp"].ToString().Trim(),
+            dtrPatient["Weight"].ToString().Trim(), dtrPatient["Height"].ToString().Trim()
+            , dtrPatient["BP1"].ToString().Trim(), dtrPatient["BP2"].ToString().Trim()
+            , dtrPatient["Diagnosis"].ToString().Trim(), dtrPatient["Height"].ToString().Trim());
+        return ptEncounterData;
+    }
+
     public DataTable GetNameForMedHistory(string Patient_Id)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);

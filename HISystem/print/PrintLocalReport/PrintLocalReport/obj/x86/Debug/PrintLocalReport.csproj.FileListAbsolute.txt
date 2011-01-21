@@ -1,0 +1,7 @@
+C:\Users\Lakhi\Desktop\HISystem\print\PrintLocalReport\PrintLocalReport\bin\Debug\PrintLocalReport.exe
+C:\Users\Lakhi\Desktop\HISystem\print\PrintLocalReport\PrintLocalReport\bin\Debug\PrintLocalReport.pdb
+C:\Users\Lakhi\Desktop\HISystem\print\PrintLocalReport\PrintLocalReport\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Lakhi\Desktop\HISystem\print\PrintLocalReport\PrintLocalReport\obj\x86\Debug\RdlCompile.cache
+C:\Users\Lakhi\Desktop\HISystem\print\PrintLocalReport\PrintLocalReport\obj\x86\Debug\RdlCompile.compiled
+C:\Users\Lakhi\Desktop\HISystem\print\PrintLocalReport\PrintLocalReport\obj\x86\Debug\PrintLocalReport.exe
+C:\Users\Lakhi\Desktop\HISystem\print\PrintLocalReport\PrintLocalReport\obj\x86\Debug\PrintLocalReport.pdb
