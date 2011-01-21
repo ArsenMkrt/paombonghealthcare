@@ -143,6 +143,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                     if (li.Selected)
                     { 
                         //do insert here
+
+
                     }
                 }
 
