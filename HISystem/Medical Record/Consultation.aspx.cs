@@ -109,7 +109,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 height = txtHt_feet.Text + "00";
             }
             else
-                height = txtHt_feet.Text + "-" + txtHt_inch.Text;
+                height = txtHt_feet.Text + "-" + txtHt_inch.Text+"";
             /**
              * Added by Lakhi Save 1/5/2011
              * This Saves patient daily Medical record
@@ -130,8 +130,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                         Convert.ToDecimal(txtTemp.Text),
                         Convert.ToDecimal(txtWt.Text),
                         (height),
-                        Convert.ToInt32(txtBpressure.Text),
-                        Convert.ToInt32(txtBpressure0.Text),
+                        (txtBpressure.Text +"/"+ txtBpressure0.Text),
+                        
                         txtDiagnosis.Text,
                         txtRecomendation.Text,
                         (string)Page.User.Identity.Name
@@ -278,10 +278,16 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
             txtTemp.ReadOnly = true;
             txtAge.Text = dr["Age"].ToString().Trim();
             txtAge.ReadOnly = true;
-            txtBpressure0.Text = dr["BP2"].ToString().Trim();
-            txtBpressure0.ReadOnly = true;
-            txtBpressure.Text = dr["BP1"].ToString().Trim();
+
+
+            string bp = dr["Bloodpressure"].ToString().Trim();
+            string[] bpressure = bp.Split('/');
+
+            txtBpressure.Text = bpressure[0];
             txtBpressure.ReadOnly = true;
+            txtBpressure0.Text = bpressure[1];
+            txtBpressure0.ReadOnly = true;
+            
             txtDiagnosis.Text = dr["Diagnosis"].ToString().Trim();
             txtDiagnosis.ReadOnly = true;
             string Height = dr["Height"].ToString().Trim();

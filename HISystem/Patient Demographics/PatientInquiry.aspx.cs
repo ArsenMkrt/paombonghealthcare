@@ -95,7 +95,7 @@ public partial class Patient_Demographics_PatientInquiry : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-
+            //display error
         }
     }
 
