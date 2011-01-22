@@ -14,27 +14,26 @@
         Show List Of Medicines</a>
         <br />
     </p>
-    <p>
-        <table style="width: 100%; height: 116px;">
+   
+        <table style="width: 368px">
             <tr>
                 <td style="width: 117px">
         <asp:Label ID="Label3" runat="server" 
             Text="Medicine ID "></asp:Label>
                 </td>
-                <td style="width: 159px">
+                <td colspan="2">
         <asp:TextBox ID="txtMedicineId" runat="server" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
                         onpaste="return false;" Width="150px" ReadOnly="True"
             ></asp:TextBox>
                 </td>
-                <td>
-                    &nbsp;</td>
+                <td colspan="3" rowspan="7" width="60">
+                    </td>
+                
             </tr>
             <tr>
                 <td style="width: 117px">
                     &nbsp;</td>
-                <td style="width: 159px">
-                    &nbsp;</td>
-                <td>
+                <td colspan="2">
                     &nbsp;</td>
             </tr>
             <tr>
@@ -42,60 +41,64 @@
         <asp:Label ID="Label4" runat="server"
             Text="Medicine Name"></asp:Label>
                 </td>
-                <td style="width: 159px">
+                <td colspan="2">
         <asp:TextBox ID="txtMedicineName" runat="server" Width="150px" ReadOnly="True"></asp:TextBox>
                 </td>
-                <td>
-                    &nbsp;</td>
+               
             </tr>
             <tr>
                 <td style="width: 117px">
         <asp:Label ID="Label5" runat="server"
             Text="Category"></asp:Label>
                 </td>
-                <td style="width: 159px">
+                <td colspan="2">
         <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="Category" 
             DataTextField="CategoryName" DataValueField="CategoryName" Height="20px" Width="153px" 
                         Enabled="False">
         </asp:DropDownList>
                 </td>
-                <td>
-                    &nbsp;</td>
             </tr>
             <tr>
                 <td style="width: 150px">
         <asp:Label ID="Label6" runat="server" 
             Text="Quantity"></asp:Label>
                 </td>
-                <td style="width: 159px">
+                <td colspan="2">
         <asp:TextBox ID="txtQuantity" runat="server" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
                         onpaste="return false;" Width="150px" ReadOnly="True"></asp:TextBox>
                 </td>
-                <td>
-                    &nbsp;</td>
             </tr>
             <tr>
                 <td style="width: 117px">
                     &nbsp;</td>
-                <td style="width: 159px">
+                <td colspan="2">
                     &nbsp;</td>
-                <td>
-                    &nbsp;</td>
+                
             </tr>
             <tr>
                 <td style="width: 117px">
-                    &nbsp;</td>
-                <td style="width: 159px">
+                    </td>
+                <td>
         <asp:Button ID="btnSave" runat="server" 
-            Text="Save" onclick="btnSave_Click" Width="94px" />
-                    &nbsp;&nbsp;</td>
+            Text="Save" onclick="btnSave_Click" Width="72px" />
+                    </td>
                 <td>
         <asp:Button ID="btnClear" runat="server" 
-            Text="Clear" onclick="btnClear_Click" Width="94px" />
+            Text="Clear" onclick="btnClear_Click" Width="64px" />
                 </td>
+               
+               
             </tr>
         </table>
-    </p>
+    
+   
+   
+   
+   
+   
+   
+   
+   
     <p>
         &nbsp;</p>
     <p>
@@ -107,9 +110,7 @@
             SelectCommand="SELECT DISTINCT [CategoryName] FROM [Category] ORDER BY [CategoryName]">
         </asp:SqlDataSource>
     </p>
-    <p>
-    </p>
-    <p>
+    
     <div id="boxes">
            <!-- div for Search Medicine-->
             <div id="modalwindow" class="window">
@@ -162,14 +163,7 @@
             <div id="mask"></div>
     </div>
 
-</p>
-    <p>
-        &nbsp;</p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
+
+    
 </asp:Content>
 

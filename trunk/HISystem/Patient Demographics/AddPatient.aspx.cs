@@ -9,7 +9,7 @@ using System.Windows.Forms;
 public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
 {
     private DataAccess data;
-    DataTable patientData;
+   // DataTable patientData;
     
     protected void Page_Load(object sender, EventArgs e)
     {

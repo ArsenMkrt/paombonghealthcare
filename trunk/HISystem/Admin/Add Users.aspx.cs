@@ -10,7 +10,7 @@ using System.Web.Security;
 public partial class Admin_Add_Users : System.Web.UI.Page
 {
 
-    MembershipUser user;
+    //MembershipUser user;
 
     private void Page_Load()
     {

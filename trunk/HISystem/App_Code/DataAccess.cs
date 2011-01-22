@@ -1186,21 +1186,21 @@ public class DataAccess
     }
 
     public void SavePatientDailyMedicalRecord(int PatientID, int PatientAge, decimal Temperature, decimal PatientWeight, string PatientHeight
-        , int BloodPressure1, int BloodPressure2, string Diagnosis, string Treatment, string userAccount)
+        , string BloodPressure, string Diagnosis, string Treatment, string userAccount)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Encounters (EncounterDateTime,PatientID,Age,Temp,Weight,Height,BP1,BP2,Diagnosis,Treatment,Facilitatedby)"
-            + "VALUES (@EncounterDateTime,@PatientID,@Age,@Temp,@Weight,@Height,@BP1,@BP2,@Diagnosis,@Treatment,@Facilitatedby)", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Encounters (EncounterDateTime,PatientID,Age,Temp,Weight,Height,Bloodpressure,Diagnosis,Treatment,Facilitatedby)"
+            + "VALUES (@EncounterDateTime,@PatientID,@Age,@Temp,@Weight,@Height,@Bloodpressure,@Diagnosis,@Treatment,@Facilitatedby)", connPatient);
         cmdTxt.Parameters.Add("@EncounterDateTime", SqlDbType.DateTime).Value = DateTime.Now.ToString("MM/dd/yyyy HH:MM");
         cmdTxt.Parameters.Add("@PatientID", SqlDbType.Int).Value = PatientID;
         cmdTxt.Parameters.Add("@Age", SqlDbType.Int).Value = PatientAge;
         cmdTxt.Parameters.Add("@Temp", SqlDbType.Decimal).Value = Temperature;
         cmdTxt.Parameters.Add("@Weight", SqlDbType.Decimal).Value = PatientWeight;
         cmdTxt.Parameters.Add("@Height", SqlDbType.VarChar).Value = PatientHeight;
-        cmdTxt.Parameters.Add("@BP1", SqlDbType.Int).Value = BloodPressure1;
-        cmdTxt.Parameters.Add("@BP2", SqlDbType.Int).Value = BloodPressure2;
+        cmdTxt.Parameters.Add("@Bloodpressure", SqlDbType.VarChar).Value = BloodPressure;
+        
         cmdTxt.Parameters.Add("@Diagnosis", SqlDbType.VarChar).Value = Diagnosis;
         cmdTxt.Parameters.Add("@Treatment", SqlDbType.VarChar).Value = Treatment;
         cmdTxt.Parameters.Add("@Facilitatedby", SqlDbType.VarChar).Value = userAccount;
@@ -1291,21 +1291,19 @@ public class DataAccess
         ptEncounterData.Columns.Add("Temp");
         ptEncounterData.Columns.Add("Weight");
         ptEncounterData.Columns.Add("Height");
-        ptEncounterData.Columns.Add("BP1");
-        ptEncounterData.Columns.Add("BP2");
+        ptEncounterData.Columns.Add("Bloodpressure");
         ptEncounterData.Columns.Add("Diagnosis");
         ptEncounterData.Columns.Add("Treatment");
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("SELECT Age,Temp,Weight,Height,BP1,BP2,Diagnosis,Treatment FROM Encounters WHERE EncounterID = @encId", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("SELECT Age,Temp,Weight,Height,Bloodpressure,Diagnosis,Treatment FROM Encounters WHERE EncounterID = @encId", connPatient);
         cmdTxt.Parameters.Add("@encId", SqlDbType.Int).Value = Int32.Parse(EncounterId);
         dtrPatient = cmdTxt.ExecuteReader();
         dtrPatient.Read();
 
         ptEncounterData.Rows.Add(dtrPatient["Age"].ToString().Trim(), dtrPatient["Temp"].ToString().Trim(),
             dtrPatient["Weight"].ToString().Trim(), dtrPatient["Height"].ToString().Trim()
-            , dtrPatient["BP1"].ToString().Trim(), dtrPatient["BP2"].ToString().Trim()
-            , dtrPatient["Diagnosis"].ToString().Trim(), dtrPatient["Treatment"].ToString().Trim());
+            , dtrPatient["Bloodpressure"].ToString().Trim(), dtrPatient["Diagnosis"].ToString().Trim(), dtrPatient["Treatment"].ToString().Trim());
         return ptEncounterData;
     }
 
