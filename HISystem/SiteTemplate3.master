@@ -160,7 +160,7 @@
     <style type="text/css">
         #subheaderWrapper
         {
-            height: 38px;
+            height: 41px;
             
         }
     </style>
@@ -181,25 +181,29 @@
                 </span>
             </div>
             <div id="subheaderWrapper" style="background-color:#d3e7c5">
-            <div id="adminFunctions" style="float:right; height: 31px;">
+            <div id="adminFunctions" style="float:right; height: 39px;">
             <span>
                 <asp:Label ID="lbl_AdminPrivileges" runat="server" Font-Bold="True" 
-                    Font-Size="Small" Text="Admin:"></asp:Label>
+                    Font-Size="Small" Text="Admin:" Visible="False"></asp:Label>
                 
                 <asp:ImageButton ID="imgBtn_addUser" runat="server" 
                     ImageUrl="~/images/addUsers.png" onclick="imgBtn_addUser_Click" 
                     ToolTip="Add Users" Width="41px" Height="37px" style="margin-left: 16px" 
-                    CausesValidation="False" />
+                    CausesValidation="False" Visible="False" />
                 <asp:ImageButton ID="imgBtn_ManageUser" runat="server" 
                     ImageUrl="~/images/business_users_process.png" onclick="imgBtn_ManageUser_Click" 
                     ToolTip="Manage Users" Width="41px" Height="30px" 
-                    style="margin-left: 15px" CausesValidation="False" />
+                    style="margin-left: 15px" CausesValidation="False" Visible="False" />
                 <br />
                 </span>
                 </div>
-            <div id="welcomeUser" style="float:left; height: 31px; width: 321px;">
+            <div id="welcomeUser" style="float:left; height: 47px; width: 540px;">
+                <asp:Image ID="img_UserRole" runat="server" ImageUrl="~/images/guest.png" 
+                         Width="37px" Height="39px" />
                 <asp:ContentPlaceHolder ID="LoginContent" runat="server">
                     
+                     
+
                      <asp:LoginView ID="LoginView1" runat="server">
                          <LoggedInTemplate>
                              Welcome back,

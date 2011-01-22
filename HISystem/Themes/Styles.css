@@ -41,13 +41,13 @@ body {
 
 #navigation {
 	width: 200px;
-	top: 9.6em;
+	top: 10.4em;
 	left: 1em;
 	width: 204px;	
 	position:absolute;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size:90%;
-    height: 243px;
+    height: 235px;
 }
 #navigation ul {
 	list-style: none;
