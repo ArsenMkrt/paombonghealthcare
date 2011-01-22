@@ -23,29 +23,31 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
             Page.Header.Controls.Add(meta);
         }
         //    //do not redirect if page is login
-        else if (!Request.Url.AbsolutePath.EndsWith("Login.aspx", StringComparison.InvariantCultureIgnoreCase) && (!Request.Url.AbsolutePath.EndsWith("Default.aspx", StringComparison.InvariantCultureIgnoreCase)))
+        else if (Page.Request.IsAuthenticated || HttpContext.Current.User.Identity.IsAuthenticated)
         {
            
-            string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
-            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 600)) + "; Url="+ url);
-
-          
+                string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
+                HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 10)) + "; Url=" + url);
+      
         }
-        else if ( ((Request.Url.AbsolutePath.EndsWith("Default.aspx", StringComparison.InvariantCultureIgnoreCase)) && Page.Request.IsAuthenticated))
-        {
-           
-            string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
-            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 600)) + "; Url=" + url);
-
-
-           
-        }
+      
 
 
     }
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
+        {
+            // session has timed out, log out the user
+            if (Page.Request.IsAuthenticated || HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                FormsAuthentication.SignOut();
+                Session.Abandon();
+                Session.Clear();
 
+            }
+
+        }
 
         if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Doctor") && Page.Request.IsAuthenticated)
         {
@@ -72,18 +74,7 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
         }
 
 
-        if (Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
-        {
-            // session has timed out, log out the user
-            if (Page.Request.IsAuthenticated)
-            {
-                FormsAuthentication.SignOut();
-                Session.Abandon();
-                Session.Clear();
-                
-            }
-
-        }
+        
  
        
     }

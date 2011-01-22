@@ -1,7 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate4.master" AutoEventWireup="true" CodeFile="SessionExpired.aspx.cs" Inherits="Public_SessionExpired" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate5.master" AutoEventWireup="true" CodeFile="SessionExpired.aspx.cs" Inherits="Public_SessionExpired" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="LoginContent" Runat="Server">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 

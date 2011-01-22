@@ -13,8 +13,35 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
     {
         // if(Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
 
+        if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Doctor") && Page.Request.IsAuthenticated)
+        {
+            //make hyperlink invisible
+            lbl_AdminPrivileges.Visible = true;
+            imgBtn_addUser.Visible = true;
+            imgBtn_ManageUser.Visible = true;
 
 
+            img_UserRole.ImageUrl = "~/images/doctor.png";
+            img_UserRole.ToolTip = "You are logged in as Doctor!";
+            return;
+        }
+        else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Midwife") && Page.Request.IsAuthenticated)
+        {
+            img_UserRole.ImageUrl = "~/images/midwife.png";
+            img_UserRole.ToolTip = "You are logged in as Midwife!";
+
+        }
+        else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Nurse") && Page.Request.IsAuthenticated)
+        {
+            img_UserRole.ImageUrl = "~/images/nurse.png";
+            img_UserRole.ToolTip = "You are logged in as Nurse!";
+        }
+
+
+
+
+
+        //redirect to login in 5 seconds
         if (Request.Url.AbsolutePath.EndsWith("SessionExpired.aspx", StringComparison.InvariantCultureIgnoreCase))
         {
             HtmlMeta meta = new HtmlMeta();
@@ -23,20 +50,12 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
             Page.Header.Controls.Add(meta);
         }
         //    //do not redirect if page is login
-        else if (!Request.Url.AbsolutePath.EndsWith("Login.aspx", StringComparison.InvariantCultureIgnoreCase) && (!Request.Url.AbsolutePath.EndsWith("Default.aspx", StringComparison.InvariantCultureIgnoreCase)))
+        else if (Request.IsAuthenticated || HttpContext.Current.User.Identity.IsAuthenticated)
         {
+
             string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
-            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 600)) + "; Url=" + url);
+            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 10)) + "; Url=" + url);
 
-           
-        }
-        else if (((Request.Url.AbsolutePath.EndsWith("Default.aspx", StringComparison.InvariantCultureIgnoreCase)) && Page.Request.IsAuthenticated))
-        {
-            string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
-            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 600)) + "; Url=" + url);
-
-
-          
         }
 
 
@@ -45,31 +64,24 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
 
       }
 
+    
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Doctor"))
-        {
-            //make hyperlink invisible
-            
-            lbl_AdminPrivileges.Visible = false;
-            imgBtn_addUser.Visible = false;
-            imgBtn_ManageUser.Visible = false;
-
-            return;
-        }
-
-
-       
-
-        if (Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null &&  Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
+        if (Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
         {
             // session has timed out, log out the user
-            if (Page.Request.IsAuthenticated)
+            if (Page.Request.IsAuthenticated || HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 FormsAuthentication.SignOut();
+                Session.Abandon();
+                Session.Clear();
+                //img_UserRole.ImageUrl = "~/images/guest.png";
+                //img_UserRole.ToolTip = "You are not logged in!";
             }
-            
+
         }
+
+      
     }
     protected void imgBtn_addUser_Click(object sender, ImageClickEventArgs e)
     {
