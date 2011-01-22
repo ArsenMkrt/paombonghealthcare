@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Windows.Forms;
+using System.Web.Security;
 
 public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
 {
@@ -13,7 +14,14 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Midwife"))
+        {
+            //disable button if role is midwife since midwife cant consult
+            button_ProceedConsultation.Enabled = false;
+            button_ProceedConsultation.ToolTip = "Consultation is disabled for midwife account" + "/n Please use doctor or nurse account for consultation.";
+        }
+        else
+            button_ProceedConsultation.Enabled = true;
     }
     protected void Page_Init(object Sender, EventArgs e)
     {

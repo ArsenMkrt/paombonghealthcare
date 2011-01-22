@@ -339,10 +339,7 @@
             <td class="style64" colspan="5">
                 <asp:TextBox ID="txtHt_feet" runat="server" Width="40px" MaxLength="1" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
                         onpaste="return false;"></asp:TextBox>
-                ft*<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                    ControlToValidate="txtHt_feet" ErrorMessage="(enter feet)" Font-Italic="True" 
-                    Font-Size="Small" Display="Dynamic"></asp:RequiredFieldValidator>
-&nbsp;<asp:TextBox ID="txtHt_inch" runat="server" Width="37px" MaxLength="2" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                ft&nbsp;<asp:TextBox ID="txtHt_inch" runat="server" Width="37px" MaxLength="2" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
                         onpaste="return false;"></asp:TextBox>
                 &nbsp;in <span class="style18">
                 <asp:RangeValidator ID="RangeValidator2" runat="server" 
