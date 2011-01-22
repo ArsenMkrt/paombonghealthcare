@@ -11,9 +11,8 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
 {
     protected void Page_PreRender(object sender, EventArgs e)
     {
-       // if(Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
-
-
+      
+        
        
         //redirect to login in 5 seconds
         if (Request.Url.AbsolutePath.EndsWith("SessionExpired.aspx", StringComparison.InvariantCultureIgnoreCase))
@@ -48,17 +47,29 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
     {
 
 
-        if (!Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Doctor"))
+        if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Doctor") && Page.Request.IsAuthenticated)
         {
             //make hyperlink invisible
-            lbl_AdminPrivileges.Visible = false;
-            imgBtn_addUser.Visible = false;
-            imgBtn_ManageUser.Visible = false;
-            
+            lbl_AdminPrivileges.Visible = true;
+            imgBtn_addUser.Visible = true;
+            imgBtn_ManageUser.Visible = true;
+
+
+            img_UserRole.ImageUrl = "~/images/doctor.png";
+            img_UserRole.ToolTip = "You are logged in as Doctor!";
             return;
         }
-
-
+        else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Midwife")&& Page.Request.IsAuthenticated)
+        {
+            img_UserRole.ImageUrl = "~/images/midwife.png";
+            img_UserRole.ToolTip = "You are logged in as Midwife!";
+        
+        }
+        else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Nurse") && Page.Request.IsAuthenticated)
+        {
+            img_UserRole.ImageUrl = "~/images/nurse.png";
+            img_UserRole.ToolTip = "You are logged in as Nurse!";
+        }
 
 
         if (Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
