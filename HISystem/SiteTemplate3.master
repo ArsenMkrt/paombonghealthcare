@@ -237,7 +237,8 @@
                         <asp:HyperLink runat="server" ID="lnkHome" NavigateUrl="~/Default.aspx" 
                             Height="16px" Width="178px">Home</asp:HyperLink>
                     </li>  
-                    <asp:Repeater runat="server" ID="menu" DataSourceID="SiteMapDataSource1">
+                   <%-- <asp:Repeater runat="server" ID="menu" DataSourceID="SiteMapDataSource1">--%>
+                    <asp:Repeater runat="server" ID="menu">
                         <ItemTemplate>
                             <li>
                                 <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
@@ -260,7 +261,10 @@
                     </asp:Repeater>
                 </ul>
 
-                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" />
+                <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" ShowStartingNode="false" SiteMapProvider="NurseSitemap"/>
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" SiteMapProvider="DoctorSitemap" />
+
+                 <asp:SiteMapDataSource ID="SiteMapDataSource3" runat="server" ShowStartingNode="false" SiteMapProvider="MidwifeSitemap"/>
             </div>
            
         </form>

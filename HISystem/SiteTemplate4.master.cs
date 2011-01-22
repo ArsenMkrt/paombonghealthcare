@@ -23,18 +23,21 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
 
             img_UserRole.ImageUrl = "~/images/doctor.png";
             img_UserRole.ToolTip = "You are logged in as Doctor!";
+            menu.DataSourceID = "SiteMapDataSource1";
             return;
         }
         else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Midwife") && Page.Request.IsAuthenticated)
         {
             img_UserRole.ImageUrl = "~/images/midwife.png";
             img_UserRole.ToolTip = "You are logged in as Midwife!";
+            menu.DataSourceID = "SiteMapDataSource1";
 
         }
         else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Nurse") && Page.Request.IsAuthenticated)
         {
             img_UserRole.ImageUrl = "~/images/nurse.png";
             img_UserRole.ToolTip = "You are logged in as Nurse!";
+            menu.DataSourceID = "SiteMapDataSource2";
         }
 
 

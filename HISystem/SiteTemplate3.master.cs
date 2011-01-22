@@ -49,6 +49,8 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
 
         }
 
+        
+
         if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Doctor") && Page.Request.IsAuthenticated)
         {
             //make hyperlink invisible
@@ -59,19 +61,24 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
 
             img_UserRole.ImageUrl = "~/images/doctor.png";
             img_UserRole.ToolTip = "You are logged in as Doctor!";
+            menu.DataSourceID = "SiteMapDataSource1";
             return;
         }
         else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Midwife")&& Page.Request.IsAuthenticated)
         {
             img_UserRole.ImageUrl = "~/images/midwife.png";
             img_UserRole.ToolTip = "You are logged in as Midwife!";
+            menu.DataSourceID = "SiteMapDataSource3";
         
         }
         else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Nurse") && Page.Request.IsAuthenticated)
         {
             img_UserRole.ImageUrl = "~/images/nurse.png";
             img_UserRole.ToolTip = "You are logged in as Nurse!";
+            menu.DataSourceID = "SiteMapDataSource2";
         }
+        else
+            menu.DataSourceID = "SiteMapDataSource1";
 
 
         
