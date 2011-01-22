@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate4.master" AutoEventWireup="true" CodeFile="MedicalHistory.aspx.cs" Inherits="Medical_Record_MedicalHistory" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="LoginContent" Runat="Server">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     
     <div id="boxes">
@@ -148,6 +147,7 @@
         AutoGenerateColumns="False" AutoGenerateSelectButton="true" DataSourceID="SqlDataSource1" 
         AllowPaging="True" 
         onselectedindexchanged="GridView1_SelectedIndexChanged1">
+        <AlternatingRowStyle BackColor="#A2CC85" />
         <Columns>
         <asp:BoundField DataField="EncounterID" HeaderText = "id"
                 SortExpression="EncounterID" />
