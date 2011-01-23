@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+
+  
+  <!--sitemap for midwife-->
+  <siteMapNode url="~/Default.aspx" title="Home">
+
+    <siteMapNode title="Patient Demographics">
+      <siteMapNode url="~/Patient Demographics/AddPatient.aspx" title="Add New Patient" />
+      <siteMapNode url="~/Patient Demographics/PatientInquiry.aspx" title="Patient Inquiry" />
+      <siteMapNode url="~/Patient Demographics/ViewEditPatient.aspx" title="Manage Patient" />
+
+    </siteMapNode>
+
+    
+    <siteMapNode title="Inventory">
+      <siteMapNode url="~/Medicine Inventory/AddMedicine.aspx" title="Add to Inventory" />
+      <siteMapNode url="~/Medicine Inventory/EditMedicine.aspx" title="Edit Inventory Items" />
+      <siteMapNode url="~/Medicine Inventory/DeleteMedicine.aspx" title="Delete Inventory Items" />
+      <siteMapNode url="~/Medicine Inventory/Inventory.aspx" title="View Inventory" />
+    </siteMapNode>
+   
+
+
+  </siteMapNode>
+
+
+</siteMap>
