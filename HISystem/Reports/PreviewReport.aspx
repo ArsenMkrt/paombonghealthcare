@@ -91,7 +91,7 @@
     
 <rsweb:ReportViewer ID="ReportPaombong" runat="server" Font-Names="Verdana" 
     Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
-    WaitMessageFont-Names="Verdana" ShowPrintButton="true" WaitMessageFont-Size="14pt" Width="738px" 
+    WaitMessageFont-Names="Verdana"  ShowPrintButton="true" WaitMessageFont-Size="14pt" Width="738px" 
         SizeToReportContent="True">
         <ServerReport ReportServerUrl="http://localhost:2705/HISystem/Report.rdlc" 
             ReportPath="Report.rdlc" />
