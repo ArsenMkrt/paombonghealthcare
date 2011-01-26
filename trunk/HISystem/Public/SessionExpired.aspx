@@ -4,8 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 
-<h2>
-        Session has expired</h2>
+<h2 style="background-color: #d3e7c5">Session has expired</h2>
     <p>
         Your Session has timed out.
        For increased security on this application, login credentials expire after 5 

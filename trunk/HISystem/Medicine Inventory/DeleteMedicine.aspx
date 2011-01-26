@@ -2,6 +2,9 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+    <h2 style="background-color: #d3e7c5">
+        Delete Medicine
+    </h2>
     <p>
         <br />
     </p>
@@ -20,7 +23,7 @@
     <p>
         <asp:Label ID="Label3" runat="server" 
             style="top: 260px; left: 361px; position: absolute; height: 27px; width: 112px" 
-            Text="Medicine ID"></asp:Label>
+            Text="Medicine ID" AssociatedControlID="txtMedicineId"></asp:Label>
         <asp:Button ID="btn_delMedicine" runat="server" onclick="btn_delMedicine_Click" 
             style="top: 301px; position: absolute; height: 26px; width: 114px; left: 425px" 
             Text="Delete Medicine" />

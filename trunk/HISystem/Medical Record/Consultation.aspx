@@ -10,7 +10,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     
     
-
+    <h2 style="background-color: #d3e7c5">
+        Consultation
+    </h2>
     
     <br />
         <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">List Of Patients</a>
@@ -109,7 +111,7 @@
         <tr>
             <td class="style65" colspan="2">
                 <asp:Label ID="Label1" runat="server" Font-Size="X-Large" 
-                    Text="Consultation Page" Font-Bold="True" ForeColor="#006600"></asp:Label>
+                    Text="Patient Consultation" Font-Bold="True" ForeColor="#006600"></asp:Label>
             </td>
             <td class="style13" colspan="5">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -292,7 +294,7 @@
         <tr>
             <td class="style57" colspan="9">
                 <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="Large" 
-                    ForeColor="#006600" Text="Consultation Specifics"></asp:Label>
+                    ForeColor="#006600" Text="Vital Statistics"></asp:Label>
             </td>
             
             

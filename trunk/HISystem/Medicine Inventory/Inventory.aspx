@@ -5,6 +5,12 @@
    
    
        <div id="originalContent"> 
+       <h2 style="background-color: #d3e7c5">
+        Inventory
+    </h2>
+
+
+
     <table style="width: 43%;" border="1" align="center">
         <tr>
             <td colspan="3">

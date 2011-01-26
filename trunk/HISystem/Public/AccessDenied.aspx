@@ -2,8 +2,8 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <h2>
-        Unauthorized Access</h2>
+   <h2 style="background-color: #d3e7c5">
+       Unauthorized Access</h2>
     <p>
         You have attempted to access a page that you are not authorized to view.
        <br /> Please login. &nbsp;
