@@ -3,6 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="LoginContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+    <h2 style="background-color: #d3e7c5">
+        Patient Inquiry
+    </h2>
+    
     <br />
 <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">List Of Patients</a>
         <br />

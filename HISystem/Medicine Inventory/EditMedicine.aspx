@@ -2,32 +2,30 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+    <h2 style="background-color: #d3e7c5">
+        Edit Medicine
+    </h2>
     <p>
         <br />
     </p>
-    <p>
-    </p>
-    <p>
-        &nbsp;</p>
+    
     <p>
         <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">
         Show List Of Medicines</a>
         <br />
     </p>
    
-        <table style="width: 368px">
+        <table style="width: 393px">
             <tr>
                 <td style="width: 117px">
         <asp:Label ID="Label3" runat="server" 
-            Text="Medicine ID "></asp:Label>
+            Text="Medicine ID " AssociatedControlID="txtMedicineId"></asp:Label>
                 </td>
                 <td colspan="2">
         <asp:TextBox ID="txtMedicineId" runat="server" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
                         onpaste="return false;" Width="150px" ReadOnly="True"
             ></asp:TextBox>
                 </td>
-                <td colspan="3" rowspan="7" width="60">
-                    </td>
                 
             </tr>
             <tr>
@@ -39,7 +37,7 @@
             <tr>
                 <td style="width: 117px">
         <asp:Label ID="Label4" runat="server"
-            Text="Medicine Name"></asp:Label>
+            Text="Medicine Name" AssociatedControlID="txtMedicineName"></asp:Label>
                 </td>
                 <td colspan="2">
         <asp:TextBox ID="txtMedicineName" runat="server" Width="150px" ReadOnly="True"></asp:TextBox>
@@ -49,7 +47,7 @@
             <tr>
                 <td style="width: 117px">
         <asp:Label ID="Label5" runat="server"
-            Text="Category"></asp:Label>
+            Text="Category" AssociatedControlID="ddlCategory"></asp:Label>
                 </td>
                 <td colspan="2">
         <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="Category" 
@@ -61,7 +59,7 @@
             <tr>
                 <td style="width: 150px">
         <asp:Label ID="Label6" runat="server" 
-            Text="Quantity"></asp:Label>
+            Text="Quantity" AssociatedControlID="txtQuantity"></asp:Label>
                 </td>
                 <td colspan="2">
         <asp:TextBox ID="txtQuantity" runat="server" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
@@ -77,6 +75,10 @@
             </tr>
             <tr>
                 <td style="width: 117px">
+        <asp:SqlDataSource ID="Category" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+            SelectCommand="SELECT DISTINCT [CategoryName] FROM [Category] ORDER BY [CategoryName]">
+        </asp:SqlDataSource>
                     </td>
                 <td>
         <asp:Button ID="btnSave" runat="server" 
@@ -105,11 +107,7 @@
         <%--number validations--%>
     </p>
     <p>
-        <asp:SqlDataSource ID="Category" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
-            SelectCommand="SELECT DISTINCT [CategoryName] FROM [Category] ORDER BY [CategoryName]">
-        </asp:SqlDataSource>
-    </p>
+        &nbsp;</p>
     
     <div id="boxes">
            <!-- div for Search Medicine-->

@@ -4,8 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 
-    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" 
-            ForeColor="#a2cc85" Text="Home"></asp:Label>
+    <h2 style="background-color: #d3e7c5">
+        Home
+    </h2>
     
     
 

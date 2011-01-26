@@ -3,8 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="LoginContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <h2>
-&nbsp;Application Error</h2>
+    <h2 style="background-color: #d3e7c5">
+       
+Application Error</h2>
     <p>
     We're sorry but an unhandled error occured while processing your request.
 
