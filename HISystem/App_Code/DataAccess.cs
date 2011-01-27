@@ -35,6 +35,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 #region Logs
 
@@ -75,10 +76,8 @@ using System.Data.SqlClient;
 
 public class DataAccess
 {
-    private string dataconnection =
-   // @"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\paombongdb.mdf;Integrated Security=True;User Instance=True;Initial Catalog=paombongdb";
-    @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Gerald\Desktop\cap\App_Data\paombongdb.mdf;Integrated Security=True;User Instance=True";
-
+    private string dataconnection = ConfigurationManager.ConnectionStrings["CategoryConnectionString"].ConnectionString;
+    
     private MonthConverter mc;
 
     public string Dataconnection
