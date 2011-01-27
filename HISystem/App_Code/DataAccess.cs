@@ -1346,7 +1346,7 @@ public class DataAccess
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("SaveDisease", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("SaveDiseases", connPatient);
         cmdTxt.CommandType = CommandType.StoredProcedure;
         cmdTxt.Parameters.Add("@encDateTime", SqlDbType.DateTime).Value = encTimeSaved;
         cmdTxt.Parameters.Add("@DiseaseName", SqlDbType.VarChar).Value = DiseaseName;
@@ -1356,5 +1356,25 @@ public class DataAccess
             return true;
         else
             return false;
+    }
+
+    public List<string> GetPatientsDisease(string PatientID, string encID)
+    {
+        List<string> patientDisease = new List<string>();
+
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("SELECT d.DiseaseName FROM PatientsDiseases AS pd INNER JOIN "+
+                         "Diseases AS d ON pd.DiseaseID = d.DiseaseID WHERE (pd.PatientID = @PatientID) "+
+                         "AND (pd.EncounterID = @encID)", connPatient);
+        cmdTxt.Parameters.Add("@encID", SqlDbType.Int).Value = Int32.Parse(encID);
+        cmdTxt.Parameters.Add("@PatientID", SqlDbType.Int).Value = Int32.Parse(PatientID);
+        SqlDataReader dr = cmdTxt.ExecuteReader();
+        while (dr.Read())
+        {
+            patientDisease.Add(dr.GetString(0));
+        }
+        dr.Close();
+        return patientDisease;
     }
 }
