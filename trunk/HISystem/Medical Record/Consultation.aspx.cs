@@ -28,6 +28,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
+            btnReset.Enabled = true;
+            checkbox_DiseaseList.Enabled = true;
             if (Request.QueryString.Count > 0)
             {
                 txtbx_PatientID.Text = Request.QueryString["id"];
@@ -35,6 +37,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 {
                     encId = Request.QueryString["enc"];
                     LoadDataFromEncounter();
+                    btnReset.Enabled = false;
+                    checkbox_DiseaseList.Enabled = false;
                 }
                 if (txtbx_PatientID.Text.Trim() != null)
                 {
@@ -101,15 +105,15 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
             //To save data on db
             ddlBarangay.Enabled = true;
 
-            if (txtHt_inch.Text.Length == 1)
-            {
-                height = txtHt_feet.Text + "0" + txtHt_inch.Text;
-            }
-            else if (txtHt_inch.Text.Length == 0 || txtHt_inch.Text.Trim() == null)
-            {
-                height = txtHt_feet.Text + "00";
-            }
-            else
+            //if (txtHt_inch.Text.Length == 1)
+            //{
+            //    height = txtHt_feet.Text + "0" + txtHt_inch.Text;
+            //}
+            //else if (txtHt_inch.Text.Length == 0 || txtHt_inch.Text.Trim() == null)
+            //{
+            //    height = txtHt_feet.Text + "00";
+            //}
+            //else
                 height = txtHt_feet.Text + "-" + txtHt_inch.Text+"";
             /**
              * Added by Lakhi Save 1/5/2011
@@ -137,8 +141,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                         txtRecomendation.Text,
                         (string)Page.User.Identity.Name
                     );
-
-
                 foreach (ListItem li in checkbox_DiseaseList.Items)
                 {
                     if (li.Selected)
@@ -175,9 +177,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 txtBpressure0.Text = string.Empty;
                 txtDiagnosis.Text = string.Empty;
                 txtRecomendation.Text = string.Empty;
-
-
-
 
                 //clear patient loaded info upon save
                 txtlname.Text = string.Empty;
@@ -251,7 +250,20 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     }
     protected void btnReset_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/Medical%20Record/Consultation.aspx");
+        btnReset.Enabled = true;
+
+        //Consultation Page
+        if (Request.QueryString["id"] == null && Request.QueryString["enc"] == null)
+            Response.Redirect("~/Medical%20Record/Consultation.aspx");
+        //Comes from Patient Inquiry or Manage Patient
+        else if (Request.QueryString["enc"] == null)
+            Response.Redirect("~/Medical%20Record/Consultation.aspx?id="+Request.QueryString["id"]);
+        //Comes from Medical History
+        else if (Request.QueryString["id"] != null && Request.QueryString["enc"] != null)
+        {
+            Response.Redirect("~/Medical%20Record/Consultation.aspx?&id=" + Request.QueryString["id"] + "&enc=" + Request.QueryString["enc"]);
+            btnReset.Enabled = false;
+        }
     }
     protected void txtSearchPatient_TextChanged(object sender, EventArgs e)
     {
@@ -266,6 +278,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     protected void LoadDataFromEncounter()
     {
         data = new DataAccess();
+        List<string> patientDisease = new List<string>();
+
         ptData = data.GetEncounterData(encId);
         foreach (DataRow dr in ptData.Rows)
         {
@@ -296,6 +310,16 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
             txtRecomendation.Text = dr["Treatment"].ToString().Trim();
             txtRecomendation.ReadOnly = true;
         }
+        patientDisease =  data.GetPatientsDisease(txtbx_PatientID.Text, encId);
+        checkbox_DiseaseList.DataBind();
+        foreach (string pd in patientDisease)
+        {
+            foreach (ListItem li in checkbox_DiseaseList.Items)
+            {
+                if (pd.ToString() == li.Text)
+                    li.Selected = true;
+            }
+        }
     }
     
     protected void GridSearchName_SelectedIndexChanged(object sender, EventArgs e)
@@ -312,7 +336,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         {
             foreach (DataRow dr in patientData.Rows)
             {
-                //txtlname.Text = dr["PatientLName"].ToString().Trim();
                 txtlname.Text = dr["PatientLName"].ToString().Trim();
 
                 txtfname.Text = dr["PatientFName"].ToString().Trim();
