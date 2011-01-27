@@ -94,7 +94,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        string timeSave = "";
+        DateTime timeSave;
+
         try
         {
             //To save data on db
@@ -122,7 +123,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
 
             else if (txtDiagnosis.Text.Length > 0 || txtbx_PatientID.Text.Trim() != null || txtDiagnosis.Text.Trim() != "")
             {
-                timeSave = DateTime.Now.ToString("MM/dd/yyyy HH:MM");
+                timeSave = DateTime.Now;
                 data.SavePatientDailyMedicalRecord
                     (
                         Convert.ToInt32(txtbx_PatientID.Text),
@@ -141,15 +142,10 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 foreach (ListItem li in checkbox_DiseaseList.Items)
                 {
                     if (li.Selected)
-                    { 
-                        //do insert here
-
-
+                    {
+                        data.SavePatientDisease(txtbx_PatientID.Text, li.Text, timeSave);
                     }
                 }
-
-
-
                 txtAge.Text = string.Empty;
                 Response.Write("<script> window.alert('Saved Consultation Successfully.')</script>");
             }
@@ -162,8 +158,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         catch (Exception ex)
         {
             err = ex.ToString();
-            showErrorSave(sender, e);
-            
+            showErrorSave(err);
         }
         finally
         {
@@ -206,10 +201,10 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     {
 
     }
-    private void showErrorSave(object sender, EventArgs e)
+    private void showErrorSave(string err)
     {
       
-        Response.Write("<script> window.alert('Did not save successfully please check all fields!')</script>");
+        Response.Write("<script> window.alert('Did not save successfully please check all fields: "+err+"')</script>");
     }
     protected void ButtonProceed_Click(object sender, EventArgs e)
     {

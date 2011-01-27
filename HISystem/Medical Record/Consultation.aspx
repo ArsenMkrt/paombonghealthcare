@@ -111,7 +111,7 @@
         <tr>
             <td class="style65" colspan="2">
                 <asp:Label ID="Label1" runat="server" Font-Size="X-Large" 
-                    Text="Patient Consultation" Font-Bold="True" ForeColor="#006600"></asp:Label>
+                    Text="Consultation Page" Font-Bold="True" ForeColor="#006600"></asp:Label>
             </td>
             <td class="style13" colspan="5">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -393,14 +393,14 @@
             <td class="style52">
                 Illness/Disease</td>
             <td class="style64" colspan="5">
-                <asp:Panel ID="Panel1" runat="server">
+                <asp:Panel ID="PanelDisease" ScrollBars="Auto" runat="server" Height="138px">
                     <asp:CheckBoxList ID="checkbox_DiseaseList" runat="server" 
                         DataSourceID="SqlData_diseases" DataTextField="DiseaseName" 
                         DataValueField="DiseaseName" RepeatColumns="3">
                     </asp:CheckBoxList>
                     <asp:SqlDataSource ID="SqlData_diseases" runat="server" 
-    ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString2 %>" 
-    SelectCommand="select DiseaseName from diseases"></asp:SqlDataSource>
+                        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString2 %>" 
+                        SelectCommand="select DiseaseName from diseases"></asp:SqlDataSource>
                 </asp:Panel>
             </td>
             <td class="style46" align="right">
