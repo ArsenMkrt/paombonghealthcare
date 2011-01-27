@@ -1192,7 +1192,7 @@ public class DataAccess
         connPatient.Open();
         SqlCommand cmdTxt = new SqlCommand("INSERT INTO Encounters (EncounterDateTime,PatientID,Age,Temp,Weight,Height,Bloodpressure,Diagnosis,Treatment,Facilitatedby)"
             + "VALUES (@EncounterDateTime,@PatientID,@Age,@Temp,@Weight,@Height,@Bloodpressure,@Diagnosis,@Treatment,@Facilitatedby)", connPatient);
-        cmdTxt.Parameters.Add("@EncounterDateTime", SqlDbType.DateTime).Value = DateTime.Now.ToString("MM/dd/yyyy HH:MM");
+        cmdTxt.Parameters.Add("@EncounterDateTime", SqlDbType.DateTime).Value = DateTime.Now;
         cmdTxt.Parameters.Add("@PatientID", SqlDbType.Int).Value = PatientID;
         cmdTxt.Parameters.Add("@Age", SqlDbType.Int).Value = PatientAge;
         cmdTxt.Parameters.Add("@Temp", SqlDbType.Decimal).Value = Temperature;
@@ -1339,5 +1339,22 @@ public class DataAccess
             connPatient.Close();
         }
         return patientData;
+    }
+
+
+    public bool SavePatientDisease(string PatientID,string DiseaseName,DateTime encTimeSaved)
+    {
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("SaveDisease", connPatient);
+        cmdTxt.CommandType = CommandType.StoredProcedure;
+        cmdTxt.Parameters.Add("@encDateTime", SqlDbType.DateTime).Value = encTimeSaved;
+        cmdTxt.Parameters.Add("@DiseaseName", SqlDbType.VarChar).Value = DiseaseName;
+        cmdTxt.Parameters.Add("@PatientID", SqlDbType.VarChar).Value = PatientID;
+        int checker = cmdTxt.ExecuteNonQuery();
+        if (checker > 0)
+            return true;
+        else
+            return false;
     }
 }
