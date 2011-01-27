@@ -87,6 +87,7 @@
     <p>
         <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Print" 
             Width="59px" />
+        <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="Button" />
     </p>
     <p>
         &nbsp;</p>
@@ -94,11 +95,13 @@
     
 <rsweb:ReportViewer ID="ReportPaombong" runat="server" Font-Names="Verdana" 
     Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
-    WaitMessageFont-Names="Verdana"  ShowPrintButton="true" WaitMessageFont-Size="14pt" Width="738px" 
-        SizeToReportContent="True">
+    WaitMessageFont-Names="Verdana"  ShowPrintButton="true" 
+        WaitMessageFont-Size="14pt" Width="738px" 
+        SizeToReportContent="True" ExportContentDisposition="AlwaysAttachment" 
+        PageCountMode="Actual">
         <ServerReport ReportServerUrl="http://localhost:2705/HISystem/Report.rdlc" 
             ReportPath="Report.rdlc" />
-    <LocalReport ReportPath="Report.rdlc">
+    <LocalReport ReportPath="Report.rdlc" DisplayName="PaombongQuarterlyReport">
         <DataSources>
             <rsweb:ReportDataSource DataSourceId="_MaternalCare" Name="MaternalCare" />
             <rsweb:ReportDataSource DataSourceId="_FamilyPlanning" Name="FamilyPlanning" />
