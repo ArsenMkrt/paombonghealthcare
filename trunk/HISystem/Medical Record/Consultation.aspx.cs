@@ -31,6 +31,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         {
             btnReset.Enabled = true;
             checkbox_DiseaseList.Enabled = true;
+            checkbox_DiseaseList.DataBind();
             if (Request.QueryString.Count > 0)
             {
                 patientId = Int32.Parse(Request.QueryString["id"]);
@@ -41,7 +42,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                     btnReset.Enabled = false;
                     checkbox_DiseaseList.Enabled = false;
                 }
-                if (patientId != null)
+                if (Request.QueryString["id"] != null)
                 {
                     ButtonProceed_Click(sender, e);
                 }
@@ -93,112 +94,146 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
             }
         }
     }
-    
+
     protected void btnSave_Click(object sender, EventArgs e)
     {
         DateTime timeSave;
-
-        try
+        if (txtlname.Text != "")
         {
-            //To save data on db
-            ddlBarangay.Enabled = true;
-
-            //if (txtHt_inch.Text.Length == 1)
-            //{
-            //    height = txtHt_feet.Text + "0" + txtHt_inch.Text;
-            //}
-            //else if (txtHt_inch.Text.Length == 0 || txtHt_inch.Text.Trim() == null)
-            //{
-            //    height = txtHt_feet.Text + "00";
-            //}
-            //else
-                height = txtHt_feet.Text + "-" + txtHt_inch.Text+"";
-            /**
-             * Added by Lakhi Save 1/5/2011
-             * This Saves patient daily Medical record
-             */
-            data = new DataAccess();
-            if (patientId == null)
+            try
             {
-                Response.Write("<script> window.alert('Please select Patient.')</script>");
-            }
+                //To save data on db
+                ddlBarangay.Enabled = true;
 
-            else if (txtDiagnosis.Text.Length > 0 || patientId != null || txtDiagnosis.Text.Trim() != "")
-            {
-                timeSave = DateTime.Now;
-                data.SavePatientDailyMedicalRecord
-                    (
-                        Convert.ToInt32(patientId),
-                        Convert.ToInt32(txtAge.Text),
-                        Convert.ToDecimal(txtTemp.Text),
-                        Convert.ToDecimal(txtWt.Text),
-                        (height),
-                        (txtBpressure.Text +"/"+ txtBpressure0.Text),
-                        
-                        txtDiagnosis.Text,
-                        txtRecomendation.Text,
-                        (string)Page.User.Identity.Name
-                    );
-                foreach (ListItem li in checkbox_DiseaseList.Items)
+                if (txtHt_feet.Text == "" && txtHt_inch.Text == "")
                 {
-                    if (li.Selected)
+                    txtHt_feet.Text = "0";
+                    txtHt_inch.Text = "0";
+                }
+                else if (txtHt_feet.Text == "")
+                {
+                    txtHt_feet.Text = "0";
+                }
+                else if (txtHt_inch.Text == "")
+                {
+                    txtHt_inch.Text = "0";
+                }
+                
+                height = txtHt_feet.Text + "-" + txtHt_inch.Text + "";
+                /**
+                 * Added by Lakhi Save 1/5/2011
+                 * This Saves patient daily Medical record
+                 */
+                data = new DataAccess();
+
+                if (txtDiagnosis.Text.Length > 0 || Request.QueryString["id"] != null)
+                {
+                    timeSave = DateTime.Now;
+                    
+                    if (Request.QueryString["id"] != null)
                     {
-                        data.SavePatientDisease(patientId.ToString(), li.Text, timeSave);
+                        data.SavePatientDailyMedicalRecord
+                            (
+                                Convert.ToInt32(Request.QueryString["id"]),
+                                Convert.ToInt32(txtAge.Text),
+                                txtPulseRate.Text,
+                                Convert.ToDecimal(txtTemp.Text),
+                                Convert.ToDecimal(txtWt.Text),
+                                (height),
+                                (txtBpressure.Text + "/" + txtBpressure0.Text),
+
+                                txtDiagnosis.Text,
+                                txtRecomendation.Text,
+                                (string)Page.User.Identity.Name
+                            );
+                        foreach (ListItem li in checkbox_DiseaseList.Items)
+                        {
+                            if (li.Selected)
+                            {
+                                data.SavePatientDisease(Request.QueryString["id"].ToString(), li.Text, timeSave);
+                            }
+                        }
+                        txtAge.Text = string.Empty;
+                        Response.Write("<script> window.alert('Saved Consultation Successfully.')</script>");
+                    }
+                    else
+                    {
+                        data.SavePatientDailyMedicalRecord
+                            (
+                                Convert.ToInt32(Session["ptId"]),
+                                Convert.ToInt32(txtAge.Text),
+                                txtPulseRate.Text,
+                                Convert.ToDecimal(txtTemp.Text),
+                                Convert.ToDecimal(txtWt.Text),
+                                (height),
+                                (txtBpressure.Text + "/" + txtBpressure0.Text),
+
+                                txtDiagnosis.Text,
+                                txtRecomendation.Text,
+                                (string)Page.User.Identity.Name
+                            );
+                        foreach (ListItem li in checkbox_DiseaseList.Items)
+                        {
+                            if (li.Selected)
+                            {
+                                data.SavePatientDisease(Convert.ToString(Session["ptId"]), li.Text, timeSave);
+                            }
+                        }
+                        txtAge.Text = string.Empty;
+                        Response.Write("<script> window.alert('Saved Consultation Successfully.')</script>");
                     }
                 }
-                txtAge.Text = string.Empty;
-                Response.Write("<script> window.alert('Saved Consultation Successfully.')</script>");
+                else
+                {
+                    Response.Write("<script> window.alert('Please fillup required fields.')</script>");
+                }
             }
-            else
+
+            catch (Exception ex)
             {
-                Response.Write("<script> window.alert('Please fillup required fields.')</script>");
+                err = ex.ToString();
+                showErrorSave(err);
             }
-        }
-        
-        catch (Exception ex)
-        {
-            err = ex.ToString();
-            showErrorSave(err);
-        }
-        finally
-        {
-            if (err == null)
+            finally
             {
-                //reset upon save
-                
-                txtAge.Text = string.Empty;
-                txtTemp.Text = string.Empty;
-                txtWt.Text = string.Empty;
-                txtHt_feet.Text = string.Empty;
-                txtHt_inch.Text = string.Empty;
-                txtBpressure.Text = string.Empty;
-                txtBpressure0.Text = string.Empty;
-                txtDiagnosis.Text = string.Empty;
-                txtRecomendation.Text = string.Empty;
-                txtPulseRate.Text = string.Empty;
-                checkbox_DiseaseList.ClearSelection();
-                //clear patient loaded info upon save
-                txtlname.Text = string.Empty;
-                txtfname.Text = string.Empty;
-                txtmname.Text = string.Empty;
-                txtAddress.Text = string.Empty;
-                txtPhilhealthNum.Text = string.Empty;                
-                ddlBarangay.SelectedIndex = 1;
-                ddlDay.SelectedIndex = 1;
-                ddlMonth.SelectedIndex = 1;
-                ddlYear.SelectedIndex = 1;
-                txtAddress.Text = string.Empty;
+                if (err == null)
+                {
+                    //reset upon save
 
-                ddlBarangay.Enabled = false;
+                    txtAge.Text = string.Empty;
+                    txtTemp.Text = string.Empty;
+                    txtWt.Text = string.Empty;
+                    txtHt_feet.Text = string.Empty;
+                    txtHt_inch.Text = string.Empty;
+                    txtBpressure.Text = string.Empty;
+                    txtBpressure0.Text = string.Empty;
+                    txtDiagnosis.Text = string.Empty;
+                    txtRecomendation.Text = string.Empty;
+                    txtPulseRate.Text = string.Empty;
+                    checkbox_DiseaseList.ClearSelection();
+                    //clear patient loaded info upon save
+                    txtlname.Text = string.Empty;
+                    txtfname.Text = string.Empty;
+                    txtmname.Text = string.Empty;
+                    txtAddress.Text = string.Empty;
+                    txtPhilhealthNum.Text = string.Empty;
+                    ddlBarangay.SelectedIndex = 1;
+                    ddlDay.SelectedIndex = 1;
+                    ddlMonth.SelectedIndex = 1;
+                    ddlYear.SelectedIndex = 1;
+                    txtAddress.Text = string.Empty;
 
+                    ddlBarangay.Enabled = false;
+                }
             }
         }
-
+        else
+            Response.Write("<script> window.alert('Please select Patient first before saving.')</script>");
     }
 
     private void showErrorSave(string err)
     {
-        Response.Write("<script> window.alert('Did not save successfully please check all fields:')</script>");
+        Response.Write("<script> window.alert('Did not save successfully please check all fields:"+err.ToString()+"')</script>");
     }
     protected void ButtonProceed_Click(object sender, EventArgs e)
     {
@@ -215,14 +250,9 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
             {
                 //txtlname.Text = dr["PatientLName"].ToString().Trim();
                 txtlname.Text = dr["PatientLName"].ToString().Trim();
-               
                 txtfname.Text = dr["PatientFName"].ToString().Trim();
                 txtmname.Text = dr["PatientMName"].ToString().Trim();
-
-
                 txtPhilhealthNum.Text = dr["PatientFaxNumber"].ToString().Trim();
-
-              
                 string[] bDate = dr["PatientBirthdate"].ToString().Trim().Split('/');
                 ddlDay.Text = bDate[0].Trim();
                 ddlMonth.Text = bDate[1].Trim();
@@ -316,7 +346,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     protected void GridSearchName_SelectedIndexChanged(object sender, EventArgs e)
     {
         patientId = Int32.Parse(GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text);
-
+        Session["ptId"] = patientId;
+        Response.Write("<script> window.alert('"+ Session["ptId"].ToString() +"') </script>");
         data = new DataAccess();
 
 
@@ -328,7 +359,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
             foreach (DataRow dr in patientData.Rows)
             {
                 txtlname.Text = dr["PatientLName"].ToString().Trim();
-
                 txtfname.Text = dr["PatientFName"].ToString().Trim();
                 txtmname.Text = dr["PatientMName"].ToString().Trim();
 
