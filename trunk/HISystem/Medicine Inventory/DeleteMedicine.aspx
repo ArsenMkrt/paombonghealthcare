@@ -5,37 +5,47 @@
     <h2 style="background-color: #d3e7c5">
         Delete Medicine Page
     </h2>
-    <p>
+   
         <br />
-    </p>
-    <p>
+    
         <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">
         Show List Of Medicines</a>
-    </p>
-    <p>
+        <br />
+        <br />
+        <br />
+        <br />
+    <table align="center" style="height: 82px"> 
+    <tr>
+    <td>
+   
+        <asp:Label ID="Label3" runat="server" Text="Medicine ID" AssociatedControlID="txtMedicineId"></asp:Label>
+        </td>
+    <td>
         <asp:TextBox ID="txtMedicineId" runat="server" 
             
             onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;"
-            
-            style="top: 261px; left: 480px; position: absolute; height: 20px; width: 128px"></asp:TextBox>
-    </p>
-    <p>
-        <asp:Label ID="Label3" runat="server" 
-            style="top: 260px; left: 361px; position: absolute; height: 27px; width: 112px" 
-            Text="Medicine ID" AssociatedControlID="txtMedicineId"></asp:Label>
+                        onpaste="return false;" Width="136px"></asp:TextBox>
+        </td>
+    </tr>
+     <tr>
+    <td></td>
+    <td>
         <asp:Button ID="btn_delMedicine" runat="server" onclick="btn_delMedicine_Click" 
-            style="top: 301px; position: absolute; height: 26px; width: 114px; left: 425px" 
-            Text="Delete Medicine" />
-    </p>
+            Text="Delete Medicine" style="margin-top: 0px" />
+    
+   
+         </td>
+    </tr>
+    </table>
     <p>
         &nbsp;</p>
-    <p>
+   
+   
         <asp:SqlDataSource ID="Medicine" runat="server" 
             ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
             SelectCommand="SELECT DISTINCT [MedicineName] FROM [Medicine] ORDER BY [MedicineName]">
         </asp:SqlDataSource>
-    </p>
+    
     <div id="boxes">
            <!-- div for Search Medicine-->
             <div id="modalwindow" class="window">
