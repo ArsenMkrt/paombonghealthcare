@@ -47,6 +47,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                     ButtonProceed_Click(sender, e);
                 }
             }
+           
         }
         //to load current day as label
         lbl_dateToday.Text = DateTime.Now.ToShortDateString();
@@ -172,8 +173,10 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                                 txtRecomendation.Text,
                                 (string)Page.User.Identity.Name
                             );
+                        Response.Write("<script> window.alert('1: " + checkbox_DiseaseList.Items.Count.ToString() + ".')</script>");
                         foreach (ListItem li in checkbox_DiseaseList.Items)
                         {
+                            Response.Write("<script> window.alert('1: "+li.Text+".')</script>");
                             if (li.Selected)
                             {
                                 data.SavePatientDisease(Convert.ToString(Session["ptId"]), li.Text, timeSave);
