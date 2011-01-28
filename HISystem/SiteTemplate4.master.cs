@@ -44,22 +44,7 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
 
 
 
-        //redirect to login in 5 seconds
-        if (Request.Url.AbsolutePath.EndsWith("SessionExpired.aspx", StringComparison.InvariantCultureIgnoreCase))
-        {
-            HtmlMeta meta = new HtmlMeta();
-            meta.HttpEquiv = "Refresh";
-            meta.Content = "5; URL=./Login.aspx";
-            Page.Header.Controls.Add(meta);
-        }
-        //    //do not redirect if page is login
-        else if (Request.IsAuthenticated || HttpContext.Current.User.Identity.IsAuthenticated)
-        {
-
-            string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
-            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 120)) + "; Url=" + url);
-
-        }
+      
 
 
 
@@ -70,6 +55,33 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
     
     protected void Page_Load(object sender, EventArgs e)
     {
+        //redirect to login in 5 seconds
+        if (Request.Url.AbsolutePath.EndsWith("SessionExpired.aspx", StringComparison.InvariantCultureIgnoreCase))
+        {
+            HtmlMeta meta = new HtmlMeta();
+            meta.HttpEquiv = "Refresh";
+            meta.Content = "5; URL=./Login.aspx";
+            Page.Header.Controls.Add(meta);
+        }
+        //    start session timer if logged in
+        //else if (Request.IsAuthenticated || HttpContext.Current.User.Identity.IsAuthenticated)
+        else if (Page.Request.IsAuthenticated)
+        {
+
+            string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
+            HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 180)) + "; Url=" + url);
+
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         if (Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
         {
             // session has timed out, log out the user
@@ -83,6 +95,10 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
             }
 
         }
+
+
+
+
 
       
     }
