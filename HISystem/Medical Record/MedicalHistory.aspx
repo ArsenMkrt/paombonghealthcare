@@ -4,47 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     
     <div id="boxes">
-      <div id="modalwindow" class="window">
-            <br />
-             
-                 <table style="width: 75%;">
-                     <tr>
-                         <td>
-                             &nbsp;</td>
-                         <td style="width: 270px">
-                             Select Patient on table below.</td>
-                         <td>
-             
-        <asp:Label ID="Label3" runat="server" Text="Display Selected PatientID :" Font-Bold="True"></asp:Label>
-    <asp:TextBox ID="txtbx_PatientID" runat="server" ReadOnly="true" style="margin-left: 13px"></asp:TextBox>
-                         </td>
-                     </tr>
-                 </table>
-    <br />
-    <asp:GridView ID="grdvw_Users" runat="server" AutoGenerateColumns="False" 
-        DataKeyNames="PatientID" DataSourceID="PatientList" 
-            onselectedindexchanged="GridView1_SelectedIndexChanged" 
-            AutoGenerateSelectButton="True" onload="grdvw_Users_Load">
-        <Columns>
-            <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
-                InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
-            <asp:BoundField DataField="PtFullname" HeaderText="Name" 
-                SortExpression="PtFullname" />
-            <asp:BoundField DataField="PtGender" HeaderText="Gender" 
-                SortExpression="PtGender" />
-            <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
-                SortExpression="PtBdate" />
-        </Columns>
-    </asp:GridView>
- 
-            </div>
-
-
-
-
-
-
-                           <div id="modalwindow2" class="window2">
+     <div id="modalwindow2" class="window2">
                          
                             <br />
                              <br />
@@ -65,6 +25,8 @@
             <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
                 SortExpression="PtBdate" />
         </Columns>
+            <HeaderStyle BackColor="#009933" />
+            <RowStyle ForeColor="#003300" HorizontalAlign="Center" />
     </asp:GridView>
                                 
                 
@@ -98,7 +60,6 @@
 <table style="width: 365px">
 <tr>
 <td>
-        <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">List Of Patients</a>
     <asp:SqlDataSource ID="Medicine2" runat="server" 
         ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
         
@@ -110,7 +71,7 @@
 
 <td>
        
-         <a href="#modalwindow2" name="modal" style="color: #990033; font-weight: bold;">List Of Patients Search By Name</a>
+         <a href="#modalwindow2" name="modal" style="color: #990033; font-weight: bold;">List Of Patients</a>
         
         </td>
 
@@ -150,31 +111,18 @@
         DataKeyNames="EncounterID">
         <AlternatingRowStyle BackColor="#A2CC85" />
         <Columns>
-        <asp:BoundField DataField="EncounterID" HeaderText = "EncounterID"
+        <asp:BoundField DataField="EncounterID" HeaderText = "Consultation Reference No"
                 SortExpression="EncounterID" InsertVisible="False" ReadOnly="True" />
-            <asp:BoundField DataField="EncounterDateTime" HeaderText="EncounterDateTime" 
+            <asp:BoundField DataField="EncounterDateTime" HeaderText="Consultation Date and Time" 
                 SortExpression="EncounterDateTime" />
-            <asp:BoundField DataField="Age" HeaderText="Age" 
-                SortExpression="Age" />
-            <asp:BoundField DataField="Temp" HeaderText="Temp" 
-                SortExpression="Temp" />
-            <asp:BoundField DataField="Weight" HeaderText="Weight" 
-                SortExpression="Weight" />
-            <asp:BoundField DataField="Height" HeaderText="Height" 
-                SortExpression="Height" />
-            <asp:BoundField DataField="Bloodpressure" HeaderText="Bloodpressure" 
-                SortExpression="Bloodpressure" />
-            <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis" 
-                SortExpression="Diagnosis" />
-            <asp:BoundField DataField="Treatment" HeaderText="Treatment" 
-                SortExpression="Treatment" />
-            <asp:BoundField DataField="Facilitatedby" HeaderText="Facilitatedby" 
+            <asp:BoundField DataField="Facilitatedby" HeaderText="Facilitated By" 
                 SortExpression="Facilitatedby" />
         </Columns>
+        <RowStyle HorizontalAlign="Center" />
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
-        SelectCommand="SELECT DISTINCT  c.EncounterID,c.EncounterDateTime, c.Age, c.Temp, c.Weight, c.Height, c.Bloodpressure, c.Diagnosis, c.Treatment, c.Facilitatedby
+        SelectCommand="SELECT DISTINCT  c.EncounterID,c.EncounterDateTime, c.Facilitatedby
 FROM            Encounters AS c INNER JOIN
                          Patients AS a ON c.PatientID = a.PatientID CROSS JOIN
                          Barangays AS b INNER JOIN
