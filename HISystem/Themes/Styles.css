@@ -181,7 +181,7 @@ h1 {
      left:0;
     top:0;
      width:auto;
-     height:400px;
+     height:650px;
     display:none;
      z-index:9999;
      padding:20px;
@@ -190,7 +190,7 @@ h1 {
    #boxes #modalwindow3 {
      width:auto; 
      left:2px;
-     height:400px;
+     height:650px;
      padding:2px;
      background-color:#ffffff;
      height:200px;
