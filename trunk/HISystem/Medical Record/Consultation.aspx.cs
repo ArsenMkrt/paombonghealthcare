@@ -16,6 +16,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     private string height;
     private string err;
     private string encId;
+    private int patientId;
 
     protected void Page_Init(object Sender, EventArgs e)
     {
@@ -32,7 +33,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
             checkbox_DiseaseList.Enabled = true;
             if (Request.QueryString.Count > 0)
             {
-                txtbx_PatientID.Text = Request.QueryString["id"];
+                patientId = Int32.Parse(Request.QueryString["id"]);
                 if (Request.QueryString["enc"] != null)
                 {
                     encId = Request.QueryString["enc"];
@@ -40,7 +41,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                     btnReset.Enabled = false;
                     checkbox_DiseaseList.Enabled = false;
                 }
-                if (txtbx_PatientID.Text.Trim() != null)
+                if (patientId != null)
                 {
                     ButtonProceed_Click(sender, e);
                 }
@@ -51,11 +52,11 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        txtbx_PatientID.Text = grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text;
+        //patientId = Int32.Parse(grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text);
 
         data = new DataAccess();
 
-        patientData = data.GetValuesConsultation(txtbx_PatientID.Text);
+        patientData = data.GetValuesConsultation(patientId.ToString());
         Session["PatientData"] = patientData;
 
         if (patientData.Rows.Count > 0)
@@ -91,10 +92,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 
             }
         }
-
     }
-    
-    
     
     protected void btnSave_Click(object sender, EventArgs e)
     {
@@ -120,17 +118,17 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
              * This Saves patient daily Medical record
              */
             data = new DataAccess();
-            if (txtbx_PatientID.Text.Trim() == null)
+            if (patientId == null)
             {
                 Response.Write("<script> window.alert('Please select Patient.')</script>");
             }
 
-            else if (txtDiagnosis.Text.Length > 0 || txtbx_PatientID.Text.Trim() != null || txtDiagnosis.Text.Trim() != "")
+            else if (txtDiagnosis.Text.Length > 0 || patientId != null || txtDiagnosis.Text.Trim() != "")
             {
                 timeSave = DateTime.Now;
                 data.SavePatientDailyMedicalRecord
                     (
-                        Convert.ToInt32(txtbx_PatientID.Text),
+                        Convert.ToInt32(patientId),
                         Convert.ToInt32(txtAge.Text),
                         Convert.ToDecimal(txtTemp.Text),
                         Convert.ToDecimal(txtWt.Text),
@@ -145,7 +143,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 {
                     if (li.Selected)
                     {
-                        data.SavePatientDisease(txtbx_PatientID.Text, li.Text, timeSave);
+                        data.SavePatientDisease(patientId.ToString(), li.Text, timeSave);
                     }
                 }
                 txtAge.Text = string.Empty;
@@ -167,7 +165,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
             if (err == null)
             {
                 //reset upon save
-                txtbx_PatientID.Text = string.Empty;
+                
                 txtAge.Text = string.Empty;
                 txtTemp.Text = string.Empty;
                 txtWt.Text = string.Empty;
@@ -177,7 +175,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 txtBpressure0.Text = string.Empty;
                 txtDiagnosis.Text = string.Empty;
                 txtRecomendation.Text = string.Empty;
-
+                txtPulseRate.Text = string.Empty;
+                checkbox_DiseaseList.ClearSelection();
                 //clear patient loaded info upon save
                 txtlname.Text = string.Empty;
                 txtfname.Text = string.Empty;
@@ -196,18 +195,14 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         }
 
     }
-    protected void grdvw_Users_Load(object sender, EventArgs e)
-    {
 
-    }
     private void showErrorSave(string err)
     {
-      
-        Response.Write("<script> window.alert('Did not save successfully please check all fields: "+err+"')</script>");
+        Response.Write("<script> window.alert('Did not save successfully please check all fields:')</script>");
     }
     protected void ButtonProceed_Click(object sender, EventArgs e)
     {
-        string Patient_id= txtbx_PatientID.Text.Trim();
+        string Patient_id= patientId.ToString();
 
         data = new DataAccess();
 
@@ -265,13 +260,9 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
             btnReset.Enabled = false;
         }
     }
-    protected void txtSearchPatient_TextChanged(object sender, EventArgs e)
-    {
-        GridSearchName.DataSourceID = "PatientSearchName";
-        PatientSearchName.SelectParameters["PatientLastName"].DefaultValue = txtSearchPatient.Text;
-    }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
+        GridSearchName.DataSourceID = "PatientSearchName";
         PatientSearchName.SelectParameters["PatientLastName"].DefaultValue = txtSearchPatient.Text;
     }
 
@@ -310,7 +301,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
             txtRecomendation.Text = dr["Treatment"].ToString().Trim();
             txtRecomendation.ReadOnly = true;
         }
-        patientDisease =  data.GetPatientsDisease(txtbx_PatientID.Text, encId);
+        patientDisease =  data.GetPatientsDisease(patientId.ToString(), encId);
         checkbox_DiseaseList.DataBind();
         foreach (string pd in patientDisease)
         {
@@ -324,12 +315,12 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     
     protected void GridSearchName_SelectedIndexChanged(object sender, EventArgs e)
     {
-        txtbx_PatientID.Text = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;
+        patientId = Int32.Parse(GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text);
 
         data = new DataAccess();
 
 
-        patientData = data.GetValuesConsultation(txtbx_PatientID.Text);
+        patientData = data.GetValuesConsultation(patientId.ToString());
         Session["PatientData"] = patientData;
 
         if (patientData.Rows.Count > 0)
@@ -363,6 +354,10 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 txtAge.ReadOnly = true;
             }
         }
+
+    }
+    protected void txtSearchPatient_TextChanged(object sender, EventArgs e)
+    {
 
     }
 }

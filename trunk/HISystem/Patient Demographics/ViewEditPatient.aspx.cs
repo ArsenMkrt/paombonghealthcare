@@ -135,13 +135,8 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
         else
             Response.Redirect("~/Medical%20Record/Consultation.aspx");
     }
-    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        txtbx_PatientID.Text = grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text;
-        txtPatientId.Text = grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text;
-        ButtonSearch_Click(sender, e);
-    }
-    protected void grdvw_Users_Load(object sender, EventArgs e)
+
+    protected void GridSearchName_Load(object sender, EventArgs e)
     {
 
     }
@@ -154,7 +149,6 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
 
     protected void GridSearchName_SelectedIndexChanged(object sender, EventArgs e)
     {
-        txtbx_PatientID.Text = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;
         txtPatientId.Text = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;
         txtPatientId.ReadOnly = true;
 

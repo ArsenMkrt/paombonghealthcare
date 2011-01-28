@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
    <h2 style="background-color: #d3e7c5">
-        Add Patient
+        Add Patient Page
     </h2>
    
     <table 84%"="" bgcolor="#a2cc85" 

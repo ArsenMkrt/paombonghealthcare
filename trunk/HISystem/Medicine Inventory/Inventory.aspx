@@ -6,10 +6,10 @@
    
        <div id="originalContent"> 
        <h2 style="background-color: #d3e7c5">
-        Inventory
+        Inventory Page
     </h2>
 
-
+    <a href="#modalwindow3" name="modal" style="color: #990033">Monitor Stocks</a><br/>
 
     <table style="width: 43%;" border="1" align="center">
         <tr>
@@ -42,6 +42,7 @@
             <td style="width: 280px">
         Items</td>
             <td colspan="2">
+                <asp:Panel ID="Panel1" ScrollBars="Auto" runat="server">
                 <asp:GridView ID="gridviewMedicine" runat="server" AutoGenerateColumns="False" DataKeyNames="MedicineId"
             Height="193px" onselectedindexchanged="gridviewMedicine_SelectedIndexChanged" 
             Width="229px" AutoGenerateSelectButton="True" HorizontalAlign="Center" 
@@ -65,6 +66,7 @@
                     <SortedDescendingCellStyle BackColor="#E5E5E5" />
                     <SortedDescendingHeaderStyle BackColor="#275353" />
                 </asp:GridView>
+                </asp:Panel>
             </td>
         </tr>
         <tr>
@@ -82,71 +84,7 @@
         &nbsp;<br />
         <br />
 
-        <table style="width: 37%;" border="1" align="center">
-            <tr>
-                <td class="style2" colspan="2">
-                    <asp:Label ID="Label6" runat="server" Font-Bold="True" Font-Size="Medium" 
-                        Text="Monitor Inventory Items Quantity"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td class="style2" style="width: 54px">
-        <asp:Label ID="Label3" runat="server" Text="Category"></asp:Label>
-                </td>
-                <td class="style1">
-        <asp:DropDownList ID="ddlCategoryForItemShow" runat="server" 
-            AutoPostBack="True" DataSourceID="Category2" 
-            onselectedindexchanged="ddlCategoryForItemShow_SelectedIndexChanged" 
-            
-           
-            DataTextField="CategoryName" DataValueField="CategoryName">
-        </asp:DropDownList>
-                </td>
-            </tr>
-            <tr>
-                <td class="style2" style="width: 54px">
-        <asp:Label ID="Label4" runat="server" Text="Show Items Below Quantity"></asp:Label>
-                </td>
-                <td class="style1">
-
-        <asp:TextBox ID="txtQuantityLimit" runat="server" 
-            onpaste = "return false;" onkeyup ="keyUP(event.keyCode)" 
-                        onkeydown = "return isNumeric(event.keyCode);" 
-       >20</asp:TextBox>
-                    <asp:Button ID="btn_belowQty" runat="server" Height="23px" 
-                        onclick="btn_belowQty_Click" Text="Enter" />
-                </td>
-            </tr>
-            <tr>
-                <td class="style2" style="width: 54px">
-                    &nbsp;</td>
-                <td class="style1">
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="MedicineId" 
-            Height="189px" Width="323px" HorizontalAlign="Center" BackColor="White" 
-                        BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" 
-                        GridLines="Horizontal">
-            <Columns>
-                <asp:CommandField ShowSelectButton="True" />
-                <asp:BoundField DataField="MedicineId" HeaderText="MedicineId" 
-                    InsertVisible="False" ReadOnly="True" SortExpression="MedicineId" />
-                <asp:BoundField DataField="MedicineName" HeaderText="MedicineName" 
-                    SortExpression="MedicineName" />
-                <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
-                    SortExpression="Quantity" />
-            </Columns>
-            <FooterStyle BackColor="White" ForeColor="#333333" />
-            <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="White" ForeColor="#333333" />
-            <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F7F7F7" />
-            <SortedAscendingHeaderStyle BackColor="#487575" />
-            <SortedDescendingCellStyle BackColor="#E5E5E5" />
-            <SortedDescendingHeaderStyle BackColor="#275353" />
-        </asp:GridView>
-                </td>
-            </tr>
-        </table>
+        
 
 
     </div>
@@ -268,6 +206,73 @@
 
             </div>
             
+            <div id="modalwindow3" class="window3">
+            <table style="width: 37%;" border="1" align="center">
+            <tr>
+                <td class="style2" colspan="2">
+                    <asp:Label ID="Label6" runat="server" Font-Bold="True" Font-Size="Medium" 
+                        Text="Monitor Inventory Items Quantity"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="style2" style="width: 54px">
+        <asp:Label ID="Label3" runat="server" Text="Category"></asp:Label>
+                </td>
+                <td class="style1">
+        <asp:DropDownList ID="ddlCategoryForItemShow" runat="server" 
+            AutoPostBack="True" DataSourceID="Category2" 
+            onselectedindexchanged="ddlCategoryForItemShow_SelectedIndexChanged" 
+            
+           
+            DataTextField="CategoryName" DataValueField="CategoryName">
+        </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="style2" style="width: 54px">
+        <asp:Label ID="Label4" runat="server" Text="Show Items Below Quantity"></asp:Label>
+                </td>
+                <td class="style1">
+
+        <asp:TextBox ID="txtQuantityLimit" runat="server" 
+            onpaste = "return false;" onkeyup ="keyUP(event.keyCode)" 
+                        onkeydown = "return isNumeric(event.keyCode);" 
+       >20</asp:TextBox>
+                    <asp:Button ID="btn_belowQty" runat="server" Height="23px" 
+                        onclick="btn_belowQty_Click" Text="Enter" />
+                </td>
+            </tr>
+            <tr>
+                <td class="style2" style="width: 54px">
+                    &nbsp;</td>
+                <td class="style1">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="MedicineId" 
+            Height="189px" Width="323px" HorizontalAlign="Center" BackColor="White" 
+                        BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" 
+                        GridLines="Horizontal">
+            <Columns>
+                <asp:CommandField ShowSelectButton="True" />
+                <asp:BoundField DataField="MedicineId" HeaderText="MedicineId" 
+                    InsertVisible="False" ReadOnly="True" SortExpression="MedicineId" />
+                <asp:BoundField DataField="MedicineName" HeaderText="MedicineName" 
+                    SortExpression="MedicineName" />
+                <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
+                    SortExpression="Quantity" />
+            </Columns>
+            <FooterStyle BackColor="White" ForeColor="#333333" />
+            <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="White" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+            <SortedAscendingHeaderStyle BackColor="#487575" />
+            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+            <SortedDescendingHeaderStyle BackColor="#275353" />
+        </asp:GridView>
+                </td>
+            </tr>
+        </table>
+            </div>
             
             <!-- Mask to cover the whole screen -->
             <div id="mask"></div>
