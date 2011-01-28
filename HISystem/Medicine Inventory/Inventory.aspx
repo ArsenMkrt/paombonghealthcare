@@ -25,7 +25,8 @@
                 <asp:DropDownList ID="ddlCategory" runat="server" AutoPostBack="True" 
             DataSourceID="Category" DataTextField="CategoryName" 
             DataValueField="CategoryName" 
-            onselectedindexchanged="ddlCategory_SelectedIndexChanged" Height="16px" Width="174px">
+            onselectedindexchanged="ddlCategory_SelectedIndexChanged" Height="22px" 
+                    Width="174px">
         </asp:DropDownList>
             </td>
         </tr>
@@ -112,7 +113,7 @@
                     Medicine Id</td>
                 <td>
         <asp:DropDownList ID="ddlMedicineId" runat="server" DataSourceID="Medicine" 
-            DataTextField="MedicineId" DataValueField="MedicineId" Enabled="False" Height="16px" 
+            DataTextField="MedicineId" DataValueField="MedicineId" Enabled="False" Height="22px" 
                         Width="179px">
         </asp:DropDownList>
                 </td>
