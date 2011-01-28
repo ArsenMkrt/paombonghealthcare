@@ -1289,19 +1289,20 @@ public class DataAccess
         ptEncounterData.Columns.Add("Age");
         ptEncounterData.Columns.Add("Temp");
         ptEncounterData.Columns.Add("Weight");
+        ptEncounterData.Columns.Add("PulseRate");
         ptEncounterData.Columns.Add("Height");
         ptEncounterData.Columns.Add("Bloodpressure");
         ptEncounterData.Columns.Add("Diagnosis");
         ptEncounterData.Columns.Add("Treatment");
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("SELECT Age,Temp,Weight,Height,Bloodpressure,Diagnosis,Treatment FROM Encounters WHERE EncounterID = @encId", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("SELECT Age,Temp,Weight,PulseRate,Height,Bloodpressure,Diagnosis,Treatment FROM Encounters WHERE EncounterID = @encId", connPatient);
         cmdTxt.Parameters.Add("@encId", SqlDbType.Int).Value = Int32.Parse(EncounterId);
         dtrPatient = cmdTxt.ExecuteReader();
         dtrPatient.Read();
 
         ptEncounterData.Rows.Add(dtrPatient["Age"].ToString().Trim(), dtrPatient["Temp"].ToString().Trim(),
-            dtrPatient["Weight"].ToString().Trim(), dtrPatient["Height"].ToString().Trim()
+            dtrPatient["Weight"].ToString().Trim(),dtrPatient["PulseRate"].ToString().Trim(), dtrPatient["Height"].ToString().Trim()
             , dtrPatient["Bloodpressure"].ToString().Trim(), dtrPatient["Diagnosis"].ToString().Trim(), dtrPatient["Treatment"].ToString().Trim());
         return ptEncounterData;
     }
