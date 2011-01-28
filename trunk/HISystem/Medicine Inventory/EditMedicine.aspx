@@ -51,7 +51,7 @@
                 </td>
                 <td colspan="2">
         <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="Category" 
-            DataTextField="CategoryName" DataValueField="CategoryName" Height="23px" Width="153px" 
+            DataTextField="CategoryName" DataValueField="CategoryName" Height="22px" Width="153px" 
                         Enabled="False">
         </asp:DropDownList>
                 </td>

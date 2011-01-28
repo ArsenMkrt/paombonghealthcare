@@ -9,7 +9,7 @@
         Inventory Page
     </h2>
 
-    <a href="#modalwindow3" name="modal" style="color: #990033">Monitor Stocks</a><br/>
+    <a href="#modalwindow3" name="modal" style="color: #990033">Monitor Stocks</a><br/><br/><br/>
 
     <table style="width: 43%;" border="1" align="center">
         <tr>
