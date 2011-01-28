@@ -9,7 +9,7 @@
         Inventory Page
     </h2>
 
-    <a href="#modalwindow3" name="modal" style="color: #990033">Monitor Stocks</a><br/><br/><br/>
+    <a href="#modalwindow3" name="modal" style="color: #990033"><center>Monitor Stocks</center></a><br/><br/><br/>
 
     <table style="width: 43%;" border="1" align="center">
         <tr>
@@ -155,7 +155,7 @@
            
            
             <!-- div for checkout cart -->
-            <div id="modalwindow2" class="window2">
+            <div id="modalwindow2x" class="window2x">
             <br />
    
     <table style="width: 46%;" border="1">

@@ -33,6 +33,10 @@ public partial class Medicine_Inventory_DeleteMedicine : System.Web.UI.Page
             if (data.HasMedicine(Int32.Parse(txtMedicineId.Text)))
             {
                 data.DeleteMedicine(txtMedicineId.Text);
+                string MedicineName = data.GetMedicineName(Int32.Parse(txtMedicineId.Text));
+                
+                data.SaveMedicineLog(Int32.Parse(txtMedicineId.Text), MedicineName, data.GetMedicineQuantity(Int32.Parse(txtMedicineId.Text))
+                    , Page.User.Identity.Name, "Delete");
                 Response.Redirect("DeleteMedicine.aspx");
             }
             else
