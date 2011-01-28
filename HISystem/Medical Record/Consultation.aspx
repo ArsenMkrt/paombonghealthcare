@@ -1,12 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate4.master" AutoEventWireup="true" CodeFile="Consultation.aspx.cs" Inherits="Medical_Record_Consultation" %>
 
-
-
-
-
-
-
-
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     
     
@@ -15,51 +8,15 @@
     </h2>
     
     <br />
-        <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">List Of Patients</a>
-    <br />
-         <a href="#modalwindow2" name="modal"  style="color: #990033; font-weight: bold;">List Of Patients Search By Name</a>
+         <a href="#modalwindow2" name="modal"  style="color: #990033; font-weight: bold;">List Of Patients</a>
    
      <div id="boxes">
-             <div id="modalwindow" class="window">
-            <br />
-             
-                 <table style="width: 75%;">
-                     <tr>
-                         <td>
-                             &nbsp;</td>
-                         <td style="width: 270px">
-                             Select Patient on table below.</td>
-                         <td>
-             
-        <asp:Label ID="Label3" runat="server" Text="Display Selected PatientID :" Font-Bold="True"></asp:Label>
-    <asp:TextBox ID="txtbx_PatientID" runat="server" ReadOnly="true" style="margin-left: 13px"></asp:TextBox>
-                         </td>
-                     </tr>
-                 </table>
-    <br />
-    <asp:GridView ID="grdvw_Users" runat="server" AutoGenerateColumns="False" 
-        DataKeyNames="PatientID" DataSourceID="PatientList" 
-            onselectedindexchanged="GridView1_SelectedIndexChanged" 
-            AutoGenerateSelectButton="True" onload="grdvw_Users_Load">
-        <Columns>
-            <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
-                InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
-            <asp:BoundField DataField="PtFullname" HeaderText="Name" 
-                SortExpression="PtFullname" />
-            <asp:BoundField DataField="PtGender" HeaderText="Gender" 
-                SortExpression="PtGender" />
-            <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
-                SortExpression="PtBdate" />
-        </Columns>
-    </asp:GridView>
- 
-            </div>
-
-                       <div id="modalwindow2" class="window2">
+            <div id="modalwindow2" class="window2">
                          
                             <br />
                              <br />
-                             <asp:TextBox ID="txtSearchPatient" AutoPostBack="true" OnTextChanged="txtSearchPatient_TextChanged" runat="server" Height="28px" Width="187px"></asp:TextBox>
+                             <asp:TextBox ID="txtSearchPatient" AutoPostBack="true"  runat="server" 
+                                Height="28px" Width="187px" ontextchanged="txtSearchPatient_TextChanged"></asp:TextBox>
                              <asp:Button ID="btnSearch" runat="server" Text="Search Patient Name" Height="28px" 
                                  Width="149px" onclick="btnSearch_Click" CausesValidation="False" />
                                  <br/>
@@ -76,6 +33,8 @@
             <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
                 SortExpression="PtBdate" />
         </Columns>
+            <HeaderStyle BackColor="#009933" ForeColor="Black" HorizontalAlign="Center" />
+            <RowStyle ForeColor="#003300" />
     </asp:GridView>
                                 
                 
@@ -404,9 +363,10 @@
                 </asp:Panel>
             </td>
             <td class="style46" align="right">
-                &nbsp;</td>
+                Pulse Rate</td>
             <td class="style53" colspan="2">
-                &nbsp;</td>
+                <asp:TextBox ID="txtPulseRate" runat="server" Width="138px"></asp:TextBox>
+            </td>
         </tr>
         <tr>
             <td class="style56">

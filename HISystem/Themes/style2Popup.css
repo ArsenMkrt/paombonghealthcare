@@ -181,6 +181,27 @@ h1 {
      height:200px;
      overflow:auto;
    }
+   
+    #boxes .window3 {
+     position:absolute;
+     left:2px;
+    top:0px;
+     width:auto;
+     height:250px;
+    display:none;
+     z-index:9999;
+     padding:20px;
+   }
+    
+   #boxes #modalwindow3 {
+     width:auto; 
+     left:5px;
+     height:303px;
+     padding:2px;
+     background-color:#ffffff;
+     height:200px;
+     overflow:auto;
+   }
     
    .stylecenter
    {

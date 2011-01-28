@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <h2 style="background-color: #d3e7c5">
-        Edit Medicine
+        Edit Medicine Page
     </h2>
     <p>
         <br />
