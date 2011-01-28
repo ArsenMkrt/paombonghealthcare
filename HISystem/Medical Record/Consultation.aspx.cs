@@ -323,6 +323,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
             
             txtDiagnosis.Text = dr["Diagnosis"].ToString().Trim();
             txtDiagnosis.ReadOnly = true;
+            txtPulseRate.Text = dr["PulseRate"].ToString().Trim();
             string Height = dr["Height"].ToString().Trim();
             string[] heightDetails = Height.Split('-');
             txtHt_feet.Text = heightDetails[0];
