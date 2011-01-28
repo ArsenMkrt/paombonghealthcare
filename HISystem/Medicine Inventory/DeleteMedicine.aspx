@@ -8,13 +8,23 @@
    
         <br />
     
-        <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">
-        Show List Of Medicines</a>
-        <br />
-        <br />
+       
         <br />
         <br />
     <table align="left" style="height: 82px; margin-left: 62px;"> 
+    <tr>
+    <td colspan="2" height="80">
+   
+        <a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">
+        Show List Of Medicines</a><br />
+        
+          <asp:SqlDataSource ID="Medicine" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+            SelectCommand="SELECT DISTINCT [MedicineName] FROM [Medicine] ORDER BY [MedicineName]">
+        </asp:SqlDataSource>
+        </td>
+    
+    </tr>
     <tr>
     <td>
    
@@ -41,10 +51,7 @@
         &nbsp;</p>
    
    
-        <asp:SqlDataSource ID="Medicine" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
-            SelectCommand="SELECT DISTINCT [MedicineName] FROM [Medicine] ORDER BY [MedicineName]">
-        </asp:SqlDataSource>
+      
     
     <div id="boxes">
            <!-- div for Search Medicine-->
@@ -97,15 +104,6 @@
     </div>
     <p>
         &nbsp;</p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
+  
 </asp:Content>
 
