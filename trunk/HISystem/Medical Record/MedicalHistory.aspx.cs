@@ -11,6 +11,7 @@ public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
     private DataAccess data;
     private DataTable patientData;
     private string height;
+    private string patientId;
 
     protected void Page_Init(object Sender, EventArgs e)
     {
@@ -25,13 +26,12 @@ public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        txtbx_PatientID.Text = grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text;
+        patientId = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;
         BindPatientId();
         PopulateNameandBrgy();
-
     }
 
-    protected void grdvw_Users_Load(object sender, EventArgs e)
+    protected void GridSearchName_Load(object sender, EventArgs e)
     {
 
     }
@@ -54,17 +54,14 @@ public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
 
     protected void GridSearchName_SelectedIndexChanged(object sender, EventArgs e)
     {
-        txtbx_PatientID.Text = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;
+        patientId = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;
+        Session["patientId"] = patientId;
         BindPatientId();
-
         PopulateNameandBrgy();
-
-
-
     }
     protected void BindPatientId()
     {
-        SqlDataSource1.SelectParameters["PatientID"].DefaultValue = txtbx_PatientID.Text;
+        SqlDataSource1.SelectParameters["PatientID"].DefaultValue = Convert.ToString(Session["patientId"]);
         GridView1.DataBind();
     }
 
@@ -73,7 +70,7 @@ public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
     {
         data = new DataAccess();
 
-        patientData = data.GetNameForMedHistory(txtbx_PatientID.Text.Trim());
+        patientData = data.GetNameForMedHistory(Convert.ToString(Session["patientId"]));
 
         if (patientData.Rows.Count > 0)
         {
@@ -90,6 +87,6 @@ public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
         string encId = "";
         encId = GridView1.Rows[GridView1.SelectedIndex].Cells[1].Text;
 
-        Response.Redirect("~/Medical%20Record/Consultation.aspx?&id=" + txtbx_PatientID.Text + "&enc=" + encId);
+        Response.Redirect("~/Medical%20Record/Consultation.aspx?&id=" + Convert.ToString(Session["patientId"]) + "&enc=" + encId);
     }
 }
