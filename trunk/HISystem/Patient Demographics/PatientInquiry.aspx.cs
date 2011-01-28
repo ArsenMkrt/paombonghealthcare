@@ -16,11 +16,11 @@ public partial class Patient_Demographics_PatientInquiry : System.Web.UI.Page
         if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Midwife"))
         {
             //disable button if role is midwife since midwife cant consult
-            button_ProceedConsultation.Enabled = false;
+            button_ProceedConsultation.Visible = false;
             button_ProceedConsultation.ToolTip = "Consultation is disabled for midwife account" + "/n Please use doctor or nurse account for consultation.";
         }
         else
-            button_ProceedConsultation.Enabled = true;
+            button_ProceedConsultation.Visible = true;
     }
     protected void Page_Init(object Sender, EventArgs e)
     {
@@ -119,11 +119,10 @@ public partial class Patient_Demographics_PatientInquiry : System.Web.UI.Page
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        txtbx_PatientID.Text = grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text;
-        txtPatientId.Text = grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text;
+        txtPatientId.Text = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;
         ButtonSearch_Click(sender, e);
     }
-    protected void grdvw_Users_Load(object sender, EventArgs e)
+    protected void GridSearchName_Load(object sender, EventArgs e)
     {
 
     }
@@ -136,7 +135,6 @@ public partial class Patient_Demographics_PatientInquiry : System.Web.UI.Page
 
     protected void GridSearchName_SelectedIndexChanged(object sender, EventArgs e)
     {
-        txtbx_PatientID.Text = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;
         txtPatientId.Text = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;
         txtPatientId.ReadOnly = true;
 

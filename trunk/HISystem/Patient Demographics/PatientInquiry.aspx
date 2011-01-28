@@ -2,56 +2,14 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <h2 style="background-color: #d3e7c5">
-        Patient Inquiry
+        Patient Inquiry Page
     </h2>
     
     <br />
-<a href="#modalwindow" name="modal" style="color: #990033; font-weight: bold;">List Of Patients</a>
-        <br />
          <a href="#modalwindow2" name="modal" style="color: #990033; font-weight: bold;">List Of Patients Search By Last Name</a>
         
         
   <div id="boxes">
-             <div id="modalwindow" class="window">
-            <br />
-             
-                 <table style="width: 87%;">
-                     <tr>
-                         <td>
-                             &nbsp;</td>
-                         <td style="width: 375px">
-                             Please select patient in table below.</td>
-                         <td>
-             
-        &nbsp;&nbsp;&nbsp;
-             
-        <asp:Label ID="Label3" runat="server" Text="Display Selected PatientID :" Font-Bold="True"></asp:Label>
-    <asp:TextBox ID="txtbx_PatientID" runat="server" ReadOnly="true" style="margin-left: 13px"></asp:TextBox>
-                         </td>
-                     </tr>
-                 </table>
-    <br />
-    <asp:GridView ID="grdvw_Users" runat="server" AutoGenerateColumns="False" 
-        DataKeyNames="PatientID" DataSourceID="Patient" 
-            onselectedindexchanged="GridView1_SelectedIndexChanged" 
-            AutoGenerateSelectButton="True" onload="grdvw_Users_Load">
-        <Columns>
-            <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
-                InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
-            <asp:BoundField DataField="PtFullname" HeaderText="Name" 
-                SortExpression="PtFullname" />
-            <asp:BoundField DataField="PtGender" HeaderText="Gender" 
-                SortExpression="PtGender" />
-            <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
-                SortExpression="PtBdate" />
-        </Columns>
-    </asp:GridView>
-    <asp:SqlDataSource ID="Patient" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
-        SelectCommand="RetrievePatientAll" SelectCommandType="StoredProcedure">
-    </asp:SqlDataSource>
-    
-            </div>
                          <div id="modalwindow2" class="window2">
                          
                             <br />
