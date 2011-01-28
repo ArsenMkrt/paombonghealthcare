@@ -14,7 +14,7 @@
         <br />
         <br />
         <br />
-    <table align="center" style="height: 82px"> 
+    <table align="left" style="height: 82px; margin-left: 62px;"> 
     <tr>
     <td>
    
