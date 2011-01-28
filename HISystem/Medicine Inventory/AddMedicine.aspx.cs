@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 public partial class Medicine_Inventory_AddMedicine : System.Web.UI.Page
 {
     private DataAccess data;
+
     protected void Page_Init(object Sender, EventArgs e)
     {
         Response.Cache.SetCacheability(HttpCacheability.NoCache);
@@ -25,9 +26,14 @@ public partial class Medicine_Inventory_AddMedicine : System.Web.UI.Page
             Response.Write("<script> window.alert('Medicine Exists.')</script>");
         else
         {
-            data.AddMedicine(txtMedicineName.Text,ddlCategory.Text,Convert.ToInt32(txtQuantity.Text.Trim()));
-            Response.Write("<script> window.alert('Medicine Successfully Added.')</script>");
-            Response.Redirect("AddMedicine.aspx");
+            bool status = data.AddMedicine(txtMedicineName.Text,ddlCategory.Text,Convert.ToInt32(txtQuantity.Text.Trim()));
+            int medicineId = data.GetMedicineId(txtMedicineName.Text);
+            data.SaveMedicineLog(medicineId, txtMedicineName.Text, Int32.Parse(txtQuantity.Text), Page.User.Identity.Name, "Add");
+            if (status)
+                Response.Write("<script> window.alert('Medicine Successfully Added.')</script>");
+            else
+                Response.Write("<script> window.alert('Medicine Not Added.')</script>");
+            
         }
     }
     protected void btnClear_Click(object sender, EventArgs e)

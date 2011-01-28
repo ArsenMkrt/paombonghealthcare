@@ -310,13 +310,28 @@ public class DataAccess
         return retId;
     }
 
-    /*AddMedicine Finished - Lakhi 10/10/2010*/
-
-    public void AddMedicine(string MedicineName, string CategoryName, int Quantity)
+    public int GetMedicineQuantity(int MedicineId)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
-        try
-        {
+
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("SELECT Quantity FROM Medicine WHERE MedicineId = @aa", connPatient);
+        cmdTxt.Parameters.Add("@aa", SqlDbType.Int).Value = MedicineId;
+        SqlDataReader id = cmdTxt.ExecuteReader();
+        id.Read();
+        int quantity = id.GetInt32(0);
+        id.Close();
+        connPatient.Close();
+        return quantity;
+    }
+
+
+    /*AddMedicine Finished - Lakhi 10/10/2010*/
+
+    public bool AddMedicine(string MedicineName, string CategoryName, int Quantity)
+    {
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+
             connPatient.Open();
             SqlCommand cmdTxt = new SqlCommand("AddMedicine", connPatient);
             cmdTxt.CommandType = CommandType.StoredProcedure;
@@ -325,19 +340,9 @@ public class DataAccess
             cmdTxt.Parameters.Add("@CategoryName", SqlDbType.Char).Value = CategoryName;
             int checker = cmdTxt.ExecuteNonQuery();
             if (checker > 0)
-                MessageBox.Show("<script>window.alert('Add Medicine.')</script>");
+                return true;
             else
-                MessageBox.Show("Please Try Again!!");
-
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Error : " + ex.Message);
-        }
-        finally
-        {
-            connPatient.Close();
-        }
+                return false;
     }
 
     /*GetMedicine Finished - Lakhi 10/10/2010*/
@@ -1377,5 +1382,20 @@ public class DataAccess
         }
         dr.Close();
         return patientDisease;
+    }
+
+    public void SaveMedicineLog(int MedicineId,string MedicineName, int Quantity, string FacilitatedBy,string TypeOfLog)
+    {
+        SqlConnection connPatient = new SqlConnection(dataconnection);
+        connPatient.Open();
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO MedicineLog (MedicineId,MedicineName,Quantity,DateOfPurchase,FacilitatedBy,LogType)"+
+            " VALUES (@medId,@medName,@quantity,@dateOfPurchase,@facilitatedBy,@type)", connPatient);
+        cmdTxt.Parameters.Add("@medId", SqlDbType.Int).Value = MedicineId;
+        cmdTxt.Parameters.Add("@medName", SqlDbType.VarChar).Value = MedicineName;
+        cmdTxt.Parameters.Add("@quantity", SqlDbType.Int).Value = Quantity;
+        cmdTxt.Parameters.Add("@dateOfPurchase", SqlDbType.DateTime).Value = DateTime.Now;
+        cmdTxt.Parameters.Add("@facilitatedBy", SqlDbType.VarChar).Value = FacilitatedBy;
+        cmdTxt.Parameters.Add("@type", SqlDbType.VarChar).Value = TypeOfLog;
+        cmdTxt.ExecuteNonQuery();
     }
 }

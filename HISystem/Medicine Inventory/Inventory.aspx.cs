@@ -68,13 +68,6 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
 
         //end try
         
-        
-        
-        
-        
-        
-        //Response.Write("<script> window.alert('ddlMedicineId.Text')</script>");
-        
         if (Int32.Parse(txtQuantity.Text) > Int32.Parse(gridviewMedicine.Rows[gridviewMedicine.SelectedIndex].Cells[3].Text))
         {
             Response.Write("<script> window.alert('Quantity to add to list is below than the quantity of " +
@@ -205,7 +198,10 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
         for (int index = 0; index < count; index++)
         {
             data.UpdateStock(Convert.ToInt32(gridViewList.Rows[index].Cells[0].Text.ToString()), Convert.ToInt32(gridViewList.Rows[index].Cells[2].Text.ToString()));
+            data.SaveMedicineLog(Convert.ToInt32(gridViewList.Rows[index].Cells[0].Text.ToString()),gridViewList.Rows[index].Cells[1].Text.ToString(), 
+                Convert.ToInt32(gridViewList.Rows[index].Cells[2].Text.ToString()), Page.User.Identity.Name,"CheckOut");
         }
+
         Session["List"] = null;
         gridViewList.DataSource = null;
         gridViewList.DataBind();
