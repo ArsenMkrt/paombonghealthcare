@@ -139,6 +139,7 @@
                 $('#mask').hide();
                 $('.window').hide();
                 $('.window2').hide();
+                $('.window3').hide();
             });
 
             // The user clicks OUTSIDE the Modal Window and the window will be closed without save.
@@ -146,6 +147,7 @@
                 $(this).hide();
                 $('.window').hide();
                 $('.window2').hide();
+                $('.window3').hide();
             });
 
         });
