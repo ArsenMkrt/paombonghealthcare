@@ -6,7 +6,7 @@
     </h2>
     
     <br />
-         <a href="#modalwindow2" name="modal" style="color: #990033; font-weight: bold;">List Of Patients Search By Last Name</a>
+         <a href="#modalwindow2" name="modal" style="color: #990033; font-weight: bold;">List Of Patients</a>
         
         
   <div id="boxes">

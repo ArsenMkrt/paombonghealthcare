@@ -1184,14 +1184,14 @@ public class DataAccess
         conn.Close();
     }
 
-    public void SavePatientDailyMedicalRecord(int PatientID, int PatientAge, decimal Temperature, decimal PatientWeight, string PatientHeight
+    public void SavePatientDailyMedicalRecord(int PatientID, int PatientAge, string PulseRate, decimal Temperature, decimal PatientWeight, string PatientHeight
         , string BloodPressure, string Diagnosis, string Treatment, string userAccount)
     {
         SqlConnection connPatient = new SqlConnection(dataconnection);
 
         connPatient.Open();
-        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Encounters (EncounterDateTime,PatientID,Age,Temp,Weight,Height,Bloodpressure,Diagnosis,Treatment,Facilitatedby)"
-            + "VALUES (@EncounterDateTime,@PatientID,@Age,@Temp,@Weight,@Height,@Bloodpressure,@Diagnosis,@Treatment,@Facilitatedby)", connPatient);
+        SqlCommand cmdTxt = new SqlCommand("INSERT INTO Encounters (EncounterDateTime,PatientID,Age,Temp,Weight,PulseRate,Height,Bloodpressure,Diagnosis,Treatment,Facilitatedby)"
+            + "VALUES (@EncounterDateTime,@PatientID,@Age,@Temp,@Weight,@PulseRate,@Height,@Bloodpressure,@Diagnosis,@Treatment,@Facilitatedby)", connPatient);
         cmdTxt.Parameters.Add("@EncounterDateTime", SqlDbType.DateTime).Value = DateTime.Now;
         cmdTxt.Parameters.Add("@PatientID", SqlDbType.Int).Value = PatientID;
         cmdTxt.Parameters.Add("@Age", SqlDbType.Int).Value = PatientAge;
@@ -1199,7 +1199,7 @@ public class DataAccess
         cmdTxt.Parameters.Add("@Weight", SqlDbType.Decimal).Value = PatientWeight;
         cmdTxt.Parameters.Add("@Height", SqlDbType.VarChar).Value = PatientHeight;
         cmdTxt.Parameters.Add("@Bloodpressure", SqlDbType.VarChar).Value = BloodPressure;
-        
+        cmdTxt.Parameters.Add("@PulseRate", SqlDbType.VarChar).Value = PulseRate;
         cmdTxt.Parameters.Add("@Diagnosis", SqlDbType.VarChar).Value = Diagnosis;
         cmdTxt.Parameters.Add("@Treatment", SqlDbType.VarChar).Value = Treatment;
         cmdTxt.Parameters.Add("@Facilitatedby", SqlDbType.VarChar).Value = userAccount;

@@ -366,6 +366,10 @@
                 Pulse Rate</td>
             <td class="style53" colspan="2">
                 <asp:TextBox ID="txtPulseRate" runat="server" Width="138px"></asp:TextBox>
+                <br />
+                <asp:RangeValidator ID="RangeValidator4" runat="server" 
+                 MinimumValue="60" MaximumValue="120" ControlToValidate="txtPulseRate" Font-Size="Small"
+                 Display="Dynamic" ErrorMessage="(invalid pulse rate from 60-120)" Type="Integer"></asp:RangeValidator>
             </td>
         </tr>
         <tr>
