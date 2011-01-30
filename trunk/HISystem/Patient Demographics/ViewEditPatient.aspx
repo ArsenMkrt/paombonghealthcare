@@ -23,7 +23,7 @@
         DataKeyNames="PatientID" DataSourceID="PatientList"
             AutoGenerateSelectButton="True" onselectedindexchanged="GridSearchName_SelectedIndexChanged">
         <Columns>
-             <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
+             <asp:BoundField DataField="PatientID" HeaderText="Id" 
                 InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
             <asp:BoundField DataField="PtFullname" HeaderText="Name" 
                 SortExpression="PtFullname" />
@@ -33,7 +33,7 @@
                 SortExpression="PtBdate" />
         </Columns>
             <HeaderStyle BackColor="#009933" HorizontalAlign="Center" />
-            <RowStyle ForeColor="#003300" />
+            <RowStyle ForeColor="#003300" HorizontalAlign="Center" />
     </asp:GridView>
                                 
              

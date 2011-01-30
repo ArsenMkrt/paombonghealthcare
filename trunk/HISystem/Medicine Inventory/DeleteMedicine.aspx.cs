@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 public partial class Medicine_Inventory_DeleteMedicine : System.Web.UI.Page
 {
-    private DataAccess data;
+    private Inventory med;
 
     protected void Page_Init(object Sender, EventArgs e)
     {
@@ -25,17 +25,17 @@ public partial class Medicine_Inventory_DeleteMedicine : System.Web.UI.Page
  
     protected void btn_delMedicine_Click(object sender, EventArgs e)
     {
-        data = new DataAccess();
+        med = new Inventory();
         if (txtMedicineId.Text == null || txtMedicineId.Text == "")
             Response.Write("<script> window.alert('No Medicine to Delete.')</script>");
         else
         {
-            if (data.HasMedicine(Int32.Parse(txtMedicineId.Text)))
+            if (med.HasMedicine(Int32.Parse(txtMedicineId.Text)))
             {
-                data.DeleteMedicine(txtMedicineId.Text);
-                string MedicineName = data.GetMedicineName(Int32.Parse(txtMedicineId.Text));
+                med.DeleteMedicine(txtMedicineId.Text);
+                string MedicineName = med.GetMedicineName(Int32.Parse(txtMedicineId.Text));
                 
-                data.SaveMedicineLog(Int32.Parse(txtMedicineId.Text), MedicineName, data.GetMedicineQuantity(Int32.Parse(txtMedicineId.Text))
+                med.SaveMedicineLog(Int32.Parse(txtMedicineId.Text), MedicineName, med.GetMedicineQuantity(Int32.Parse(txtMedicineId.Text))
                     , Page.User.Identity.Name, "Delete");
                 Response.Redirect("DeleteMedicine.aspx");
             }

@@ -111,15 +111,9 @@
             <td class="style12" colspan="2" style="width: 179px">
                 &nbsp;
                 <asp:RadioButton GroupName="genderList" ID="radiobutton_Female" runat="server" 
-        Font-Bold="True" ForeColor="#000000" 
-        oncheckedchanged="radiobutton_Female_CheckedChanged" 
-        
-        Text="Female" />
+        Font-Bold="True" ForeColor="#000000" Text="Female" />
                 <asp:RadioButton GroupName="genderList" ID="radiobutton_Male" runat="server" 
-        Font-Bold="True" ForeColor="#000000" 
-        oncheckedchanged="radiobutton_Male_CheckedChanged" 
-        
-        Text="Male" />
+        Font-Bold="True" ForeColor="#000000" Text="Male" />
             </td>
             <td class="style11" style="width: 137px">
                 <asp:Label ID="Label14" runat="server" Font-Bold="True" 

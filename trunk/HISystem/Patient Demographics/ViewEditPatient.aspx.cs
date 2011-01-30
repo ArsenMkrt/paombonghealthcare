@@ -8,7 +8,7 @@ using System.Web.Security;
 
 public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
 {
-    private DataAccess data;
+    private Patient pt;
     private DataTable patientData;
 
     protected void Page_Load(object sender, EventArgs e)
@@ -32,12 +32,12 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
     {
         try
         {
-            data = new DataAccess();
+            pt = new Patient();
 
             txtPatientId.ReadOnly = true;
             txtPatientId.Enabled = true;
 
-            patientData = data.GetValues(txtPatientId.Text.Trim());
+            patientData = pt.GetValues(txtPatientId.Text.Trim());
             Session["PatientData"] = patientData;
 
             if (patientData.Rows.Count > 0)
@@ -95,34 +95,16 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
         else
             Gender = "Female";
 
-        data = new DataAccess();
+        pt = new Patient();
 
-        data.UpdateRecord(txtPatientId.Text.Trim(), txtFName.Text, txtMName.Text, txtLName.Text, txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
+        bool status = pt.UpdateRecord(txtPatientId.Text.Trim(), txtFName.Text, txtMName.Text, txtLName.Text, txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
             txtSuffix.Text, ddlDay.Text.Trim() + "/" + ddlMonth.Text.Trim() + "/" + ddlYear.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
             txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
             Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
-        
-        Response.Write("<script> window.alert('Edited Patient Successfully.')</script>");
-        
-        //txtPatientId.Text=string.empty;
-        //txtFName.Text
-        //, txtMName.Text
-        //, txtLName.Text,
-        //txtContactNum.Text.Trim(),
-        //txtEmailAdd.Text.Trim(),
-
-        //    txtSuffix.Text
-        //        ddlDay.Text
-        //            ddlMonth.
-        //ddlYear
-        //    txtBirthplace.Text
-        //        txtAddress.Text
-        //    txtFaxNum.Text
-        //        txtDoctor.Text
-        //            txtNationality.Text
-        //                txtCity.Text
-
-        //   ddlCivilStatus. txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim()
+        if (status)
+            Response.Write("<script> window.alert('Edited Patient Successfully.')</script>");
+        else
+            Response.Write("<script> window.alert('Failed to Edit Patient.')</script>");
     }
 
     protected void button_ProceedConsultation_Click(object sender, EventArgs e)

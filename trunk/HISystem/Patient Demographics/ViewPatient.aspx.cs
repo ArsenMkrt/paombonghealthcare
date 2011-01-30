@@ -9,7 +9,7 @@ using System.Web.Security;
 
 public partial class Patient_Demographics_ViewPatient : System.Web.UI.Page
 {
-    private DataAccess data;
+    private Patient pt;
     private DataTable patientData;
 
     protected void Page_Init(object Sender, EventArgs e)
@@ -33,12 +33,12 @@ public partial class Patient_Demographics_ViewPatient : System.Web.UI.Page
     {
         try
         {
-            data = new DataAccess();
+            pt = new Patient();
 
             txtPatientId.ReadOnly = true;
             txtPatientId.Enabled = true;
 
-            patientData = data.GetValues(txtPatientId.Text.Trim());
+            patientData = pt.GetValues(txtPatientId.Text.Trim());
             Session["PatientData"] = patientData;
 
             if (patientData.Rows.Count > 0)

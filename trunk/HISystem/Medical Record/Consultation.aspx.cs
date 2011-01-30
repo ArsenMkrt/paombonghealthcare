@@ -10,7 +10,8 @@ using System.Web.Security;
 
 public partial class Medical_Record_Consultation : System.Web.UI.Page
 {
-    private DataAccess data;
+    private MedicalRecord mr;
+    private Disease dis;
     private DataTable patientData;
     private DataTable ptData;
     private string height;
@@ -54,11 +55,9 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        //patientId = Int32.Parse(grdvw_Users.Rows[grdvw_Users.SelectedIndex].Cells[1].Text);
+        mr = new MedicalRecord();
 
-        data = new DataAccess();
-
-        patientData = data.GetValuesConsultation(patientId.ToString());
+        patientData = mr.GetValuesConsultation(patientId.ToString());
         Session["PatientData"] = patientData;
 
         if (patientData.Rows.Count > 0)
@@ -125,15 +124,15 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                  * Added by Lakhi Save 1/5/2011
                  * This Saves patient daily Medical record
                  */
-                data = new DataAccess();
-
+                mr = new MedicalRecord();
+                dis = new Disease();
                 if (txtDiagnosis.Text.Length > 0 || Request.QueryString["id"] != null)
                 {
                     timeSave = DateTime.Now;
                     
                     if (Request.QueryString["id"] != null)
                     {
-                        data.SavePatientDailyMedicalRecord
+                        mr.SavePatientDailyMedicalRecord
                             (
                                 Convert.ToInt32(Request.QueryString["id"]),
                                 Convert.ToInt32(txtAge.Text),
@@ -151,7 +150,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                         {
                             if (li.Selected)
                             {
-                                data.SavePatientDisease(Request.QueryString["id"].ToString(), li.Text, timeSave);
+                                dis.SavePatientDisease(Request.QueryString["id"].ToString(), li.Text, timeSave);
                             }
                         }
                         txtAge.Text = string.Empty;
@@ -159,7 +158,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                     }
                     else
                     {
-                        data.SavePatientDailyMedicalRecord
+                        mr.SavePatientDailyMedicalRecord
                             (
                                 Convert.ToInt32(Session["ptId"]),
                                 Convert.ToInt32(txtAge.Text),
@@ -173,13 +172,11 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                                 txtRecomendation.Text,
                                 (string)Page.User.Identity.Name
                             );
-                        Response.Write("<script> window.alert('1: " + checkbox_DiseaseList.Items.Count.ToString() + ".')</script>");
                         foreach (ListItem li in checkbox_DiseaseList.Items)
                         {
-                            Response.Write("<script> window.alert('1: "+li.Text+".')</script>");
                             if (li.Selected)
                             {
-                                data.SavePatientDisease(Convert.ToString(Session["ptId"]), li.Text, timeSave);
+                                dis.SavePatientDisease(Convert.ToString(Session["ptId"]), li.Text, timeSave);
                             }
                         }
                         txtAge.Text = string.Empty;
@@ -240,11 +237,11 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     }
     protected void ButtonProceed_Click(object sender, EventArgs e)
     {
-        string Patient_id= patientId.ToString();
+        string Patient_id = patientId.ToString();
 
-        data = new DataAccess();
+        mr = new MedicalRecord();
 
-        patientData = data.GetValuesConsultation(Patient_id);
+        patientData = mr.GetValuesConsultation(Patient_id);
         Session["PatientData"] = patientData;
 
         if (patientData.Rows.Count > 0)
@@ -301,26 +298,23 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
 
     protected void LoadDataFromEncounter()
     {
-        data = new DataAccess();
+        mr = new MedicalRecord();
+        dis = new Disease();
         List<string> patientDisease = new List<string>();
 
-        ptData = data.GetEncounterData(encId);
+        ptData = mr.GetEncounterData(encId);
         foreach (DataRow dr in ptData.Rows)
         {
             txtTemp.Text = dr["Temp"].ToString().Trim();
             txtTemp.ReadOnly = true;
             txtAge.Text = dr["Age"].ToString().Trim();
             txtAge.ReadOnly = true;
-
-
             string bp = dr["Bloodpressure"].ToString().Trim();
             string[] bpressure = bp.Split('/');
-
             txtBpressure.Text = bpressure[0];
             txtBpressure.ReadOnly = true;
             txtBpressure0.Text = bpressure[1];
-            txtBpressure0.ReadOnly = true;
-            
+            txtBpressure0.ReadOnly = true;           
             txtDiagnosis.Text = dr["Diagnosis"].ToString().Trim();
             txtDiagnosis.ReadOnly = true;
             txtPulseRate.Text = dr["PulseRate"].ToString().Trim();
@@ -335,7 +329,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
             txtRecomendation.Text = dr["Treatment"].ToString().Trim();
             txtRecomendation.ReadOnly = true;
         }
-        patientDisease =  data.GetPatientsDisease(patientId.ToString(), encId);
+        patientDisease =  dis.GetPatientsDisease(patientId.ToString(), encId);
         checkbox_DiseaseList.DataBind();
         foreach (string pd in patientDisease)
         {
@@ -352,10 +346,9 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         patientId = Int32.Parse(GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text);
         Session["ptId"] = patientId;
         Response.Write("<script> window.alert('"+ Session["ptId"].ToString() +"') </script>");
-        data = new DataAccess();
+        mr = new MedicalRecord();
 
-
-        patientData = data.GetValuesConsultation(patientId.ToString());
+        patientData = mr.GetValuesConsultation(patientId.ToString());
         Session["PatientData"] = patientData;
 
         if (patientData.Rows.Count > 0)
@@ -365,11 +358,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 txtlname.Text = dr["PatientLName"].ToString().Trim();
                 txtfname.Text = dr["PatientFName"].ToString().Trim();
                 txtmname.Text = dr["PatientMName"].ToString().Trim();
-
-
                 txtPhilhealthNum.Text = dr["PatientFaxNumber"].ToString().Trim();
-
-
                 string[] bDate = dr["PatientBirthdate"].ToString().Trim().Split('/');
                 ddlDay.Text = bDate[0].Trim();
                 ddlMonth.Text = bDate[1].Trim();
