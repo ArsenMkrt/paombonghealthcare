@@ -19,7 +19,10 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
     private string barangay;
     private int population;
     private DataAccess data;
+    private Program pro;
     private MonthConverter mc;
+    private Barangay bar;
+    private Reports rep;
 
     protected void Page_Init(object Sender, EventArgs e)
     {
@@ -32,8 +35,8 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
     {
         mc = new MonthConverter();
         data = new DataAccess();
-        //program = Request["program"].ToString().Trim();
-        //p = Request["p"].ToString().Trim();
+        pro = new Program();
+
         monthName = Request["month"].ToString().Trim();
         month = mc.MonthNameToIndex(monthName);
         year = Int32.Parse(Request["year"].ToString().Trim());
@@ -44,7 +47,6 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         lbl_month.Text = monthName;
         lbl_Population.Text = population.ToString();
         lblYear.Text = year.ToString();
-        //lblProgram.Text = p.ToString();
 
         /*
          * MONTHLY REPORTS FOR PAOMBONG MUNICIPALITY
@@ -70,12 +72,10 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
 
         #region Table Creation for Maternal Care
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
-        SqlConnection connMaternal = new SqlConnection(data.Dataconnection);
         List<string> dataMaternal = new List<string>();
-        connMaternal.Open();
-
+        data.ConnectToDatabase();;
         SqlCommand cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)", connMaternal);
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
         cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Maternal Care";
         SqlDataReader indicatorReader = cmdTxt.ExecuteReader();
         while (indicatorReader.Read())
@@ -108,7 +108,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         //End
         tblMaternal.Controls.Add(tableRowMaternal);
 
-        for (int i = 0; i < data.CountIndicatorPerProgram("Maternal Care"); i++)
+        for (int i = 0; i < pro.CountIndicatorPerProgram("Maternal Care"); i++)
         {
             // Create row 1
             TableRow tr_Maternal = new TableRow();
@@ -165,12 +165,11 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
 
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
 
-        SqlConnection connChildCare = new SqlConnection(data.Dataconnection);
         List<string> ChildCareData = new List<string>();
-        connChildCare.Open();
+        data.ConnectToDatabase();;
 
         SqlCommand cc_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)", connChildCare);
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
         cc_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Child Care";
         SqlDataReader ChildCareIndicatorReader = cc_cmdTxt.ExecuteReader();
         while (ChildCareIndicatorReader.Read())
@@ -213,7 +212,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         //End
         tblDynamic.Controls.Add(tableRowChildCare);
 
-        for (int i = 0; i < data.CountIndicatorPerProgram("Child Care"); i++)
+        for (int i = 0; i < pro.CountIndicatorPerProgram("Child Care"); i++)
         {
             // Create row 1
             TableRow tr_ChildCare = new TableRow();
@@ -286,12 +285,11 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
 
         #region Table Creation for Dental Care
          /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
-        SqlConnection connDentalCare = new SqlConnection(data.Dataconnection);
         List<string> DentalCareData = new List<string>();
-        connDentalCare.Open();
+        data.ConnectToDatabase();;
 
         SqlCommand dc_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)", connDentalCare);
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
         dc_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Dental Care";
         SqlDataReader dentalCareIndicatorReader = dc_cmdTxt.ExecuteReader();
         while (dentalCareIndicatorReader.Read())
@@ -334,7 +332,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         //End
         tblDynamic.Controls.Add(tableRowDentalCare);
 
-        for (int i = 0; i < data.CountIndicatorPerProgram("Dental Care"); i++)
+        for (int i = 0; i < pro.CountIndicatorPerProgram("Dental Care"); i++)
         {
             // Create row 1
             TableRow tr_DentalCare = new TableRow();
@@ -407,12 +405,11 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
 
         #region Table Creation for Malaria
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
-        SqlConnection connMalaria = new SqlConnection(data.Dataconnection);
         List<string> MalariaData = new List<string>();
-        connMalaria.Open();
+        data.ConnectToDatabase();;
 
         SqlCommand malaria_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)", connMalaria);
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
         malaria_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Malaria";
         SqlDataReader malariaIndicatorReader = malaria_cmdTxt.ExecuteReader();
         while (malariaIndicatorReader.Read())
@@ -469,7 +466,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         //End
         tblMalaria.Controls.Add(tableRowMalaria);
 
-        for (int i = 0; i < data.CountIndicatorPerProgram("Malaria"); i++)
+        for (int i = 0; i < pro.CountIndicatorPerProgram("Malaria"); i++)
         {
             // Create row 1
             TableRow tr_Malaria = new TableRow();
@@ -569,12 +566,11 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
 
         #region Table Creation for Leprosy
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
-        SqlConnection connLeprosy = new SqlConnection(data.Dataconnection);
         List<string> LeprosyData = new List<string>();
-        connLeprosy.Open();
+        data.ConnectToDatabase();;
 
         SqlCommand leprosy_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)", connLeprosy);
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
         leprosy_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Leprosy";
         SqlDataReader leprosyIndicatorReader = leprosy_cmdTxt.ExecuteReader();
         while (leprosyIndicatorReader.Read())
@@ -617,7 +613,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         //End
         tblDynamic.Controls.Add(tableRowLeprosy);
 
-        for (int i = 0; i < data.CountIndicatorPerProgram("Leprosy"); i++)
+        for (int i = 0; i < pro.CountIndicatorPerProgram("Leprosy"); i++)
         {
             // Create row 1
             TableRow tr_Leprosy = new TableRow();
@@ -693,12 +689,11 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
 
         #region Table Creation for Filariasis
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
-        SqlConnection connFilariasis = new SqlConnection(data.Dataconnection);
         List<string> indicatorData = new List<string>();
-        connFilariasis.Open();
+        data.ConnectToDatabase();;
 
         SqlCommand filariasis_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)", connFilariasis);
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
         filariasis_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Filariasis";
         SqlDataReader filariasisIndicatorReader = filariasis_cmdTxt.ExecuteReader();
         while (filariasisIndicatorReader.Read())
@@ -741,7 +736,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         //End
         tblDynamic.Controls.Add(tableRowFilariasis);
 
-        for (int i = 0; i < data.CountIndicatorPerProgram("Filariasis"); i++)
+        for (int i = 0; i < pro.CountIndicatorPerProgram("Filariasis"); i++)
         {
             // Create row 1
             TableRow tr_Filariasis = new TableRow();
@@ -814,12 +809,11 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
 
         #region Table Creation for Tuberculosis
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
-        SqlConnection connTuberculosis = new SqlConnection(data.Dataconnection);
         List<string> TuberculosisData = new List<string>();
-        connTuberculosis.Open();
+        data.ConnectToDatabase();;
 
         SqlCommand tuberculosis_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)", connTuberculosis);
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
         tuberculosis_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Tuberculosis";
         SqlDataReader tuberculosisIndicatorReader = tuberculosis_cmdTxt.ExecuteReader();
         while (tuberculosisIndicatorReader.Read())
@@ -862,7 +856,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         //End
         tblDynamic.Controls.Add(tableRowTuberculosis);
 
-        for (int i = 0; i < data.CountIndicatorPerProgram("Tuberculosis"); i++)
+        for (int i = 0; i < pro.CountIndicatorPerProgram("Tuberculosis"); i++)
         {
             // Create row 1
             TableRow tr_Tuberculosis = new TableRow();
@@ -937,12 +931,11 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
 
         #region Table Creation for Schistomiasis
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
-        SqlConnection connSchistomiasis = new SqlConnection(data.Dataconnection);
         List<string> SchistomiasisData = new List<string>();
-        connSchistomiasis.Open();
+        data.ConnectToDatabase();;
 
         SqlCommand schistomiasis_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)", connSchistomiasis);
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
         schistomiasis_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Schistomiasis";
         SqlDataReader schistomiasisIndicatorReader = schistomiasis_cmdTxt.ExecuteReader();
         while (schistomiasisIndicatorReader.Read())
@@ -985,7 +978,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         //End
         tblDynamic.Controls.Add(tableRowSchistomiasis);
 
-        for (int i = 0; i < data.CountIndicatorPerProgram("Schistomiasis"); i++)
+        for (int i = 0; i < pro.CountIndicatorPerProgram("Schistomiasis"); i++)
         {
             // Create row 1
             TableRow tr_Schistomiasis = new TableRow();
@@ -1060,12 +1053,11 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
 
         #region Table Creation for Family Planning
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
-        SqlConnection connFP = new SqlConnection(data.Dataconnection);
         List<string> familyPlanningData = new List<string>();
-        connFP.Open();
+        data.ConnectToDatabase();;
 
         SqlCommand fp_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)", connFP);
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
         fp_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Family Planning";
         SqlDataReader familyPlanningIndicatorReader = fp_cmdTxt.ExecuteReader();
         while (familyPlanningIndicatorReader.Read())
@@ -1139,7 +1131,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         //End
         tblFamilyPlanning.Controls.Add(tableRowFamilyPlanning);
 
-        for (int i = 0; i < data.CountIndicatorPerProgram("Family Planning"); i++)
+        for (int i = 0; i < pro.CountIndicatorPerProgram("Family Planning"); i++)
         {
             // Create row 1
             TableRow tr_FamilyPlanning = new TableRow();
@@ -1288,8 +1280,10 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
 
         data = new DataAccess();
         mc = new MonthConverter();
+        bar = new Barangay();
+        rep = new Reports();
 
-        if (data.HasDataForTheYear(year,monthName, data.GetBarangayID(barangay)))
+        if (rep.HasDataForTheYear(year,monthName, bar.GetBarangayID(barangay)))
             Response.Write("<script type='text/javascript'>" + "alert(\"Month " + lbl_month.Text + " and Year " +
             year + " exists in the database. Please Try other Month and Year.\");</script>");
         else
@@ -1305,19 +1299,19 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
             string others = "";
             string dropOut = "";
         //Maternal Care ----------------------------------------------------------------------->
-        for (int c = 0; c < data.CountIndicatorPerProgram("Maternal Care"); c++)
+        for (int c = 0; c < pro.CountIndicatorPerProgram("Maternal Care"); c++)
         {
             TextBox tempNo = tblMaternal.FindControl("txtMaternalNo_" + c.ToString()) as TextBox;
             noPerIndicator = tempNo.Text;
             Label tempIndicator = tblMaternal.FindControl("lblMaternalIndicator" + c.ToString()) as Label;
             indicatorData = tempIndicator.Text;
 
-            data.InsertMaternalCareReport(indicatorData, Int32.Parse(noPerIndicator),
-                data.GetBarangayID(lbl_Barangay.Text), month, year);
+            rep.InsertMaternalCareReport(indicatorData, Int32.Parse(noPerIndicator),
+                bar.GetBarangayID(lbl_Barangay.Text), month, year);
         }
 
         //Dental Care ------------------------------------------------------------------------->
-        for (int h = 0; h < data.CountIndicatorPerProgram("Dental Care"); h++)
+        for (int h = 0; h < pro.CountIndicatorPerProgram("Dental Care"); h++)
         {
             TextBox tempMale = tblDynamic.FindControl("txtDentalCareMale_" + h.ToString()) as TextBox;
             male = tempMale.Text;
@@ -1326,12 +1320,12 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
             Label tempIndicator = tblDynamic.FindControl("lblDentalCareIndicator" + h.ToString()) as Label;
             indicatorData = tempIndicator.Text;
 
-            data.InsertDentalCareReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
-                data.GetBarangayID(lbl_Barangay.Text), month, year);
+            rep.InsertDentalCareReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
+                bar.GetBarangayID(lbl_Barangay.Text), month, year);
         }
 
         //Child Care ------------------------------------_------------------------------------->
-        for (int r = 0; r < data.CountIndicatorPerProgram("Child Care"); r++)
+        for (int r = 0; r < pro.CountIndicatorPerProgram("Child Care"); r++)
         {
             TextBox tempMale = tblDynamic.FindControl("txtChildCareMale_" + r.ToString()) as TextBox;
             male = tempMale.Text;
@@ -1340,12 +1334,12 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
             Label tempIndicator = tblDynamic.FindControl("lblChildCareIndicator" + r.ToString()) as Label;
             indicatorData = tempIndicator.Text;
 
-            data.InsertChildReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
-                data.GetBarangayID(lbl_Barangay.Text), month, year);
+            rep.InsertChildReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
+                bar.GetBarangayID(lbl_Barangay.Text), month, year);
         }
 
         //Filariasis ------------------------------------_------------------------------------->
-        for (int i = 0; i < data.CountIndicatorPerProgram("Filariasis"); i++)
+        for (int i = 0; i < pro.CountIndicatorPerProgram("Filariasis"); i++)
         {
             TextBox tempMale = tblDynamic.FindControl("txtFilariasisMale_" + i.ToString()) as TextBox;
             male = tempMale.Text;
@@ -1354,12 +1348,12 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
             Label tempIndicator = tblDynamic.FindControl("lblFilariasisIndicator" + i.ToString()) as Label;
             indicatorData = tempIndicator.Text;
 
-            data.InsertFilariasisReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
-                data.GetBarangayID(lbl_Barangay.Text), month, year);
+            rep.InsertFilariasisReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
+                bar.GetBarangayID(lbl_Barangay.Text), month, year);
         }
 
         //Leprosy ------------------------------------_----------------------------------------->
-        for (int z = 0; z < data.CountIndicatorPerProgram("Leprosy"); z++)
+        for (int z = 0; z < pro.CountIndicatorPerProgram("Leprosy"); z++)
         {
             TextBox tempMale = tblDynamic.FindControl("txtLeprosyMale_" + z.ToString()) as TextBox;
             male = tempMale.Text;
@@ -1368,12 +1362,12 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
             Label tempIndicator = tblDynamic.FindControl("lblLeprosyIndicator" + z.ToString()) as Label;
             indicatorData = tempIndicator.Text;
 
-            data.InsertLeprosyReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
-                data.GetBarangayID(lbl_Barangay.Text), month, year);
+            rep.InsertLeprosyReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
+                bar.GetBarangayID(lbl_Barangay.Text), month, year);
         }
 
         //Malaria ------------------------------------_----------------------------------------->
-        for (int z = 0; z < data.CountIndicatorPerProgram("Malaria"); z++)
+        for (int z = 0; z < pro.CountIndicatorPerProgram("Malaria"); z++)
         {
             TextBox tempPregnant = tblMalaria.FindControl("txtMalariaPregnant_" + z.ToString()) as TextBox;
             pregnant = tempPregnant.Text;
@@ -1384,12 +1378,12 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
             Label tempIndicator = tblMalaria.FindControl("lblMalariaIndicator" + z.ToString()) as Label;
             indicatorData = tempIndicator.Text;
 
-            data.InsertMalariaReport(indicatorData, Int32.Parse(pregnant), Int32.Parse(male), Int32.Parse(female),
-                data.GetBarangayID(lbl_Barangay.Text), month, year);
+            rep.InsertMalariaReport(indicatorData, Int32.Parse(pregnant), Int32.Parse(male), Int32.Parse(female),
+                bar.GetBarangayID(lbl_Barangay.Text), month, year);
         }
 
         //Schisto ------------------------------------_----------------------------------------->
-        for (int i = 0; i < data.CountIndicatorPerProgram("Schistomiasis"); i++)
+        for (int i = 0; i < pro.CountIndicatorPerProgram("Schistomiasis"); i++)
         {
             TextBox tempMale = tblDynamic.FindControl("txtSchistomiasisMale_" + i.ToString()) as TextBox;
             male = tempMale.Text;
@@ -1398,12 +1392,12 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
             Label tempIndicator = tblDynamic.FindControl("lblSchistomiasisIndicator" + i.ToString()) as Label;
             indicatorData = tempIndicator.Text;
 
-            data.InsertSchisReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
-                data.GetBarangayID(lbl_Barangay.Text), month, year);
+            rep.InsertSchisReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
+                bar.GetBarangayID(lbl_Barangay.Text), month, year);
         }
 
         //Tuberculosis ---------------------------------------------------------------------------->
-        for (int i = 0; i < data.CountIndicatorPerProgram("Tuberculosis"); i++)
+        for (int i = 0; i < pro.CountIndicatorPerProgram("Tuberculosis"); i++)
         {
             TextBox tempMale = tblDynamic.FindControl("txtTuberculosisMale_" + i.ToString()) as TextBox;
             male = tempMale.Text;
@@ -1412,12 +1406,12 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
             Label tempIndicator = tblDynamic.FindControl("lblTuberculosisIndicator" + i.ToString()) as Label;
             indicatorData = tempIndicator.Text;
 
-            data.InsertTbReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
-                data.GetBarangayID(lbl_Barangay.Text), month, year);
+            rep.InsertTbReport(indicatorData, Int32.Parse(male), Int32.Parse(female),
+                bar.GetBarangayID(lbl_Barangay.Text), month, year);
         }
 
         //Family Planning ---------------------------------------------------------------------------->
-        for (int i = 0; i < data.CountIndicatorPerProgram("Family Planning"); i++)
+        for (int i = 0; i < pro.CountIndicatorPerProgram("Family Planning"); i++)
         {
             TextBox temp1 = tblFamilyPlanning.FindControl("txtFamilyPlanningStartUser_" + i.ToString()) as TextBox;
             startUser = temp1.Text;
@@ -1432,8 +1426,8 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
             Label tempIndicator = tblFamilyPlanning.FindControl("lblFamilyPlanningIndicator" + i.ToString()) as Label;
             indicatorData = tempIndicator.Text;
 
-            data.InsertFPReport(indicatorData, Int32.Parse(startUser), Int32.Parse(_new), Int32.Parse(others),
-                Int32.Parse(dropOut), Int32.Parse(endUser), data.GetBarangayID(lbl_Barangay.Text), month, year);
+            rep.InsertFPReport(indicatorData, Int32.Parse(startUser), Int32.Parse(_new), Int32.Parse(others),
+                Int32.Parse(dropOut), Int32.Parse(endUser), bar.GetBarangayID(lbl_Barangay.Text), month, year);
         }   
 
         Response.Write("<script type='text/javascript'>" + "alert(\"Inserted Successfully\");</script>");

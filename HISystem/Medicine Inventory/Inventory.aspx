@@ -50,7 +50,7 @@
                     BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" 
                     CellPadding="4" GridLines="Horizontal">
                     <Columns>
-                        <asp:BoundField DataField="MedicineId" HeaderText="MedicineId" 
+                        <asp:BoundField DataField="MedicineId" HeaderText="Id" 
                     InsertVisible="False" ReadOnly="True" SortExpression="MedicineId" />
                         <asp:BoundField DataField="MedicineName" HeaderText="MedicineName" 
                     SortExpression="MedicineName" />
@@ -173,7 +173,7 @@
                         BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" 
                         GridLines="Horizontal">
                 <Columns>
-                    <asp:BoundField DataField="MedicineId" HeaderText="MedicineId" 
+                    <asp:BoundField DataField="MedicineId" HeaderText="Id" 
                         InsertVisible="False" ReadOnly="True" SortExpression="MedicineId" />
                     <asp:BoundField DataField="MedicineName" HeaderText="MedicineName" 
                         SortExpression="MedicineName" />
@@ -183,7 +183,7 @@
                     <FooterStyle BackColor="White" ForeColor="#333333" />
                     <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="White" ForeColor="#333333" />
+                    <RowStyle BackColor="White" ForeColor="#333333" HorizontalAlign="Center" />
                     <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
                     <SortedAscendingCellStyle BackColor="#F7F7F7" />
                     <SortedAscendingHeaderStyle BackColor="#487575" />
@@ -261,9 +261,9 @@
                     SortExpression="Quantity" />
             </Columns>
             <FooterStyle BackColor="White" ForeColor="#333333" />
-            <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#336666" Font-Bold="True" HorizontalAlign="Center" ForeColor="White" />
             <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="White" ForeColor="#333333" />
+            <RowStyle BackColor="White" ForeColor="#333333" HorizontalAlign="Center" />
             <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
             <SortedAscendingCellStyle BackColor="#F7F7F7" />
             <SortedAscendingHeaderStyle BackColor="#487575" />

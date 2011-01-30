@@ -8,7 +8,7 @@ using System.Data;
 
 public partial class Medicine_Inventory_EditMedicine : System.Web.UI.Page
 {
-    private DataAccess data;
+    private Inventory med;
     private DataTable medicineData;
 
     protected void Page_Init(object Sender, EventArgs e)
@@ -23,13 +23,13 @@ public partial class Medicine_Inventory_EditMedicine : System.Web.UI.Page
     }
     protected void SearchMedicine()
     {
-        data = new DataAccess();
+        med = new Inventory();
         medicineData = new DataTable();
         medicineData.Columns.Add("MedicineName");
         medicineData.Columns.Add("Quantity");
         medicineData.Columns.Add("CategoryName");
   
-        medicineData = data.GetMedicine(txtMedicineId.Text.Trim());
+        medicineData = med.GetMedicine(txtMedicineId.Text.Trim());
         txtMedicineId.Enabled = false;
 
         if (medicineData.Rows.Count > 0)
@@ -44,7 +44,7 @@ public partial class Medicine_Inventory_EditMedicine : System.Web.UI.Page
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        data = new DataAccess();
+        med = new Inventory();
         if (txtMedicineId.Text == "" || txtMedicineId.Text == null)
         {
             Response.Write("<script> window.alert('Please Select a Medicine to Edit before Saving.')</script>");
@@ -63,7 +63,7 @@ public partial class Medicine_Inventory_EditMedicine : System.Web.UI.Page
                 }
                 else
                 {
-                    bool checker = data.UpdateMedicine(Convert.ToInt32(txtMedicineId.Text.Trim()), txtMedicineName.Text.Trim(),
+                    bool checker = med.UpdateMedicine(Convert.ToInt32(txtMedicineId.Text.Trim()), txtMedicineName.Text.Trim(),
                        ddlCategory.Text.Trim(), Convert.ToInt32(txtQuantity.Text.Trim()));
                     if (checker == true)
                         Response.Write("<script> window.alert('Updated Medicine Successful.')</script>");

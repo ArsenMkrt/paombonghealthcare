@@ -9,7 +9,7 @@ using System.Data;
 
 public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
 {
-    private DataAccess data;
+    private Inventory med;
     private DataTable dt;
     private DataSet ds;
     private int quantity = 0;
@@ -27,9 +27,9 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
 
         if (Session["new"] == null)
         {
-            data = new DataAccess();
-            data.RefreshGridviewMedicine(gridviewMedicine);
-            data.RefreshGridviewByQuantityLowConfig(GridView1,Convert.ToInt32(txtQuantityLimit.Text));
+            med = new Inventory();
+            med.RefreshGridviewMedicine(gridviewMedicine);
+            med.RefreshGridviewByQuantityLowConfig(GridView1,Convert.ToInt32(txtQuantityLimit.Text));
         }
         ds = new DataSet();
         dt = new DataTable();
@@ -46,7 +46,7 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
         //bool hasSameItem = false;
         //int getindex = 0;
         //int count = gridViewList.Rows.Count;
-        //data = new DataAccess();
+        //med = new Inventory();
         //for (int index = 0; index < count; index++)
         //{
         //    if (ddlMedicineId.Text == gridViewList.Rows[index].Cells[0].Text.ToString())
@@ -112,14 +112,14 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
         gridviewMedicine.DataBind();
         gridviewMedicine.Dispose();
       
-        data = new DataAccess();
-        data.RefreshGridviewMedicineByCategory(gridviewMedicine,ddlCategory.Text);
+        med = new Inventory();
+        med.RefreshGridviewMedicineByCategory(gridviewMedicine,ddlCategory.Text);
         if (Session["Quantity"] == null)
         {
-            data.RefreshGridviewByQuantityLow(GridView1);
+            med.RefreshGridviewByQuantityLow(GridView1);
         }
         else
-            data.RefreshGridviewByQuantityLowConfig(GridView1, Convert.ToInt32(Session["Quantity"]));
+            med.RefreshGridviewByQuantityLowConfig(GridView1, Convert.ToInt32(Session["Quantity"]));
 
         Session["Quantity"] = txtQuantityLimit.Text;
         Session["Category"] = ddlCategory.Text;
@@ -139,14 +139,14 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
         gridviewMedicine.DataBind();
         gridviewMedicine.Dispose();
 
-        data = new DataAccess();
-        data.RefreshGridviewMedicineByName(gridviewMedicine, txtNameSearch.Text.Trim());
+        med = new Inventory();
+        med.RefreshGridviewMedicineByName(gridviewMedicine, txtNameSearch.Text.Trim());
         if (Session["Quantity"] == null)
         {
-            data.RefreshGridviewByQuantityLow(GridView1);
+            med.RefreshGridviewByQuantityLow(GridView1);
         }
         else
-            data.RefreshGridviewByQuantityLowConfig(GridView1, Convert.ToInt32(Session["Quantity"]));
+            med.RefreshGridviewByQuantityLowConfig(GridView1, Convert.ToInt32(Session["Quantity"]));
 
         Session["Quantity"] = txtQuantityLimit.Text;
         Session["Category"] = ddlCategory.Text;
@@ -160,27 +160,24 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
         gridviewMedicine.DataBind();
         gridviewMedicine.Dispose();
 
-        data = new DataAccess();
+        med = new Inventory();
 
-        data.RefreshGridviewByCategoryAndQuantityLow(GridView1, (string)Session["CategoryQuantLimit"],Convert.ToInt32(Session["Quantity"]));
+        med.RefreshGridviewByCategoryAndQuantityLow(GridView1, (string)Session["CategoryQuantLimit"],Convert.ToInt32(Session["Quantity"]));
         
         /*For GridView Medicine*/
         if (Session["Category"] == null || Session["MedicineName"] == null)
         {
-            data.RefreshGridviewMedicine(gridviewMedicine);
-            MessageBox.Show("1");
+            med.RefreshGridviewMedicine(gridviewMedicine);
         }
         else 
         {
             if (ddlCategory.Text != "")
             {
-                data.RefreshGridviewMedicineByCategory(gridviewMedicine, (string)Session["Category"]);
-                MessageBox.Show("2");
+                med.RefreshGridviewMedicineByCategory(gridviewMedicine, (string)Session["Category"]);
             }
             else if (txtMedicineName.Text != "")
             {
-                data.RefreshGridviewMedicineByName(gridviewMedicine, (string)Session["MedicineName"]);
-                MessageBox.Show("3");
+                med.RefreshGridviewMedicineByName(gridviewMedicine, (string)Session["MedicineName"]);
             }
         }
         
@@ -194,11 +191,11 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
     protected void btnCheckOut_Click(object sender, EventArgs e)
     {
         int count = gridViewList.Rows.Count;
-        data = new DataAccess();
+        med = new Inventory();
         for (int index = 0; index < count; index++)
         {
-            data.UpdateStock(Convert.ToInt32(gridViewList.Rows[index].Cells[0].Text.ToString()), Convert.ToInt32(gridViewList.Rows[index].Cells[2].Text.ToString()));
-            data.SaveMedicineLog(Convert.ToInt32(gridViewList.Rows[index].Cells[0].Text.ToString()),gridViewList.Rows[index].Cells[1].Text.ToString(), 
+            med.UpdateStock(Convert.ToInt32(gridViewList.Rows[index].Cells[0].Text.ToString()), Convert.ToInt32(gridViewList.Rows[index].Cells[2].Text.ToString()));
+            med.SaveMedicineLog(Convert.ToInt32(gridViewList.Rows[index].Cells[0].Text.ToString()),gridViewList.Rows[index].Cells[1].Text.ToString(), 
                 Convert.ToInt32(gridViewList.Rows[index].Cells[2].Text.ToString()), Page.User.Identity.Name,"CheckOut");
         }
 
@@ -206,8 +203,8 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
         gridViewList.DataSource = null;
         gridViewList.DataBind();
         gridViewList.Dispose();
-        data.RefreshGridviewMedicine(gridviewMedicine);
-        data.RefreshGridviewByQuantityLowConfig(GridView1, Convert.ToInt32(txtQuantityLimit.Text));
+        med.RefreshGridviewMedicine(gridviewMedicine);
+        med.RefreshGridviewByQuantityLowConfig(GridView1, Convert.ToInt32(txtQuantityLimit.Text));
     }
     protected void Button2_Click(object sender, EventArgs e)
     {
@@ -224,19 +221,19 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
         gridviewMedicine.DataBind();
         gridviewMedicine.Dispose();
 
-        data = new DataAccess();
-        data.RefreshGridviewByQuantityLowConfig(GridView1, Convert.ToInt32(txtQuantityLimit.Text.Trim()));
+        med = new Inventory();
+        med.RefreshGridviewByQuantityLowConfig(GridView1, Convert.ToInt32(txtQuantityLimit.Text.Trim()));
 
         if (Session["Category"] == null || Session["MedicineName"] == null)
         {
-            data.RefreshGridviewMedicine(gridviewMedicine);
+            med.RefreshGridviewMedicine(gridviewMedicine);
         }
         else
         {
             if (ddlCategory.Text != "")
-                data.RefreshGridviewMedicineByCategory(gridviewMedicine, (string)Session["Category"]);
+                med.RefreshGridviewMedicineByCategory(gridviewMedicine, (string)Session["Category"]);
             else if (txtMedicineName.Text != "")
-                data.RefreshGridviewMedicineByName(gridviewMedicine, (string)Session["MedicineName"]);
+                med.RefreshGridviewMedicineByName(gridviewMedicine, (string)Session["MedicineName"]);
         }
 
         Session["Quantity"] = txtQuantityLimit.Text;

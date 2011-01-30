@@ -23,7 +23,8 @@ public partial class Reports_Bulk_Childcare : System.Web.UI.Page
     {
         data = new DataAccess();
         
-        string constr = data.Dataconnection;
+        //string constr = data.Dataconnection;
+        string constr = "";
         string query = "SELECT BarangayID, BarangayName FROM Barangays";
 
         SqlDataAdapter da = new SqlDataAdapter(query, constr);
@@ -40,7 +41,7 @@ public partial class Reports_Bulk_Childcare : System.Web.UI.Page
         if (dropIndicator.SelectedValue != null && dropIndicator.SelectedItem!=null)
         {
             data = new DataAccess();
-            string constr = data.Dataconnection;
+            //string constr = data.Dataconnection;
             foreach (ListViewDataItem lv in this.ListView1.Items)
 
             {
@@ -53,8 +54,8 @@ public partial class Reports_Bulk_Childcare : System.Web.UI.Page
                 TextBox tMale = (TextBox)lv.FindControl("txtMale");
                 TextBox tFemale = (TextBox)lv.FindControl("txtFemale");
                 TextBox tTotal1 = (TextBox)lv.FindControl("txtTotal");
-                
 
+                string constr = "";
 
                 // insert records into database
                 using (SqlConnection conn = new SqlConnection(constr))

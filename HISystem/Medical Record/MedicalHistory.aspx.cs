@@ -8,7 +8,7 @@ using System.Data;
 
 public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
 {
-    private DataAccess data;
+    private MedicalRecord mr;
     private DataTable patientData;
     private string height;
     private string patientId;
@@ -68,9 +68,9 @@ public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
 
     protected void PopulateNameandBrgy()
     {
-        data = new DataAccess();
+        mr = new MedicalRecord();
 
-        patientData = data.GetNameForMedHistory(Convert.ToString(Session["patientId"]));
+        patientData = mr.GetNameForMedHistory(Convert.ToString(Session["patientId"]));
 
         if (patientData.Rows.Count > 0)
         {
