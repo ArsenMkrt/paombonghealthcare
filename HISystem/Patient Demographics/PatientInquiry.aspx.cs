@@ -65,10 +65,8 @@ public partial class Patient_Demographics_PatientInquiry : System.Web.UI.Page
                     ddlCivilStatus.Text = dr["PatientCivilStatus"].ToString().Trim();
                     txtEmailAdd.Text = dr["PatientEmailAddress"].ToString().Trim();
 
-                    string[] bDate = dr["PatientBirthdate"].ToString().Trim().Split('/');
-                    ddlDay.Text = bDate[0].Trim();
-                    ddlMonth.Text = bDate[1].Trim();
-                    ddlYear.Text = bDate[2].Trim();
+                    txtDate.Text = dr["PatientBirthdate"].ToString().Trim();
+                  
                     txtBirthplace.Text = dr["PatientBirthplace"].ToString().Trim();
                     txtCompany.Text = dr["PatientCompany"].ToString().Trim();
                     txtCity.Text = dr["PatientCity"].ToString().Trim();
@@ -80,6 +78,8 @@ public partial class Patient_Demographics_PatientInquiry : System.Web.UI.Page
 
                     txtLName.ReadOnly = true;
                     txtFName.ReadOnly = true;
+                    
+                    txtDate.ReadOnly = true;
                     txtMName.ReadOnly = true;
                     txtContactNum.ReadOnly = true;
                     txtFaxNum.ReadOnly = true;
@@ -90,9 +90,7 @@ public partial class Patient_Demographics_PatientInquiry : System.Web.UI.Page
                     txtEmailAdd.ReadOnly = true;
                     txtCity.ReadOnly = true;
                     txtBirthplace.ReadOnly = true;
-                    ddlDay.Enabled = false;
-                    ddlMonth.Enabled = false;
-                    ddlYear.Enabled = false;
+                   
                     txtAddress.ReadOnly = true;
                     txtCompany.ReadOnly = true;
                     txtNationality.ReadOnly = true;

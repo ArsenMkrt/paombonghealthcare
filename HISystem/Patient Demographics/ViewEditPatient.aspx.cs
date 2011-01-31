@@ -65,10 +65,8 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
                     ddlCivilStatus.Text = dr["PatientCivilStatus"].ToString().Trim();
                     txtEmailAdd.Text = dr["PatientEmailAddress"].ToString().Trim();
 
-                    string[] bDate = dr["PatientBirthdate"].ToString().Trim().Split('/');
-                    ddlDay.Text = bDate[0].Trim();
-                    ddlMonth.Text = bDate[1].Trim();
-                    ddlYear.Text = bDate[2].Trim();
+                    txtDate.Text = dr["PatientBirthdate"].ToString();
+                    
                     txtBirthplace.Text = dr["PatientBirthplace"].ToString().Trim();
                     txtCompany.Text = dr["PatientCompany"].ToString().Trim();
                     txtCity.Text = dr["PatientCity"].ToString().Trim();
@@ -98,7 +96,7 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
         pt = new Patient();
 
         bool status = pt.UpdateRecord(txtPatientId.Text.Trim(), txtFName.Text, txtMName.Text, txtLName.Text, txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
-            txtSuffix.Text, ddlDay.Text.Trim() + "/" + ddlMonth.Text.Trim() + "/" + ddlYear.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
+            txtSuffix.Text, txtDate.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
             txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
             Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
         if (status)
