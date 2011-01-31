@@ -229,12 +229,21 @@
                      TargetControlID="txtDate" CssClass="MyCalendar"/>
                     <asp:Image ID="Image5" runat="server" ImageUrl="~/images/calendar.png" ToolTip="Choose Date" />
                 <br />
-                <asp:CompareValidator ID="CompareValidator2" runat="server" 
-               ControlToValidate="txtDate" ErrorMessage="( Enter a valid date )"
+               <asp:CompareValidator ID="CompareValidator2" runat="server" 
+               ControlToValidate="txtDate" ErrorMessage="invalid date"
                Operator="DataTypeCheck" Type="Date" ValidationGroup="grpDate" 
                     Font-Italic="True" Font-Size="Small" Display="Dynamic" />
-                    
                 <br />
+                <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="CompareValidator2">
+                </asp:ValidatorCalloutExtender>
+
+
+                <asp:RangeValidator ID="RangeValidator1" ControlToValidate="txtDate" 
+                    runat="server" ErrorMessage="Invalid date range" Type="Date" Display="Dynamic" 
+                    Font-Italic="True" Font-Size="Small"></asp:RangeValidator>
+                
+                <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="RangeValidator1">
+                </asp:ValidatorCalloutExtender>
         
 
 
