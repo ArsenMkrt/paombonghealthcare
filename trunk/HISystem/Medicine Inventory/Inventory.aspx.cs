@@ -75,12 +75,6 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
         }
         else
         {
-            //int medicineQuant = Int32.Parse(gridViewList.Rows[x].Cells[3].Text);
-            //for(int x = 0;x<gridViewList.Rows.Count;x++)
-            //{
-              //  if (ddlMedicineId.Text == gridViewList.Rows[x].Cells[1].Text)
-            //        medicineQuant = Int32.Parse(gridViewList.Rows[x].Cells[3].Text) + Int32.Parse(txtQuantity.Text);
-            //}
             if (txtMedicineName.Text.Trim() != null && txtQuantity.Text.Trim() != null)
             {
                 gridViewList.DataSource = null;

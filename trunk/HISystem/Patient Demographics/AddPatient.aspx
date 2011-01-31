@@ -5,6 +5,7 @@
    <h2 style="background-color: #d3e7c5">
         Add Patient Page
     </h2>
+    <br />
    
     <table 84%"="" bgcolor="#a2cc85" 
         style="height:93px;width: 129px; border:solid 2px #2c6402;" border="2">

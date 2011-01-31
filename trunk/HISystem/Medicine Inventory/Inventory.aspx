@@ -9,9 +9,9 @@
         Inventory Page
     </h2>
 
-    <a href="#modalwindow3" name="modal" style="color: #990033"><center>Monitor Stocks</center></a><br/><br/><br/>
+    <a href="#modalwindow3" name="modal" style="color: #990033">Monitor Stocks</a><br/><br/><br/>
 
-    <table style="width: 43%;" border="1" align="center">
+    <table style="width: 100%;" border="1" align="center">
         <tr>
             <td colspan="3">
                     <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Size="Medium" 
@@ -25,13 +25,13 @@
                 <asp:DropDownList ID="ddlCategory" runat="server" AutoPostBack="True" 
             DataSourceID="Category" DataTextField="CategoryName" 
             DataValueField="CategoryName" 
-            onselectedindexchanged="ddlCategory_SelectedIndexChanged" Height="22px" 
-                    Width="174px">
+            onselectedindexchanged="ddlCategory_SelectedIndexChanged" Height="20px" 
+                    Width="231px">
         </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td style="width: 280px">
+            <td style="width: 125px">
                     Name</td>
             <td colspan="2">
                 <asp:TextBox 
@@ -40,27 +40,28 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 280px">
+            <td style="width: 150px">
         Items</td>
             <td colspan="2">
-                <asp:Panel ID="Panel1" ScrollBars="Auto" runat="server">
+                <asp:Panel ID="pnlGridview" ScrollBars="Auto" Height="286px" runat="server">
                 <asp:GridView ID="gridviewMedicine" runat="server" AutoGenerateColumns="False" DataKeyNames="MedicineId"
-            Height="193px" onselectedindexchanged="gridviewMedicine_SelectedIndexChanged" 
-            Width="229px" AutoGenerateSelectButton="True" HorizontalAlign="Center" 
+            Height="124px" onselectedindexchanged="gridviewMedicine_SelectedIndexChanged" 
+            Width="436px" AutoGenerateSelectButton="True" HorizontalAlign="Center" 
                     BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" 
                     CellPadding="4" GridLines="Horizontal">
                     <Columns>
-                        <asp:BoundField DataField="MedicineId" HeaderText="Id" 
+                        <asp:BoundField DataField="MedicineId" ItemStyle-HorizontalAlign="Center" HeaderText="Medicine Id" 
                     InsertVisible="False" ReadOnly="True" SortExpression="MedicineId" />
-                        <asp:BoundField DataField="MedicineName" HeaderText="MedicineName" 
+                        <asp:BoundField DataField="MedicineName" ItemStyle-HorizontalAlign="Center" HeaderText="Medicine Name" 
                     SortExpression="MedicineName" />
-                        <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
+                        <asp:BoundField DataField="Quantity" ItemStyle-HorizontalAlign="Center" HeaderText="Quantity" 
                     SortExpression="Quantity" />
                     </Columns>
+                    <EmptyDataTemplate>No Data to show.</EmptyDataTemplate>
                     <FooterStyle BackColor="White" ForeColor="#333333" />
-                    <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#009933" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="White" ForeColor="#333333" />
+                    <RowStyle BackColor="White" ForeColor="#003300" />
                     <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
                     <SortedAscendingCellStyle BackColor="#F7F7F7" />
                     <SortedAscendingHeaderStyle BackColor="#487575" />
@@ -74,11 +75,12 @@
             <td style="width: 280px">
                 &nbsp;</td>
             <td style="width: 246px">
-                  <a href="#modalwindow" name="modal" style="color: #990033">add checkout item</a><br/>
+            <center>
+                  <a href="#modalwindow" name="modal" style="color: #990033">Add to Checkout List</a><br/>
+             </center>
              </td>
             <td>
-           
-        <a href="#modalwindow2" name="modal" style="color: #990033">view checkout items</a></td>
+           <center><a href="#modalwindow2" name="modal" style="color: #990033">View Checkout Items</a></td></center>
         </tr>
     </table>
       
@@ -106,7 +108,8 @@
         <table style="width:46%;" border="1">
             <tr>
                 <td class="style5" colspan="2">
-                    Adding Items for Checkout</td>
+                <center>
+                    Adding Items for Checkout List</center></td>
             </tr>
             <tr>
                 <td class="style5">
@@ -114,7 +117,7 @@
                 <td>
         <asp:DropDownList ID="ddlMedicineId" runat="server" DataSourceID="Medicine" 
             DataTextField="MedicineId" DataValueField="MedicineId" Enabled="False" Height="22px" 
-                        Width="179px">
+                        Width="184px">
         </asp:DropDownList>
                 </td>
             </tr>
@@ -129,7 +132,7 @@
             </tr>
             <tr>
                 <td class="style5">
-                    &nbsp;Quantity</td>
+                    Quantity</td>
                 <td>
         <asp:TextBox ID="txtQuantity" runat="server" onpaste = "return false;" 
             onkeyup ="keyUP(event.keyCode)" onkeydown = "return isNumeric(event.keyCode);" 
@@ -139,9 +142,9 @@
             <tr>
                 <td class="style5">
                     &nbsp;</td>
-                <td>
+                <td><center>
         <asp:Button ID="btnAddToList" runat="server" onclick="btnAddToList_Click" 
-                        Text="Add To List" Width="128px" />
+                        Text="Add To List" Width="128px" /></center>
                 </td>
             </tr>
         </table>
@@ -155,52 +158,58 @@
            
            
             <!-- div for checkout cart -->
-            <div id="modalwindow2x" class="window2x">
+            <div id="modalwindow2" class="window2">
             <br />
    
     <table style="width: 46%;" border="1">
             <tr>
                 <td class="style3" colspan="2">
-                    &nbsp;
-                    &nbsp;&nbsp; List of Checkout Items</td>
+                    <center> List of Checkout Items </center></td>
             </tr>
             <tr>
                 <td colspan="2">
-                    &nbsp;
-                    &nbsp;
+                <asp:Panel ID="pnlList" HorizontalAlign="Center" ScrollBars="Auto" runat="server">
                 <asp:GridView ID="gridViewList" runat="server" AutoGenerateColumns="False" DataKeyNames="MedicineId" 
-                Height="124px" Width="331px" HorizontalAlign="Center" BackColor="White" 
-                        BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" 
-                        GridLines="Horizontal">
+                Height="124px" Width="436px" HorizontalAlign="Center" BackColor="White" 
+                        BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="2" 
+                        CellSpacing="1" GridLines="Horizontal">
                 <Columns>
-                    <asp:BoundField DataField="MedicineId" HeaderText="Id" 
-                        InsertVisible="False" ReadOnly="True" SortExpression="MedicineId" />
-                    <asp:BoundField DataField="MedicineName" HeaderText="MedicineName" 
-                        SortExpression="MedicineName" />
-                    <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
-                        SortExpression="Quantity" />
+                    <asp:BoundField DataField="MedicineId" ItemStyle-HorizontalAlign="Center" HeaderText="Medicine Id" 
+                        InsertVisible="False" ReadOnly="True" SortExpression="MedicineId" >
+                    <ItemStyle HorizontalAlign="Center" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="MedicineName" ItemStyle-HorizontalAlign="Center" HeaderText="Medicine Name" 
+                        SortExpression="MedicineName" >
+                    <ItemStyle HorizontalAlign="Center" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Quantity" ItemStyle-HorizontalAlign="Center" HeaderText="Quantity" 
+                        SortExpression="Quantity" >
+                    <ItemStyle HorizontalAlign="Center" />
+                    </asp:BoundField>
                 </Columns>
+                    <EmptyDataTemplate>No Data to show.</EmptyDataTemplate>
                     <FooterStyle BackColor="White" ForeColor="#333333" />
-                    <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#009933" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="White" ForeColor="#333333" HorizontalAlign="Center" />
+                    <RowStyle BackColor="White" ForeColor="#003300" HorizontalAlign="Center" />
                     <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
                     <SortedAscendingCellStyle BackColor="#F7F7F7" />
                     <SortedAscendingHeaderStyle BackColor="#487575" />
                     <SortedDescendingCellStyle BackColor="#E5E5E5" />
                     <SortedDescendingHeaderStyle BackColor="#275353" />
             </asp:GridView>
+                      </asp:Panel>
                 </td>
             </tr>
             <tr>
                 <td class="style4">
-                    &nbsp;
-                <asp:Button ID="btnCheckOut" runat="server" onclick="btnCheckOut_Click" 
-                 Text="Check Out" style="margin-left: 23px" Width="94px" />
+                <center><asp:Button ID="btnCheckOut" runat="server" onclick="btnCheckOut_Click" 
+                 Text="Check Out" style="margin-left: 23px" Width="94px" /></center>
+
                 </td>
                 <td>
-                    &nbsp;
-                <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="Remove All" />
+                <center>
+                <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="Remove All" /></center>
                 </td>
             </tr>
         </table>
@@ -247,10 +256,12 @@
                 <td class="style2" style="width: 54px">
                     &nbsp;</td>
                 <td class="style1">
+                    <asp:Panel ID="pnlGrdview" ScrollBars="Auto" Height="286px" runat="server">
+                   
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="MedicineId" 
-            Height="189px" Width="323px" HorizontalAlign="Center" BackColor="White" 
-                        BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" 
-                        GridLines="Horizontal">
+            Height="124px" Width="436px" HorizontalAlign="Center" BackColor="White" 
+                        BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="2" 
+                        CellSpacing="1" GridLines="Horizontal">
             <Columns>
                 <asp:CommandField ShowSelectButton="True" />
                 <asp:BoundField DataField="MedicineId" HeaderText="MedicineId" 
@@ -270,6 +281,7 @@
             <SortedDescendingCellStyle BackColor="#E5E5E5" />
             <SortedDescendingHeaderStyle BackColor="#275353" />
         </asp:GridView>
+         </asp:Panel>
                 </td>
             </tr>
         </table>
