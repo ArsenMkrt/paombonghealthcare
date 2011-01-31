@@ -231,7 +231,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         else
             Response.Write("<script> window.alert('Please select Patient first before saving.')</script>");
     }
-
+    
     private void showErrorSave(string err)
     {
         Response.Write("<script> window.alert('Did not save successfully please check all fields:"+err.ToString()+"')</script>");

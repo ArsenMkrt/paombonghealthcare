@@ -37,7 +37,7 @@
                    </td>
                     <td style="width: 176px">
                       <asp:TextBox ID="UserName" runat="server" 
-                            AutoCompleteType="Disabled" Width="128px"></asp:TextBox>
+                            AutoCompleteType="Disabled" Width="128px">Doctor1</asp:TextBox>
                         <asp:RequiredFieldValidator ID="UserNameRequired" Display="Dynamic" 
                             runat="server" ControlToValidate="UserName" 
                              CssClass="failureNotification" ErrorMessage="User Name is required." ToolTip="User Name is required." 
@@ -54,7 +54,7 @@
                     </td>
                        <td style="width: 176px">
                         <asp:TextBox ID="Password" runat="server" 
-                               TextMode="Password" AutoCompleteType="Disabled" Width="128px"></asp:TextBox>
+                               TextMode="Password" AutoCompleteType="Disabled" Width="128px">Doctor1</asp:TextBox>
                         <asp:RequiredFieldValidator ID="PasswordRequired" Display="Dynamic" 
                             runat="server" ControlToValidate="Password" 
                              CssClass="failureNotification" ErrorMessage="Password is required." ToolTip="Password is required." 
