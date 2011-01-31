@@ -27,7 +27,7 @@ public class Patient
 
     //Methods
     public bool AddPatient(string PatientFirstName, string PatientMiddleName, string PatientLastName,
-        string PatientContactNumber, string PatientEmailAddress, string PatientSuffix, string PatientBirthdate, string PatientBirthplace, string PatientAddress,
+        string PatientContactNumber, string PatientEmailAddress, string PatientSuffix, DateTime PatientBirthdate, string PatientBirthplace, string PatientAddress,
         string PatientFaxNumber, string PatientDoctor, string PatientNationality, string PatientCity,
         string PatientSex, string PatientMaritalStatus, string PatientSpouseName, string PatientCompany, string DateRegistered, string PatientBarangay)
     {
