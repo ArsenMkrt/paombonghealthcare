@@ -46,13 +46,19 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
         {
             if (txtDate.Text != null)
             {
-                string[] bDate = txtDate.ToString().Trim().Split('/');
-                int day, month, yr;
-                day = Convert.ToInt32(bDate[0].Trim());
-                month=Convert.ToInt32(bDate[1].Trim());
-                yr = Convert.ToInt32(bDate[2].Trim());
+                //string[] bDate = txtDate.ToString().Trim().Split('/');
+                //int day, month, yr;
+                //day = Convert.ToInt32(bDate[0].Trim());
+                //month=Convert.ToInt32(bDate[1].Trim());
+                //yr = Convert.ToInt32(bDate[2].Trim());
 
-                if (yr <= Int32.Parse(DateTime.Now.ToString("yyyy")))
+
+                //compare date to know if birthdate is valid date/year
+                DateTime dateNow = DateTime.Parse(DateTime.Now.ToShortDateString()) ;
+                DateTime bdate = DateTime.Parse(txtDate.Text);
+                int compareResult = dateNow.CompareTo(bdate);
+               
+                if (compareResult >= 0)
                 {
                     if (radiobutton_Female.Checked || radiobutton_Male.Checked)
                     {
@@ -80,7 +86,7 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
                         Response.Write("<script> window.alert('Please select gender')</script>");
                 }
                 else
-                    Response.Write("<script> window.alert('Please provide a birthdate that is lower than the current year.')</script>");
+                    Response.Write("<script> window.alert('Please provide a valid birthdate.')</script>");
             }
 
          }
