@@ -51,6 +51,21 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
     }
     protected void Page_Load(object sender, EventArgs e)
     {
+
+
+        if (Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
+        {
+            // session has timed out, log out the user
+            if (Page.Request.IsAuthenticated || HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                FormsAuthentication.SignOut();
+                Session.Abandon();
+                Session.Clear();
+
+            }
+
+        }
+
         //redirect to login in 5 seconds
         if (Request.Url.AbsolutePath.EndsWith("SessionExpired.aspx", StringComparison.InvariantCultureIgnoreCase))
         {
@@ -78,18 +93,7 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
         
         
         
-        if (Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
-        {
-            // session has timed out, log out the user
-            if (Page.Request.IsAuthenticated || HttpContext.Current.User.Identity.IsAuthenticated)
-            {
-                FormsAuthentication.SignOut();
-                Session.Abandon();
-                Session.Clear();
-
-            }
-
-        }
+       
 
        
 

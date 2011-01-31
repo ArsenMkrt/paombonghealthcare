@@ -55,16 +55,27 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
 
 
 
-    protected override void OnLoad(EventArgs e)
-    {
-        base.OnLoad(e);
-        Page.Header.DataBind();
-    }
+   
 
 
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
+        {
+            // session has timed out, log out the user
+            if (Page.Request.IsAuthenticated || HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                FormsAuthentication.SignOut();
+                Session.Abandon();
+                Session.Clear();
+                //img_UserRole.ImageUrl = "~/images/guest.png";
+                //img_UserRole.ToolTip = "You are not logged in!";
+            }
+
+        }
+
+
         //redirect to login in 5 seconds
         if (Request.Url.AbsolutePath.EndsWith("SessionExpired.aspx", StringComparison.InvariantCultureIgnoreCase))
         {
@@ -86,28 +97,6 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
         
         
         
-        
-        
-        
-        
-        
-        
-        if (Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
-        {
-            // session has timed out, log out the user
-            if (Page.Request.IsAuthenticated || HttpContext.Current.User.Identity.IsAuthenticated)
-            {
-                FormsAuthentication.SignOut();
-                Session.Abandon();
-                Session.Clear();
-                //img_UserRole.ImageUrl = "~/images/guest.png";
-                //img_UserRole.ToolTip = "You are not logged in!";
-            }
-
-        }
-
-
-
 
 
       

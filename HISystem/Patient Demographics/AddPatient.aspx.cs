@@ -13,11 +13,7 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
 
 
 
-    protected void Calendar1_SelectionChanged(object sender, EventArgs e)
-    {
-        // Popup result is the selected date
-        PopupControlExtender1.Commit(Calendar1.SelectedDate.ToShortDateString());
-    }
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Midwife"))
@@ -61,7 +57,7 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
 
                     //Add Patient
                     bool statusAdd = pt.AddPatient(txtFName.Text.Trim(), txtMName.Text.Trim(), txtLName.Text.Trim(), txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
-                        txtSuffix.Text.Trim(), ddlDay.Text.Trim() + "/" + ddlMonth.Text.Trim() + "/" + ddlYear.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
+                        txtSuffix.Text.Trim(), Convert.ToDateTime(txtDate.Text.Trim()), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
                         txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
                         Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
 
