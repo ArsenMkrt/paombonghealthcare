@@ -65,8 +65,11 @@ public partial class Patient_Demographics_PatientInquiry : System.Web.UI.Page
                     ddlCivilStatus.Text = dr["PatientCivilStatus"].ToString().Trim();
                     txtEmailAdd.Text = dr["PatientEmailAddress"].ToString().Trim();
 
-                    txtDate.Text = dr["PatientBirthdate"].ToString().Trim();
-                  
+                    string date = dr["PatientBirthdate"].ToString().Trim();
+                    DateTime dob = Convert.ToDateTime(date);
+                    txtDate.Text = dob.ToString("MM/dd/yyyy");
+
+
                     txtBirthplace.Text = dr["PatientBirthplace"].ToString().Trim();
                     txtCompany.Text = dr["PatientCompany"].ToString().Trim();
                     txtCity.Text = dr["PatientCity"].ToString().Trim();

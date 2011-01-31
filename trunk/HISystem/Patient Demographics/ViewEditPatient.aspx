@@ -224,11 +224,9 @@
                     <asp:TextBox runat="server" ID="txtDate" Height="23px" Width="97px" />
                     
 
-                         <asp:MaskedEditExtender ID="MaskedEditExtender1" runat="server" 
-                    TargetControlID="txtDate" BehaviorID="behave1" ClearMaskOnLostFocus="False" Mask="99/99/9999" CultureName="" UserDateFormat="DayMonthYear" MaskType="Date">
-                </asp:MaskedEditExtender>
+                      
                 <asp:CalendarExtender ID="calendarButtonExtender" runat="server" 
-                     TargetControlID="txtDate"/>
+                     TargetControlID="txtDate" CssClass="MyCalendar"/>
                     <asp:Image ID="Image5" runat="server" ImageUrl="~/images/calendar.png" ToolTip="Choose Date" />
                 <br />
                 <asp:CompareValidator ID="CompareValidator2" runat="server" 

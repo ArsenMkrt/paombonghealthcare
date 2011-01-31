@@ -65,7 +65,9 @@ public partial class Patient_Demographics_ViewEditPatient : System.Web.UI.Page
                     ddlCivilStatus.Text = dr["PatientCivilStatus"].ToString().Trim();
                     txtEmailAdd.Text = dr["PatientEmailAddress"].ToString().Trim();
 
-                    txtDate.Text = dr["PatientBirthdate"].ToString();
+                    string date = dr["PatientBirthdate"].ToString().Trim();
+                    DateTime dob = Convert.ToDateTime(date);
+                    txtDate.Text = dob.ToString("MM/dd/yyyy");
                     
                     txtBirthplace.Text = dr["PatientBirthplace"].ToString().Trim();
                     txtCompany.Text = dr["PatientCompany"].ToString().Trim();

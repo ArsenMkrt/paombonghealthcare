@@ -188,10 +188,9 @@
                 </asp:ToolkitScriptManager>
 
                     <asp:TextBox runat="server" ID="txtDate" Height="23px" Width="97px" />
-
-                         <asp:MaskedEditExtender ID="MaskedEditExtender1" runat="server" 
-                    TargetControlID="txtDate" BehaviorID="behave1" ClearMaskOnLostFocus="False" Mask="99/99/9999" CultureName="" UserDateFormat="DayMonthYear" MaskType="Date">
-                </asp:MaskedEditExtender>
+                     <asp:CalendarExtender ID="calendarButtonExtender" runat="server" 
+                     TargetControlID="txtDate" PopupButtonID="Image1" />
+                        
                     <asp:Image ID="Image5" runat="server" ImageUrl="~/images/calendar.png" />
                 <br />
                 <asp:CompareValidator ID="CompareValidator2" runat="server" 
@@ -199,8 +198,7 @@
                Operator="DataTypeCheck" Type="Date" ValidationGroup="grpDate" 
                     Font-Italic="True" Font-Size="Small" Display="Dynamic" />
                 <br />
-        <asp:CalendarExtender ID="calendarButtonExtender" runat="server" 
-                     TargetControlID="txtDate" PopupButtonID="Image1" />
+       
 
                 </td>
                 <td class="style14">
