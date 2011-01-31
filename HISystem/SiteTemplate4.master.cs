@@ -52,7 +52,17 @@ public partial class SiteTemplate4 : System.Web.UI.MasterPage
 
       }
 
-    
+
+
+
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+        Page.Header.DataBind();
+    }
+
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
         //redirect to login in 5 seconds

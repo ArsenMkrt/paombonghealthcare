@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate3.master" AutoEventWireup="true" CodeFile="AddPatient.aspx.cs" Inherits="Patient_Demographics_AddEditPatient" %>
 
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
    <h2 style="background-color: #d3e7c5">
         Add Patient Page
@@ -265,6 +268,41 @@
                     <asp:ListItem>2016</asp:ListItem>
                     <asp:ListItem>2017</asp:ListItem>
                 </asp:DropDownList>
+                <br />
+                <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+                </asp:ToolkitScriptManager>
+                <br />
+                Enter birthdate:
+                <asp:TextBox ID="DateTextBox" runat="server" autocomplete="off" Width="80" />
+                <br />
+                <br />
+                <asp:Panel ID="Panel1" runat="server" CssClass="popupControl">
+                    <asp:UpdatePanel ID="up1" runat="server">
+                        <ContentTemplate>
+                            <center>
+                                <asp:Calendar ID="Calendar1" runat="server" BackColor="White" 
+                                    BorderColor="#999999" CellPadding="1" DayNameFormat="Shortest" 
+                                    Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" 
+                                    OnSelectionChanged="Calendar1_SelectionChanged" Width="160px">
+                                    <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                                    <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                                    <SelectorStyle BackColor="#CCCCCC" />
+                                    <WeekendDayStyle BackColor="#FFFFCC" />
+                                    <OtherMonthDayStyle ForeColor="#808080" />
+                                    <NextPrevStyle VerticalAlign="Bottom" />
+                                    <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
+                                    <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" 
+                                        Font-Size="7pt" />
+                                </asp:Calendar>
+                            </center>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </asp:Panel>
+                <asp:PopupControlExtender ID="PopupControlExtender1" runat="server" 
+                    PopupControlID="Panel1" Position="Bottom" TargetControlID="DateTextBox" />
+
+
+                <br />
             </td>
             <td class="style11" style="width: 137px">
                 <asp:Label ID="Label18" runat="server" Font-Bold="True" 

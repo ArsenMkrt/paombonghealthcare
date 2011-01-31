@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate4.master" AutoEventWireup="true" CodeFile="Consultation.aspx.cs" Inherits="Medical_Record_Consultation" %>
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     
     
@@ -25,7 +27,7 @@
         DataKeyNames="PatientID" DataSourceID="PatientList"
             AutoGenerateSelectButton="True" onselectedindexchanged="GridSearchName_SelectedIndexChanged">
         <Columns>
-         <asp:BoundField DataField="PatientID" HeaderText="Id" 
+         <asp:BoundField DataField="PatientID" HeaderText="PatientID" 
                 InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
             <asp:BoundField DataField="PtFullname" HeaderText="Name" 
                 SortExpression="PtFullname" />
@@ -36,7 +38,7 @@
         </Columns>
             <EmptyDataTemplate>No Data to show.</EmptyDataTemplate>
             <HeaderStyle BackColor="#009933" ForeColor="Black" HorizontalAlign="Center" />
-            <RowStyle ForeColor="#003300" HorizontalAlign="Center" />
+            <RowStyle ForeColor="#003300" />
     </asp:GridView>
                                 
                 
@@ -225,6 +227,36 @@
 
 
 
+
+
+                    <br />
+
+
+
+
+
+
+
+                    <br />
+
+
+
+                    <asp:TextBox ID="txtDatepick" runat="server"></asp:TextBox>
+                    <br />
+                    <%--<asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server">
+                        <Scripts>
+                            <asp:ScriptReference Path="~/Scripts/jquery.js" />
+                            <asp:ScriptReference Path="../Scripts/jquery-ui-1.7.3.custom.min.js"  />
+                            <asp:ScriptReference Path="../Scripts/jqueryui-datepicker.js"  />
+                            <asp:ScriptReference Path="../Scripts/jquery.datepick.js"  />
+
+
+                        </Scripts>
+                    </asp:ScriptManagerProxy>--%>
+
+
+
+                  
 
 
             </td>

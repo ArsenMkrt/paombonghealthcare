@@ -10,7 +10,14 @@ using System.Web.Security;
 public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
 {
     private Patient pt;
-    
+
+
+
+    protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+    {
+        // Popup result is the selected date
+        PopupControlExtender1.Commit(Calendar1.SelectedDate.ToShortDateString());
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Midwife"))
