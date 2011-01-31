@@ -2,16 +2,19 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    
+     <h2 style="background-color: #d3e7c5">
+        Patient Medical Records/History Page
+    </h2>
+
     <div id="boxes">
      <div id="modalwindow2" class="window2">
-                         
-                            <br />
+
                              <br />
                              <asp:TextBox ID="txtSearchPatient" OnTextChanged="txtSearchPatient_TextChanged" runat="server" Height="28px" Width="187px"></asp:TextBox>
                              <asp:Button ID="btnSearch" runat="server" Text="Search Patient Name" Height="28px" 
                                  Width="149px" onclick="btnSearch_Click" CausesValidation="False" />
-                                 <br/>
+                                 <br />
+                                 <br />
         <asp:GridView ID="GridSearchName"  runat="server" AutoGenerateColumns="False" 
         DataKeyNames="PatientID" DataSourceID="PatientList"
             AutoGenerateSelectButton="True" onselectedindexchanged="GridSearchName_SelectedIndexChanged">
@@ -79,23 +82,27 @@
 </table>
     <table style="width:49%;">
         <tr>
-            <td>
+            <td style="width: 137px">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 94px">
                 Name:</td>
             <td>
-                <asp:Label ID="lbl_PatientName" runat="server" Font-Bold="True"></asp:Label>
+                <center>
+                    <asp:Label ID="lbl_PatientName" runat="server" Font-Bold="True"></asp:Label>
+                </center>
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 94px">
                 Brangay of Residence:</td>
             <td>
-                <asp:Label ID="lbl_PatientBarangay" runat="server" Font-Bold="True"></asp:Label>
+                <center>
+                    <asp:Label ID="lbl_PatientBarangay" runat="server" Font-Bold="True"></asp:Label>
+                </center>
             </td>
         </tr>
     </table>
@@ -104,22 +111,25 @@
     
 
     <br />
-    <asp:GridView ID="GridView1" runat="server" Width="696px" 
-        AutoGenerateColumns="False" AutoGenerateSelectButton="True" DataSourceID="SqlDataSource1" 
-        AllowPaging="True" 
-        onselectedindexchanged="GridView1_SelectedIndexChanged1" 
-        DataKeyNames="EncounterID">
-        <AlternatingRowStyle BackColor="#A2CC85" />
-        <Columns>
-        <asp:BoundField DataField="EncounterID" HeaderText = "Consultation Reference No"
-                SortExpression="EncounterID" InsertVisible="False" ReadOnly="True" />
-            <asp:BoundField DataField="EncounterDateTime" HeaderText="Consultation Date and Time" 
-                SortExpression="EncounterDateTime" />
-            <asp:BoundField DataField="Facilitatedby" HeaderText="Facilitated By" 
-                SortExpression="Facilitatedby" />
-        </Columns>
-        <RowStyle HorizontalAlign="Center" />
-    </asp:GridView>
+    <asp:Panel ID="pnlGridview" ScrollBars="Auto" runat="server" Height="460px">
+        <asp:GridView ID="GridView1" runat="server" Width="696px" 
+            AutoGenerateColumns="False" AutoGenerateSelectButton="True" DataSourceID="SqlDataSource1" 
+            onselectedindexchanged="GridView1_SelectedIndexChanged1" 
+            DataKeyNames="EncounterID" CellPadding="2" CellSpacing="1">
+            <AlternatingRowStyle BackColor="#A2CC85" />
+            <Columns>
+                <asp:BoundField DataField="EncounterID" HeaderText = "Consultation Reference No"
+                    SortExpression="EncounterID" InsertVisible="False" ReadOnly="True" />
+                <asp:BoundField DataField="EncounterDateTime" HeaderText="Consultation Date and Time" 
+                    SortExpression="EncounterDateTime" />
+                <asp:BoundField DataField="Facilitatedby" HeaderText="Facilitated By" 
+                    SortExpression="Facilitatedby" />
+            </Columns>
+            <HeaderStyle BackColor="#009933" />
+            <RowStyle HorizontalAlign="Center" />
+            <EmptyDataTemplate>No Data to show.</EmptyDataTemplate>
+        </asp:GridView>
+    </asp:Panel>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
         SelectCommand="SELECT DISTINCT  c.EncounterID,c.EncounterDateTime, c.Facilitatedby

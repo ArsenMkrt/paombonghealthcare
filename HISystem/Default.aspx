@@ -28,22 +28,17 @@
                 Text="About &gt;&gt;                             "></asp:Label>
         </p>
         <p align="left">
-            <b>Paombong Healthcare Information system</b><br />
-            <br />
-            is a Capstone project of Mapua Institute of Technology, School of Information 
+            <b><center>Paombong Healthcare Information system</center></b><br />
+            <center><br />
+            A Capstone project of Mapua Institute of Technology, School of Information 
             Technology students aimed to develop an information system to aid the nurses in 
             generating reports, collecting patient information, medicine and equipment 
-            inventory and patient medical history.<br />
-            <br />
-            This system offers Recording and Management of Patient Information.<br />
-            <br />
-            Medical Records of such Patient Information.
-            <br />
-            Inventory of the Medicines of Paombong Healthcenter.
+            inventory and patient medical history.This system offers Recording and Management of Patient Information.
+            Medical Records of such Patient Information. Inventory of the Medicines of Paombong Healthcenter.</center>
         </p>
     </div>
     </td>
-<td>Patient Demographics</td>
+<td><center>Patient Demographics</center></td>
 <td><center><asp:Image ID="Image4" runat="server" ImageUrl="~/images/my.png" Height="71px" 
         Width="94px" /></center></td>
 </tr>
@@ -51,12 +46,12 @@
 
 <tr>
 <td><center><asp:Image ID="Image3" runat="server" ImageUrl="~/images/a.png" Height="80px" /></center></td>
-<td>Medical Records</td>
+<td><center>Medical Records</center></td>
 </tr>
 
 
 <tr>
-<td>Inventory</td>
+<td><center>Inventory</center></td>
 <td><center><asp:Image ID="Image1" runat="server" ImageUrl="~/images/ax.png" Height="73px" 
         Width="82px" /></center></td>
 </tr>
@@ -65,7 +60,7 @@
 <tr>
 <td><center><asp:Image ID="Image2" runat="server" ImageUrl="~/images/aa.png" Height="77px" 
         Width="86px" /></center></td>
-<td>Reports</td>
+<td><center>Reports</center></td>
     
 </tr>
 

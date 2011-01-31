@@ -10,7 +10,6 @@ public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
 {
     private MedicalRecord mr;
     private DataTable patientData;
-    private string height;
     private string patientId;
 
     protected void Page_Init(object Sender, EventArgs e)
@@ -22,8 +21,9 @@ public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
+
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
         patientId = GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text;
@@ -41,10 +41,12 @@ public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
     {
 
     }
+
     protected void txtSearchPatient_TextChanged(object sender, EventArgs e)
     {
 
     }
+
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         GridSearchName.DataSourceID = "PatientSearchName";

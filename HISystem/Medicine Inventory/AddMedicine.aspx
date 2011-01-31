@@ -12,26 +12,20 @@
                 <td>
         <asp:Label ID="Label3" runat="server" 
             
-            Text="Medicine Name" AssociatedControlID="txtMedicineName"></asp:Label>
+            Text="Medicine Name" AssociatedControlID="txtMedicineName" Font-Size="Small"></asp:Label>
                 </td>
                 <td colspan="2">
-        <asp:TextBox ID="txtMedicineName" runat="server" 
-            
-           ></asp:TextBox>
+        <asp:TextBox ID="txtMedicineName" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td>
         <asp:Label ID="Label4" runat="server" 
-            
-            Text="Category" AssociatedControlID="ddlCategory"></asp:Label>
+            Text="Category" AssociatedControlID="ddlCategory" Font-Size="Small"></asp:Label>
                 </td>
                 <td colspan="2">
         <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="Category" 
-            DataTextField="CategoryName" DataValueField="CategoryName" 
-            
-            
-           >
+            DataTextField="CategoryName" DataValueField="CategoryName" Height="22px" Width="128px">
         </asp:DropDownList>
                 </td>
             </tr>
@@ -39,7 +33,7 @@
                 <td>
         <asp:Label ID="Label5" runat="server" 
            
-            Text="Quantity" AssociatedControlID="txtQuantity"></asp:Label>
+            Text="Quantity" AssociatedControlID="txtQuantity" Font-Size="Small"></asp:Label>
                 </td>
                 <td colspan="2">
         <asp:TextBox ID="txtQuantity" runat="server"  onpaste = "return false;" 
@@ -55,15 +49,11 @@
             SelectCommand="SELECT DISTINCT [CategoryName] FROM [Category] ORDER BY [CategoryName]">
         </asp:SqlDataSource>
                 </td>
-                <td>
-        <asp:Button ID="btnAdd" runat="server" onclick="btnAdd_Click" 
-           
-            Text="Add" Width="93px" />
+                <td><center>
+        <asp:Button ID="btnAdd" runat="server" onclick="btnAdd_Click" Text="Add" Width="93px" /></center>
                 </td>
-                <td>
-        <asp:Button ID="btnClear" runat="server" 
-           
-            Text="Clear" onclick="btnClear_Click" Width="104px" />
+                <td><center>
+        <asp:Button ID="btnClear" runat="server" Text="Clear" onclick="btnClear_Click" Width="104px" /></center>
                 </td>
             </tr>
         </table>

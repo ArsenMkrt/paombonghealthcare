@@ -11,13 +11,12 @@
       <siteMapNode url="~/Patient Demographics/ViewEditPatient.aspx" title="Manage Patient" />
 
     </siteMapNode>
-
     
     <siteMapNode title="Inventory">
       <siteMapNode url="~/Medicine Inventory/AddMedicine.aspx" title="Add to Inventory" />
       <siteMapNode url="~/Medicine Inventory/EditMedicine.aspx" title="Edit Inventory Items" />
       <siteMapNode url="~/Medicine Inventory/DeleteMedicine.aspx" title="Delete Inventory Items" />
-      <siteMapNode url="~/Medicine Inventory/Inventory.aspx" title="View Inventory" />
+      <siteMapNode url="~/Medicine Inventory/Inventory.aspx" title="Manage Inventory" />
     </siteMapNode>
    
 

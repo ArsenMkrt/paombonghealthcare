@@ -63,7 +63,14 @@ public class DataAccess
 
     public void ConnectToDatabase()
     {
-        connection.Open();
+        try
+        {
+            connection.Open();
+        }
+        catch (Exception)
+        {
+
+        }
     }
     public void CloseDatabase()
     {

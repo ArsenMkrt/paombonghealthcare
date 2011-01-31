@@ -31,6 +31,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             btnReset.Enabled = true;
+            btnSave.Enabled = true;
             checkbox_DiseaseList.Enabled = true;
             checkbox_DiseaseList.DataBind();
             if (Request.QueryString.Count > 0)
@@ -339,6 +340,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                     li.Selected = true;
             }
         }
+        btnSave.Enabled = false;
+        btnSearch.Enabled = false;
     }
     
     protected void GridSearchName_SelectedIndexChanged(object sender, EventArgs e)

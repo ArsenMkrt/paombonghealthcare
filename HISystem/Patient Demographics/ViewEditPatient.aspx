@@ -18,7 +18,8 @@
                              <asp:TextBox ID="txtSearchPatient" runat="server" Height="28px" Width="187px"></asp:TextBox>
                              <asp:Button ID="btnSearch" runat="server" Text="Search Patient Last Name" Height="28px" 
                                  Width="175px" onclick="btnSearch_Click" />
-                                 <br/>
+                                 <br />
+                                 <br />
         <asp:GridView ID="GridSearchName"  runat="server" AutoGenerateColumns="False" 
         DataKeyNames="PatientID" DataSourceID="PatientList"
             AutoGenerateSelectButton="True" onselectedindexchanged="GridSearchName_SelectedIndexChanged">
@@ -32,6 +33,7 @@
             <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
                 SortExpression="PtBdate" />
         </Columns>
+            <EmptyDataTemplate>No Data to show.</EmptyDataTemplate>
             <HeaderStyle BackColor="#009933" HorizontalAlign="Center" />
             <RowStyle ForeColor="#003300" HorizontalAlign="Center" />
     </asp:GridView>

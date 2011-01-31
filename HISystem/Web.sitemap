@@ -12,8 +12,7 @@
 
         <siteMapNode title="Medical Records">
             
-            <siteMapNode url="~/Medical Record/Consultation.aspx" title="Patient Consultation" />
-            
+          <siteMapNode url="~/Medical Record/Consultation.aspx" title="Consult Patient" />
           <siteMapNode url="~/Medical Record/MedicalHistory.aspx" title="View Patient Medical Records/History" />
             
         </siteMapNode>
@@ -21,11 +20,11 @@
             <siteMapNode url="~/Medicine Inventory/AddMedicine.aspx" title="Add to Inventory" />
             <siteMapNode url="~/Medicine Inventory/EditMedicine.aspx" title="Edit Inventory Items" />
             <siteMapNode url="~/Medicine Inventory/DeleteMedicine.aspx" title="Delete Inventory Items" />            
-            <siteMapNode url="~/Medicine Inventory/Inventory.aspx" title="View Inventory" />
+            <siteMapNode url="~/Medicine Inventory/Inventory.aspx" title="Manage Inventory" />
     </siteMapNode>
         <siteMapNode title="Reports">
-            <siteMapNode url="~/Reports/Bulk/Childcare.aspx" title="Bulk Insert" />
-            <siteMapNode url="~/Reports/mReport.aspx" title="New/View/Delete Report" />
+            <!--<siteMapNode url="~/Reports/Bulk/Childcare.aspx" title="Bulk Insert" />-->
+            <siteMapNode url="~/Reports/mReport.aspx" title="New Monthly Report" />
             <!--<siteMapNode url="~/Reports/ViewEditReport.aspx" title="View Consolidated" />-->
             <siteMapNode url="~/Reports/previewReport.aspx" title="Preview Report" />
         </siteMapNode>

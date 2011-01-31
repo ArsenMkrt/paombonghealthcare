@@ -64,30 +64,38 @@
                     </tr>
                     <tr>
                         <td style="width: 385px">
+                            <asp:Panel ID="pnlMedicine" ScrollBars="Auto" Height="286px" runat="server">
+                        
                             <asp:GridView ID="gridViewMedicine" runat="server" AutoGenerateColumns="False" 
                                 AutoGenerateSelectButton="True" BackColor="White" BorderColor="#336666" 
-                                BorderStyle="Double" BorderWidth="3px" CellPadding="4" 
+                                BorderStyle="Double" BorderWidth="3px" CellSpacing="1" CellPadding="2" 
                                 DataKeyNames="MedicineId" DataSourceID="MedicineDataSource" 
                                 GridLines="Horizontal" Height="124px" HorizontalAlign="Center" 
-                                onselectedindexchanged="gridViewMedicine_SelectedIndexChanged" Width="331px">
+                                onselectedindexchanged="gridViewMedicine_SelectedIndexChanged" 
+                                Width="436px">
                                 <Columns>
-                                    <asp:BoundField DataField="MedicineId" HeaderText="Id" 
+                                    <asp:BoundField DataField="MedicineId" ItemStyle-HorizontalAlign="Center" HeaderText="Medicine Id" 
                                         InsertVisible="False" ReadOnly="True" SortExpression="MedicineId" />
-                                    <asp:BoundField DataField="MedicineName" HeaderText="MedicineName" 
-                                        SortExpression="MedicineName" />
-                                    <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
+                                    <asp:BoundField DataField="MedicineName" ItemStyle-HorizontalAlign="Center"
+                                     HeaderText="Medicine Name" SortExpression="MedicineName" >
+                                        <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="Quantity" ItemStyle-HorizontalAlign="Center" HeaderText="Quantity" 
                                         SortExpression="Quantity" />
                                 </Columns>
+                                <EmptyDataTemplate>No Data to show.</EmptyDataTemplate>
                                 <FooterStyle BackColor="White" ForeColor="#333333" />
-                                <HeaderStyle BackColor="#336666" Font-Bold="True" HorizontalAlign="Center" ForeColor="White" />
+                                <HeaderStyle BackColor="#009933" Font-Bold="True" HorizontalAlign="Center" 
+                                    ForeColor="White" />
                                 <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-                                <RowStyle BackColor="White" ForeColor="#333333" HorizontalAlign="Center" />
+                                <RowStyle BackColor="White" ForeColor="#003300" HorizontalAlign="Center" />
                                 <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
                                 <SortedAscendingCellStyle BackColor="#F7F7F7" />
                                 <SortedAscendingHeaderStyle BackColor="#487575" />
                                 <SortedDescendingCellStyle BackColor="#E5E5E5" />
                                 <SortedDescendingHeaderStyle BackColor="#275353" />
                             </asp:GridView>
+                                </asp:Panel>
                             <asp:SqlDataSource ID="MedicineDataSource" runat="server" 
                                 ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
                                 SelectCommand="SELECT DISTINCT [MedicineId],[MedicineName],[Quantity] FROM [Medicine] ORDER BY [MedicineName]">
