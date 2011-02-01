@@ -25,13 +25,13 @@
         DataKeyNames="PatientID" DataSourceID="PatientList"
             AutoGenerateSelectButton="True" onselectedindexchanged="GridSearchName_SelectedIndexChanged">
         <Columns>
-             <asp:BoundField DataField="PatientID" HeaderText="Id" 
+             <asp:BoundField DataField="PatientID" ItemStyle-HorizontalAlign="Center" HeaderText="Id" 
                 InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
-            <asp:BoundField DataField="PtFullname" HeaderText="Name" 
+            <asp:BoundField DataField="PtFullname" ItemStyle-HorizontalAlign="Center" HeaderText="Patient Name" 
                 SortExpression="PtFullname" />
-            <asp:BoundField DataField="PtGender" HeaderText="Gender" 
+            <asp:BoundField DataField="PtGender" ItemStyle-HorizontalAlign="Center" HeaderText="Gender" 
                 SortExpression="PtGender" />
-            <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
+            <asp:BoundField DataField="PtBdate" ItemStyle-HorizontalAlign="Center" HeaderText="Birthdate" 
                 SortExpression="PtBdate" />
         </Columns>
             <EmptyDataTemplate>No Data to show.</EmptyDataTemplate>
@@ -39,7 +39,10 @@
             <RowStyle ForeColor="#003300" HorizontalAlign="Center" />
     </asp:GridView>
                                 
-             
+    <asp:SqlDataSource ID="Barangay0" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>"
+                        SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
+                    </asp:SqlDataSource>         
     <asp:SqlDataSource ID="PatientSearchName" runat="server" 
         ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>" 
         SelectCommand="SearchPatientByName" SelectCommandType="StoredProcedure">
@@ -75,10 +78,6 @@
                 </td>
                 <td class="style3" colspan="4">
                     <center>
-                    <asp:SqlDataSource ID="Barangay0" runat="server" 
-                        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString %>"
-                        SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
-                    </asp:SqlDataSource>
                         <asp:Image ID="Image3" runat="server" Height="42px" 
                             ImageUrl="~/images/image3.png" Width="52px" />
                         <asp:Image ID="Image2" runat="server" Height="43px" 
@@ -220,7 +219,7 @@
                       <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
                 </asp:ToolkitScriptManager>
                
-
+               
                     <asp:TextBox runat="server" ID="txtDate" Height="23px" Width="97px" />
                     
 
@@ -238,12 +237,12 @@
                 </asp:ValidatorCalloutExtender>
 
 
-                <asp:RangeValidator ID="RangeValidator1" ControlToValidate="txtDate" 
+            <%--    <asp:RangeValidator ID="RangeValidator1" ControlToValidate="txtDate" 
                     runat="server" ErrorMessage="Invalid date range" Type="Date" Display="Dynamic" 
-                    Font-Italic="True" Font-Size="Small"></asp:RangeValidator>
+                    Font-Italic="True" Font-Size="Small"></asp:RangeValidator>--%>
                 
-                <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="RangeValidator1">
-                </asp:ValidatorCalloutExtender>
+              <%--  <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="RangeValidator1">
+                </asp:ValidatorCalloutExtender>--%>
         
 
 

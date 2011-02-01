@@ -1,7 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate4.master" AutoEventWireup="true" CodeFile="mReport.aspx.cs" Inherits="Reports_AddReport" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <p>
+    <h2 style="background-color: #d3e7c5">
+       New Monthly Report Page
+    </h2>
+    <br />
         <asp:SqlDataSource ID="Program" runat="server" 
             ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
             
