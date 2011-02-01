@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="LoginContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+    <h2 style="background-color: #d3e7c5">
+        FHSIS Report Input Page
+    </h2>
     <br />
     <br />
     <table border="1" 
