@@ -68,10 +68,16 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
         else
         {
 
+                    if (!Page.Request.IsAuthenticated)
+                    {
+
+                        //else user is guest
+                        menu.DataSourceID = "SiteMapDataSource1";
+                    }
 
 
                     //redirect to login in 5 seconds
-                    if (Request.Url.AbsolutePath.EndsWith("SessionExpired.aspx", StringComparison.InvariantCultureIgnoreCase))
+                    else if (Request.Url.AbsolutePath.EndsWith("SessionExpired.aspx", StringComparison.InvariantCultureIgnoreCase))
                     {
                         HtmlMeta meta = new HtmlMeta();
                         meta.HttpEquiv = "Refresh";
@@ -114,11 +120,12 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
                             img_UserRole.ToolTip = "You are logged in as Nurse!";
                             menu.DataSourceID = "SiteMapDataSource2";
                         }
-                        else
-                            //else user is guest
-                            menu.DataSourceID = "SiteMapDataSource1";
+                       
 
                     }
+                    else
+                        //else user is guest
+                        menu.DataSourceID = "SiteMapDataSource1";
 
         }
         
