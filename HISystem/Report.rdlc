@@ -1122,7 +1122,7 @@
         <Top>1.613in</Top>
         <Left>0.03in</Left>
         <Height>1.35417in</Height>
-        <Width>7.47in</Width>
+        <Width>7.47002in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2329,7 +2329,7 @@
         <Top>5.30049in</Top>
         <Left>0.03in</Left>
         <Height>1.47918in</Height>
-        <Width>7.47in</Width>
+        <Width>7.47002in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -3536,7 +3536,7 @@
         <Top>7.14425in</Top>
         <Left>0.03in</Left>
         <Height>1.35415in</Height>
-        <Width>7.47in</Width>
+        <Width>7.47002in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -4510,7 +4510,7 @@
         <Top>9.113in</Top>
         <Left>0.03in</Left>
         <Height>1.38542in</Height>
-        <Width>7.47in</Width>
+        <Width>7.47002in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -5561,8 +5561,8 @@
         </PageBreak>
         <Top>11.06091in</Top>
         <Left>0.03in</Left>
-        <Height>1.58333in</Height>
-        <Width>7.47in</Width>
+        <Height>1.58332in</Height>
+        <Width>7.47002in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -6738,7 +6738,7 @@
         <Top>13.47758in</Top>
         <Left>0.03in</Left>
         <Height>1.57294in</Height>
-        <Width>7.47in</Width>
+        <Width>7.47002in</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -7868,7 +7868,7 @@
         <Top>15.45328in</Top>
         <Left>0.03in</Left>
         <Height>1.33333in</Height>
-        <Width>7.47in</Width>
+        <Width>7.47002in</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -8908,10 +8908,10 @@
         <PageBreak>
           <BreakLocation>End</BreakLocation>
         </PageBreak>
-        <Top>17.41508in</Top>
+        <Top>17.04008in</Top>
         <Left>0.03in</Left>
         <Height>1.25in</Height>
-        <Width>7.47in</Width>
+        <Width>7.47002in</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -10305,8 +10305,8 @@
         </PageBreak>
         <Top>3.22569in</Top>
         <Left>0.03in</Left>
-        <Height>1.56252in</Height>
-        <Width>7.47in</Width>
+        <Height>1.56253in</Height>
+        <Width>7.47002in</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>

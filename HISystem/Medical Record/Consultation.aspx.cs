@@ -6,8 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections;
 using System.Data;
-using System.Web.Security; 
-
+using System.Web.Security;
+using bll;
 public partial class Medical_Record_Consultation : System.Web.UI.Page
 {
     private MedicalRecord mr;
@@ -18,13 +18,15 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     private string err;
     private string encId;
     private int patientId;
-
+    
     protected void Page_Init(object Sender, EventArgs e)
     {
         Response.Cache.SetCacheability(HttpCacheability.NoCache);
         Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
         Response.Cache.SetNoStore();
     }
+
+
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -56,6 +58,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
+        
         mr = new MedicalRecord();
 
         patientData = mr.GetValuesConsultation(patientId.ToString());
@@ -65,6 +68,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         {
             foreach (DataRow dr in patientData.Rows)
             {
+                
                 txtlname.Text = dr["PatientLName"].ToString().Trim();
 
                 txtfname.Text = dr["PatientFName"].ToString().Trim();
@@ -74,10 +78,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 txtPhilhealthNum.Text = dr["PatientFaxNumber"].ToString().Trim();
 
 
-                string[] bDate = dr["PatientBirthdate"].ToString().Trim().Split('/');
-                ddlDay.Text = bDate[0].Trim();
-                ddlMonth.Text = bDate[1].Trim();
-                ddlYear.Text = bDate[2].Trim();
+                txtDatepick.Text = dr["PatientBirthdate"].ToString().Trim();
+                
                 txtAddress.Text = dr["PatientAddress"].ToString().Trim();
                 ddlBarangay.Text = dr["PatientBarangay"].ToString().Trim();
                 txtAddress.ReadOnly = true;
@@ -85,11 +87,15 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 txtfname.ReadOnly = true;
                 txtmname.ReadOnly = true;
                 txtPhilhealthNum.ReadOnly = true;
-                ddlDay.Enabled = false;
-                ddlMonth.Enabled = false;
-                ddlYear.Enabled = false;
+                
                 ddlBarangay.Enabled = false;
-                txtAge.Text = (Int32.Parse(DateTime.Now.ToString("yyyy")) - Int32.Parse(ddlYear.Text)).ToString();
+
+
+
+                DateTime bdate = DateTime.Parse(dr["PatientBirthdate"].ToString().Trim());
+                calcAge a = new calcAge();
+                txtAge.Text = a.GetAge(bdate);
+               // txtAge.Text = (Int32.Parse(DateTime.Now.ToString("yyyy")) - Int32.Parse(ddlYear.Text)).ToString();
                 txtAge.ReadOnly = true;
                 
             }
@@ -200,7 +206,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 if (err == null)
                 {
                     //reset upon save
-
+                    txtDatepick.Text = string.Empty;
                     txtAge.Text = string.Empty;
                     txtTemp.Text = string.Empty;
                     txtWt.Text = string.Empty;
@@ -219,9 +225,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                     txtAddress.Text = string.Empty;
                     txtPhilhealthNum.Text = string.Empty;
                     ddlBarangay.SelectedIndex = 1;
-                    ddlDay.SelectedIndex = 1;
-                    ddlMonth.SelectedIndex = 1;
-                    ddlYear.SelectedIndex = 1;
+                   
                     txtAddress.Text = string.Empty;
 
                     ddlBarangay.Enabled = false;
@@ -254,10 +258,9 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 txtfname.Text = dr["PatientFName"].ToString().Trim();
                 txtmname.Text = dr["PatientMName"].ToString().Trim();
                 txtPhilhealthNum.Text = dr["PatientFaxNumber"].ToString().Trim();
-                string[] bDate = dr["PatientBirthdate"].ToString().Trim().Split('/');
-                ddlDay.Text = bDate[0].Trim();
-                ddlMonth.Text = bDate[1].Trim();
-                ddlYear.Text = bDate[2].Trim();
+
+
+                txtDatepick.Text = dr["PatientBirthdate"].ToString().Trim();
                 txtAddress.Text = dr["PatientAddress"].ToString().Trim();
                 ddlBarangay.Text = dr["PatientBarangay"].ToString().Trim();
                 txtAddress.ReadOnly = true;
@@ -265,10 +268,14 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 txtfname.ReadOnly = true;
                 txtmname.ReadOnly = true;
                 txtPhilhealthNum.ReadOnly = true;
-                ddlDay.Enabled = false;
-                ddlMonth.Enabled = false;
-                ddlYear.Enabled = false;
-                txtAge.Text = (Int32.Parse(DateTime.Now.ToString("yyyy")) - Int32.Parse(ddlYear.Text)).ToString();
+
+
+
+
+                DateTime bdate = DateTime.Parse(dr["PatientBirthdate"].ToString().Trim());
+                calcAge a = new calcAge();
+                txtAge.Text = a.GetAge(bdate);
+              //  txtAge.Text = (Int32.Parse(DateTime.Now.ToString("yyyy")) - Int32.Parse(ddlYear.Text)).ToString();
                 txtAge.ReadOnly = true;
             }
         }
@@ -362,10 +369,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 txtfname.Text = dr["PatientFName"].ToString().Trim();
                 txtmname.Text = dr["PatientMName"].ToString().Trim();
                 txtPhilhealthNum.Text = dr["PatientFaxNumber"].ToString().Trim();
-                string[] bDate = dr["PatientBirthdate"].ToString().Trim().Split('/');
-                ddlDay.Text = bDate[0].Trim();
-                ddlMonth.Text = bDate[1].Trim();
-                ddlYear.Text = bDate[2].Trim();
+                
+                txtDatepick.Text = dr["PatientBirthdate"].ToString().Trim();
                 txtAddress.Text = dr["PatientAddress"].ToString().Trim();
                 ddlBarangay.Text = dr["PatientBarangay"].ToString().Trim();
                 txtAddress.ReadOnly = true;
@@ -373,10 +378,13 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 txtfname.ReadOnly = true;
                 txtmname.ReadOnly = true;
                 txtPhilhealthNum.ReadOnly = true;
-                ddlDay.Enabled = false;
-                ddlMonth.Enabled = false;
-                ddlYear.Enabled = false;
-                txtAge.Text = (Int32.Parse(DateTime.Now.ToString("yyyy")) - Int32.Parse(ddlYear.Text)).ToString();
+
+
+
+                DateTime bdate = DateTime.Parse(dr["PatientBirthdate"].ToString().Trim());
+                calcAge a = new calcAge();
+                txtAge.Text = a.GetAge(bdate);
+            //    txtAge.Text = (Int32.Parse(DateTime.Now.ToString("yyyy")) - Int32.Parse(ddlYear.Text)).ToString();
                 txtAge.ReadOnly = true;
             }
         }
