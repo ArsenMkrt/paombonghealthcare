@@ -216,6 +216,11 @@
 
             </div>
             
+
+
+
+
+            <%--div for monitor stocks--%>
             <div id="modalwindow3" class="window3">
             <table style="width: 37%;" border="1" align="center">
             <tr>
@@ -256,7 +261,7 @@
                 <td class="style2" style="width: 54px">
                     &nbsp;</td>
                 <td class="style1">
-                    <asp:Panel ID="pnlGrdview" ScrollBars="Auto" Height="286px" runat="server">
+                    <asp:Panel ID="pnlGrdview" ScrollBars="Auto" Height="151px" runat="server">
                    
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="MedicineId" 
             Height="124px" Width="436px" HorizontalAlign="Center" BackColor="White" 
