@@ -111,7 +111,7 @@
             <td colspan="2" style="text-align: center">
                 <asp:Label ID="Label6" runat="server" 
                     style="font-size: small; font-weight: 700; text-align: center;" 
-                    Text="Filters - Search By"></asp:Label>
+                    Text="Filters - Search By" Visible="False"></asp:Label>
             &nbsp;</td>
             <td colspan="3">
                 &nbsp;</td>

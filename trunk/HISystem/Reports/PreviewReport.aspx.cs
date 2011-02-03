@@ -35,71 +35,108 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     }
     protected void btn_runReport_Click(object sender, EventArgs e)
     {
-        switch (ddlQuarter.Text)
+        if (rdbtn_Reports.Checked)
         {
-            case "1st Quarter": 
-                { 
-                    month1 = 1;
-                    month2 = 3;
-                  } break;
-            case "2nd Quarter": 
-                {
-                    month1 = 4;
-                    month2 = 6;
-                } break;
-            case "3rd Quarter": 
-                {
-                    month1 = 7;
-                    month2 = 9;
-                } break;
-            case "4th Quarter": 
-                {
-                    month1 = 10;
-                    month2 = 12;
-                } break;
-            case "All": 
-                {
-                    month1 = 1;
-                    month2 = 12;
-                } break;
-        }
-        data = new DataAccess();
-        ReportPaombong.Visible = true;
-        
-        /*Leprosy*/
-        _Leprosy.SelectParameters["month1"].DefaultValue = month1.ToString();
-        _Leprosy.SelectParameters["month"].DefaultValue = month2.ToString();
-        _Leprosy.SelectParameters["year"].DefaultValue = DropDownList1.Text;
-        /*MaternalCare*/
-        _MaternalCare.SelectParameters["month1"].DefaultValue = month1.ToString();
-        _MaternalCare.SelectParameters["month"].DefaultValue = month2.ToString();
-        _MaternalCare.SelectParameters["year"].DefaultValue = DropDownList1.Text;
-        /*Malaria*/
-        _Malaria.SelectParameters["month1"].DefaultValue = month1.ToString();
-        _Malaria.SelectParameters["month"].DefaultValue = month2.ToString();
-        _Malaria.SelectParameters["year"].DefaultValue = DropDownList1.Text;
-        /*ChildCare*/
-        _ChildCare.SelectParameters["month1"].DefaultValue = month1.ToString();
-        _ChildCare.SelectParameters["month"].DefaultValue = month2.ToString();
-        _ChildCare.SelectParameters["year"].DefaultValue = DropDownList1.Text;
-        /*_DentalCare*/
-        _DentalCare.SelectParameters["month1"].DefaultValue = month1.ToString();
-        _DentalCare.SelectParameters["month"].DefaultValue = month2.ToString();
-        _DentalCare.SelectParameters["year"].DefaultValue = DropDownList1.Text;
-        /*FamilyPlanning*/
-        _FamilyPlanning.SelectParameters["month1"].DefaultValue = month1.ToString();
-        _FamilyPlanning.SelectParameters["month"].DefaultValue = month2.ToString();
-        _FamilyPlanning.SelectParameters["year"].DefaultValue = DropDownList1.Text;
-        /*Tuberculosis*/
-        _Tuberculosis.SelectParameters["month1"].DefaultValue = month1.ToString();
-        _Tuberculosis.SelectParameters["month"].DefaultValue = month2.ToString();
-        _Tuberculosis.SelectParameters["year"].DefaultValue = DropDownList1.Text;
-        /*Schistomiasis*/
-        _Schisto.SelectParameters["month1"].DefaultValue = month1.ToString();
-        _Schisto.SelectParameters["month"].DefaultValue = month2.ToString();
-        _Schisto.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+            switch (ddlQuarter.Text)
+            {
+                case "1st Quarter":
+                    {
+                        month1 = 1;
+                        month2 = 3;
+                    } break;
+                case "2nd Quarter":
+                    {
+                        month1 = 4;
+                        month2 = 6;
+                    } break;
+                case "3rd Quarter":
+                    {
+                        month1 = 7;
+                        month2 = 9;
+                    } break;
+                case "4th Quarter":
+                    {
+                        month1 = 10;
+                        month2 = 12;
+                    } break;
+                case "All":
+                    {
+                        month1 = 1;
+                        month2 = 12;
+                    } break;
+            }
+            data = new DataAccess();
+            ReportPaombong.Visible = true;
 
-        ReportPaombong.LocalReport.Refresh();
+            /*Leprosy*/
+            _Leprosy.SelectParameters["month1"].DefaultValue = month1.ToString();
+            _Leprosy.SelectParameters["month"].DefaultValue = month2.ToString();
+            _Leprosy.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+            /*MaternalCare*/
+            _MaternalCare.SelectParameters["month1"].DefaultValue = month1.ToString();
+            _MaternalCare.SelectParameters["month"].DefaultValue = month2.ToString();
+            _MaternalCare.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+            /*Malaria*/
+            _Malaria.SelectParameters["month1"].DefaultValue = month1.ToString();
+            _Malaria.SelectParameters["month"].DefaultValue = month2.ToString();
+            _Malaria.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+            /*ChildCare*/
+            _ChildCare.SelectParameters["month1"].DefaultValue = month1.ToString();
+            _ChildCare.SelectParameters["month"].DefaultValue = month2.ToString();
+            _ChildCare.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+            /*_DentalCare*/
+            _DentalCare.SelectParameters["month1"].DefaultValue = month1.ToString();
+            _DentalCare.SelectParameters["month"].DefaultValue = month2.ToString();
+            _DentalCare.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+            /*FamilyPlanning*/
+            _FamilyPlanning.SelectParameters["month1"].DefaultValue = month1.ToString();
+            _FamilyPlanning.SelectParameters["month"].DefaultValue = month2.ToString();
+            _FamilyPlanning.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+            /*Tuberculosis*/
+            _Tuberculosis.SelectParameters["month1"].DefaultValue = month1.ToString();
+            _Tuberculosis.SelectParameters["month"].DefaultValue = month2.ToString();
+            _Tuberculosis.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+            /*Schistomiasis*/
+            _Schisto.SelectParameters["month1"].DefaultValue = month1.ToString();
+            _Schisto.SelectParameters["month"].DefaultValue = month2.ToString();
+            _Schisto.SelectParameters["year"].DefaultValue = DropDownList1.Text;
+            ReportPaombong.LocalReport.Refresh();
+        }
+        else if (rdbtn_Inventory.Checked)
+        {
+            ReportPaombong.Visible = true;
+            _MedicineLog.SelectParameters["logtype"].DefaultValue = ddlLogType.ToString();
+            ReportPaombong.LocalReport.Refresh();
+        }
+        else
+        {
+            ReportPaombong.Visible = true;
+            if (rdbtn_Barangay.Checked)
+            {
+                _Barangay.SelectParameters["barangayName"].DefaultValue = DropDownList2.ToString();
+                ReportPaombong.LocalReport.Refresh();
+            }
+            else if (rdbtn_Disease.Checked)
+            {
+                _SearchByDiseaseName.SelectParameters["diseaseName"].DefaultValue = ddlDisease.ToString();
+                ReportPaombong.LocalReport.Refresh();
+            }
+            else if (rdbtn_Age.Checked)
+            {
+                _AgeBracket.SelectParameters["ageParam"].DefaultValue = ddlAge.ToString();
+                ReportPaombong.LocalReport.Refresh();
+            }
+            else if (rdbtn_Month.Checked)
+            {
+                _MonthConsult.SelectParameters["monthParam"].DefaultValue = ddlMonth.ToString();
+                ReportPaombong.LocalReport.Refresh();
+            }
+            else if (rdbtn_Year.Checked)
+            {
+                _YearConsult.SelectParameters["yearParam"].DefaultValue = ddlYear.ToString();
+                ReportPaombong.LocalReport.Refresh();
+            }
+        }
     }
     protected void rdbtn_Reports_CheckedChanged(object sender, EventArgs e)
     {
