@@ -88,6 +88,7 @@
         <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Print" 
             Width="59px" />
         <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="Button" />
+        <asp:Button ID="Button3" runat="server" onclick="Button3_Click" Text="Change" />
     </p>
     <p>
         &nbsp;</p>
@@ -95,7 +96,7 @@
     
 <rsweb:ReportViewer ID="ReportPaombong" runat="server" Font-Names="Verdana" 
     Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
-    WaitMessageFont-Names="Verdana"  ShowPrintButton="true" 
+    WaitMessageFont-Names="Verdana" 
         WaitMessageFont-Size="14pt" Width="738px" 
         SizeToReportContent="True" ExportContentDisposition="AlwaysAttachment" 
         PageCountMode="Actual">
@@ -104,6 +105,7 @@
     <LocalReport ReportPath="Report.rdlc" DisplayName="PaombongQuarterlyReport">
         <DataSources>
             <rsweb:ReportDataSource DataSourceId="_MaternalCare" Name="MaternalCare" />
+<%--            <rsweb:ReportDataSource DataSourceId="_Header" Name="Header" />--%>
             <rsweb:ReportDataSource DataSourceId="_FamilyPlanning" Name="FamilyPlanning" />
             <rsweb:ReportDataSource DataSourceId="_ChildCare" Name="ChildCare" />
             <rsweb:ReportDataSource DataSourceId="_DentalCare" Name="DentalCare" />
@@ -112,10 +114,16 @@
             <rsweb:ReportDataSource DataSourceId="_Schisto" Name="Schisto" />
             <rsweb:ReportDataSource DataSourceId="_Leprosy" Name="Leprosy" />
             <rsweb:ReportDataSource DataSourceId="_Filariasis" Name="Filariasis" />
-<%--            <rsweb:ReportDataSource DataSourceId="_Header" Name="Header" />--%>
         </DataSources>
     </LocalReport>
 </rsweb:ReportViewer>
+    <asp:ObjectDataSource ID="_SearchByDiseaseName" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
+        TypeName="PaombongDataSetTableAdapters.SearchByDiseaseNameTableAdapter">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="Mumps" Name="diseaseName" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
 <%--    <asp:ObjectDataSource ID="_Header" runat="server" 
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
         TypeName="PaombongDataSetTableAdapters.HeaderTableAdapter">
