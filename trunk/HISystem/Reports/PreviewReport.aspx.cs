@@ -20,17 +20,28 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        data = new DataAccess();
+        if (!Page.IsPostBack)
+        {
+            LoadYearAndAgeInDropDown(DropDownList1, ddlYear, ddlAge);
+        }
+    }
+
+    private void LoadYearAndAgeInDropDown(DropDownList dropdownYear,DropDownList ddlYear,DropDownList dropdownAge)
+    {
+        dropdownAge.Items.Clear();
+        dropdownYear.Items.Clear();
+        ddlYear.Items.Clear();
+
         //Populate Year Dropdown
         for (int i = 2010; i < 2100; i++)
         {
-            DropDownList1.Items.Add(i.ToString());
+            dropdownYear.Items.Add(i.ToString());
             ddlYear.Items.Add(i.ToString());
         }
         //Populate Age Dropdown
         for (int x = 1; x < 125; x++)
         {
-            ddlAge.Items.Add(x.ToString());
+            dropdownAge.Items.Add(x.ToString());
         }
     }
     protected void btn_runReport_Click(object sender, EventArgs e)
@@ -105,38 +116,39 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
         else if (rdbtn_Inventory.Checked)
         {
             ReportPaombong.Visible = true;
-            _MedicineLog.SelectParameters["logtype"].DefaultValue = ddlLogType.ToString();
+            _MedicineLog_.SelectParameters["logtype"].DefaultValue = ddlLogType.Text.ToString();
             ReportPaombong.LocalReport.Refresh();
         }
-        else
+        else if (rdbtn_Consultation.Checked)
         {
             ReportPaombong.Visible = true;
             if (rdbtn_Barangay.Checked)
             {
-                _Barangay.SelectParameters["barangayName"].DefaultValue = DropDownList2.ToString();
+                _Barangay.SelectParameters["barangayName"].DefaultValue = DropDownList2.Text.ToString();
                 ReportPaombong.LocalReport.Refresh();
             }
             else if (rdbtn_Disease.Checked)
             {
-                _SearchByDiseaseName.SelectParameters["diseaseName"].DefaultValue = ddlDisease.ToString();
+                _SearchByDiseaseName.SelectParameters["diseaseName"].DefaultValue = ddlDisease.Text.ToString();
                 ReportPaombong.LocalReport.Refresh();
             }
             else if (rdbtn_Age.Checked)
             {
-                _AgeBracket.SelectParameters["ageParam"].DefaultValue = ddlAge.ToString();
+                _AgeBracket.SelectParameters["ageParam"].DefaultValue = ddlAge.Text.ToString();
                 ReportPaombong.LocalReport.Refresh();
             }
             else if (rdbtn_Month.Checked)
             {
-                _MonthConsult.SelectParameters["monthParam"].DefaultValue = ddlMonth.ToString();
+                _MonthConsult.SelectParameters["monthParam"].DefaultValue = ddlMonth.Text.ToString();
                 ReportPaombong.LocalReport.Refresh();
             }
             else if (rdbtn_Year.Checked)
             {
-                _YearConsult.SelectParameters["yearParam"].DefaultValue = ddlYear.ToString();
+                _YearConsult.SelectParameters["yearParam"].DefaultValue = ddlYear.Text.ToString();
                 ReportPaombong.LocalReport.Refresh();
             }
         }
+        ReportPaombong.Visible = true;
     }
     protected void rdbtn_Reports_CheckedChanged(object sender, EventArgs e)
     {
@@ -182,7 +194,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             ReportPaombong.LocalReport.DataSources.Add(rds_Leprosy);
             ReportPaombong.LocalReport.DataSources.Add(rds_Filariasis);
             #endregion
-
+            ReportPaombong.Visible = true;
             ReportPaombong.LocalReport.Refresh();
 
             Label1.Visible = true;
@@ -212,18 +224,6 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             Label5.Visible = false;
             ddlLogType.Visible = false;
         }
-    }
-    protected void RadioButton3_CheckedChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void RadioButton4_CheckedChanged(object sender, EventArgs e)
-    {
-
-    }
-    protected void RadioButton5_CheckedChanged(object sender, EventArgs e)
-    {
-
     }
 
     protected void Page_Init(object Sender, EventArgs e)
@@ -272,8 +272,8 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
         ReportDataSource rds = new ReportDataSource();
         rds.DataSourceId = "_SearchByDiseaseName";
         rds.Name = "SearchByDiseaseName";
-        
-        ObjectDataSource _SearchByDiseaseName = new ObjectDataSource("PaombongDataSetTableAdapters.SearchByDiseaseNameTableAdapter","GetData");
+
+        ObjectDataSource _SearchByDiseaseName = new ObjectDataSource("PaombongDataSetTableAdapters.SearchByDiseaseNameTableAdapter", "GetData");
         rds.Value = _SearchByDiseaseName;
         ReportPaombong.LocalReport.ReportPath = Server.MapPath("Report_SearchByDiseaseName.rdlc");
         ReportPaombong.LocalReport.DisplayName = "PaombongPatientsConsultation";
@@ -287,17 +287,17 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
         if (rdbtn_Inventory.Checked)
         {
             ReportDataSource rds_Inventory = new ReportDataSource();
-            rds_Inventory.DataSourceId = "_MedicineLog";
+            rds_Inventory.DataSourceId = "_MedicineLog_";
             rds_Inventory.Name = "MedicineLog";
-            ObjectDataSource _MedicineLog = new ObjectDataSource("PaombongDataSetTableAdapters.MedicineLogTableAdapter", "GetData");
-            rds_Inventory.Value = _MedicineLog;
+            ObjectDataSource _MedicineLog_ = new ObjectDataSource("PaombongDataSetTableAdapters.MedicineLogTableAdapter", "GetData");
+            rds_Inventory.Value = _MedicineLog_;
             ReportPaombong.LocalReport.ReportPath = Server.MapPath("Report_MedicineLog.rdlc");
             ReportPaombong.LocalReport.DisplayName = "PaombongMedicineLog";
             ReportPaombong.LocalReport.DataSources.Clear();
             ReportPaombong.LocalReport.DataSources.Add(rds_Inventory);
 
             ReportPaombong.LocalReport.Refresh();
-
+            ReportPaombong.Visible = true;
             Label4.Visible = true;
             Label5.Visible = true;
             ddlLogType.Visible = true;
@@ -364,9 +364,8 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             ReportPaombong.LocalReport.DisplayName = "PaombongPatientsConsultation_BarangaySearch";
             ReportPaombong.LocalReport.DataSources.Clear();
             ReportPaombong.LocalReport.DataSources.Add(rds_cBarangay);
-
             ReportPaombong.LocalReport.Refresh();
-
+            ReportPaombong.Visible = true;
             Label7.Visible = true;
             DropDownList2.Visible = true;
             //Disease
@@ -397,7 +396,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             ReportPaombong.LocalReport.DataSources.Clear();
             ReportPaombong.LocalReport.DataSources.Add(rds);
             ReportPaombong.LocalReport.Refresh();
-
+            ReportPaombong.Visible = true;
             Label8.Visible = true;
             ddlDisease.Visible = true;
             //Barangay
@@ -429,7 +428,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             ReportPaombong.LocalReport.DataSources.Add(rds_AgeBracket);
 
             ReportPaombong.LocalReport.Refresh();
-
+            ReportPaombong.Visible = true;
             Label9.Visible = true;
             ddlAge.Visible = true;
             //Barangay
@@ -459,9 +458,8 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             ReportPaombong.LocalReport.DisplayName = "PaombongPatientsConsultation_MonthSearch";
             ReportPaombong.LocalReport.DataSources.Clear();
             ReportPaombong.LocalReport.DataSources.Add(rds_Month);
-
             ReportPaombong.LocalReport.Refresh();
-
+            ReportPaombong.Visible = true;
             Label10.Visible = true;
             ddlMonth.Visible = true;
             //Barangay
@@ -491,9 +489,8 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             ReportPaombong.LocalReport.DisplayName = "PaombongPatientsConsultation_YearSearch";
             ReportPaombong.LocalReport.DataSources.Clear();
             ReportPaombong.LocalReport.DataSources.Add(rds_Year);
-
             ReportPaombong.LocalReport.Refresh();
-
+            ReportPaombong.Visible = true;
             Label11.Visible = true;
             ddlYear.Visible = true;
             //Age

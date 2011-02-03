@@ -11,7 +11,7 @@
         
         <table style="width:100%;" cellpadding="1">
         <tr>
-            <td style="width: 195px; height: 42px; font-size: small;" class="stylecenter">
+            <td style="width: 175px; height: 42px; font-size: small;" class="stylecenter">
                 Municipality:</td>
             <td style="height: 42px; font-size: small; width: 119px;" class="stylecenter">
                 <strong>Paombong</strong></td>
@@ -26,12 +26,12 @@
                 <strong style="text-align: center">Choose Type Of Report</strong></td>
         </tr>
         <tr>
-            <td style="width: 195px; height: 42px; font-size: small;">
+            <td style="width: 175px; height: 42px; font-size: small;">
                 <asp:RadioButton ID="rdbtn_Reports" GroupName="TypeReport" runat="server" Text="Reports" 
                     oncheckedchanged="rdbtn_Reports_CheckedChanged" 
                     Font-Size="Small" AutoPostBack="True" style="text-align: center" />
             </td>
-            <td style="text-align: center; height: 42px; width: 193px;" colspan="2">
+            <td style="text-align: center; height: 42px; width: 202px;" colspan="2">
                 <asp:RadioButton ID="rdbtn_Inventory" GroupName="TypeReport" runat="server" 
                     Text="Inventory" Font-Size="Small" AutoPostBack="True" 
                     oncheckedchanged="rdbtn_Inventory_CheckedChanged" />
@@ -52,7 +52,7 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 195px">
+            <td style="width: 175px">
                 <asp:Label ID="Label2" runat="server" Text="Quarter:" style="font-size: small; font-weight: 700;" 
                     Visible="False"></asp:Label>
                 </td>
@@ -90,7 +90,7 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 195px">
+            <td style="width: 175px">
                 <asp:Label ID="Label5" runat="server" Text="Log Type:" style="font-size: small; font-weight: 700;" 
                     Visible="False"></asp:Label>
             </td>
@@ -128,7 +128,8 @@
                     Visible="False"></asp:Label>
                 </td>
             <td style="height: 23px; width: 268435264px;">
-            <asp:DropDownList ID="DropDownList2" DataSourceID="Barangay" runat="server" Height="20px" Width="123px" 
+            <asp:DropDownList ID="DropDownList2" DataSourceID="Barangay" DataTextField="BarangayName" 
+        DataValueField="BarangayName" runat="server" Height="20px" Width="123px" 
                     Visible="False">
         </asp:DropDownList>
             </td>
@@ -144,7 +145,7 @@
                     style="font-size: small; font-weight: 700" Text="Disease:" Visible="False"></asp:Label>
             </td>
             <td style="width: 268435264px">
-            <asp:DropDownList ID="ddlDisease" DataSourceID="Disease" runat="server" Height="20px" Width="123px" 
+            <asp:DropDownList ID="ddlDisease" DataSourceID="Disease" DataTextField="DiseaseName" DataValueField="DiseaseName" runat="server" Height="20px" Width="123px" 
                     Visible="False">
         </asp:DropDownList>
             </td>
@@ -176,19 +177,20 @@
                     style="font-size: small; font-weight: 700" Text="Month:" Visible="False"></asp:Label>
             </td>
             <td style="width: 268435264px">
-                    <asp:DropDownList ID="ddlMonth" runat="server" Height="20px" Width="122px">
-                        <asp:ListItem Value="January">January</asp:ListItem>
-                        <asp:ListItem Value="February">February</asp:ListItem>
-                        <asp:ListItem Value="March">March</asp:ListItem>
-                        <asp:ListItem Value="April">April</asp:ListItem>
-                        <asp:ListItem Value="May">May</asp:ListItem>
-                        <asp:ListItem Value="June">June</asp:ListItem>
-                        <asp:ListItem Value="July">July</asp:ListItem>
-                        <asp:ListItem Value="August">August</asp:ListItem>
-                        <asp:ListItem Value="September">September</asp:ListItem>
-                        <asp:ListItem Value="October">October</asp:ListItem>
-                        <asp:ListItem Value="November">November</asp:ListItem>
-                        <asp:ListItem Value="December">December</asp:ListItem>
+                    <asp:DropDownList ID="ddlMonth" runat="server" Height="20px" Width="122px" 
+                        Visible="False">
+                        <asp:ListItem Value="1">January</asp:ListItem>
+                        <asp:ListItem Value="2">February</asp:ListItem>
+                        <asp:ListItem Value="3">March</asp:ListItem>
+                        <asp:ListItem Value="4">April</asp:ListItem>
+                        <asp:ListItem Value="5">May</asp:ListItem>
+                        <asp:ListItem Value="6">June</asp:ListItem>
+                        <asp:ListItem Value="7">July</asp:ListItem>
+                        <asp:ListItem Value="8">August</asp:ListItem>
+                        <asp:ListItem Value="9">September</asp:ListItem>
+                        <asp:ListItem Value="10">October</asp:ListItem>
+                        <asp:ListItem Value="11">November</asp:ListItem>
+                        <asp:ListItem Value="12">December</asp:ListItem>
                     </asp:DropDownList>
             </td>
         </tr>
@@ -218,32 +220,45 @@
         </table>
 </p>
 
-     <asp:ScriptManager id="SM1" runat="server" />
-    
-        <asp:SqlDataSource ID="Disease" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
-            SelectCommand="SELECT DISTINCT [DiseaseName] FROM [Diseases] ORDER BY [DiseaseName]">
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="Barangay" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
-            SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
-        </asp:SqlDataSource>
-    
 <rsweb:ReportViewer ID="ReportPaombong" runat="server" Font-Names="Verdana" 
     Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
     WaitMessageFont-Names="Verdana" 
         WaitMessageFont-Size="14pt" Width="738px" 
         SizeToReportContent="True" ExportContentDisposition="AlwaysAttachment" 
-        PageCountMode="Actual">
+        PageCountMode="Actual" Visible="False">
         <ServerReport ReportServerUrl="http://localhost:2705/HISystem/Report.rdlc" 
             ReportPath="Report.rdlc" />
-    <LocalReport ReportPath="Reports\Report_SearchByAgeBracket.rdlc" 
+    <LocalReport ReportPath="Reports\Report_MedicineLog.rdlc" 
             DisplayName="PaombongQuarterlyReport">
         <DataSources>
-            <rsweb:ReportDataSource DataSourceId="_AgeBracket" Name="SearchByAgeBracket" />
+            <rsweb:ReportDataSource DataSourceId="_MedicineLog_" Name="MedicineLog" />
         </DataSources>
     </LocalReport>
 </rsweb:ReportViewer>
+    <asp:ObjectDataSource ID="_MedicineLog_" runat="server" InsertMethod="Insert" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
+        TypeName="PaombongDataSetTableAdapters.MedicineLogTableAdapter">
+        <InsertParameters>
+            <asp:Parameter Name="MedicineId" Type="Int32" />
+            <asp:Parameter Name="MedicineName" Type="String" />
+            <asp:Parameter Name="Quantity" Type="Int64" />
+            <asp:Parameter Name="DateOfCheckOut" Type="DateTime" />
+            <asp:Parameter Name="FacilitatedBy" Type="String" />
+            <asp:Parameter Name="LogType" Type="String" />
+        </InsertParameters>
+        <SelectParameters>
+            <asp:Parameter DefaultValue="CheckOut" Name="logtype" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+        <asp:SqlDataSource ID="Barangay" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+            SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
+        </asp:SqlDataSource>
+    
+        <asp:SqlDataSource ID="Disease" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+            SelectCommand="SELECT DISTINCT [DiseaseName] FROM [Diseases] ORDER BY [DiseaseName]">
+        </asp:SqlDataSource>
     <asp:ObjectDataSource ID="_YearConsult" runat="server" 
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
         TypeName="PaombongDataSetTableAdapters.SearchByYearTableAdapter">
@@ -251,6 +266,9 @@
             <asp:Parameter DefaultValue="2011" Name="yearParam" Type="Decimal" />
         </SelectParameters>
     </asp:ObjectDataSource>
+
+     <asp:ScriptManager id="SM1" runat="server" />
+    
     <asp:ObjectDataSource ID="_MonthConsult" runat="server" 
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
         TypeName="PaombongDataSetTableAdapters.SearchByMonthTableAdapter">
@@ -271,10 +289,6 @@
         <SelectParameters>
             <asp:Parameter DefaultValue="30" Name="ageParam" Type="Int32" />
         </SelectParameters>
-    </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="_MedicineLog" runat="server" 
-        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
-        TypeName="PaombongDataSetTableAdapters.MedicineLogTableAdapter">
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="_SearchByDiseaseName" runat="server" 
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 

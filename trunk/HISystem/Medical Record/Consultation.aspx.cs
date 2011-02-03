@@ -26,8 +26,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         Response.Cache.SetNoStore();
     }
 
-
-
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!this.IsPostBack)
@@ -58,7 +56,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        
         mr = new MedicalRecord();
 
         patientData = mr.GetValuesConsultation(patientId.ToString());
@@ -70,11 +67,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
             {
                 
                 txtlname.Text = dr["PatientLName"].ToString().Trim();
-
                 txtfname.Text = dr["PatientFName"].ToString().Trim();
                 txtmname.Text = dr["PatientMName"].ToString().Trim();
-
-
                 txtPhilhealthNum.Text = dr["PatientFaxNumber"].ToString().Trim();
 
 
@@ -91,11 +85,9 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 ddlBarangay.Enabled = false;
 
 
-
                 DateTime bdate = DateTime.Parse(dr["PatientBirthdate"].ToString().Trim());
                 calcAge a = new calcAge();
                 txtAge.Text = a.GetAge(bdate);
-               // txtAge.Text = (Int32.Parse(DateTime.Now.ToString("yyyy")) - Int32.Parse(ddlYear.Text)).ToString();
                 txtAge.ReadOnly = true;
                 
             }
@@ -142,7 +134,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                         mr.SavePatientDailyMedicalRecord
                             (
                                 Convert.ToInt32(Request.QueryString["id"]),
-                                Convert.ToInt32(txtAge.Text),
+                                txtAge.Text,
                                 txtPulseRate.Text,
                                 Convert.ToDecimal(txtTemp.Text),
                                 Convert.ToDecimal(txtWt.Text),
@@ -157,10 +149,13 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                         {
                             if (li.Selected)
                             {
+                                Response.Write("<script> window.alert('" + li.Text + ".')</script>");
                                 dis.SavePatientDisease(Request.QueryString["id"].ToString(), li.Text, timeSave);
                             }
                         }
                         txtAge.Text = string.Empty;
+                        txtHt_feet.Text = string.Empty;
+                        txtHt_inch.Text = string.Empty;
                         Response.Write("<script> window.alert('Saved Consultation Successfully.')</script>");
                     }
                     else
@@ -168,7 +163,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                         mr.SavePatientDailyMedicalRecord
                             (
                                 Convert.ToInt32(Session["ptId"]),
-                                Convert.ToInt32(txtAge.Text),
+                                txtAge.Text,
                                 txtPulseRate.Text,
                                 Convert.ToDecimal(txtTemp.Text),
                                 Convert.ToDecimal(txtWt.Text),
@@ -187,6 +182,8 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                             }
                         }
                         txtAge.Text = string.Empty;
+                        txtHt_feet.Text = string.Empty;
+                        txtHt_inch.Text = string.Empty;
                         Response.Write("<script> window.alert('Saved Consultation Successfully.')</script>");
                     }
                 }
