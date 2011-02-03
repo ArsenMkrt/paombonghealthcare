@@ -20,16 +20,21 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
         data = new DataAccess();
+        //Populate Year Dropdown
         for (int i = 2010; i < 2100; i++)
         {
             DropDownList1.Items.Add(i.ToString());
+            ddlYear.Items.Add(i.ToString());
+        }
+        //Populate Age Dropdown
+        for (int x = 1; x < 125; x++)
+        {
+            ddlAge.Items.Add(x.ToString());
         }
     }
     protected void btn_runReport_Click(object sender, EventArgs e)
     {
-        
         switch (ddlQuarter.Text)
         {
             case "1st Quarter": 
@@ -100,19 +105,75 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Reports.Checked)
         {
+            #region Instantiate Report Source
+            ReportDataSource rds_Maternal = new ReportDataSource();
+            rds_Maternal.DataSourceId = "_MaternalCare";
+            rds_Maternal.Name = "MaternalCare";
+            ReportDataSource rds_FamilyPlanning = new ReportDataSource();
+            rds_FamilyPlanning.DataSourceId = "_FamilyPlanning";
+            rds_FamilyPlanning.Name = "FamilyPlanning";
+            ReportDataSource rds_ChildCare = new ReportDataSource();
+            rds_ChildCare.DataSourceId = "_ChildCare";
+            rds_ChildCare.Name = "ChildCare";
+            ReportDataSource rds_DentalCare = new ReportDataSource();
+            rds_DentalCare.DataSourceId = "_DentalCare";
+            rds_DentalCare.Name = "DentalCare";
+            ReportDataSource rds_Tuberculosis = new ReportDataSource();
+            rds_Tuberculosis.DataSourceId = "_Tuberculosis";
+            rds_Tuberculosis.Name = "Tuberculosis";
+            ReportDataSource rds_Malaria = new ReportDataSource();
+            rds_Malaria.DataSourceId = "_Malaria";
+            rds_Malaria.Name = "Malaria";
+            ReportDataSource rds_Schisto = new ReportDataSource();
+            rds_Schisto.DataSourceId = "_Schisto";
+            rds_Schisto.Name = "Schisto";
+            ReportDataSource rds_Leprosy = new ReportDataSource();
+            rds_Leprosy.DataSourceId = "_Leprosy";
+            rds_Leprosy.Name = "Leprosy";
+            ReportDataSource rds_Filariasis = new ReportDataSource();
+            rds_Filariasis.DataSourceId = "_Filariasis";
+            rds_Filariasis.Name = "Filariasis";
+            ReportPaombong.LocalReport.ReportPath = Server.MapPath("Report.rdlc");
+            ReportPaombong.LocalReport.DisplayName = "PaombongQuarterlyReport";
+            ReportPaombong.LocalReport.DataSources.Add(rds_Maternal);
+            ReportPaombong.LocalReport.DataSources.Add(rds_FamilyPlanning);
+            ReportPaombong.LocalReport.DataSources.Add(rds_ChildCare);
+            ReportPaombong.LocalReport.DataSources.Add(rds_DentalCare);
+            ReportPaombong.LocalReport.DataSources.Add(rds_Tuberculosis);
+            ReportPaombong.LocalReport.DataSources.Add(rds_Malaria);
+            ReportPaombong.LocalReport.DataSources.Add(rds_Schisto);
+            ReportPaombong.LocalReport.DataSources.Add(rds_Leprosy);
+            ReportPaombong.LocalReport.DataSources.Add(rds_Filariasis);
+            #endregion
+
+            ReportPaombong.LocalReport.Refresh();
+
             Label1.Visible = true;
             Label2.Visible = true;
             Label3.Visible = true;
             DropDownList1.Visible = true;
             ddlQuarter.Visible = true;
-        }
-        else
-        {
-            Label1.Visible = false;
-            Label2.Visible = false;
-            Label3.Visible = false;
-            DropDownList1.Visible = false;
-            ddlQuarter.Visible = false;
+            //Consultation
+            Label6.Visible = false;
+            rdbtn_Age.Visible = false;
+            rdbtn_Barangay.Visible = false;
+            rdbtn_Disease.Visible = false;
+            rdbtn_Month.Visible = false;
+            rdbtn_Year.Visible = false;
+            Label7.Visible = false;
+            DropDownList2.Visible = false;
+            Label8.Visible = false;
+            ddlDisease.Visible = false;
+            Label9.Visible = false;
+            ddlAge.Visible = false;
+            Label10.Visible = false;
+            ddlMonth.Visible = false;
+            Label11.Visible = false;
+            ddlYear.Visible = false;
+            //Inventory
+            Label4.Visible = false;
+            Label5.Visible = false;
+            ddlLogType.Visible = false;
         }
     }
     protected void RadioButton3_CheckedChanged(object sender, EventArgs e)
@@ -176,16 +237,240 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
         rds.Name = "SearchByDiseaseName";
         
         ObjectDataSource _SearchByDiseaseName = new ObjectDataSource("PaombongDataSetTableAdapters.SearchByDiseaseNameTableAdapter","GetData");
-        //_SearchByDiseaseName.SelectMethod = "GetData";
-        //_SearchByDiseaseName.TypeName = "PaombongDataSetTableAdapters.SearchByDiseaseNameTableAdapter";
-        //_SearchByDiseaseName.SelectParameters["diseaseName"].DefaultValue = "Botulism";
-
         rds.Value = _SearchByDiseaseName;
-        ReportPaombong.LocalReport.ReportPath = Server.MapPath("ReportConsultation.rdlc");
+        ReportPaombong.LocalReport.ReportPath = Server.MapPath("Report_SearchByDiseaseName.rdlc");
         ReportPaombong.LocalReport.DisplayName = "PaombongPatientsConsultation";
         ReportPaombong.LocalReport.DataSources.Clear();
         ReportPaombong.LocalReport.DataSources.Add(rds);
         
         ReportPaombong.LocalReport.Refresh();
+    }
+    protected void rdbtn_Inventory_CheckedChanged(object sender, EventArgs e)
+    {
+        if (rdbtn_Inventory.Checked)
+        {
+            ReportDataSource rds_Inventory = new ReportDataSource();
+            rds_Inventory.DataSourceId = "_MedicineLog";
+            rds_Inventory.Name = "MedicineLog";
+            ObjectDataSource _MedicineLog = new ObjectDataSource("PaombongDataSetTableAdapters.MedicineLogTableAdapter", "GetData");
+            rds_Inventory.Value = _MedicineLog;
+            ReportPaombong.LocalReport.ReportPath = Server.MapPath("Report_MedicineLog.rdlc");
+            ReportPaombong.LocalReport.DisplayName = "PaombongMedicineLog";
+            ReportPaombong.LocalReport.DataSources.Clear();
+            ReportPaombong.LocalReport.DataSources.Add(rds_Inventory);
+
+            ReportPaombong.LocalReport.Refresh();
+
+            Label4.Visible = true;
+            Label5.Visible = true;
+            ddlLogType.Visible = true;
+
+            //From Other Type Of Reports
+            //Reports
+            Label1.Visible = false;
+            Label2.Visible = false;
+            Label3.Visible = false;
+            DropDownList1.Visible = false;
+            ddlQuarter.Visible = false;
+            //Consultation
+            Label6.Visible = false;
+            rdbtn_Age.Visible = false;
+            rdbtn_Barangay.Visible = false;
+            rdbtn_Disease.Visible = false;
+            rdbtn_Month.Visible = false;
+            rdbtn_Year.Visible = false;
+            Label7.Visible = false;
+            DropDownList2.Visible = false;
+            Label8.Visible = false;
+            ddlDisease.Visible = false;
+            Label9.Visible = false;
+            ddlAge.Visible = false;
+            Label10.Visible = false;
+            ddlMonth.Visible = false;
+            Label11.Visible = false;
+            ddlYear.Visible = false;
+        }
+    }
+    protected void rdbtn_Consultation_CheckedChanged(object sender, EventArgs e)
+    {
+        if (rdbtn_Consultation.Checked)
+        {
+            Label6.Visible = true;
+            rdbtn_Age.Visible = true;
+            rdbtn_Barangay.Visible = true;
+            rdbtn_Disease.Visible = true;
+            rdbtn_Month.Visible = true;
+            rdbtn_Year.Visible = true;
+            //From Other Type Of Reports
+            //Reports
+            Label1.Visible = false;
+            Label2.Visible = false;
+            Label3.Visible = false;
+            DropDownList1.Visible = false;
+            ddlQuarter.Visible = false;
+            //Inventory
+            Label4.Visible = false;
+            Label5.Visible = false;
+            ddlLogType.Visible = false;
+        }
+    }
+    protected void rdbtn_Barangay_CheckedChanged(object sender, EventArgs e)
+    {
+        if (rdbtn_Barangay.Checked)
+        {
+            ReportDataSource rds_cBarangay = new ReportDataSource();
+            rds_cBarangay.DataSourceId = "_Barangay";
+            rds_cBarangay.Name = "SearchByBarangay";
+            ObjectDataSource _Barangay = new ObjectDataSource("PaombongDataSetTableAdapters.SearchByBarangayNameTableAdapter", "GetData");
+            rds_cBarangay.Value = _Barangay;
+            ReportPaombong.LocalReport.ReportPath = Server.MapPath("Report_SearchByBarangay.rdlc");
+            ReportPaombong.LocalReport.DisplayName = "PaombongPatientsConsultation_BarangaySearch";
+            ReportPaombong.LocalReport.DataSources.Clear();
+            ReportPaombong.LocalReport.DataSources.Add(rds_cBarangay);
+
+            ReportPaombong.LocalReport.Refresh();
+
+            Label7.Visible = true;
+            DropDownList2.Visible = true;
+            //Disease
+            Label8.Visible = false;
+            ddlDisease.Visible = false;
+            //Age
+            Label9.Visible = false;
+            ddlAge.Visible = false;
+            //Month
+            Label10.Visible = false;
+            ddlMonth.Visible = false;
+            //Year
+            Label11.Visible = false;
+            ddlYear.Visible = false;
+        }
+    }
+    protected void rdbtn_Disease_CheckedChanged(object sender, EventArgs e)
+    {
+        if (rdbtn_Disease.Checked)
+        {
+            ReportDataSource rds = new ReportDataSource();
+            rds.DataSourceId = "_SearchByDiseaseName";
+            rds.Name = "SearchByDiseaseName";
+            ObjectDataSource _SearchByDiseaseName = new ObjectDataSource("PaombongDataSetTableAdapters.SearchByDiseaseNameTableAdapter", "GetData");
+            rds.Value = _SearchByDiseaseName;
+            ReportPaombong.LocalReport.ReportPath = Server.MapPath("Report_SearchByDiseaseName.rdlc");
+            ReportPaombong.LocalReport.DisplayName = "PaombongPatientsConsultation";
+            ReportPaombong.LocalReport.DataSources.Clear();
+            ReportPaombong.LocalReport.DataSources.Add(rds);
+            ReportPaombong.LocalReport.Refresh();
+
+            Label8.Visible = true;
+            ddlDisease.Visible = true;
+            //Barangay
+            Label7.Visible = false;
+            DropDownList2.Visible = false;
+            //Age
+            Label9.Visible = false;
+            ddlAge.Visible = false;
+            //Month
+            Label10.Visible = false;
+            ddlMonth.Visible = false;
+            //Year
+            Label11.Visible = false;
+            ddlYear.Visible = false;
+        }
+    }
+    protected void rdbtn_Age_CheckedChanged(object sender, EventArgs e)
+    {
+        if (rdbtn_Age.Checked)
+        {
+            ReportDataSource rds_AgeBracket = new ReportDataSource();
+            rds_AgeBracket.DataSourceId = "_AgeBracket";
+            rds_AgeBracket.Name = "SearchByAgeBracket";
+            ObjectDataSource _AgeBracket = new ObjectDataSource("PaombongDataSetTableAdapters.SearchByAgeBracketTableAdapter", "GetData");
+            rds_AgeBracket.Value = _AgeBracket;
+            ReportPaombong.LocalReport.ReportPath = Server.MapPath("Report_SearchByAgeBracket.rdlc");
+            ReportPaombong.LocalReport.DisplayName = "PaombongPatientsConsultation_AgeBracketSearch";
+            ReportPaombong.LocalReport.DataSources.Clear();
+            ReportPaombong.LocalReport.DataSources.Add(rds_AgeBracket);
+
+            ReportPaombong.LocalReport.Refresh();
+
+            Label9.Visible = true;
+            ddlAge.Visible = true;
+            //Barangay
+            Label7.Visible = false;
+            DropDownList2.Visible = false;
+            //Disease
+            Label8.Visible = false;
+            ddlDisease.Visible = false;
+            //Month
+            Label10.Visible = false;
+            ddlMonth.Visible = false;
+            //Year
+            Label11.Visible = false;
+            ddlYear.Visible = false;
+        }
+    }
+    protected void rdbtn_Month_CheckedChanged(object sender, EventArgs e)
+    {
+        if (rdbtn_Month.Checked)
+        {
+            ReportDataSource rds_Month = new ReportDataSource();
+            rds_Month.DataSourceId = "_MonthConsult";
+            rds_Month.Name = "SearchByMonth";
+            ObjectDataSource _MonthConsult = new ObjectDataSource("PaombongDataSetTableAdapters.SearchByMonthTableAdapter", "GetData");
+            rds_Month.Value = _MonthConsult;
+            ReportPaombong.LocalReport.ReportPath = Server.MapPath("Report_SearchByMonth.rdlc");
+            ReportPaombong.LocalReport.DisplayName = "PaombongPatientsConsultation_MonthSearch";
+            ReportPaombong.LocalReport.DataSources.Clear();
+            ReportPaombong.LocalReport.DataSources.Add(rds_Month);
+
+            ReportPaombong.LocalReport.Refresh();
+
+            Label10.Visible = true;
+            ddlMonth.Visible = true;
+            //Barangay
+            Label7.Visible = false;
+            DropDownList2.Visible = false;
+            //Disease
+            Label8.Visible = false;
+            ddlDisease.Visible = false;
+            //Year
+            Label11.Visible = false;
+            ddlYear.Visible = false;
+            //Age
+            Label9.Visible = false;
+            ddlAge.Visible = false;
+        }
+    }
+    protected void rdbtn_Year_CheckedChanged(object sender, EventArgs e)
+    {
+        if (rdbtn_Year.Checked)
+        {
+            ReportDataSource rds_Year = new ReportDataSource();
+            rds_Year.DataSourceId = "_YearConsult";
+            rds_Year.Name = "SearchByYear";
+            ObjectDataSource _YearConsult = new ObjectDataSource("PaombongDataSetTableAdapters.SearchByYearTableAdapter", "GetData");
+            rds_Year.Value = _YearConsult;
+            ReportPaombong.LocalReport.ReportPath = Server.MapPath("Report_SearchByYear.rdlc");
+            ReportPaombong.LocalReport.DisplayName = "PaombongPatientsConsultation_YearSearch";
+            ReportPaombong.LocalReport.DataSources.Clear();
+            ReportPaombong.LocalReport.DataSources.Add(rds_Year);
+
+            ReportPaombong.LocalReport.Refresh();
+
+            Label11.Visible = true;
+            ddlYear.Visible = true;
+            //Age
+            Label9.Visible = false;
+            ddlAge.Visible = false;
+            //Barangay
+            Label7.Visible = false;
+            DropDownList2.Visible = false;
+            //Disease
+            Label8.Visible = false;
+            ddlDisease.Visible = false;
+            //Month
+            Label10.Visible = false;
+            ddlMonth.Visible = false;
+        }
     }
 }
