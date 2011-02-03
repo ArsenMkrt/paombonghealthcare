@@ -4,95 +4,230 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <h2 style="background-color: #d3e7c5">
-        Preview Report
+        Preview Report Page
     </h2>
     <p>
     <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <table style="width:100%;" border="1" cellpadding="1">
+        
+        <table style="width:100%;" cellpadding="1">
         <tr>
-            <td style="width: 142px; text-align: center; height: 42px">
+            <td style="width: 195px; height: 42px; font-size: small;" class="stylecenter">
                 Municipality:</td>
-            <td style="text-align: center; height: 42px">
+            <td style="height: 42px; font-size: small; width: 119px;" class="stylecenter">
                 <strong>Paombong</strong></td>
-            <td style="width: 142px; text-align: center; height: 42px">
+            <td style="width: 77px; height: 42px; font-size: small;" 
+                colspan="2">
                 Province:</td>
-            <td style="height: 42px">
-                &nbsp;<strong>Bulacan</strong></td>
+            <td style="height: 42px; width: 268435264px;">
+                &nbsp;<strong><span style="font-size: small; text-align: center;">Bulacan</span></strong></td>
         </tr>
         <tr>
-            <td style="width: 142px; text-align: center; height: 42px">
-                Type</td>
-            <td style="text-align: center; height: 42px" colspan="3">
+            <td style="height: 42px; font-size: small;" colspan="5" class="stylecenter">
+                <strong style="text-align: center">Choose Type Of Report</strong></td>
+        </tr>
+        <tr>
+            <td style="width: 195px; height: 42px; font-size: small;">
+                <asp:RadioButton ID="rdbtn_Reports" GroupName="TypeReport" runat="server" Text="Reports" 
+                    oncheckedchanged="rdbtn_Reports_CheckedChanged" 
+                    Font-Size="Small" AutoPostBack="True" style="text-align: center" />
+            </td>
+            <td style="text-align: center; height: 42px; width: 193px;" colspan="2">
+                <asp:RadioButton ID="rdbtn_Inventory" GroupName="TypeReport" runat="server" 
+                    Text="Inventory" Font-Size="Small" AutoPostBack="True" 
+                    oncheckedchanged="rdbtn_Inventory_CheckedChanged" />
+            </td>
+            <td style="text-align: center; height: 42px" colspan="2">
+                <asp:RadioButton ID="rdbtn_Consultation" GroupName="TypeReport" runat="server" 
+                    style="font-size: small" Text="Consultation" AutoPostBack="True" 
+                    oncheckedchanged="rdbtn_Consultation_CheckedChanged" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="stylecenter">
+                <asp:Label ID="Label1" runat="server" Text="Filters" 
+                    Font-Bold="True" style="font-size: small; text-align: center;" 
+                    Visible="False"></asp:Label>
+            </td>
+            <td colspan="3" class="stylecenter">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2">
-                <asp:Label ID="Label4" runat="server" Text="Reports"></asp:Label>
-                <asp:RadioButton ID="rdbtn_Reports" GroupName="TypeReport" runat="server" Text="Reports" 
-                    oncheckedchanged="rdbtn_Reports_CheckedChanged" Visible="False" />
-            </td>
-            <td colspan="2">
-                <asp:Label ID="Label1" runat="server" Text="Type of Report" 
-                    Font-Bold="True"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" rowspan="2">
+            <td style="width: 195px">
+                <asp:Label ID="Label2" runat="server" Text="Quarter:" style="font-size: small; font-weight: 700;" 
+                    Visible="False"></asp:Label>
                 </td>
-            <td style="width: 142px; height: 23px;">
-                <asp:Label ID="Label2" runat="server" Text="Quarter:"></asp:Label>
-                </td>
-            <td style="height: 23px;">
-                &nbsp;
-            <asp:DropDownList ID="ddlQuarter" runat="server" Height="20px" Width="123px">
+            <td>
+            <asp:DropDownList ID="ddlQuarter" runat="server" Height="20px" Width="123px" 
+                    Visible="False">
                     <asp:ListItem>All</asp:ListItem>
                     <asp:ListItem>1st Quarter</asp:ListItem>
                     <asp:ListItem>2nd Quarter</asp:ListItem>
                     <asp:ListItem>3rd Quarter</asp:ListItem>
                     <asp:ListItem>4th Quarter</asp:ListItem>
         </asp:DropDownList>
+                </td>
+            <td style="width: 77px; height: 23px;" colspan="2">
+                <asp:Label ID="Label3" runat="server" Text="Year:" style="font-size: small; font-weight: 700;" 
+                    Visible="False"></asp:Label>
+                </td>
+            <td style="height: 23px; width: 268435264px;">
+                <asp:DropDownList ID="DropDownList1" runat="server" 
+              
+                    Height="20px" Width="123px" Visible="False">
+        </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td style="width: 142px">
-                <asp:Label ID="Label3" runat="server" Text="Year:"></asp:Label>
+            <td colspan="2" style="text-align: center">
+      
+                <asp:Label ID="Label4" runat="server" Font-Bold="True" style="font-size: small" 
+                    Text="Filters" Visible="False"></asp:Label>
+      
                 </td>
+            <td style="width: 77px" colspan="2">
+                &nbsp;</td>
+            <td style="width: 268435264px">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 195px">
+                <asp:Label ID="Label5" runat="server" Text="Log Type:" style="font-size: small; font-weight: 700;" 
+                    Visible="False"></asp:Label>
+            </td>
             <td>
-                &nbsp;&nbsp;
-                <asp:DropDownList ID="DropDownList1" runat="server" 
-              
-                    Height="20px" Width="123px">
+            <asp:DropDownList ID="ddlLogType" runat="server" Height="20px" Width="123px" 
+                    Visible="False">
+                    <asp:ListItem>Add</asp:ListItem>
+                    <asp:ListItem>CheckOut</asp:ListItem>
+                    <asp:ListItem>Delete</asp:ListItem>
+        </asp:DropDownList>
+            </td>
+            <td colspan="3">
+      
+                &nbsp;</td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="text-align: center">
+                <asp:Label ID="Label6" runat="server" 
+                    style="font-size: small; font-weight: 700; text-align: center;" 
+                    Text="Filters - Search By"></asp:Label>
+            &nbsp;</td>
+            <td colspan="3">
+                &nbsp;</td>
+        </tr>
+
+        <tr>
+             <td colspan="2">
+                 <asp:RadioButton ID="rdbtn_Barangay" GroupName="ConsultType" runat="server" style="font-size: small" 
+                     Text="Barangay" AutoPostBack="True" 
+                     oncheckedchanged="rdbtn_Barangay_CheckedChanged" Visible="False" />
+             </td>
+            <td style="width: 77px; height: 23px;" colspan="2">
+                <asp:Label ID="Label7" runat="server" Text="Barangay:" style="font-size: small; font-weight: 700;" 
+                    Visible="False"></asp:Label>
+                </td>
+            <td style="height: 23px; width: 268435264px;">
+            <asp:DropDownList ID="DropDownList2" DataSourceID="Barangay" runat="server" Height="20px" Width="123px" 
+                    Visible="False">
         </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <asp:RadioButton ID="rdbtn_Inventory" GroupName="TypeReport" runat="server" 
-                    Text="Inventory" Visible="False" />
+                <asp:RadioButton ID="rdbtn_Disease" GroupName="ConsultType" runat="server" style="font-size: small" 
+                    Text="Disease" AutoPostBack="True" 
+                    oncheckedchanged="rdbtn_Disease_CheckedChanged" Visible="False" />
             </td>
-            <td colspan="2">
-       <center> <asp:Button ID="btn_runReport" runat="server" onclick="btn_runReport_Click"
-            Text="Run Report" Width="193px" /></center>
+            <td colspan="2" style="width: 77px">
+                <asp:Label ID="Label8" runat="server" 
+                    style="font-size: small; font-weight: 700" Text="Disease:" Visible="False"></asp:Label>
+            </td>
+            <td style="width: 268435264px">
+            <asp:DropDownList ID="ddlDisease" DataSourceID="Disease" runat="server" Height="20px" Width="123px" 
+                    Visible="False">
+        </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td colspan="4">
-                &nbsp;</td>
+            <td colspan="2">
+                <asp:RadioButton ID="rdbtn_Age" GroupName="ConsultType" runat="server" style="font-size: small" 
+                    Text="Age Bracket" AutoPostBack="True" 
+                    oncheckedchanged="rdbtn_Age_CheckedChanged" Visible="False" />
+            </td>
+            <td colspan="2" style="width: 77px">
+                <asp:Label ID="Label9" runat="server" 
+                    style="font-size: small; font-weight: 700" Text="Age Bracket:" Visible="False"></asp:Label>
+            </td>
+            <td style="width: 268435264px">
+            <asp:DropDownList ID="ddlAge" runat="server" Height="20px" Width="123px" 
+                    Visible="False">
+        </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <asp:RadioButton ID="rdbtn_Month" GroupName="ConsultType" runat="server" style="font-size: small" 
+                    Text="Month" AutoPostBack="True" 
+                    oncheckedchanged="rdbtn_Month_CheckedChanged" Visible="False" />
+            </td>
+            <td colspan="2" style="width: 77px">
+                <asp:Label ID="Label10" runat="server" 
+                    style="font-size: small; font-weight: 700" Text="Month:" Visible="False"></asp:Label>
+            </td>
+            <td style="width: 268435264px">
+                    <asp:DropDownList ID="ddlMonth" runat="server" Height="20px" Width="122px">
+                        <asp:ListItem Value="January">January</asp:ListItem>
+                        <asp:ListItem Value="February">February</asp:ListItem>
+                        <asp:ListItem Value="March">March</asp:ListItem>
+                        <asp:ListItem Value="April">April</asp:ListItem>
+                        <asp:ListItem Value="May">May</asp:ListItem>
+                        <asp:ListItem Value="June">June</asp:ListItem>
+                        <asp:ListItem Value="July">July</asp:ListItem>
+                        <asp:ListItem Value="August">August</asp:ListItem>
+                        <asp:ListItem Value="September">September</asp:ListItem>
+                        <asp:ListItem Value="October">October</asp:ListItem>
+                        <asp:ListItem Value="November">November</asp:ListItem>
+                        <asp:ListItem Value="December">December</asp:ListItem>
+                    </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <asp:RadioButton ID="rdbtn_Year" GroupName="ConsultType" runat="server" style="font-size: small" 
+                    Text="Year" AutoPostBack="True" 
+                    oncheckedchanged="rdbtn_Year_CheckedChanged" Visible="False" />
+            </td>
+            <td colspan="2" style="width: 77px">
+                <asp:Label ID="Label11" runat="server" 
+                    style="font-size: small; font-weight: 700" Text="Year:" Visible="False"></asp:Label>
+            </td>
+            <td style="width: 268435264px">
+            <asp:DropDownList ID="ddlYear" runat="server" Height="20px" Width="123px" 
+                    Visible="False">
+        </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+            <center>
+                <asp:Button ID="btn_runReport" runat="server" onclick="btn_runReport_Click"
+                    Text="Run Report" Width="193px" style="text-align: center" /></td>
+            </center>
         </tr>
         </table>
 </p>
-<p>
-    &nbsp;</p>
-    <p>
-        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Print" 
-            Width="59px" />
-        <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="Button" />
-        <asp:Button ID="Button3" runat="server" onclick="Button3_Click" Text="Change" />
-    </p>
-    <p>
-        &nbsp;</p>
+
      <asp:ScriptManager id="SM1" runat="server" />
+    
+        <asp:SqlDataSource ID="Disease" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+            SelectCommand="SELECT DISTINCT [DiseaseName] FROM [Diseases] ORDER BY [DiseaseName]">
+        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="Barangay" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+            SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
+        </asp:SqlDataSource>
     
 <rsweb:ReportViewer ID="ReportPaombong" runat="server" Font-Names="Verdana" 
     Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
@@ -102,21 +237,45 @@
         PageCountMode="Actual">
         <ServerReport ReportServerUrl="http://localhost:2705/HISystem/Report.rdlc" 
             ReportPath="Report.rdlc" />
-    <LocalReport ReportPath="Report.rdlc" DisplayName="PaombongQuarterlyReport">
+    <LocalReport ReportPath="Reports\Report_SearchByAgeBracket.rdlc" 
+            DisplayName="PaombongQuarterlyReport">
         <DataSources>
-            <rsweb:ReportDataSource DataSourceId="_MaternalCare" Name="MaternalCare" />
-<%--            <rsweb:ReportDataSource DataSourceId="_Header" Name="Header" />--%>
-            <rsweb:ReportDataSource DataSourceId="_FamilyPlanning" Name="FamilyPlanning" />
-            <rsweb:ReportDataSource DataSourceId="_ChildCare" Name="ChildCare" />
-            <rsweb:ReportDataSource DataSourceId="_DentalCare" Name="DentalCare" />
-            <rsweb:ReportDataSource DataSourceId="_Tuberculosis" Name="Tuberculosis" />
-            <rsweb:ReportDataSource DataSourceId="_Malaria" Name="Malaria" />
-            <rsweb:ReportDataSource DataSourceId="_Schisto" Name="Schisto" />
-            <rsweb:ReportDataSource DataSourceId="_Leprosy" Name="Leprosy" />
-            <rsweb:ReportDataSource DataSourceId="_Filariasis" Name="Filariasis" />
+            <rsweb:ReportDataSource DataSourceId="_AgeBracket" Name="SearchByAgeBracket" />
         </DataSources>
     </LocalReport>
 </rsweb:ReportViewer>
+    <asp:ObjectDataSource ID="_YearConsult" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
+        TypeName="PaombongDataSetTableAdapters.SearchByYearTableAdapter">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="2011" Name="yearParam" Type="Decimal" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="_MonthConsult" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
+        TypeName="PaombongDataSetTableAdapters.SearchByMonthTableAdapter">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="1" Name="monthParam" Type="Decimal" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="_Barangay" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
+        TypeName="PaombongDataSetTableAdapters.SearchByBarangayNameTableAdapter">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="Binakod" Name="barangayName" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="_AgeBracket" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
+        TypeName="PaombongDataSetTableAdapters.SearchByAgeBracketTableAdapter">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="30" Name="ageParam" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="_MedicineLog" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
+        TypeName="PaombongDataSetTableAdapters.MedicineLogTableAdapter">
+    </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="_SearchByDiseaseName" runat="server" 
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
         TypeName="PaombongDataSetTableAdapters.SearchByDiseaseNameTableAdapter">
