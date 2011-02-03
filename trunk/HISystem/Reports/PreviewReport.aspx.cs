@@ -168,5 +168,24 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
         Response.AddHeader("content-disposition", "attachment; filename=" + fileName + "." + extension);
         Response.BinaryWrite(bytes); // create the file  
         Response.Flush(); // send it to the client to download  
-    }  
+    }
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        ReportDataSource rds = new ReportDataSource();
+        rds.DataSourceId = "_SearchByDiseaseName";
+        rds.Name = "SearchByDiseaseName";
+        
+        ObjectDataSource _SearchByDiseaseName = new ObjectDataSource("PaombongDataSetTableAdapters.SearchByDiseaseNameTableAdapter","GetData");
+        //_SearchByDiseaseName.SelectMethod = "GetData";
+        //_SearchByDiseaseName.TypeName = "PaombongDataSetTableAdapters.SearchByDiseaseNameTableAdapter";
+        //_SearchByDiseaseName.SelectParameters["diseaseName"].DefaultValue = "Botulism";
+
+        rds.Value = _SearchByDiseaseName;
+        ReportPaombong.LocalReport.ReportPath = Server.MapPath("ReportConsultation.rdlc");
+        ReportPaombong.LocalReport.DisplayName = "PaombongPatientsConsultation";
+        ReportPaombong.LocalReport.DataSources.Clear();
+        ReportPaombong.LocalReport.DataSources.Add(rds);
+        
+        ReportPaombong.LocalReport.Refresh();
+    }
 }
