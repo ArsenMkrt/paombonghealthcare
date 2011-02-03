@@ -21,7 +21,7 @@ public partial class Medical_Record_MedicalHistory : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+       
     }
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
