@@ -1124,7 +1124,7 @@
         <Top>1.613in</Top>
         <Left>0.03in</Left>
         <Height>1.35417in</Height>
-        <Width>9.82596in</Width>
+        <Width>9.82595in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -4521,7 +4521,7 @@
         <Top>9.113in</Top>
         <Left>0.03in</Left>
         <Height>1.38542in</Height>
-        <Width>9.82596in</Width>
+        <Width>9.82595in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -5576,7 +5576,7 @@
         <Top>11.06091in</Top>
         <Left>0.03in</Left>
         <Height>1.58332in</Height>
-        <Width>9.82596in</Width>
+        <Width>9.82595in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -7888,7 +7888,7 @@
         <Top>15.45328in</Top>
         <Left>0.03in</Left>
         <Height>1.33333in</Height>
-        <Width>9.82596in</Width>
+        <Width>9.82597in</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -8934,7 +8934,7 @@
         <Top>17.04008in</Top>
         <Left>0.03in</Left>
         <Height>1.25in</Height>
-        <Width>9.82596in</Width>
+        <Width>9.82597in</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -10332,7 +10332,7 @@
         <Top>3.22569in</Top>
         <Left>0.03in</Left>
         <Height>1.56253in</Height>
-        <Width>9.82596in</Width>
+        <Width>9.82593in</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -10847,8 +10847,9 @@
             <Source>Embedded</Source>
             <Value>reportlogo31</Value>
             <Sizing>FitProportional</Sizing>
-            <Height>1.11838in</Height>
-            <Width>1.34167in</Width>
+            <Top>0in</Top>
+            <Height>1.22236in</Height>
+            <Width>1.30167in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
