@@ -26,6 +26,37 @@
              return ((keyCode >= 48 && keyCode <= 57 || keyCode == 8 || keyCode == 110 || keyCode == 190 || (keyCode >= 96 && keyCode <= 105)) && isShift == false);
          }
     </script>
+    <link href="Themes/style2Popup.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #subheaderWrapper
+        {
+            height: 41px;
+            
+        }
+    </style>
+
+    <script type="text/javascript">
+        function OnClientPopulating(sender, e) {
+            sender._element.className = "loading";
+        }
+        function OnClientCompleted(sender, e) {
+            sender._element.className = "";
+        }
+    </script>
+
+
+
+     <style type="text/css">
+      .loading
+    {
+        background-image: url('../images/loading2.gif');
+        background-position: right;
+        background-repeat: no-repeat;
+    }
+    </style>
+
+
+
 
     <script type="text/javascript" language="javascript">
         /* The scripts on this page was produced by mordechai Sandhaus - 52action.com,
@@ -170,33 +201,26 @@
     
    
     
-    <link href="Themes/style2Popup.css" rel="stylesheet" type="text/css" />
-    <style type="text/css">
-        #subheaderWrapper
-        {
-            height: 41px;
-            
-        }
-    </style>
+  
 
 
 
 
-     <link rel="Stylesheet" type="text/css" href='<%# ResolveUrl("~/Themes/jquery.datepick.css")%>'><link/>
+   <%--  <link rel="Stylesheet" type="text/css" href='<%# ResolveUrl("~/Themes/jquery.datepick.css")%>'><link/>
     
 
     
     <script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.2.min.js" type="text/javascript"></script>
-    <script type="text/javascript"  src='<%# ResolveUrl ("~/Scripts/jquery.datepick.js") %>'></script>
+    <script type="text/javascript"  src='<%# ResolveUrl ("~/Scripts/jquery.datepick.js") %>'></script>--%>
   
 
-    <script type= "text/javascript">
+    <%--<script type= "text/javascript">
         $(function () {
                   $('#txtDatepick').datepick({ dateFormat: 'mm/dd/yyyy' });
           //$('input[id$=txtDatepick]').datepick();
           
         });    
-    </script>
+    </script>--%>
 
 
 
@@ -299,7 +323,12 @@
                     </asp:Repeater>
                 </ul>
 
-                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" />
+
+                 <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" ShowStartingNode="false" SiteMapProvider="NurseSitemap"/>
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" SiteMapProvider="DoctorSitemap" />
+
+                 <asp:SiteMapDataSource ID="SiteMapDataSource3" runat="server" ShowStartingNode="false" SiteMapProvider="MidwifeSitemap"/>
+              
             </div>
            
         </form>

@@ -1,5 +1,8 @@
 
 
+
+
+
 /* Overall Page */
 
 body {
@@ -234,3 +237,12 @@ h1 {
    {
     text-align: center;
   }
+  
+/*  .loading
+{
+    background-image: url('../images/ajax-loader.gif');
+    background-position: right;
+    background-repeat: no-repeat;
+}*/
+
+

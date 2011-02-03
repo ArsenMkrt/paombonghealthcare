@@ -1,17 +1,43 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate4.master" AutoEventWireup="true" CodeFile="MedicalHistory.aspx.cs" Inherits="Medical_Record_MedicalHistory" %>
 
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+
      <h2 style="background-color: #d3e7c5">
-        Patient Medical Records/History Page
-    </h2>
+        Patient Medical Records/History Page    </h2>
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    
+    <br />
 
     <div id="boxes">
      <div id="modalwindow2" class="window2">
 
                              <br />
-                             <asp:TextBox ID="txtSearchPatient" OnTextChanged="txtSearchPatient_TextChanged" runat="server" Height="28px" Width="187px"></asp:TextBox>
-                             <asp:Button ID="btnSearch" runat="server" Text="Search Patient Name" Height="28px" 
+    
+
+
+                             <asp:TextBox ID="txtSearchPatient" OnTextChanged="txtSearchPatient_TextChanged" 
+                                 runat="server" Height="28px" Width="280px" autocomplete="off"></asp:TextBox>
+
+
+
+                              <asp:AutoCompleteExtender ID="TextBox1_AutoCompleteExtender" runat="server" 
+         TargetControlID="txtSearchPatient" MinimumPrefixLength="1" 
+                                DelimiterCharacters=",:" 
+                                CompletionInterval="1000"
+                                CompletionSetCount="15"
+                                UseContextKey="false"
+                                ServiceMethod="GetLastNames" OnClientHiding="OnClientCompleted"
+    OnClientPopulated="OnClientCompleted" OnClientPopulating="OnClientPopulating" 
+         ServicePath="~/WebService.asmx">
+     </asp:AutoCompleteExtender>
+
+
+                             <asp:Button ID="btnSearch" runat="server" Text="Search by LastName" Height="28px" 
                                  Width="149px" onclick="btnSearch_Click" CausesValidation="False" />
                                  <br />
                                  <br />
@@ -80,32 +106,13 @@
 
 </tr>
 </table>
-    <table style="width:49%;">
-        <tr>
-            <td style="width: 137px">
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="width: 94px">
-                Name:</td>
-            <td>
-                <center>
-                    <asp:Label ID="lbl_PatientName" runat="server" Font-Bold="True"></asp:Label>
-                </center>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 94px">
-                Brangay of Residence:</td>
-            <td>
-                <center>
-                    <asp:Label ID="lbl_PatientBarangay" runat="server" Font-Bold="True"></asp:Label>
-                </center>
-            </td>
-        </tr>
-    </table>
+     <br />
+                <p>Name:
+                <asp:Label ID="lbl_PatientName" runat="server" Font-Bold="True"></asp:Label><br />
+                Brangay of Residence: 
+                <asp:Label ID="lbl_PatientBarangay" runat="server" Font-Bold="True"></asp:Label><br />
+                </p>
+                
     <br />
 
     
