@@ -76,7 +76,7 @@ public class MedicalRecord
     }
 
 
-    public void SavePatientDailyMedicalRecord(int PatientID, int PatientAge, string PulseRate, decimal Temperature, decimal PatientWeight, string PatientHeight
+    public void SavePatientDailyMedicalRecord(int PatientID, string PatientAge, string PulseRate, decimal Temperature, decimal PatientWeight, string PatientHeight
        , string BloodPressure, string Diagnosis, string Treatment, string userAccount)
     {
         data = new DataAccess();
@@ -85,7 +85,7 @@ public class MedicalRecord
             + "VALUES (@EncounterDateTime,@PatientID,@Age,@Temp,@Weight,@PulseRate,@Height,@Bloodpressure,@Diagnosis,@Treatment,@Facilitatedby)",data.Connection);
         cmdTxt.Parameters.Add("@EncounterDateTime", SqlDbType.DateTime).Value = DateTime.Now;
         cmdTxt.Parameters.Add("@PatientID", SqlDbType.Int).Value = PatientID;
-        cmdTxt.Parameters.Add("@Age", SqlDbType.Int).Value = PatientAge;
+        cmdTxt.Parameters.Add("@Age", SqlDbType.VarChar).Value = PatientAge;
         cmdTxt.Parameters.Add("@Temp", SqlDbType.Decimal).Value = Temperature;
         cmdTxt.Parameters.Add("@Weight", SqlDbType.Decimal).Value = PatientWeight;
         cmdTxt.Parameters.Add("@Height", SqlDbType.VarChar).Value = PatientHeight;

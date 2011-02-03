@@ -75,7 +75,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         List<string> dataMaternal = new List<string>();
         data.ConnectToDatabase();;
         SqlCommand cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
         cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Maternal Care";
         SqlDataReader indicatorReader = cmdTxt.ExecuteReader();
         while (indicatorReader.Read())
@@ -169,7 +169,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         data.ConnectToDatabase();;
 
         SqlCommand cc_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
         cc_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Child Care";
         SqlDataReader ChildCareIndicatorReader = cc_cmdTxt.ExecuteReader();
         while (ChildCareIndicatorReader.Read())
@@ -289,7 +289,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         data.ConnectToDatabase();;
 
         SqlCommand dc_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
         dc_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Dental Care";
         SqlDataReader dentalCareIndicatorReader = dc_cmdTxt.ExecuteReader();
         while (dentalCareIndicatorReader.Read())
@@ -409,7 +409,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         data.ConnectToDatabase();;
 
         SqlCommand malaria_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
         malaria_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Malaria";
         SqlDataReader malariaIndicatorReader = malaria_cmdTxt.ExecuteReader();
         while (malariaIndicatorReader.Read())
@@ -570,7 +570,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         data.ConnectToDatabase();;
 
         SqlCommand leprosy_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
         leprosy_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Leprosy";
         SqlDataReader leprosyIndicatorReader = leprosy_cmdTxt.ExecuteReader();
         while (leprosyIndicatorReader.Read())
@@ -693,7 +693,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         data.ConnectToDatabase();;
 
         SqlCommand filariasis_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
         filariasis_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Filariasis";
         SqlDataReader filariasisIndicatorReader = filariasis_cmdTxt.ExecuteReader();
         while (filariasisIndicatorReader.Read())
@@ -813,7 +813,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         data.ConnectToDatabase();;
 
         SqlCommand tuberculosis_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
         tuberculosis_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Tuberculosis";
         SqlDataReader tuberculosisIndicatorReader = tuberculosis_cmdTxt.ExecuteReader();
         while (tuberculosisIndicatorReader.Read())
@@ -932,10 +932,10 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         #region Table Creation for Schistomiasis
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
         List<string> SchistomiasisData = new List<string>();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
 
         SqlCommand schistomiasis_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
         schistomiasis_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Schistomiasis";
         SqlDataReader schistomiasisIndicatorReader = schistomiasis_cmdTxt.ExecuteReader();
         while (schistomiasisIndicatorReader.Read())
@@ -1057,7 +1057,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         data.ConnectToDatabase();;
 
         SqlCommand fp_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
-            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)");
+            "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
         fp_cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Family Planning";
         SqlDataReader familyPlanningIndicatorReader = fp_cmdTxt.ExecuteReader();
         while (familyPlanningIndicatorReader.Read())
