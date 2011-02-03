@@ -51,7 +51,18 @@ public partial class SiteTemplate3 : System.Web.UI.MasterPage
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //if (this.IsPostBack)
+        //{
+        //    object eventArgument = this.Request["__EVENTARGUMENT"];
+        //    if ((eventArgument != null) && (eventArgument.ToString().Trim() == this.TimerControl1.PostBackValue))
+        //    {
+        //        //Function or code to handle the elapse of the timer. 
+        //    }
+        //    else
+        //    {
+        //        // Do Nothing 
+        //    }
+        //}
 
         if (Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
         {
