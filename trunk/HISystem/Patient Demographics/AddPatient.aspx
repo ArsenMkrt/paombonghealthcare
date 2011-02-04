@@ -190,13 +190,6 @@
                 </asp:ValidatorCalloutExtender>
 
 
-                <asp:RangeValidator ID="RangeValidator1" ControlToValidate="txtDate" 
-                    runat="server" ErrorMessage="Invalid date range" Type="Date" Display="Dynamic" 
-                    Font-Italic="True" Font-Size="Small"></asp:RangeValidator>
-                
-                <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="RangeValidator1">
-                </asp:ValidatorCalloutExtender>
-
                 <br />
             </td>
             <td class="style11" style="width: 137px">

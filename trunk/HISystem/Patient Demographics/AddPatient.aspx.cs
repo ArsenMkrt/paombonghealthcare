@@ -17,8 +17,8 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //RangeValidator1.MinimumValue = System.DateTime.Now.Subtract(100).ToShortDateString();
-        RangeValidator1.MinimumValue = DateTime.Now.AddYears(-100).ToShortDateString();
-        RangeValidator1.MaximumValue = DateTime.Now.ToShortDateString();
+        //RangeValidator1.MinimumValue = DateTime.Now.AddYears(-100).ToShortDateString();
+        //RangeValidator1.MaximumValue = DateTime.Now.ToShortDateString();
         
         if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Midwife"))
         {
