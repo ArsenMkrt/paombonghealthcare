@@ -1,17 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate3.master" AutoEventWireup="true" CodeFile="Register.aspx.cs" Inherits="Public_Register" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 
 
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
 
-
-
+<asp:Panel runat="server" ID="PnlRegUserWzrd" BackColor="#D3E7C5" Height="400px" 
+        Width="500px">
 <asp:CreateUserWizard ID="RegisterUser" runat="server" EnableViewState="False" 
         OnCreatedUser="RegisterUser_CreatedUser" BackColor="#EFF3FB" 
         BorderColor="#B5C7DE" BorderStyle="Solid" BorderWidth="1px" 
-        Font-Names="Verdana" Font-Size="0.8em">
+        Font-Names="Verdana" Font-Size="0.8em" style="font-size: small" 
+        Height="500px" Width="250px">
        <HeaderStyle BackColor="#284E98" BorderColor="#EFF3FB" BorderStyle="Solid" 
            BorderWidth="2px" Font-Bold="True" Font-Size="0.9em" ForeColor="White" 
            HorizontalAlign="Center" />
@@ -25,7 +30,7 @@
        <CreateUserButtonStyle BackColor="White" BorderColor="#507CD1" 
            BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
            ForeColor="#284E98" />
-       <TitleTextStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+       <TitleTextStyle Font-Bold="True" ForeColor="White" />
         <WizardSteps>
             <asp:CreateUserWizardStep ID="RegisterUserWizardStep" runat="server">
                 <ContentTemplate>
@@ -33,12 +38,15 @@
                         Create a New Account
                     </h2>
                     <p>
-                        Use the form below to create a new account.
+                        <span style="font-size: small">Use the form below to create a new account.
+                        </span>
                     </p>
                     <p>
+                        <span style="font-size: small">
                         Passwords are required to be a minimum of <%= Membership.MinRequiredPasswordLength %> characters in length.
+                        </span>
                     </p>
-                    <span class="failureNotification">
+                    <span>
                         <asp:Literal ID="ErrorMessage" runat="server"></asp:Literal>
                     </span>
                     <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification" 
@@ -46,11 +54,11 @@
 
 
 
-                    <div class="accountInfo" style="height: 163px;  width: 310px;" style="background-color: #a2cc85">
+                    <div class="accountInfo" style="height: 163px;  width: 310px;">
                         <fieldset class="register">
                             <legend>Account Information</legend>
                             
-                            <table style="width: 100%; background-color: #a2cc85">
+                            <table style="width: 100%;">
                                 <tr>
                                     <td>
                                          <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
@@ -132,6 +140,14 @@
        <SideBarStyle BackColor="#507CD1" Font-Size="0.9em" VerticalAlign="Top" />
        <StepStyle Font-Size="0.8em" />
     </asp:CreateUserWizard>
+    </asp:Panel>
+    <asp:RoundedCornersExtender ID="RegisterUser_RoundedCornersExtender" 
+        runat="server" Radius="10" TargetControlID="PnlRegUserWzrd">
+    </asp:RoundedCornersExtender>
+    <asp:DropShadowExtender ID="PnlLogin_DropShadowExtender" 
+                runat="server" TargetControlID="PnlRegUserWzrd" Radius="9" Opacity=".25" 
+        Rounded="True">
+            </asp:DropShadowExtender>
 
 
 

@@ -68,8 +68,8 @@ body {
 	text-decoration: none;
 }
 #navigation li a:hover {
-	background-color: #FFFFFF;
-	color: #000000;
+	background-color: #2c6402;
+	color: #FFFFFF;
 }
 #navigation ul ul {
 	margin-left: 12px;
@@ -224,3 +224,20 @@ h1 {
    {
     text-align: center;
   }
+  
+ /* .LoginButtons
+
+{
+
+   background-color: #ccc;
+
+   padding: 10px;
+
+   border-radius: 10px;
+
+   -moz-border-radius: 10px;
+
+   -webkit-border-radius: 10px;
+
+}
+*/
