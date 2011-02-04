@@ -14,14 +14,14 @@
     <br />
 
     <div id="boxes">
-     <div id="modalwindow2" class="window2">
+     <div id="modalwindow2x" class="window2x">
 
-                             <br />
+                             hndi na modal iseperate page na yung search at view<br />
     
 
 
                              <asp:TextBox ID="txtSearchPatient" OnTextChanged="txtSearchPatient_TextChanged" 
-                                 runat="server" Height="28px" Width="280px" autocomplete="off"></asp:TextBox>
+                                 runat="server" Height="28px" Width="280px" ></asp:TextBox>
 
 
 
