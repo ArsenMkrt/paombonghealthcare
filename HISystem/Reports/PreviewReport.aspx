@@ -95,12 +95,13 @@
                     Visible="False"></asp:Label>
             </td>
             <td>
-            <asp:DropDownList ID="ddlLogType" runat="server" Height="20px" Width="123px" 
+            <asp:DropDownList ID="ddlLogType" DataSourceID="logData" DataTextField="LogType" DataValueField="LogType" runat="server" Height="20px" Width="123px" 
                     Visible="False">
-                    <asp:ListItem>Add</asp:ListItem>
-                    <asp:ListItem>CheckOut</asp:ListItem>
-                    <asp:ListItem>Delete</asp:ListItem>
         </asp:DropDownList>
+         <asp:SqlDataSource ID="logData" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+             SelectCommand="SELECT DISTINCT [LogType] FROM [MedicineLog]">
+        </asp:SqlDataSource>
             </td>
             <td colspan="3">
       
@@ -252,12 +253,12 @@
     </asp:ObjectDataSource>
         <asp:SqlDataSource ID="Barangay" runat="server" 
             ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
-            SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
+             SelectCommand="SelectBarangayPresentInEncounter" SelectCommandType="StoredProcedure">
         </asp:SqlDataSource>
     
         <asp:SqlDataSource ID="Disease" runat="server" 
             ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
-            SelectCommand="SELECT DISTINCT [DiseaseName] FROM [Diseases] ORDER BY [DiseaseName]">
+            SelectCommand="SelectDiseasePresent" SelectCommandType="StoredProcedure">
         </asp:SqlDataSource>
     <asp:ObjectDataSource ID="_YearConsult" runat="server" 
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
@@ -287,7 +288,7 @@
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
         TypeName="PaombongDataSetTableAdapters.SearchByAgeBracketTableAdapter">
         <SelectParameters>
-            <asp:Parameter DefaultValue="30" Name="ageParam" Type="Int32" />
+            <asp:Parameter DefaultValue="30" Name="ageParam" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="_SearchByDiseaseName" runat="server" 
