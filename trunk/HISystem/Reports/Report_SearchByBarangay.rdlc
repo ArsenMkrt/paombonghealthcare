@@ -40,6 +40,10 @@
           <DataField>Facilitatedby</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="month">
+          <DataField>month</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>PaombongDataSet</DataSourceName>
@@ -551,9 +555,15 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>in the month of</Value>
+                <Value>in the month of </Value>
                 <Style>
                   <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!month.Value</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -564,7 +574,7 @@
         <Top>0.52097in</Top>
         <Left>0.04in</Left>
         <Height>0.25in</Height>
-        <Width>4.9375in</Width>
+        <Width>5.70833in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>

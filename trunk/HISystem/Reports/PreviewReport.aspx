@@ -18,11 +18,11 @@
             <td style="width: 77px; height: 42px; font-size: small;" 
                 colspan="2">
                 Province:</td>
-            <td style="height: 42px; width: 268435264px;">
+            <td style="height: 42px; width: 268435264px;" colspan="2">
                 &nbsp;<strong><span style="font-size: small; text-align: center;">Bulacan</span></strong></td>
         </tr>
         <tr>
-            <td style="height: 42px; font-size: small;" colspan="5" class="stylecenter">
+            <td style="height: 42px; font-size: small;" colspan="6" class="stylecenter">
                 <strong style="text-align: center">Choose Type Of Report</strong></td>
         </tr>
         <tr>
@@ -36,7 +36,7 @@
                     Text="Inventory" Font-Size="Small" AutoPostBack="True" 
                     oncheckedchanged="rdbtn_Inventory_CheckedChanged" />
             </td>
-            <td style="text-align: center; height: 42px" colspan="2">
+            <td style="text-align: center; height: 42px" colspan="3">
                 <asp:RadioButton ID="rdbtn_Consultation" GroupName="TypeReport" runat="server" 
                     style="font-size: small" Text="Consultation" AutoPostBack="True" 
                     oncheckedchanged="rdbtn_Consultation_CheckedChanged" />
@@ -48,7 +48,7 @@
                     Font-Bold="True" style="font-size: small; text-align: center;" 
                     Visible="False"></asp:Label>
             </td>
-            <td colspan="3" class="stylecenter">
+            <td colspan="4" class="stylecenter">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -70,7 +70,7 @@
                 <asp:Label ID="Label3" runat="server" Text="Year:" style="font-size: small; font-weight: 700;" 
                     Visible="False"></asp:Label>
                 </td>
-            <td style="height: 23px; width: 268435264px;">
+            <td style="height: 23px; width: 268435264px;" colspan="2">
                 <asp:DropDownList ID="DropDownList1" runat="server" 
               
                     Height="20px" Width="123px" Visible="False">
@@ -86,7 +86,7 @@
                 </td>
             <td style="width: 77px" colspan="2">
                 &nbsp;</td>
-            <td style="width: 268435264px">
+            <td style="width: 268435264px" colspan="2">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -103,7 +103,7 @@
              SelectCommand="SELECT DISTINCT [LogType] FROM [MedicineLog]">
         </asp:SqlDataSource>
             </td>
-            <td colspan="3">
+            <td colspan="4">
       
                 &nbsp;</td>
         </tr>
@@ -114,7 +114,7 @@
                     style="font-size: small; font-weight: 700; text-align: center;" 
                     Text="Filters - Search By" Visible="False"></asp:Label>
             &nbsp;</td>
-            <td colspan="3">
+            <td colspan="4">
                 &nbsp;</td>
         </tr>
 
@@ -128,11 +128,20 @@
                 <asp:Label ID="Label7" runat="server" Text="Barangay:" style="font-size: small; font-weight: 700;" 
                     Visible="False"></asp:Label>
                 </td>
-            <td style="height: 23px; width: 268435264px;">
+            <td style="height: 23px; ">
             <asp:DropDownList ID="DropDownList2" DataSourceID="Barangay" DataTextField="BarangayName" 
         DataValueField="BarangayName" runat="server" Height="20px" Width="123px" 
                     Visible="False">
         </asp:DropDownList>
+                <asp:Label ID="Label12" runat="server" Font-Bold="True" 
+                    style="font-size: small" Text="Month:" Visible="False"></asp:Label>
+            </td>
+            <td style="height: 23px; width: 268435264px;">
+            <asp:DropDownList ID="DropDownList3" DataSourceID="getMonths" DataTextField="Months" 
+        DataValueField="Months" runat="server" Height="20px" Width="123px" 
+                    Visible="False">
+        </asp:DropDownList>
+          
             </td>
         </tr>
         <tr>
@@ -145,10 +154,19 @@
                 <asp:Label ID="Label8" runat="server" 
                     style="font-size: small; font-weight: 700" Text="Disease:" Visible="False"></asp:Label>
             </td>
-            <td style="width: 268435264px">
+            <td>
             <asp:DropDownList ID="ddlDisease" DataSourceID="Disease" DataTextField="DiseaseName" DataValueField="DiseaseName" runat="server" Height="20px" Width="123px" 
                     Visible="False">
         </asp:DropDownList>
+                <asp:Label ID="Label13" runat="server" Font-Bold="True" 
+                    style="font-size: small" Text="Month:" Visible="False"></asp:Label>
+            </td>
+            <td style="width: 268435264px">
+            <asp:DropDownList ID="DropDownList4" DataSourceID="getMonths" DataTextField="Months" 
+        DataValueField="Months" runat="server" Height="20px" Width="123px" 
+                    Visible="False">
+        </asp:DropDownList>
+          
             </td>
         </tr>
         <tr>
@@ -165,6 +183,15 @@
             <asp:DropDownList ID="ddlAge" runat="server" Height="20px" Width="123px" 
                     Visible="False">
         </asp:DropDownList>
+                <asp:Label ID="Label14" runat="server" Font-Bold="True" 
+                    style="font-size: small" Text="Month:" Visible="False"></asp:Label>
+            </td>
+            <td style="width: 268435264px">
+            <asp:DropDownList ID="DropDownList5" DataSourceID="getMonths" DataTextField="Months" 
+        DataValueField="Months" runat="server" Height="20px" Width="123px" 
+                    Visible="False">
+        </asp:DropDownList>
+          
             </td>
         </tr>
         <tr>
@@ -177,22 +204,14 @@
                 <asp:Label ID="Label10" runat="server" 
                     style="font-size: small; font-weight: 700" Text="Month:" Visible="False"></asp:Label>
             </td>
-            <td style="width: 268435264px">
-                    <asp:DropDownList ID="ddlMonth" runat="server" Height="20px" Width="122px" 
+            <td style="width: 268435264px" colspan="2">
+                    <asp:DropDownList ID="ddlMonth" DataSourceID="getMonths" DataValueField="Months" DataTextField="Months" runat="server" Height="20px" Width="122px" 
                         Visible="False">
-                        <asp:ListItem Value="1">January</asp:ListItem>
-                        <asp:ListItem Value="2">February</asp:ListItem>
-                        <asp:ListItem Value="3">March</asp:ListItem>
-                        <asp:ListItem Value="4">April</asp:ListItem>
-                        <asp:ListItem Value="5">May</asp:ListItem>
-                        <asp:ListItem Value="6">June</asp:ListItem>
-                        <asp:ListItem Value="7">July</asp:ListItem>
-                        <asp:ListItem Value="8">August</asp:ListItem>
-                        <asp:ListItem Value="9">September</asp:ListItem>
-                        <asp:ListItem Value="10">October</asp:ListItem>
-                        <asp:ListItem Value="11">November</asp:ListItem>
-                        <asp:ListItem Value="12">December</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:SqlDataSource ID="getMonths" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+            SelectCommand="SelectMonthPresent" SelectCommandType="StoredProcedure">
+        </asp:SqlDataSource>
             </td>
         </tr>
         <tr>
@@ -205,14 +224,18 @@
                 <asp:Label ID="Label11" runat="server" 
                     style="font-size: small; font-weight: 700" Text="Year:" Visible="False"></asp:Label>
             </td>
-            <td style="width: 268435264px">
-            <asp:DropDownList ID="ddlYear" runat="server" Height="20px" Width="123px" 
+            <td style="width: 268435264px" colspan="2">
+            <asp:DropDownList ID="ddlYear"  DataSourceID = "getYears" DataValueField="Years" DataTextField="Years" runat="server" Height="20px" Width="123px" 
                     Visible="False">
         </asp:DropDownList>
+        <asp:SqlDataSource ID="getYears" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+            SelectCommand="SelectYearPresent" SelectCommandType="StoredProcedure">
+        </asp:SqlDataSource>
             </td>
         </tr>
         <tr>
-            <td colspan="5">
+            <td colspan="6">
             <center>
                 <asp:Button ID="btn_runReport" runat="server" onclick="btn_runReport_Click"
                     Text="Run Report" Width="193px" style="text-align: center" /></td>
@@ -229,10 +252,10 @@
         PageCountMode="Actual" Visible="False">
         <ServerReport ReportServerUrl="http://localhost:2705/HISystem/Report.rdlc" 
             ReportPath="Report.rdlc" />
-    <LocalReport ReportPath="Reports\Report_MedicineLog.rdlc" 
+    <LocalReport ReportPath="Reports\Report_SearchByBarangay.rdlc" 
             DisplayName="PaombongQuarterlyReport">
         <DataSources>
-            <rsweb:ReportDataSource DataSourceId="_MedicineLog_" Name="MedicineLog" />
+            <rsweb:ReportDataSource DataSourceId="Barangay" Name="SearchByBarangay" />
         </DataSources>
     </LocalReport>
 </rsweb:ReportViewer>
@@ -282,6 +305,7 @@
         TypeName="PaombongDataSetTableAdapters.SearchByBarangayNameTableAdapter">
         <SelectParameters>
             <asp:Parameter DefaultValue="Binakod" Name="barangayName" Type="String" />
+            <asp:Parameter DefaultValue="1" Name="month" Type="Decimal" />
         </SelectParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="_AgeBracket" runat="server" 
@@ -289,6 +313,7 @@
         TypeName="PaombongDataSetTableAdapters.SearchByAgeBracketTableAdapter">
         <SelectParameters>
             <asp:Parameter DefaultValue="30" Name="ageParam" Type="String" />
+            <asp:Parameter DefaultValue="1" Name="month" Type="Decimal" />
         </SelectParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="_SearchByDiseaseName" runat="server" 
@@ -296,6 +321,7 @@
         TypeName="PaombongDataSetTableAdapters.SearchByDiseaseNameTableAdapter">
         <SelectParameters>
             <asp:Parameter DefaultValue="Mumps" Name="diseaseName" Type="String" />
+            <asp:Parameter DefaultValue="1" Name="month" Type="Decimal" />
         </SelectParameters>
     </asp:ObjectDataSource>
 <%--    <asp:ObjectDataSource ID="_Header" runat="server" 

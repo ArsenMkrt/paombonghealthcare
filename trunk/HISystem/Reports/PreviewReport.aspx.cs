@@ -22,21 +22,20 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            LoadYearAndAgeInDropDown(DropDownList1, ddlYear, ddlAge);
+            LoadYearAndAgeInDropDown(DropDownList1, ddlAge);
         }
     }
 
-    private void LoadYearAndAgeInDropDown(DropDownList dropdownYear,DropDownList ddlYear,DropDownList dropdownAge)
+    private void LoadYearAndAgeInDropDown(DropDownList dropdownYear,DropDownList dropdownAge)
     {
         dropdownAge.Items.Clear();
         dropdownYear.Items.Clear();
-        ddlYear.Items.Clear();
+
 
         //Populate Year Dropdown
         for (int i = 2010; i < 2100; i++)
         {
             dropdownYear.Items.Add(i.ToString());
-            ddlYear.Items.Add(i.ToString());
         }
         //Populate Age Dropdown
         for (int x = 1; x < 125; x++)
@@ -125,16 +124,19 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             if (rdbtn_Barangay.Checked)
             {
                 _Barangay.SelectParameters["barangayName"].DefaultValue = DropDownList2.Text.ToString();
+                _Barangay.SelectParameters["month"].DefaultValue = DropDownList3.Text.ToString();
                 ReportPaombong.LocalReport.Refresh();
             }
             else if (rdbtn_Disease.Checked)
             {
                 _SearchByDiseaseName.SelectParameters["diseaseName"].DefaultValue = ddlDisease.Text.ToString();
+                _SearchByDiseaseName.SelectParameters["month"].DefaultValue = DropDownList4.Text.ToString();
                 ReportPaombong.LocalReport.Refresh();
             }
             else if (rdbtn_Age.Checked)
             {
                 _AgeBracket.SelectParameters["ageParam"].DefaultValue = ddlAge.Text.ToString();
+                _AgeBracket.SelectParameters["month"].DefaultValue = DropDownList5.Text.ToString();
                 ReportPaombong.LocalReport.Refresh();
             }
             else if (rdbtn_Month.Checked)
@@ -367,13 +369,19 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             ReportPaombong.LocalReport.Refresh();
             ReportPaombong.Visible = true;
             Label7.Visible = true;
+            Label12.Visible = true;
+            DropDownList3.Visible = true;
             DropDownList2.Visible = true;
             //Disease
             Label8.Visible = false;
+            Label13.Visible = false;
+            DropDownList4.Visible = false;
             ddlDisease.Visible = false;
             //Age
             Label9.Visible = false;
             ddlAge.Visible = false;
+            Label14.Visible = false;
+            DropDownList5.Visible = false;
             //Month
             Label10.Visible = false;
             ddlMonth.Visible = false;
@@ -399,11 +407,17 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             ReportPaombong.Visible = true;
             Label8.Visible = true;
             ddlDisease.Visible = true;
+            DropDownList4.Visible = true;
+            Label13.Visible = true;
             //Barangay
             Label7.Visible = false;
+            Label12.Visible = false;
+            DropDownList3.Visible = false;
             DropDownList2.Visible = false;
             //Age
             Label9.Visible = false;
+            Label14.Visible = false;
+            DropDownList5.Visible = false;
             ddlAge.Visible = false;
             //Month
             Label10.Visible = false;
@@ -430,12 +444,18 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             ReportPaombong.LocalReport.Refresh();
             ReportPaombong.Visible = true;
             Label9.Visible = true;
+            Label14.Visible = true;
+            DropDownList5.Visible = true;
             ddlAge.Visible = true;
             //Barangay
             Label7.Visible = false;
+            Label12.Visible = false;
+            DropDownList3.Visible = false;
             DropDownList2.Visible = false;
             //Disease
             Label8.Visible = false;
+            Label13.Visible = false;
+            DropDownList4.Visible = false;
             ddlDisease.Visible = false;
             //Month
             Label10.Visible = false;
@@ -464,15 +484,21 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             ddlMonth.Visible = true;
             //Barangay
             Label7.Visible = false;
+            Label12.Visible = false;
+            DropDownList3.Visible = false;
             DropDownList2.Visible = false;
             //Disease
             Label8.Visible = false;
+            Label13.Visible = false;
+            DropDownList4.Visible = false;
             ddlDisease.Visible = false;
             //Year
             Label11.Visible = false;
             ddlYear.Visible = false;
             //Age
             Label9.Visible = false;
+            Label14.Visible = false;
+            DropDownList5.Visible = false;
             ddlAge.Visible = false;
         }
     }
@@ -496,11 +522,17 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             //Age
             Label9.Visible = false;
             ddlAge.Visible = false;
+            Label14.Visible = false;
+            DropDownList5.Visible = false;
             //Barangay
             Label7.Visible = false;
+            Label12.Visible = false;
+            DropDownList3.Visible = false;
             DropDownList2.Visible = false;
             //Disease
             Label8.Visible = false;
+            Label13.Visible = false;
+            DropDownList4.Visible = false;
             ddlDisease.Visible = false;
             //Month
             Label10.Visible = false;
