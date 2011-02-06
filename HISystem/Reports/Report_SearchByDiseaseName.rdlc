@@ -36,6 +36,10 @@
           <DataField>DiseaseName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="month">
+          <DataField>month</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>PaombongDataSet</DataSourceName>
@@ -485,6 +489,24 @@
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
+              <TextRun>
+                <Value> for the month of</Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!month.Value</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
@@ -493,7 +515,7 @@
         <Top>0.30916in</Top>
         <Left>0.00166in</Left>
         <Height>0.25in</Height>
-        <Width>2.5625in</Width>
+        <Width>5.7275in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>

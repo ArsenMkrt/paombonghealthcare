@@ -44,6 +44,14 @@
           <DataField>Age</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="Age1">
+          <DataField>Age</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="month">
+          <DataField>month</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>PaombongDataSet</DataSourceName>
@@ -592,9 +600,10 @@
         <FixedColumnHeaders>true</FixedColumnHeaders>
         <FixedRowHeaders>true</FixedRowHeaders>
         <DataSetName>SearchByAgeBracket</DataSetName>
-        <Top>0.88208in</Top>
+        <Top>0.74666in</Top>
+        <Left>0.16667in</Left>
         <Height>0.66667in</Height>
-        <Width>7.54165in</Width>
+        <Width>7.54166in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -618,14 +627,39 @@
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>for the month of</Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!month.Value</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
         <Top>0.28833in</Top>
+        <Left>0.16667in</Left>
         <Height>0.25in</Height>
-        <Width>4.25in</Width>
+        <Width>6.94792in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -641,7 +675,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>7.6in</Width>
+  <Width>7.85416in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>
