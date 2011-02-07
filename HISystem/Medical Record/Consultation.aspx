@@ -170,36 +170,37 @@
         </tr>
         <tr>
             <td class="style48">
-                Temp*</td>
+                Temperature*</td>
             <td class="style30" colspan="5">
                 <asp:TextBox ID="txtTemp" runat="server" Width="121px" 
                     onkeydown="return isDecimal(event.keyCode);" onkeyup="keyUPDecimal(event.keyCode)" 
                         onpaste="return false;"></asp:TextBox>
                 &nbsp;<span class="style18">Celsius<br />
                 <asp:RangeValidator ID="RangeValidator1" runat="server" 
-                    ControlToValidate="txtTemp" ErrorMessage="(please input number from35-40)" 
+                    ControlToValidate="txtTemp" ErrorMessage="(valid temperature range is from35-40)" 
                     Font-Italic="True" Font-Size="Small" MaximumValue="40" MinimumValue="35" 
                     Display="Dynamic" Type="Integer"></asp:RangeValidator>
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" 
-                    ControlToValidate="txtTemp" ErrorMessage="(enter temp)" Font-Italic="True" 
-                    Font-Size="Small" Display="Dynamic"></asp:RequiredFieldValidator>
+                    ControlToValidate="txtTemp" ErrorMessage="this is a required field" Font-Italic="True" 
+                    Font-Size="Small" Display="Dynamic" EnableViewState="False"></asp:RequiredFieldValidator>
                 </span></td>
             <td align="right" class="style45">
                 Weight*</td>
             <td class="style29" colspan="2">
                 <asp:TextBox ID="txtWt" runat="server" Width="121px" 
                     onkeydown="return isDecimal(event.keyCode);" onkeyup="keyUPDecimal(event.keyCode)" 
-                        onpaste="return false;" MaxLength="6"></asp:TextBox>
+                        onpaste="return false;" MaxLength="6" Height="22px"></asp:TextBox>
                 &nbsp;lbs<br />
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
                     ControlToValidate="txtWt" Display="Dynamic" 
-                    ErrorMessage="( invalid weight input)" ValidationExpression="\d\d\d?.?\d?\d?"></asp:RegularExpressionValidator>
+                    ErrorMessage="( invalid weight input)" 
+                    ValidationExpression="\d\d\d?.?\d?\d?" Font-Size="Small"></asp:RegularExpressionValidator>
                 <br />
 
                 <span class="style18">
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
-                    ControlToValidate="txtWt" ErrorMessage="(enter weight)" Font-Italic="True" 
+                    ControlToValidate="txtWt" ErrorMessage="this is a required field" Font-Italic="True" 
                     Font-Size="Small" Display="Dynamic"></asp:RequiredFieldValidator>
                 </span>
             </td>
@@ -227,7 +228,8 @@
                 Blood Pressure*</td>
             <td class="style53" colspan="2">
                 <asp:TextBox ID="txtBpressure" runat="server" Width="37px" MaxLength="3" 
-                    onpaste="return false;" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)"></asp:TextBox>
+                    onpaste="return false;" onkeydown="return isNumeric(event.keyCode);" 
+                    onkeyup="keyUP(event.keyCode)" Height="22px"></asp:TextBox>
                 <asp:Label ID="Lbl_slash" runat="server" Font-Bold="True" Font-Size="X-Large" 
                     Text="/"></asp:Label>
                 <asp:TextBox ID="txtBpressure0" runat="server" Width="37px"  MaxLength="3" 
