@@ -94,9 +94,20 @@
         Text="PhilHealth #"></asp:Label>
             </td>
             <td class="style6" colspan="2">
-                <asp:TextBox ID="txtFaxNum" runat="server" autocomplete="off" Width="227px" 
+               <%-- <asp:TextBox ID="txtFaxNum" runat="server" autocomplete="off" Width="227px" 
                     onKeyUp="javascript:return mask(this.value,this,'2,12','-');" 
-                    onBlur="javascript:return mask(this.value,this,'2,12','-');" MaxLength="14" onpaste="return false;"></asp:TextBox><br />
+                    onBlur="javascript:return mask(this.value,this,'2,12','-');" MaxLength="14" onpaste="return false;"></asp:TextBox>--%>
+
+                    <asp:TextBox ID="txtFaxNum" runat="server" autocomplete="off" Width="227px" 
+                    onKeyUp="javascript:return mask(this.value,this,'2,12','-');" 
+                    onBlur="javascript:return mask(this.value,this,'2,12','-');" MaxLength="14" onpaste="return false;"></asp:TextBox>
+                <asp:MaskedEditExtender ID="txtFaxNum_MaskedEditExtender" runat="server" 
+                    CultureAMPMPlaceholder="" CultureCurrencySymbolPlaceholder="" 
+                    CultureDateFormat="" CultureDatePlaceholder="" CultureDecimalPlaceholder="" 
+                    CultureThousandsPlaceholder="" CultureTimePlaceholder="" Enabled="True" 
+                    Mask="99-999999999-9" TargetControlID="txtFaxNum">
+                </asp:MaskedEditExtender>
+                <br />
 
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
                     ControlToValidate="txtFaxNum" 
@@ -271,7 +282,7 @@
                 <asp:Button ID="button_Clear" runat="server" 
         onclick="button_Clear_Click" 
         
-        Text="Clear Details" Width="209px" Height="38px" />
+        Text="Clear Details" Width="209px" Height="38px" CausesValidation="False" />
             </td>
             <td class="style10">
                 <asp:Button ID="button_ProceedConsultation" runat="server" 
