@@ -77,15 +77,12 @@
                     Text="Consultation Page" Font-Bold="True" ForeColor="#006600"></asp:Label>
             </td>
             <td class="style13" colspan="5">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <center>
                 <asp:Image ID="Image1" runat="server" Height="59px" 
                     ImageUrl="~/images/image3.png" Width="64px" />
-                &nbsp;&nbsp;&nbsp;
-                <asp:Image ID="Image3" runat="server" Height="57px" 
-                    ImageUrl="~/images/phis_name.png" Width="110px" />
-                &nbsp;&nbsp;
                 <asp:Image ID="Image2" runat="server" Height="57px" 
                     ImageUrl="~/images/image5.png" Width="74px" />
+                    </center>
             </td>
             <td class="style11">
                 Date</td>
