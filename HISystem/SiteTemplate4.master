@@ -206,21 +206,6 @@
 
 
 
-   <%--  <link rel="Stylesheet" type="text/css" href='<%# ResolveUrl("~/Themes/jquery.datepick.css")%>'><link/>
-    
-
-    
-    <script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.2.min.js" type="text/javascript"></script>
-    <script type="text/javascript"  src='<%# ResolveUrl ("~/Scripts/jquery.datepick.js") %>'></script>--%>
-  
-
-    <%--<script type= "text/javascript">
-        $(function () {
-                  $('#txtDatepick').datepick({ dateFormat: 'mm/dd/yyyy' });
-          //$('input[id$=txtDatepick]').datepick();
-          
-        });    
-    </script>--%>
 
 
 
@@ -300,7 +285,7 @@
                         <asp:HyperLink runat="server" ID="lnkHome" NavigateUrl="~/Default.aspx" 
                             Height="16px" Width="178px">Home</asp:HyperLink>
                     </li>  
-                    <asp:Repeater runat="server" ID="menu" DataSourceID="SiteMapDataSource1">
+                    <asp:Repeater runat="server" ID="menu">
                         <ItemTemplate>
                             <li>
                                 <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
