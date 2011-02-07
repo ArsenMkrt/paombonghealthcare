@@ -174,9 +174,10 @@
         <form id="form1" runat="server">
         
             <div id="header" style="background-color:#a2cc85; margin-top: 7px;">
-                <span class="title">Paombong Healthcare Information System
-                <asp:Image ID="Image1" runat="server" Height="55px" 
-                    ImageUrl="~/images/icon hd2.png" style="margin-left: 15px" Width="80px" />
+                <span class="title">
+                <asp:Image ID="Image1" runat="server" Height="83px" 
+                    ImageUrl="~/images/bannerlogo.png" style="margin-left: 0px; margin-top: 0px;" 
+                    Width="352px" />
                 </span><br />
                 <span class="breadcrumb">
                     <asp:SiteMapPath ID="SiteMapPath1" runat="server">
@@ -200,9 +201,9 @@
                 <br />
                 </span>
                 </div>
-            <div id="welcomeUser" style="float:left; height: 47px; width: 540px;">
+            <div id="welcomeUser" style="float:left; height: 47px; width: 553px;">
                 <asp:Image ID="img_UserRole" runat="server" ImageUrl="~/images/guest.png" 
-                         Width="37px" Height="39px" />
+                         Width="37px" Height="39px"/>
                 <asp:ContentPlaceHolder ID="LoginContent" runat="server">
                     
                      

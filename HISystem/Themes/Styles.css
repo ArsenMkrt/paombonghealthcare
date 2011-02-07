@@ -20,7 +20,7 @@ body {
 #header {
 	border-top: 8px solid #183503;
 	/*border-bottom: 2px dotted #2c6402;*/
-	height: 4.6em;
+	height: 5.6em;
 }
 #header .title {
 	font: 190% Arial, Helvetica, Georgia, "Times New Roman", Times, serif;
@@ -28,9 +28,9 @@ body {
 	background-color: transparent;
 	float: left;
 	margin-right: 2em;
-	margin-top: 0.3em;
+	margin-top: 0em;
 	margin-left: .8em;
-    height: 54px;
+    height: 62px;
 }
 
 #header a:link, a:visited  {

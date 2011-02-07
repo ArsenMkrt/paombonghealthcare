@@ -80,8 +80,6 @@
                     <center>
                         <asp:Image ID="Image3" runat="server" Height="42px" 
                             ImageUrl="~/images/image3.png" Width="52px" />
-                        <asp:Image ID="Image2" runat="server" Height="43px" 
-                            ImageUrl="~/images/phis_name.png" Width="244px" />
                         <asp:Image ID="Image4" runat="server" Height="42px" 
                             ImageUrl="~/images/image5.png" Width="54px" />
                     </center>
