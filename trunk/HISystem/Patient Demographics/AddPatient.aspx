@@ -48,7 +48,7 @@
                     Text="Name"></asp:Label>
                 *</td>
             <td class="style12" style="height: 52px">
-                <asp:TextBox ID="txtLName" runat="server" Height="21px" Width="203px"></asp:TextBox>
+                <asp:TextBox ID="txtLName" runat="server" Height="21px" autocomplete="off" Width="203px"></asp:TextBox>
                 <br />
                 Last name
                 <br /><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
@@ -56,7 +56,7 @@
                     Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
             </td>
             <td class="style10" colspan="2" style="height: 52px">
-                <asp:TextBox ID="txtFName" runat="server" Width="147px"></asp:TextBox>
+                <asp:TextBox ID="txtFName" runat="server" Width="147px" autocomplete="off"></asp:TextBox>
                 <br />
                 First name<br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
@@ -64,7 +64,7 @@
                     Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
             </td>
             <td class="style13" style="height: 52px;" colspan="2">
-                <asp:TextBox ID="txtMName" runat="server" Width="107px" style="margin-top: 0px"></asp:TextBox>
+                <asp:TextBox ID="txtMName" runat="server" Width="107px" style="margin-top: 0px" autocomplete="off"></asp:TextBox>
                 &nbsp;<asp:TextBox ID="txtSuffix" runat="server" Width="51px" Height="23px" 
                     Visible="False" ></asp:TextBox>
                 <br />
@@ -81,7 +81,7 @@
         ForeColor="#000000" Text="Contact Number"></asp:Label>
             </td>
             <td class="style5" colspan="2" style="width: 179px">
-                <asp:TextBox ID="txtContactNum" runat="server" Width="203px" 
+                <asp:TextBox ID="txtContactNum" runat="server" autocomplete="off" Width="203px" 
                     onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)"  
                         onpaste="return false;" MaxLength="11"></asp:TextBox>
                 <br />
@@ -96,7 +96,7 @@
         Text="PhilHealth #"></asp:Label>
             </td>
             <td class="style6" colspan="2">
-                <asp:TextBox ID="txtFaxNum" runat="server" Width="227px" 
+                <asp:TextBox ID="txtFaxNum" runat="server" autocomplete="off" Width="227px" 
                     onKeyUp="javascript:return mask(this.value,this,'2,12','-');" 
                     onBlur="javascript:return mask(this.value,this,'2,12','-');" MaxLength="14" onpaste="return false;"></asp:TextBox><br />
 
@@ -142,7 +142,7 @@
         Text="Email Address"></asp:Label>
             </td>
             <td class="style5" colspan="2" style="width: 179px">
-                <asp:TextBox ID="txtEmailAdd" runat="server" Width="206px" 
+                <asp:TextBox ID="txtEmailAdd" runat="server" autocomplete="off" Width="206px" 
        ></asp:TextBox><br />
 
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
@@ -235,7 +235,7 @@
         Text="Spouse Name"></asp:Label>
             </td>
             <td class="style6" colspan="2">
-                <asp:TextBox ID="txtSpouseName" runat="server" Width="228px" ></asp:TextBox>
+                <asp:TextBox ID="txtSpouseName" runat="server" Width="228px" autocomplete="off"></asp:TextBox>
             </td>
         </tr>
         <tr>

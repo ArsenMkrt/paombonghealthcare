@@ -21,7 +21,7 @@
 
 
                              <asp:TextBox ID="txtSearchPatient" OnTextChanged="txtSearchPatient_TextChanged" 
-                                 runat="server" Height="28px" Width="280px" ></asp:TextBox>
+                                 runat="server" Height="28px" Width="280px" autocomplete="off"></asp:TextBox>
 
 
 

@@ -126,18 +126,9 @@
 
 
 
-                    <asp:TextBox ID="txtDatepick" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDatepick" runat="server" ReadOnly="true"></asp:TextBox>
                     <br />
-                    <%--<asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server">
-                        <Scripts>
-                            <asp:ScriptReference Path="~/Scripts/jquery.js" />
-                            <asp:ScriptReference Path="../Scripts/jquery-ui-1.7.3.custom.min.js"  />
-                            <asp:ScriptReference Path="../Scripts/jqueryui-datepicker.js"  />
-                            <asp:ScriptReference Path="../Scripts/jquery.datepick.js"  />
-
-
-                        </Scripts>
-                    </asp:ScriptManagerProxy>--%>
+                    
 
 
 

@@ -101,21 +101,21 @@
                         Text="Name"></asp:Label>
                 </td>
                 <td class="style12" style="height: 52px" colspan="2">
-                    <asp:TextBox ID="txtLName" runat="server" Height="21px" Width="203px"></asp:TextBox>
+                    <asp:TextBox ID="txtLName" runat="server" Height="21px" Width="203px" autocomplete="off"></asp:TextBox>
                     <br />
                     Last name<br /><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                     ControlToValidate="txtLName" ErrorMessage="(cannot be empty)" 
                     Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
                 </td>
                 <td class="style10" colspan="2" style="height: 52px">
-                    <asp:TextBox ID="txtFName" runat="server" Width="147px"></asp:TextBox>
+                    <asp:TextBox ID="txtFName" runat="server" Width="147px" autocomplete="off"></asp:TextBox>
                     <br />
                     First name<br /><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                     ControlToValidate="txtFName" ErrorMessage="(cannot be empty)" 
                     Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
                 </td>
                 <td class="style13" colspan="2">
-                    <asp:TextBox ID="txtMName" runat="server" Width="107px"></asp:TextBox>
+                    <asp:TextBox ID="txtMName" runat="server" Width="107px" autocomplete="off"></asp:TextBox>
                     
                     <asp:TextBox ID="txtSuffix" runat="server" Height="23px" Width="71px" 
                         Visible="False"></asp:TextBox>
@@ -133,7 +133,7 @@
                         Text="Contact Number"></asp:Label>
                 </td>
                 <td class="style5" colspan="3" style="width: 179px">
-                    <asp:TextBox ID="txtContactNum" runat="server" Width="203px" MaxLength="11"
+                    <asp:TextBox ID="txtContactNum" runat="server" autocomplete="off" Width="203px" MaxLength="11"
                      onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)"  
                         onpaste="return false;"></asp:TextBox>
                     <br />
@@ -148,7 +148,7 @@
         Text="PhilHealth #"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">
-                    <asp:TextBox ID="txtFaxNum" runat="server" Width="227px"
+                    <asp:TextBox ID="txtFaxNum" autocomplete="off" runat="server" Width="227px"
                     
                    onKeyUp="javascript:return mask(this.value,this,'2,12','-');" 
                     onBlur="javascript:return mask(this.value,this,'2,12','-');" MaxLength="14" onpaste="return false;"></asp:TextBox>
@@ -274,14 +274,14 @@
                         Text="Company"></asp:Label>
                 </td>
                 <td class="style5" colspan="3" style="width: 179px">
-                    <asp:TextBox ID="txtCompany" runat="server" Width="207px"></asp:TextBox>
+                    <asp:TextBox ID="txtCompany" runat="server" Width="207px" autocomplete="off"></asp:TextBox>
                 </td>
                 <td class="style14">
                     <asp:Label ID="Label33" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Spouse Name"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">
-                    <asp:TextBox ID="txtSpouseName" runat="server" Width="228px"></asp:TextBox>
+                    <asp:TextBox ID="txtSpouseName" autocomplete="off" runat="server" Width="228px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
