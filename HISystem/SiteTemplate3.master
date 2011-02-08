@@ -60,7 +60,52 @@
     </script>
 
 
-  
+         <script  type="text/javascript">
+
+                     var secondsPassed = 0;
+                     var minutesBeforeLoggedOut;
+                     var minutesToWarning;
+                     function ShowTimePassed() {
+                         minutesBeforeLoggedOut = parseInt(minutesBeforeLoggedOut);
+                         secondsPassed += 1;
+
+                         if (minutesBeforeLoggedOut == -1) {
+                             if (secondsPassed == 30) {
+                                 var img = new Image(1, 1);
+                                 img.src = 'KeepAlive.aspx?date=' + escape(new Date());
+                                 secondsPassed = 0;
+                             }
+                         }
+                         else {
+                             if (secondsPassed == minutesToWarning * 60) {
+                                 var answer;
+
+                                 var currentTime = new Date();
+                                 var expiredTime = new Date();
+                                 var minutes = expiredTime.getMinutes();
+                                 minutes += minutesBeforeLoggedOut;
+                                 expiredTime.setMinutes(minutes);
+
+                                 if (minutesBeforeLoggedOut == 1)
+                                     answer = confirm("It is now " + currentTime.toLocaleTimeString() + " You have " + minutesBeforeLoggedOut + " minute left before getting logged out. Do you want to extend the session?");
+                                 else
+                                     answer = confirm("It is now " + currentTime.toLocaleTimeString() + " You have " + minutesBeforeLoggedOut + " minutes left before getting logged out. Do you want to extend the session?");
+                                 if (answer) {
+                                     var img = new Image(1, 1);
+                                     img.src = 'KeepAlive.aspx?date=' + escape(new Date());
+                                     secondsPassed = 0;
+                                     currentTime = new Date();
+                                     if (currentTime > expiredTime) {
+                                         alert("You've exceeded the time needed to extend the session. You will be logged out now");
+                                         window.location = loginUrl;
+                                     }
+                                 }
+                             }
+                         }
+                     }
+
+                    window.setInterval('ShowTimePassed()', 1000);
+		 </script>
 
 
 
