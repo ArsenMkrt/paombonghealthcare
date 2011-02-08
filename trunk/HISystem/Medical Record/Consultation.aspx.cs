@@ -19,12 +19,16 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     private string encId;
     private int patientId;
     
-    protected void Page_Init(object Sender, EventArgs e)
-    {
-        Response.Cache.SetCacheability(HttpCacheability.NoCache);
-        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
-        Response.Cache.SetNoStore();
-    }
+    //protected void Page_Init(object Sender, EventArgs e)
+    //{
+    //    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+    //    Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+    //    Response.Cache.SetNoStore();
+    //    Response.Cache.SetValidUntilExpires(false);
+    //    Response.ExpiresAbsolute = DateTime.Now.AddDays(-1d);
+    //    Response.Expires = -1500;
+    //    Response.AppendHeader("Pragma", "no-cache");
+    //}
 
     protected void Page_Load(object sender, EventArgs e)
     {
