@@ -31,8 +31,8 @@ public class WebService : System.Web.Services.WebService
         DataTable dt = null;
         try
         {
-          // string sql = "SELECT DISTINCT PtLname FROM Patients WHERE PtLname LIKE @prefixText";
-          string sql = "SELECT Distinct PtLname + ',' + PtFname + ' ' + PtMname AS PtFullName FROM Patients WHERE PtLname LIKE @prefixText";
+          string sql = "SELECT DISTINCT PtLname FROM Patients WHERE PtLname LIKE @prefixText";
+         // string sql = "SELECT Distinct PtLname + ',' + PtFname + ' ' + PtMname AS PtFullName FROM Patients WHERE PtLname LIKE @prefixText";
 
 
             data = new DataAccess();
