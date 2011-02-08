@@ -143,7 +143,7 @@
         DataSourceID="Barangay" DataTextField="BarangayName" 
         DataValueField="BarangayName" 
                     
-                    style="margin-left: 56px" Enabled="False">
+                    style="margin-left: 56px" Enabled="False" Height="23px">
                 </asp:DropDownList>
             &nbsp;<asp:SqlDataSource ID="Barangay" runat="server" 
         ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
@@ -180,11 +180,11 @@
                 <asp:RangeValidator ID="RangeValidator1" runat="server" 
                     ControlToValidate="txtTemp" ErrorMessage="(valid temperature range is from35-40)" 
                     Font-Italic="True" Font-Size="Small" MaximumValue="40" MinimumValue="35" 
-                    Display="Dynamic" Type="Integer"></asp:RangeValidator>
+                    Type="Integer"></asp:RangeValidator>
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" 
                     ControlToValidate="txtTemp" ErrorMessage="this is a required field" Font-Italic="True" 
-                    Font-Size="Small" Display="Dynamic" EnableViewState="False"></asp:RequiredFieldValidator>
+                    Font-Size="Small" EnableViewState="False"></asp:RequiredFieldValidator>
                 </span></td>
             <td align="right" class="style45">
                 Weight*</td>
@@ -194,7 +194,7 @@
                         onpaste="return false;" MaxLength="6" Height="23px"></asp:TextBox>
                 &nbsp;lbs<br />
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                    ControlToValidate="txtWt" Display="Dynamic" 
+                    ControlToValidate="txtWt" 
                     ErrorMessage="( invalid weight input)" 
                     ValidationExpression="\d\d\d?.?\d?\d?" Font-Size="Small"></asp:RegularExpressionValidator>
                 <br />
@@ -202,7 +202,7 @@
                 <span class="style18">
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
                     ControlToValidate="txtWt" ErrorMessage="this is a required field" Font-Italic="True" 
-                    Font-Size="Small" Display="Dynamic"></asp:RequiredFieldValidator>
+                    Font-Size="Small"></asp:RequiredFieldValidator>
                 </span>
             </td>
         </tr>
@@ -282,7 +282,7 @@
                 Pulse Rate</td>
             <td class="style53" colspan="2">
                 <asp:TextBox ID="txtPulseRate" runat="server" Width="138px" Height="23px"></asp:TextBox>
-                <br />
+                &nbsp;bpm<br />
                 <asp:RangeValidator ID="RangeValidator4" runat="server" 
                  MinimumValue="60" MaximumValue="120" ControlToValidate="txtPulseRate" Font-Size="Small"
                  Display="Dynamic" ErrorMessage="(invalid pulse rate from 60-120)" Type="Integer"></asp:RangeValidator>
