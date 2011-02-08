@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteTemplate4.master" AutoEventWireup="true" CodeFile="DeleteMedicine.aspx.cs" Inherits="Medicine_Inventory_DeleteMedicine" %>
 
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <h2 style="background-color: #d3e7c5">
         Delete Medicine Page
@@ -22,6 +25,8 @@
             ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
             SelectCommand="SELECT DISTINCT [MedicineName] FROM [Medicine] ORDER BY [MedicineName]">
         </asp:SqlDataSource>
+        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+        </asp:ToolkitScriptManager>
         </td>
     
     </tr>
@@ -42,6 +47,12 @@
     <td>
         <asp:Button ID="btn_delMedicine" runat="server" onclick="btn_delMedicine_Click" 
             Text="Delete Medicine" style="margin-top: 0px" />
+    
+   
+         <asp:ConfirmButtonExtender ID="btn_delMedicine_ConfirmButtonExtender" 
+            runat="server" ConfirmText="Are you sure you want to delete this Medicine?" 
+            Enabled="True" TargetControlID="btn_delMedicine">
+        </asp:ConfirmButtonExtender>
     
    
          </td>
