@@ -98,13 +98,11 @@
                     onKeyUp="javascript:return mask(this.value,this,'2,12','-');" 
                     onBlur="javascript:return mask(this.value,this,'2,12','-');" MaxLength="14" onpaste="return false;"></asp:TextBox>--%>
 
-                    <asp:TextBox ID="txtFaxNum" runat="server" autocomplete="off" Width="227px" 
-                    onKeyUp="javascript:return mask(this.value,this,'2,12','-');" 
-                    onBlur="javascript:return mask(this.value,this,'2,12','-');" MaxLength="14" onpaste="return false;"></asp:TextBox>
+                    <asp:TextBox ID="txtFaxNum" runat="server" autocomplete="off" Width="227px" MaxLength="14" onpaste="return false;"></asp:TextBox>
                 <asp:MaskedEditExtender ID="txtFaxNum_MaskedEditExtender" runat="server" 
                     CultureAMPMPlaceholder="" CultureCurrencySymbolPlaceholder="" 
                     CultureDateFormat="" CultureDatePlaceholder="" CultureDecimalPlaceholder="" 
-                    CultureThousandsPlaceholder="" CultureTimePlaceholder="" Enabled="True" 
+                    CultureThousandsPlaceholder="" ClearMaskOnLostFocus="False" CultureTimePlaceholder="" Enabled="True" 
                     Mask="99-999999999-9" TargetControlID="txtFaxNum">
                 </asp:MaskedEditExtender>
                 <br />
@@ -186,7 +184,9 @@
                     <asp:CalendarExtender ID="calendarButtonExtender" runat="server" 
                      TargetControlID="txtDate" CssClass="MyCalendar"/>
                          <asp:MaskedEditExtender ID="MaskedEditExtender1" runat="server" 
-                    TargetControlID="txtDate" BehaviorID="behave1" ClearMaskOnLostFocus="False" Mask="99/99/9999" CultureName="" UserDateFormat="DayMonthYear" MaskType="Date">
+                    TargetControlID="txtDate" BehaviorID="behave1" 
+                    ClearMaskOnLostFocus="False" Mask="99/99/9999" CultureName="" 
+                    UserDateFormat="MonthDayYear" MaskType="Date">
                 </asp:MaskedEditExtender>
                 <asp:Image ID="Image5" runat="server" ImageUrl="~/images/calendar.png" ToolTip="Choose Date"/>
                 <br />

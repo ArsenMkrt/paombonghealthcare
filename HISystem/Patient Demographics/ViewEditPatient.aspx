@@ -146,10 +146,19 @@
         Text="PhilHealth #"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">
-                    <asp:TextBox ID="txtFaxNum" autocomplete="off" runat="server" Width="227px"
+                    <%--<asp:TextBox ID="txtFaxNum" autocomplete="off" runat="server" Width="227px"
                     
                    onKeyUp="javascript:return mask(this.value,this,'2,12','-');" 
-                    onBlur="javascript:return mask(this.value,this,'2,12','-');" MaxLength="14" onpaste="return false;"></asp:TextBox>
+                    onBlur="javascript:return mask(this.value,this,'2,12','-');" MaxLength="14" onpaste="return false;"></asp:TextBox>--%>
+
+                    <asp:TextBox ID="txtFaxNum" autocomplete="off" runat="server" Width="227px" MaxLength="14" onpaste="return false;"></asp:TextBox>
+                    <asp:MaskedEditExtender ID="txtFaxNum_MaskedEditExtender" runat="server" 
+                    CultureAMPMPlaceholder="" CultureCurrencySymbolPlaceholder="" 
+                    CultureDateFormat="" CultureDatePlaceholder="" CultureDecimalPlaceholder="" 
+                    CultureThousandsPlaceholder="" ClearMaskOnLostFocus="False" CultureTimePlaceholder="" Enabled="True" 
+                    Mask="99-999999999-9" TargetControlID="txtFaxNum">
+                </asp:MaskedEditExtender>
+
                     <br />
 
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
@@ -219,7 +228,10 @@
                
                
                     <asp:TextBox runat="server" ID="txtDate" Height="23px" Width="97px" />
-                    
+                     <asp:MaskedEditExtender ID="MaskedEditExtender1" runat="server" 
+                    TargetControlID="txtDate" BehaviorID="behave1" ClearMaskOnLostFocus="False" 
+                          Mask="99/99/9999" CultureName="" UserDateFormat="MonthDayYear" MaskType="Date">
+                </asp:MaskedEditExtender>
 
                       
                 <asp:CalendarExtender ID="calendarButtonExtender" runat="server" 
