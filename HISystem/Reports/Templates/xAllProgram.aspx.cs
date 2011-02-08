@@ -24,12 +24,12 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
     private Barangay bar;
     private Reports rep;
 
-    protected void Page_Init(object Sender, EventArgs e)
-    {
-        Response.Cache.SetCacheability(HttpCacheability.NoCache);
-        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
-        Response.Cache.SetNoStore();
-    }
+    //protected void Page_Init(object Sender, EventArgs e)
+    //{
+    //    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+    //    Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+    //    Response.Cache.SetNoStore();
+    //}
 
     protected void Page_Load(object sender, EventArgs e)
     {

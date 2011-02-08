@@ -7,93 +7,42 @@ using System.Web.UI.WebControls;
 using System.Web.Security;
 using System.Web.UI.HtmlControls;
 
-public partial class SiteTemplate4 : System.Web.UI.MasterPage
+public partial class SiteTemplate4 : BasePage
 {
-    protected void Page_PreRender(object sender, EventArgs e)
-    {
-       
-     
-
-    }
-
-
-
-
-   
-
-
-
+    
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
+        if (Page.Request.IsAuthenticated)
         {
-            // session has timed out, log out the user
-            if (Page.Request.IsAuthenticated || HttpContext.Current.User.Identity.IsAuthenticated)
+            if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Doctor") && Page.Request.IsAuthenticated)
             {
-                FormsAuthentication.SignOut();
-                Session.Abandon();
-                Session.Clear();
-                //img_UserRole.ImageUrl = "~/images/guest.png";
-                //img_UserRole.ToolTip = "You are not logged in!";
+                //make hyperlink invisible
+                lbl_AdminPrivileges.Visible = true;
+                imgBtn_addUser.Visible = true;
+                imgBtn_ManageUser.Visible = true;
+
+
+                img_UserRole.ImageUrl = "~/images/doctor.png";
+                img_UserRole.ToolTip = "You are logged in as Doctor!";
+                menu.DataSourceID = "SiteMapDataSource1";
+                return;
             }
+            else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Midwife") && Page.Request.IsAuthenticated)
+            {
+                img_UserRole.ImageUrl = "~/images/midwife.png";
+                img_UserRole.ToolTip = "You are logged in as Midwife!";
+                menu.DataSourceID = "SiteMapDataSource1";
 
+            }
+            else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Nurse") && Page.Request.IsAuthenticated)
+            {
+                img_UserRole.ImageUrl = "~/images/nurse.png";
+                img_UserRole.ToolTip = "You are logged in as Nurse!";
+                menu.DataSourceID = "SiteMapDataSource2";
+            }
         }
 
-        else
-        {
 
-
-                //redirect to login in 5 seconds
-                if (Request.Url.AbsolutePath.EndsWith("SessionExpired.aspx", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    HtmlMeta meta = new HtmlMeta();
-                    meta.HttpEquiv = "Refresh";
-                    meta.Content = "5; URL=./Login.aspx";
-                    Page.Header.Controls.Add(meta);
-                }
-                //    start session timer if logged in
-                //else if (Request.IsAuthenticated || HttpContext.Current.User.Identity.IsAuthenticated)
-                else if (Page.Request.IsAuthenticated)
-                {
-
-                    string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
-                    HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 302)) + "; Url=" + url);
-
-
-
-
-                    if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Doctor") && Page.Request.IsAuthenticated)
-                    {
-                        //make hyperlink invisible
-                        lbl_AdminPrivileges.Visible = true;
-                        imgBtn_addUser.Visible = true;
-                        imgBtn_ManageUser.Visible = true;
-
-
-                        img_UserRole.ImageUrl = "~/images/doctor.png";
-                        img_UserRole.ToolTip = "You are logged in as Doctor!";
-                        menu.DataSourceID = "SiteMapDataSource1";
-                        return;
-                    }
-                    else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Midwife") && Page.Request.IsAuthenticated)
-                    {
-                        img_UserRole.ImageUrl = "~/images/midwife.png";
-                        img_UserRole.ToolTip = "You are logged in as Midwife!";
-                        menu.DataSourceID = "SiteMapDataSource1";
-
-                    }
-                    else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Nurse") && Page.Request.IsAuthenticated)
-                    {
-                        img_UserRole.ImageUrl = "~/images/nurse.png";
-                        img_UserRole.ToolTip = "You are logged in as Nurse!";
-                        menu.DataSourceID = "SiteMapDataSource2";
-                    }
-
-                }
-
-
-
-        }
 
 
       

@@ -14,12 +14,12 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
     private DataSet ds;
     private int quantity = 0;
 
-    protected void Page_Init(object Sender, EventArgs e)
-    {
-        Response.Cache.SetCacheability(HttpCacheability.NoCache);
-        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
-        Response.Cache.SetNoStore();
-    }
+    //protected void Page_Init(object Sender, EventArgs e)
+    //{
+    //    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+    //    Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+    //    Response.Cache.SetNoStore();
+    //}
 
     protected void Page_Load(object sender, EventArgs e)
     {

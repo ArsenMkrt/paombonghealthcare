@@ -11,12 +11,12 @@ public partial class Medicine_Inventory_EditMedicine : System.Web.UI.Page
     private Inventory med;
     private DataTable medicineData;
 
-    protected void Page_Init(object Sender, EventArgs e)
-    {
-        Response.Cache.SetCacheability(HttpCacheability.NoCache);
-        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
-        Response.Cache.SetNoStore();
-    }
+    //protected void Page_Init(object Sender, EventArgs e)
+    //{
+    //    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+    //    Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+    //    Response.Cache.SetNoStore();
+    //}
     protected void Page_Load(object sender, EventArgs e)
     {
 

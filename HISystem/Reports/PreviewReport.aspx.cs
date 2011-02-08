@@ -228,12 +228,12 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
         }
     }
 
-    protected void Page_Init(object Sender, EventArgs e)
-    {
-        Response.Cache.SetCacheability(HttpCacheability.NoCache);
-        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
-        Response.Cache.SetNoStore();
-    }
+    //protected void Page_Init(object Sender, EventArgs e)
+    //{
+    //    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+    //    Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+    //    Response.Cache.SetNoStore();
+    //}
     protected void Button1_Click(object sender, EventArgs e)
     {
         LocalReport lr = new LocalReport();

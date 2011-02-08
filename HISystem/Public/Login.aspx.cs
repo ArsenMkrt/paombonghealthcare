@@ -7,12 +7,12 @@ using System.Web.UI.WebControls;
 
 public partial class Public_Login : System.Web.UI.Page
 {
-    protected void Page_Init(object Sender, EventArgs e)
-    {
-        Response.Cache.SetCacheability(HttpCacheability.NoCache);
-        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
-        Response.Cache.SetNoStore();
-    }
+    //protected void Page_Init(object Sender, EventArgs e)
+    //{
+    //    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+    //    Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+    //    Response.Cache.SetNoStore();
+    //}
     protected void Page_Load(object sender, EventArgs e)
     {
         //check if page was redirected to login from restricted access
