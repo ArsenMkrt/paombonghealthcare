@@ -6,6 +6,7 @@ using System.Web.Security;
 using System.Web.UI.HtmlControls;
 using System.Windows.Forms;
 
+
 /// <summary>
 /// Summary description for BasePage
 /// </summary>
@@ -83,11 +84,13 @@ public class BasePage:System.Web.UI.MasterPage
     protected void Page_Init(object Sender, EventArgs e)
     {
         Response.Cache.SetCacheability(HttpCacheability.NoCache);
-        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+        Response.Cache.SetExpires(DateTime.Now.AddDays(-2d));
         Response.Cache.SetNoStore();
         Response.Cache.SetValidUntilExpires(false);
         Response.ExpiresAbsolute = DateTime.Now.AddDays(-2d);
         Response.Expires = -1500;
         Response.AppendHeader("Pragma", "no-cache");
     }
+
+  
 }
