@@ -25,7 +25,7 @@
                 <asp:DropDownList ID="ddlCategory" runat="server" AutoPostBack="True" 
             DataSourceID="Category" DataTextField="CategoryName" 
             DataValueField="CategoryName" 
-            onselectedindexchanged="ddlCategory_SelectedIndexChanged" Height="20px" 
+            onselectedindexchanged="ddlCategory_SelectedIndexChanged" Height="23px" 
                     Width="231px">
         </asp:DropDownList>
             </td>
@@ -36,7 +36,7 @@
             <td colspan="2">
                 <asp:TextBox 
             ID="txtNameSearch" runat="server" AutoPostBack="True" 
-            ontextchanged="txtNameSearch_TextChanged" Width="231px"></asp:TextBox>
+            ontextchanged="txtNameSearch_TextChanged" Width="231px" Height="23px"></asp:TextBox>
             </td>
         </tr>
         <tr>

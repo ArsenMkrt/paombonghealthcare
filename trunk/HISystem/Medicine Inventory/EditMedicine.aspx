@@ -23,7 +23,7 @@
                 </td>
                 <td colspan="2">
         <asp:TextBox ID="txtMedicineId" runat="server" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;" Width="150px" ReadOnly="True"
+                        onpaste="return false;" Width="150px" ReadOnly="True" Height="23px"
             ></asp:TextBox>
                 </td>
                 
@@ -40,7 +40,8 @@
             Text="Medicine Name" AssociatedControlID="txtMedicineName" Font-Size="Small"></asp:Label>
                 </td>
                 <td colspan="2">
-        <asp:TextBox ID="txtMedicineName" runat="server" Width="150px" ReadOnly="True"></asp:TextBox>
+        <asp:TextBox ID="txtMedicineName" runat="server" Width="150px" ReadOnly="True" 
+                        Height="23px"></asp:TextBox>
                 </td>
                
             </tr>
@@ -51,7 +52,7 @@
                 </td>
                 <td colspan="2">
         <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="Category" 
-            DataTextField="CategoryName" DataValueField="CategoryName" Height="22px" Width="153px" 
+            DataTextField="CategoryName" DataValueField="CategoryName" Height="23px" Width="150px" 
                         Enabled="False">
         </asp:DropDownList>
                 </td>
@@ -63,7 +64,7 @@
                 </td>
                 <td colspan="2">
         <asp:TextBox ID="txtQuantity" runat="server" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;" Width="150px" ReadOnly="True"></asp:TextBox>
+                        onpaste="return false;" Width="150px" ReadOnly="True" Height="23px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
