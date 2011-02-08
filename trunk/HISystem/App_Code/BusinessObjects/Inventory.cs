@@ -56,7 +56,7 @@ public class Inventory
         cmdTxt.Parameters.Add("@aa", SqlDbType.Int).Value = MedicineId;
         SqlDataReader id = cmdTxt.ExecuteReader();
         id.Read();
-        int quantity = id.GetInt32(0);
+        int quantity = Int32.Parse(id["Quantity"].ToString());
         id.Close();
         data.CloseDatabase();
         return quantity;
@@ -431,6 +431,7 @@ public class Inventory
         else
             return false;
     }
+
     public string GetMedicineName(int MedicineId)
     {
         data = new DataAccess();
@@ -440,7 +441,7 @@ public class Inventory
         cmdTxt.Parameters.Add("@aa", SqlDbType.Int).Value = MedicineId;
         SqlDataReader name = cmdTxt.ExecuteReader();
         name.Read();
-        string medName = name.GetString(0);
+        string medName = name["MedicineName"].ToString();
         name.Close();
         data.CloseDatabase();
         return medName;
