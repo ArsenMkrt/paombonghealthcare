@@ -31,7 +31,7 @@ public class BasePage:System.Web.UI.MasterPage
         //initialize our base class (System.Web,UI.Page)
         base.OnInit(e);
 
-        if (!(Request.Url.AbsolutePath.EndsWith("SessionExpired.aspx", StringComparison.InvariantCultureIgnoreCase)) && Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
+        if ((!Request.Url.AbsolutePath.EndsWith("SessionExpired.aspx", StringComparison.InvariantCultureIgnoreCase)) && (!Request.Url.AbsolutePath.EndsWith("Login.aspx", StringComparison.InvariantCultureIgnoreCase)) && (!Request.Url.AbsolutePath.EndsWith("Default.aspx", StringComparison.InvariantCultureIgnoreCase)) && Context.Session != null && Context.Session.IsNewSession == true && Page.Request.Headers["Cookie"] != null && Page.Request.Headers["Cookie"].IndexOf("ASP.NET_SessionId") >= 0)
         {
 
             //since it's a new session but a ASP.Net cookie exist we know
