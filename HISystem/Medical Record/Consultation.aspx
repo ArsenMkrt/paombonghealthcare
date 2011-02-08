@@ -96,15 +96,19 @@
             <td class="style13">
                 Name<br /> (LN, FN, MN)</td>
             <td class="style10" colspan="6">
-                <asp:TextBox ID="txtlname" runat="server" Width="166px" ReadOnly="True"></asp:TextBox>
+                <asp:TextBox ID="txtlname" runat="server" Width="166px" ReadOnly="True" 
+                    Height="23px"></asp:TextBox>
                 ,
-                <asp:TextBox ID="txtfname" runat="server" Width="182px" ReadOnly="True"></asp:TextBox>
-                ,&nbsp;<asp:TextBox ID="txtmname" runat="server" Width="130px" ReadOnly="True"></asp:TextBox>
+                <asp:TextBox ID="txtfname" runat="server" Width="182px" ReadOnly="True" 
+                    Height="23px"></asp:TextBox>
+                ,&nbsp;<asp:TextBox ID="txtmname" runat="server" Width="130px" ReadOnly="True" 
+                    Height="23px"></asp:TextBox>
             </td>
             <td class="style11">
                 Philhealth #</td>
             <td class="style37">
-                <asp:TextBox ID="txtPhilhealthNum" runat="server" Width="137px" ReadOnly="True"></asp:TextBox>
+                <asp:TextBox ID="txtPhilhealthNum" runat="server" Width="137px" ReadOnly="True" 
+                    Height="23px"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -123,7 +127,7 @@
 
 
 
-                    <asp:TextBox ID="txtDatepick" runat="server" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="txtDatepick" runat="server" ReadOnly="true" Height="23px"></asp:TextBox>
                     <br />
                     
 
@@ -153,7 +157,7 @@
                 Age<br />
                 <asp:TextBox ID="txtAge" runat="server" Width="141px" 
                     onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;" Enabled="False" Height="22px"></asp:TextBox>
+                        onpaste="return false;" Enabled="False" Height="23px"></asp:TextBox>
                 </td>
             
         </tr>
@@ -171,7 +175,7 @@
             <td class="style30" colspan="5">
                 <asp:TextBox ID="txtTemp" runat="server" Width="121px" 
                     onkeydown="return isDecimal(event.keyCode);" onkeyup="keyUPDecimal(event.keyCode)" 
-                        onpaste="return false;"></asp:TextBox>
+                        onpaste="return false;" Height="23px"></asp:TextBox>
                 &nbsp;<span class="style18">Celsius<br />
                 <asp:RangeValidator ID="RangeValidator1" runat="server" 
                     ControlToValidate="txtTemp" ErrorMessage="(valid temperature range is from35-40)" 
@@ -187,7 +191,7 @@
             <td class="style29" colspan="2">
                 <asp:TextBox ID="txtWt" runat="server" Width="121px" 
                     onkeydown="return isDecimal(event.keyCode);" onkeyup="keyUPDecimal(event.keyCode)" 
-                        onpaste="return false;" MaxLength="6" Height="22px"></asp:TextBox>
+                        onpaste="return false;" MaxLength="6" Height="23px"></asp:TextBox>
                 &nbsp;lbs<br />
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
                     ControlToValidate="txtWt" Display="Dynamic" 
@@ -206,10 +210,12 @@
             <td class="style52">
                 Height</td>
             <td class="style64" colspan="5">
-                <asp:TextBox ID="txtHt_feet" runat="server" Width="40px" MaxLength="1" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;"></asp:TextBox>
-                ft&nbsp;<asp:TextBox ID="txtHt_inch" runat="server" Width="37px" MaxLength="2" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;"></asp:TextBox>
+                <asp:TextBox ID="txtHt_feet" runat="server" Width="40px" MaxLength="1" 
+                    onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;" Height="23px"></asp:TextBox>
+                ft&nbsp;<asp:TextBox ID="txtHt_inch" runat="server" Width="37px" MaxLength="2" 
+                    onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;" Height="23px"></asp:TextBox>
                 &nbsp;in <span class="style18">
                 <asp:RangeValidator ID="RangeValidator2" runat="server" 
                     ControlToValidate="txtHt_inch" ErrorMessage="(inch input exceeded)" 
@@ -226,11 +232,12 @@
             <td class="style53" colspan="2">
                 <asp:TextBox ID="txtBpressure" runat="server" Width="37px" MaxLength="3" 
                     onpaste="return false;" onkeydown="return isNumeric(event.keyCode);" 
-                    onkeyup="keyUP(event.keyCode)" Height="22px"></asp:TextBox>
+                    onkeyup="keyUP(event.keyCode)" Height="23px"></asp:TextBox>
                 <asp:Label ID="Lbl_slash" runat="server" Font-Bold="True" Font-Size="X-Large" 
                     Text="/"></asp:Label>
                 <asp:TextBox ID="txtBpressure0" runat="server" Width="37px"  MaxLength="3" 
-                    onpaste="return false;" Height="22px"  onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)"></asp:TextBox>
+                    onpaste="return false;" Height="23px"  
+                    onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)"></asp:TextBox>
             &nbsp;
                 <asp:Label ID="Lbl_BPunit" runat="server" Font-Bold="False" Font-Size="Medium" 
                     Text="mmHg"></asp:Label><br />
@@ -274,7 +281,7 @@
             <td class="style46" align="right">
                 Pulse Rate</td>
             <td class="style53" colspan="2">
-                <asp:TextBox ID="txtPulseRate" runat="server" Width="138px"></asp:TextBox>
+                <asp:TextBox ID="txtPulseRate" runat="server" Width="138px" Height="23px"></asp:TextBox>
                 <br />
                 <asp:RangeValidator ID="RangeValidator4" runat="server" 
                  MinimumValue="60" MaximumValue="120" ControlToValidate="txtPulseRate" Font-Size="Small"

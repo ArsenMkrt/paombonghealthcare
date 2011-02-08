@@ -39,7 +39,7 @@
         <asp:TextBox ID="txtMedicineId" runat="server" 
             
             onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;" Width="136px"></asp:TextBox>
+                        onpaste="return false;" Width="136px" Height="23px"></asp:TextBox>
         </td>
     </tr>
      <tr>

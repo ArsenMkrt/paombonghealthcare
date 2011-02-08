@@ -98,15 +98,15 @@
                         Text="Name"></asp:Label>
                 </td>
                 <td class="style12" style="height: 52px" colspan="2">
-                    <asp:TextBox ID="txtLName" runat="server" Height="21px" Width="203px"></asp:TextBox>
+                    <asp:TextBox ID="txtLName" runat="server" Height="23px" Width="203px"></asp:TextBox>
                     <br />
                     Last name</td>
                 <td class="style10" colspan="2" style="height: 52px">
-                    <asp:TextBox ID="txtFName" runat="server" Width="147px"></asp:TextBox>
+                    <asp:TextBox ID="txtFName" runat="server" Width="147px" Height="23px"></asp:TextBox>
                     <br />
                     First name</td>
                 <td class="style13">
-                    <asp:TextBox ID="txtMName" runat="server" Width="107px"></asp:TextBox>
+                    <asp:TextBox ID="txtMName" runat="server" Width="107px" Height="23px"></asp:TextBox>
                     <br />
                     Middle name</td>
                 <td class="style10" style="height: 52px">
@@ -120,7 +120,7 @@
                         Text="Contact Number"></asp:Label>
                 </td>
                 <td class="style5" colspan="3" style="width: 179px">
-                    <asp:TextBox ID="txtContactNum" runat="server" Width="203px"></asp:TextBox>
+                    <asp:TextBox ID="txtContactNum" runat="server" Width="203px" Height="23px"></asp:TextBox>
                 </td>
                 <td class="style14">
                 <asp:Label ID="Label8" runat="server" Font-Bold="True" 
@@ -131,7 +131,7 @@
                     <asp:TextBox ID="txtFaxNum" runat="server" Width="227px"
                     
                     onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;"></asp:TextBox>
+                        onpaste="return false;" Height="23px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -166,14 +166,14 @@
                         Text="Email Address"></asp:Label>
                 </td>
                 <td class="style5" colspan="3" style="width: 179px">
-                    <asp:TextBox ID="txtEmailAdd" runat="server" Width="206px"></asp:TextBox>
+                    <asp:TextBox ID="txtEmailAdd" runat="server" Width="203px" Height="23px"></asp:TextBox>
                 </td>
                 <td class="style14">
                     <asp:Label ID="Label28" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="City"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">
-                    <asp:TextBox ID="txtCity" runat="server" Width="227px"></asp:TextBox>
+                    <asp:TextBox ID="txtCity" runat="server" Width="227px" Height="23px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -204,7 +204,7 @@
                         Text="Birthplace"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">
-                    <asp:TextBox ID="txtBirthplace" runat="server" Width="227px"></asp:TextBox>
+                    <asp:TextBox ID="txtBirthplace" runat="server" Width="227px" Height="23px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -222,14 +222,14 @@
                         Text="Company"></asp:Label>
                 </td>
                 <td class="style5" colspan="3" style="width: 179px">
-                    <asp:TextBox ID="txtCompany" runat="server" Width="207px"></asp:TextBox>
+                    <asp:TextBox ID="txtCompany" runat="server" Width="203px" Height="23px"></asp:TextBox>
                 </td>
                 <td class="style14">
                     <asp:Label ID="Label33" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Spouse Name"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">
-                    <asp:TextBox ID="txtSpouseName" runat="server" Width="228px"></asp:TextBox>
+                    <asp:TextBox ID="txtSpouseName" runat="server" Width="227px" Height="23px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -238,14 +238,14 @@
                         Text="Nationality"></asp:Label>
                 </td>
                 <td class="style12" colspan="3" style="width: 179px">
-                    <asp:TextBox ID="txtNationality" runat="server" Width="208px"></asp:TextBox>
+                    <asp:TextBox ID="txtNationality" runat="server" Width="203px" Height="23px"></asp:TextBox>
                 </td>
                 <td class="style14">
                     <asp:Label ID="Label35" runat="server" Font-Bold="True" ForeColor="#000000" 
                         Text="Doctor"></asp:Label>
                 </td>
                 <td class="style6" colspan="2">
-                    <asp:TextBox ID="txtDoctor" runat="server" Width="227px"></asp:TextBox>
+                    <asp:TextBox ID="txtDoctor" runat="server" Width="227px" Height="23px"></asp:TextBox>
                 </td>
             </tr>
             <tr>

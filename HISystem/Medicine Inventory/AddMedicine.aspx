@@ -15,7 +15,7 @@
             Text="Medicine Name" AssociatedControlID="txtMedicineName" Font-Size="Small"></asp:Label>
                 </td>
                 <td colspan="2">
-        <asp:TextBox ID="txtMedicineName" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtMedicineName" runat="server" Height="23px" Width="140px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -25,7 +25,7 @@
                 </td>
                 <td colspan="2">
         <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="Category" 
-            DataTextField="CategoryName" DataValueField="CategoryName" Height="22px" Width="128px">
+            DataTextField="CategoryName" DataValueField="CategoryName" Height="23px" Width="140px">
         </asp:DropDownList>
                 </td>
             </tr>
@@ -38,6 +38,7 @@
                 <td colspan="2">
         <asp:TextBox ID="txtQuantity" runat="server"  onpaste = "return false;" 
             onkeyup ="keyUP(event.keyCode)" onkeydown = "return isNumeric(event.keyCode);" 
+                        Height="23px" Width="140px" 
         
             ></asp:TextBox>
                 </td>

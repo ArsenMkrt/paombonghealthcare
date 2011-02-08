@@ -21,7 +21,7 @@
 
 
                              <asp:TextBox ID="txtSearchPatient" OnTextChanged="txtSearchPatient_TextChanged" 
-                                 runat="server" Height="28px" Width="280px" autocomplete="off"></asp:TextBox>
+                                 runat="server" Height="23px" Width="280px" autocomplete="off"></asp:TextBox>
 
 
 
@@ -38,7 +38,7 @@
 
 
                              <asp:Button ID="btnSearch" runat="server" Text="Search by LastName" Height="28px" 
-                                 Width="149px" onclick="btnSearch_Click" CausesValidation="False" />
+                                 Width="141px" onclick="btnSearch_Click" CausesValidation="False" />
                                  <br />
                                  <br />
         <asp:GridView ID="GridSearchName"  runat="server" AutoGenerateColumns="False" 
