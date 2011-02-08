@@ -21,12 +21,12 @@
                 
                     SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
                 </asp:SqlDataSource>
-                
+                <center>
                 <asp:Image ID="Image3" runat="server" Height="81px" 
                     ImageUrl="~/images/image3.png" Width="81px" />
                 <asp:Image ID="Image4" runat="server" Height="81px" 
                     ImageUrl="~/images/image5.png" Width="81px" />
-                    
+                    </center>
             </td>
             <td class="style13" style="width: 109px">
                 <asp:Label ID="Label20" runat="server" Font-Bold="True" 

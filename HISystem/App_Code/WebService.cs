@@ -54,7 +54,7 @@ public class WebService : System.Web.Services.WebService
                 int i = 0;
                 foreach (DataRow dr in dt.Rows)
                 {
-                    items.SetValue(dr["PtFullName"].ToString(), i);
+                    items.SetValue(dr["PtLname"].ToString(), i);
                     i++;
                 }
             }
