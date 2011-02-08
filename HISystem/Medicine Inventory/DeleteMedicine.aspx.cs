@@ -26,18 +26,21 @@ public partial class Medicine_Inventory_DeleteMedicine : System.Web.UI.Page
     protected void btn_delMedicine_Click(object sender, EventArgs e)
     {
         med = new Inventory();
+        string DeletedMedicineName;
+        int MedicineDeletedQuantity;
         if (txtMedicineId.Text == null || txtMedicineId.Text == "")
             Response.Write("<script> window.alert('No Medicine to Delete.')</script>");
         else
         {
             if (med.HasMedicine(Int32.Parse(txtMedicineId.Text)))
             {
+                MedicineDeletedQuantity = med.GetMedicineQuantity(Int32.Parse(txtMedicineId.Text));
+                DeletedMedicineName = med.GetMedicineName(Int32.Parse(txtMedicineId.Text));
                 med.DeleteMedicine(txtMedicineId.Text);
-                string MedicineName = med.GetMedicineName(Int32.Parse(txtMedicineId.Text));
                 
-                med.SaveMedicineLog(Int32.Parse(txtMedicineId.Text), MedicineName, med.GetMedicineQuantity(Int32.Parse(txtMedicineId.Text))
+                med.SaveMedicineLog(Int32.Parse(txtMedicineId.Text), DeletedMedicineName, MedicineDeletedQuantity
                     , Page.User.Identity.Name, "Delete");
-                Response.Redirect("DeleteMedicine.aspx");
+                Response.Write("<script> window.alert('Medicine '"+DeletedMedicineName+" has been deleted.)</script>");
             }
             else
             {

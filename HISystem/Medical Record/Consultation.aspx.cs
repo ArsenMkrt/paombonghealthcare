@@ -75,7 +75,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                 txtmname.Text = dr["PatientMName"].ToString().Trim();
                 txtPhilhealthNum.Text = dr["PatientFaxNumber"].ToString().Trim();
 
-
                 txtDatepick.Text = dr["PatientBirthdate"].ToString().Trim();
                 
                 txtAddress.Text = dr["PatientAddress"].ToString().Trim();
@@ -153,7 +152,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
                         {
                             if (li.Selected)
                             {
-                                Response.Write("<script> window.alert('" + li.Text + ".')</script>");
                                 dis.SavePatientDisease(Request.QueryString["id"].ToString(), li.Text, timeSave);
                             }
                         }
@@ -356,7 +354,6 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
     {
         patientId = Int32.Parse(GridSearchName.Rows[GridSearchName.SelectedIndex].Cells[1].Text);
         Session["ptId"] = patientId;
-        Response.Write("<script> window.alert('"+ Session["ptId"].ToString() +"') </script>");
         mr = new MedicalRecord();
 
         patientData = mr.GetValuesConsultation(patientId.ToString());
