@@ -13,6 +13,8 @@ public partial class Public_Login : System.Web.UI.Page
     //    Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
     //    Response.Cache.SetNoStore();
     //}
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
         //check if page was redirected to login from restricted access
