@@ -1,8 +1,9 @@
 Bugs
 ----------
 if add to list itemtextbox textbox null
+if monitor items below quantity textbox null
 delete medicine not functioning  
-checkout medicine error
+
 
 
 
