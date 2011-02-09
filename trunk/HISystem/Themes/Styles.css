@@ -155,14 +155,14 @@ h1 {
       left:0;
       top:0;
       z-index:9000;
-      background-color:grey;
+      background-color:#CCCCCC;
       display:none;
     }
      
    #boxes .window {
      position:absolute;
      left:0;
-    top:0;3
+    top:0;
      width:auto;
      height:200px;
     display:none;
@@ -225,19 +225,3 @@ h1 {
     text-align: center;
   }
   
- /* .LoginButtons
-
-{
-
-   background-color: #ccc;
-
-   padding: 10px;
-
-   border-radius: 10px;
-
-   -moz-border-radius: 10px;
-
-   -webkit-border-radius: 10px;
-
-}
-*/

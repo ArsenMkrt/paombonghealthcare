@@ -66,7 +66,7 @@
             <asp:Label ID="Label1" runat="server" Font-Bold="True" ForeColor="#000000" 
                 Text="Patient Id"></asp:Label>
                 <br />
-                    <asp:TextBox ID="txtPatientId" runat="server" Width="114px" 
+                    <asp:TextBox ID="txtPatientId" runat="server" Width="114px" Height="23px" 
                        ></asp:TextBox>
                     <asp:Button ID="ButtonSearch" runat="server" onClick="ButtonSearch_Click" 
                         Text="Search" Width="86px" />
