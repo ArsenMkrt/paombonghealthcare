@@ -69,12 +69,8 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
                         month1 = 10;
                         month2 = 12;
                     } break;
-                case "All":
-                    {
-                        month1 = 1;
-                        month2 = 12;
-                    } break;
             }
+
             data = new DataAccess();
             ReportPaombong.Visible = true;
 

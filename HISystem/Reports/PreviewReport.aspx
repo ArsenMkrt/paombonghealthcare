@@ -59,7 +59,6 @@
             <td>
             <asp:DropDownList ID="ddlQuarter" runat="server" Height="20px" Width="123px" 
                     Visible="False">
-                    <asp:ListItem>All</asp:ListItem>
                     <asp:ListItem>1st Quarter</asp:ListItem>
                     <asp:ListItem>2nd Quarter</asp:ListItem>
                     <asp:ListItem>3rd Quarter</asp:ListItem>
@@ -137,8 +136,8 @@
                     style="font-size: small" Text="Month:" Visible="False"></asp:Label>
             </td>
             <td style="height: 23px; width: 268435264px;">
-            <asp:DropDownList ID="DropDownList3" DataSourceID="getMonths" DataTextField="Months" 
-        DataValueField="Months" runat="server" Height="20px" Width="123px" 
+            <asp:DropDownList ID="DropDownList3" DataSourceID="getMonths" DataTextField="MonthsText" 
+        DataValueField="MonthsValue" runat="server" Height="20px" Width="123px" 
                     Visible="False">
         </asp:DropDownList>
           
@@ -162,8 +161,8 @@
                     style="font-size: small" Text="Month:" Visible="False"></asp:Label>
             </td>
             <td style="width: 268435264px">
-            <asp:DropDownList ID="DropDownList4" DataSourceID="getMonths" DataTextField="Months" 
-        DataValueField="Months" runat="server" Height="20px" Width="123px" 
+            <asp:DropDownList ID="DropDownList4" DataSourceID="getMonths" DataTextField="MonthsText" 
+        DataValueField="MonthsValue" runat="server" Height="20px" Width="123px" 
                     Visible="False">
         </asp:DropDownList>
           
@@ -187,8 +186,8 @@
                     style="font-size: small" Text="Month:" Visible="False"></asp:Label>
             </td>
             <td style="width: 268435264px">
-            <asp:DropDownList ID="DropDownList5" DataSourceID="getMonths" DataTextField="Months" 
-        DataValueField="Months" runat="server" Height="20px" Width="123px" 
+            <asp:DropDownList ID="DropDownList5" DataSourceID="getMonths" DataTextField="MonthsText" 
+        DataValueField="MonthsValue" runat="server" Height="20px" Width="123px" 
                     Visible="False">
         </asp:DropDownList>
           
@@ -205,7 +204,7 @@
                     style="font-size: small; font-weight: 700" Text="Month:" Visible="False"></asp:Label>
             </td>
             <td style="width: 268435264px" colspan="2">
-                    <asp:DropDownList ID="ddlMonth" DataSourceID="getMonths" DataValueField="Months" DataTextField="Months" runat="server" Height="20px" Width="122px" 
+                    <asp:DropDownList ID="ddlMonth" DataSourceID="getMonths" DataValueField="MonthsValue" DataTextField="MonthsText" runat="server" Height="20px" Width="122px" 
                         Visible="False">
                     </asp:DropDownList>
                     <asp:SqlDataSource ID="getMonths" runat="server" 
