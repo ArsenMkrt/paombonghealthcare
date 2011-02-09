@@ -1,6 +1,7 @@
 Bugs
 ----------
 if add to list itemtextbox textbox null
+delete medicine not functioning  
 checkout medicine error
 
 
@@ -17,3 +18,8 @@ Not yet done
 ------------
 percent column in reports
 back option in consultation.aspx after viewing medhistory
+
+
+No Confirmation msgs
+--------------------
+Delete medicine
