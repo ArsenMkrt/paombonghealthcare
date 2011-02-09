@@ -41,22 +41,28 @@
                                  Width="141px" onclick="btnSearch_Click" CausesValidation="False" />
                                  <br />
                                  <br />
-        <asp:GridView ID="GridSearchName"  runat="server" AutoGenerateColumns="False" 
+                             <br />
+                             <asp:Panel ID="Panel1" runat="server" Height="132px" Width="722px" 
+                                 ScrollBars="Vertical">
+                                 <asp:GridView ID="GridSearchName"  runat="server" AutoGenerateColumns="False" 
         DataKeyNames="PatientID" DataSourceID="PatientList"
-            AutoGenerateSelectButton="True" onselectedindexchanged="GridSearchName_SelectedIndexChanged">
-        <Columns>
-         <asp:BoundField DataField="PatientID" HeaderText="Id" 
+            AutoGenerateSelectButton="True" 
+    onselectedindexchanged="GridSearchName_SelectedIndexChanged" Width="693px">
+                                     <Columns>
+                                         <asp:BoundField DataField="PatientID" HeaderText="Id" 
                 InsertVisible="False" ReadOnly="True" SortExpression="PatientID" />
-            <asp:BoundField DataField="PtFullname" HeaderText="Name" 
+                                         <asp:BoundField DataField="PtFullname" HeaderText="Name" 
                 SortExpression="PtFullname" />
-            <asp:BoundField DataField="PtGender" HeaderText="Gender" 
+                                         <asp:BoundField DataField="PtGender" HeaderText="Gender" 
                 SortExpression="PtGender" />
-            <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
+                                         <asp:BoundField DataField="PtBdate" HeaderText="Birthdate" 
                 SortExpression="PtBdate" />
-        </Columns>
-            <HeaderStyle BackColor="#009933" HorizontalAlign="Center" />
-            <RowStyle ForeColor="#003300" HorizontalAlign="Center" />
-    </asp:GridView>
+                                     </Columns>
+                                     <HeaderStyle BackColor="#009933" HorizontalAlign="Center" />
+                                     <RowStyle ForeColor="#003300" HorizontalAlign="Center" />
+                                 </asp:GridView>
+
+                             </asp:Panel>
                                 
                 
               
@@ -113,13 +119,9 @@
                 <asp:Label ID="lbl_PatientBarangay" runat="server" Font-Bold="True"></asp:Label><br />
                 </p>
                 
-    <br />
-
-    
-
-    <br />
-    <asp:Panel ID="pnlGridview" ScrollBars="Auto" runat="server" Height="460px">
-        <asp:GridView ID="GridView1" runat="server" Width="696px" 
+    <asp:Panel ID="pnlGridview" ScrollBars="Vertical" runat="server" Height="152px" 
+         Width="732px">
+        <asp:GridView ID="GridView1" runat="server" Width="708px" 
             AutoGenerateColumns="False" AutoGenerateSelectButton="True" DataSourceID="SqlDataSource1" 
             onselectedindexchanged="GridView1_SelectedIndexChanged1" 
             DataKeyNames="EncounterID" CellPadding="2" CellSpacing="1">

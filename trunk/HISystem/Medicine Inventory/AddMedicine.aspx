@@ -7,7 +7,7 @@
     </h2>
    <br />
     
-        <table style="width: 437px">
+        <table style="width: 437px; height: 161px;">
             <tr>
                 <td>
         <asp:Label ID="Label3" runat="server" 
@@ -15,7 +15,7 @@
             Text="Medicine Name" AssociatedControlID="txtMedicineName" Font-Size="Small"></asp:Label>
                 </td>
                 <td colspan="2">
-        <asp:TextBox ID="txtMedicineName" runat="server" Height="23px" Width="140px"></asp:TextBox>
+        <asp:TextBox ID="txtMedicineName" runat="server" Height="23px" Width="241px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -25,7 +25,7 @@
                 </td>
                 <td colspan="2">
         <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="Category" 
-            DataTextField="CategoryName" DataValueField="CategoryName" Height="23px" Width="140px">
+            DataTextField="CategoryName" DataValueField="CategoryName" Height="23px" Width="241px">
         </asp:DropDownList>
                 </td>
             </tr>
@@ -38,7 +38,7 @@
                 <td colspan="2">
         <asp:TextBox ID="txtQuantity" runat="server"  onpaste = "return false;" 
             onkeyup ="keyUP(event.keyCode)" onkeydown = "return isNumeric(event.keyCode);" 
-                        Height="23px" Width="140px" 
+                        Height="23px" Width="241px" 
         
             ></asp:TextBox>
                 </td>
@@ -51,7 +51,8 @@
         </asp:SqlDataSource>
                 </td>
                 <td><center>
-        <asp:Button ID="btnAdd" runat="server" onclick="btnAdd_Click" Text="Add" Width="93px" /></center>
+        <asp:Button ID="btnAdd" runat="server" onclick="btnAdd_Click" Text="Add" Width="104px" 
+                        Height="26px" /></center>
                 </td>
                 <td><center>
         <asp:Button ID="btnClear" runat="server" Text="Clear" onclick="btnClear_Click" Width="104px" /></center>

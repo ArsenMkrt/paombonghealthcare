@@ -82,6 +82,13 @@
                     ImageUrl="~/images/image3.png" Width="64px" />
                 <asp:Image ID="Image2" runat="server" Height="57px" 
                     ImageUrl="~/images/image5.png" Width="74px" />
+                    <asp:SqlDataSource ID="Barangay" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+        
+                
+                
+                    SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
+                </asp:SqlDataSource>
                     </center>
             </td>
             <td class="style11">
@@ -138,21 +145,14 @@
 
             </td>
             <td class="style35" colspan="3">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Barangay<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Barangay<br />
                 <asp:DropDownList ID="ddlBarangay" runat="server" 
         DataSourceID="Barangay" DataTextField="BarangayName" 
         DataValueField="BarangayName" 
                     
                     style="margin-left: 56px" Enabled="False" Height="23px">
                 </asp:DropDownList>
-            &nbsp;<asp:SqlDataSource ID="Barangay" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
-        
-                
-                
-                    SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
-                </asp:SqlDataSource>
-            </td>
+            &nbsp;</td>
             <td class="style38">
                 Age<br />
                 <asp:TextBox ID="txtAge" runat="server" Width="141px" 
@@ -180,11 +180,11 @@
                 <asp:RangeValidator ID="RangeValidator1" runat="server" 
                     ControlToValidate="txtTemp" ErrorMessage="(valid temperature range is from35-40)" 
                     Font-Italic="True" Font-Size="Small" MaximumValue="40" MinimumValue="35" 
-                    Type="Integer"></asp:RangeValidator>
+                    Type="Integer" Display="Dynamic"></asp:RangeValidator>
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" 
                     ControlToValidate="txtTemp" ErrorMessage="this is a required field" Font-Italic="True" 
-                    Font-Size="Small" EnableViewState="False"></asp:RequiredFieldValidator>
+                    Font-Size="Small" EnableViewState="False" Display="Dynamic"></asp:RequiredFieldValidator>
                 </span></td>
             <td align="right" class="style45">
                 Weight*</td>
@@ -196,13 +196,18 @@
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
                     ControlToValidate="txtWt" 
                     ErrorMessage="( invalid weight input)" 
-                    ValidationExpression="\d\d\d?.?\d?\d?" Font-Size="Small"></asp:RegularExpressionValidator>
+                    ValidationExpression="\d\d\d?.?\d?\d?" Font-Size="Small" Display="Dynamic"></asp:RegularExpressionValidator>
                 <br />
 
                 <span class="style18">
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
                     ControlToValidate="txtWt" ErrorMessage="this is a required field" Font-Italic="True" 
-                    Font-Size="Small"></asp:RequiredFieldValidator>
+                    Font-Size="Small" Display="Dynamic"></asp:RequiredFieldValidator>
+                <br />
+                <asp:RangeValidator ID="RangeValidator5" runat="server" 
+                    ControlToValidate="txtWt" Display="Dynamic" 
+                    ErrorMessage="(valid weight range is from 6-400)" Font-Italic="True" 
+                    Font-Size="Small" MaximumValue="400.00" MinimumValue="6.00" Type="Double"></asp:RangeValidator>
                 </span>
             </td>
         </tr>
