@@ -9,12 +9,11 @@
         Delete Medicine Page
     </h2>
    
-        <br />
-    
+         
        
         <br />
         <br />
-    <table align="left" style="height: 82px; margin-left: 62px;"> 
+    <table align="left" style="height: 204px; margin-left: 62px;"> 
     <tr>
     <td colspan="2" height="80">
    
@@ -39,28 +38,33 @@
         <asp:TextBox ID="txtMedicineId" runat="server" 
             
             onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
-                        onpaste="return false;" Width="136px" Height="23px"></asp:TextBox>
+                        onpaste="return false;" Width="153px" Height="23px"></asp:TextBox>
         </td>
+    </tr>
+    <tr>
+    <td>Medicine Name</td>
+    <td>
+    
+        <asp:TextBox ID="txtMedicineName" runat="server" Width="153px" Height="23px"></asp:TextBox>
+    
+    </td>
     </tr>
      <tr>
     <td></td>
     <td>
         <asp:Button ID="btn_delMedicine" runat="server" onclick="btn_delMedicine_Click" 
-            Text="Delete Medicine" style="margin-top: 0px" />
+            Text="Delete Medicine" />
     
    
          <asp:ConfirmButtonExtender ID="btn_delMedicine_ConfirmButtonExtender" 
-            runat="server" ConfirmText="Are you sure you want to delete this Medicine?" 
-            Enabled="True" TargetControlID="btn_delMedicine">
+            runat="server" Enabled="True" TargetControlID="btn_delMedicine">
         </asp:ConfirmButtonExtender>
     
    
          </td>
     </tr>
     </table>
-    <p>
-        &nbsp;</p>
-   
+      
    
       
     
@@ -121,8 +125,7 @@
             <div id="mask">
         </div>
     </div>
-    <p>
-        &nbsp;</p>
+    
   
 </asp:Content>
 
