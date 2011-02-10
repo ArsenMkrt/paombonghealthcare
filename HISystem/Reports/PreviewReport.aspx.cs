@@ -22,13 +22,12 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            LoadYearAndAgeInDropDown(DropDownList1, ddlAge);
+            LoadYearInDropDown(DropDownList1);
         }
     }
 
-    private void LoadYearAndAgeInDropDown(DropDownList dropdownYear,DropDownList dropdownAge)
+    private void LoadYearInDropDown(DropDownList dropdownYear)
     {
-        dropdownAge.Items.Clear();
         dropdownYear.Items.Clear();
 
 
@@ -36,11 +35,6 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
         for (int i = 2010; i < 2100; i++)
         {
             dropdownYear.Items.Add(i.ToString());
-        }
-        //Populate Age Dropdown
-        for (int x = 1; x < 125; x++)
-        {
-            dropdownAge.Items.Add(x.ToString());
         }
     }
     protected void btn_runReport_Click(object sender, EventArgs e)
@@ -131,7 +125,27 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             }
             else if (rdbtn_Age.Checked)
             {
-                _AgeBracket.SelectParameters["ageParam"].DefaultValue = ddlAge.Text.ToString();
+                int ageMax = 0;
+                int ageMin = 0;
+                
+                switch (ddlAge.SelectedValue)
+                {
+                    case "1" : 
+                        {ageMax = 15; ageMin = 0;} break;
+                    case "2" :
+                        {ageMax = 30; ageMin = 16;} break;
+                    case "3" :
+                        {ageMax = 48; ageMin = 31;} break;
+                    case "4" :
+                        {ageMax = 65; ageMin = 49;} break;
+                    case "5" :
+                        {ageMax = 89; ageMin = 66;} break;
+                    case "6" : 
+                        {ageMax = 150; ageMin = 90;} break;
+                }
+
+                _AgeBracket.SelectParameters["ageParam"].DefaultValue = ageMax.ToString(); //Large Value
+                _AgeBracket.SelectParameters["ageParam2"].DefaultValue = ageMin.ToString(); //Small Value
                 _AgeBracket.SelectParameters["month"].DefaultValue = DropDownList5.Text.ToString();
                 ReportPaombong.LocalReport.Refresh();
             }
