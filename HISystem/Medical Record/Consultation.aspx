@@ -271,22 +271,22 @@
         </tr>
         <tr>
             <td class="style52">
-                Illness/Disease</td>
+                Chief Complaint*</td>
             <td class="style64" colspan="5">
-                <asp:Panel ID="PanelDisease" ScrollBars="Auto" runat="server" Height="138px">
-                    <asp:CheckBoxList ID="checkbox_DiseaseList" runat="server" 
-                        DataSourceID="SqlData_diseases" DataTextField="DiseaseName" 
-                        DataValueField="DiseaseName" RepeatColumns="3">
-                    </asp:CheckBoxList>
-                    <asp:SqlDataSource ID="SqlData_diseases" runat="server" 
-                        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString2 %>" 
-                        SelectCommand="select DiseaseName from diseases"></asp:SqlDataSource>
-                </asp:Panel>
+              
+                    <br />
+                    <asp:TextBox ID="txtDiagnosis" runat="server" Height="81px" 
+                        TextMode="MultiLine" Width="457px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
+                        ControlToValidate="txtDiagnosis" Display="Dynamic" 
+                        ErrorMessage="(enter chief complaint)" Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
+                
             </td>
             <td class="style46" align="right">
                 Pulse Rate</td>
             <td class="style53" colspan="2">
-                <asp:TextBox ID="txtPulseRate" runat="server" Width="138px" Height="23px"></asp:TextBox>
+                <asp:TextBox ID="txtPulseRate" runat="server"  onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" 
+                        onpaste="return false;" MaxLength="3" Width="138px" Height="23px"></asp:TextBox>
                 &nbsp;bpm<br />
                 <asp:RangeValidator ID="RangeValidator4" runat="server" 
                  MinimumValue="60" MaximumValue="120" ControlToValidate="txtPulseRate" Font-Size="Small"
@@ -295,15 +295,19 @@
         </tr>
         <tr>
             <td class="style56">
-                Chief Complaint*</td>
+                Diagnosis/Disease</td>
             <td class="style55" colspan="8">
-                <asp:TextBox ID="txtDiagnosis" runat="server" Height="81px" TextMode="MultiLine" 
-                    Width="686px"></asp:TextBox>
-                <br />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
-                    ControlToValidate="txtDiagnosis" ErrorMessage="(enter chief complaint)" 
-                    Font-Italic="True" Font-Size="Small" Display="Dynamic"></asp:RequiredFieldValidator>
-                <br />
+              <asp:Panel ID="PanelDisease" ScrollBars="Auto" runat="server" Height="138px">
+                    <asp:CheckBoxList ID="checkbox_DiseaseList" runat="server" 
+                        DataSourceID="SqlData_diseases" DataTextField="DiseaseName" 
+                        DataValueField="DiseaseName" RepeatColumns="3">
+                    </asp:CheckBoxList>
+                    <asp:SqlDataSource ID="SqlData_diseases" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:paombongdbConnectionString2 %>" 
+                        SelectCommand="select DiseaseName from diseases"></asp:SqlDataSource>
+                        </asp:Panel>
+               
+
             </td>
         </tr>
         <tr>
