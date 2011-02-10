@@ -147,7 +147,7 @@
             
         </div>
         <div id="rightpane" 
-            style="float:right; height: 183px; width: 488px; overflow: auto;">
+            style="float:right; height: 222px; width: 488px; overflow: auto;">
             
     <asp:MultiView ID="MultiView1" runat="server" Visible="False">
                 <asp:View ID="BrgyView" runat="server">
@@ -169,7 +169,7 @@
                         style="font-size: small" Text="Month:" Height="21px"></asp:Label></td>
                     <td> 
                         <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="getMonths" 
-                        DataTextField="Months" DataValueField="Months" Height="21px" Visible="False" 
+                        DataTextField="MonthsText" DataValueField="MonthsValue" Height="21px" Visible="False" 
                         Width="123px" style="margin-left: 0px">
                     </asp:DropDownList></td>
                     </tr>
@@ -197,7 +197,7 @@
                         style="font-size: small" Text="Month:" Height="21px"></asp:Label></td>
                 <td> 
                     <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="getMonths" 
-                        DataTextField="Months" DataValueField="Months" Height="21px" Visible="False" 
+                        DataTextField="MonthsText" DataValueField="MonthsValue" Height="21px" Visible="False" 
                         Width="123px" style="margin-left: 16px">
                     </asp:DropDownList></td>
                 </tr>
@@ -217,13 +217,19 @@
                         Height="21px"></asp:Label></td>
                 <td><asp:DropDownList ID="ddlAge" runat="server" Height="21px" Visible="False" 
                         Width="123px" style="margin-left: 19px">
+                    <asp:ListItem Value="1">0-15</asp:ListItem>
+                    <asp:ListItem Value="2">16-30</asp:ListItem>
+                    <asp:ListItem Value="3">31-48</asp:ListItem>
+                    <asp:ListItem Value="4">49-65</asp:ListItem>
+                    <asp:ListItem Value="5">66-89</asp:ListItem>
+                    <asp:ListItem Value="6">90 and Above</asp:ListItem>
                     </asp:DropDownList></td>
                 </tr>
                 <tr>
                 <td><asp:Label ID="Label14" runat="server" Font-Bold="True" 
                         style="font-size: small" Text="Month:" Height="21px"></asp:Label></td>
                 <td><asp:DropDownList ID="DropDownList5" runat="server" DataSourceID="getMonths" 
-                        DataTextField="Months" DataValueField="Months" Height="21px" Visible="False" 
+                        DataTextField="MonthsText" DataValueField="MonthsValue" Height="21px" Visible="False" 
                         Width="123px" style="margin-left: 19px">
                     </asp:DropDownList></td>
                 </tr>
@@ -240,7 +246,7 @@
                     <asp:Label ID="Label10" runat="server" 
                         style="font-size: small; font-weight: 700" Text="Month:" Height="21px"></asp:Label>
                     <asp:DropDownList ID="ddlMonth" runat="server" DataSourceID="getMonths" 
-                        DataTextField="Months" DataValueField="Months" Height="21px" Visible="False" 
+                        DataTextField="MonthsText" DataValueField="MonthsValue" Height="21px" Visible="False" 
                         Width="122px" style="margin-left: 18px">
                     </asp:DropDownList>
                     <asp:SqlDataSource ID="getMonths" runat="server" 
@@ -356,7 +362,8 @@
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
         TypeName="PaombongDataSetTableAdapters.SearchByAgeBracketTableAdapter">
         <SelectParameters>
-            <asp:Parameter DefaultValue="30" Name="ageParam" Type="String" />
+            <asp:Parameter DefaultValue="55" Name="ageParam" Type="String" />
+            <asp:Parameter DefaultValue="30" Name="ageParam2" Type="String" />
             <asp:Parameter DefaultValue="1" Name="month" Type="Decimal" />
         </SelectParameters>
     </asp:ObjectDataSource>

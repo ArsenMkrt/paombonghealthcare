@@ -73,7 +73,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         #region Table Creation for Maternal Care
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
         List<string> dataMaternal = new List<string>();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
         SqlCommand cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
             "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
         cmdTxt.Parameters.Add("@data", SqlDbType.VarChar).Value = "Maternal Care";
@@ -82,7 +82,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         {
             dataMaternal.Add(indicatorReader.GetString(0));
         }
-
+        indicatorReader.Close();
         /*Create Header*/
         TableRow tableRowMaternal = new TableRow();
         TableCell tableCellMaternal = new TableCell();
@@ -166,7 +166,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
 
         List<string> ChildCareData = new List<string>();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
 
         SqlCommand cc_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
             "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
@@ -176,7 +176,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         {
             ChildCareData.Add(ChildCareIndicatorReader.GetString(0));
         }
-
+        ChildCareIndicatorReader.Close();
         /*Create Header*/
         TableRow tableRowChildCare = new TableRow();
         TableCell tableCellChildCare = new TableCell();
@@ -286,7 +286,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         #region Table Creation for Dental Care
          /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
         List<string> DentalCareData = new List<string>();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
 
         SqlCommand dc_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
             "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
@@ -296,7 +296,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         {
             DentalCareData.Add(dentalCareIndicatorReader.GetString(0));
         }
-
+        dentalCareIndicatorReader.Close();
         /*Create Header*/
         TableRow tableRowDentalCare = new TableRow();
         TableCell tableCellDentalCare = new TableCell();
@@ -406,7 +406,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         #region Table Creation for Malaria
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
         List<string> MalariaData = new List<string>();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
 
         SqlCommand malaria_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
             "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
@@ -416,7 +416,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         {
             MalariaData.Add(malariaIndicatorReader.GetString(0));
         }
-
+        malariaIndicatorReader.Close();
         /*Create Header*/
         TableRow tableRowMalaria = new TableRow();
         TableCell tableCellMalaria = new TableCell();
@@ -567,7 +567,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         #region Table Creation for Leprosy
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
         List<string> LeprosyData = new List<string>();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
 
         SqlCommand leprosy_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
             "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
@@ -577,7 +577,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         {
             LeprosyData.Add(leprosyIndicatorReader.GetString(0));
         }
-
+        leprosyIndicatorReader.Close();
         /*Create Header*/
         TableRow tableRowLeprosy = new TableRow();
         TableCell tableCellLeprosy = new TableCell();
@@ -690,7 +690,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         #region Table Creation for Filariasis
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
         List<string> indicatorData = new List<string>();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
 
         SqlCommand filariasis_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
             "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
@@ -700,7 +700,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         {
             indicatorData.Add(filariasisIndicatorReader.GetString(0));
         }
-
+        filariasisIndicatorReader.Close();
         /*Create Header*/
         TableRow tableRowFilariasis = new TableRow();
         TableCell tableCellFilariasis = new TableCell();
@@ -810,7 +810,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         #region Table Creation for Tuberculosis
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
         List<string> TuberculosisData = new List<string>();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
 
         SqlCommand tuberculosis_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
             "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
@@ -820,7 +820,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         {
             TuberculosisData.Add(tuberculosisIndicatorReader.GetString(0));
         }
-
+        tuberculosisIndicatorReader.Close();
         /*Create Header*/
         TableRow tableRowTuberculosis = new TableRow();
         TableCell tableCellTuberculosis = new TableCell();
@@ -942,7 +942,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         {
             SchistomiasisData.Add(schistomiasisIndicatorReader.GetString(0));
         }
-
+        schistomiasisIndicatorReader.Close();
         /*Create Header*/
         TableRow tableRowSchistomiasis = new TableRow();
         TableCell tableCellSchistomiasis = new TableCell();
@@ -1054,7 +1054,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         #region Table Creation for Family Planning
         /*SQL CODE TO ADD DATA IN TABLE ADDED LAKHI*/
         List<string> familyPlanningData = new List<string>();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
 
         SqlCommand fp_cmdTxt = new SqlCommand("SELECT IndicatorData FROM Indicator WHERE ProgramCategoryID = " +
             "(SELECT ProgramCategoryID FROM ProgramCategory WHERE ProgramData = @data)",data.Connection);
@@ -1064,7 +1064,7 @@ public partial class Reports_Templates_xAllProgram : System.Web.UI.Page
         {
             familyPlanningData.Add(familyPlanningIndicatorReader.GetString(0));
         }
-
+        familyPlanningIndicatorReader.Close();
         /*Create Header*/
         TableRow tableRowFamilyPlanning = new TableRow();
         TableCell tableCellFamilyPlanning = new TableCell();
