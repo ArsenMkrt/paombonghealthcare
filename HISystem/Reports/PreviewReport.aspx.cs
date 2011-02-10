@@ -152,6 +152,9 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Reports.Checked)
         {
+            MultiView1.Visible = false;
+            MultiView3.Visible = false;
+            MultiView2.Visible = true;
             MultiView2.SetActiveView(PaombongReportView);
             #region Instantiate Report Source
             ReportDataSource rds_Maternal = new ReportDataSource();
@@ -285,6 +288,8 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Inventory.Checked)
         {
+            MultiView1.Visible = false;
+            MultiView3.Visible = false;
             MultiView2.Visible = true;
             MultiView2.SetActiveView(InventoryView);
             ReportDataSource rds_Inventory = new ReportDataSource();
@@ -333,6 +338,8 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Consultation.Checked)
         {
+            MultiView2.Visible = false;
+            MultiView1.Visible = true;
             MultiView3.Visible = true;
             MultiView3.SetActiveView(ConsultFilterView);
             Label6.Visible = true;
