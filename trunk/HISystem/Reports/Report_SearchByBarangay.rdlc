@@ -40,9 +40,9 @@
           <DataField>Facilitatedby</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="month">
-          <DataField>month</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="Month">
+          <DataField>Month</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <Query>
@@ -561,7 +561,7 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>=Fields!month.Value</Value>
+                <Value>=Fields!Month.Value</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>

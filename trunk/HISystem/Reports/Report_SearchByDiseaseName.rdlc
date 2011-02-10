@@ -38,7 +38,7 @@
         </Field>
         <Field Name="month">
           <DataField>month</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <Query>
