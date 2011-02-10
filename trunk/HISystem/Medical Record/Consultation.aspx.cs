@@ -287,6 +287,7 @@ public partial class Medical_Record_Consultation : System.Web.UI.Page
         //Consultation Page
         if (Request.QueryString["id"] == null && Request.QueryString["enc"] == null)
             Response.Redirect("~/Medical%20Record/Consultation.aspx");
+            
         //Comes from Patient Inquiry or Manage Patient
         else if (Request.QueryString["enc"] == null)
             Response.Redirect("~/Medical%20Record/Consultation.aspx?id="+Request.QueryString["id"]);
