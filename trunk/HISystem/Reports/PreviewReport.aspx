@@ -121,9 +121,7 @@
 
         <tr>
             <td colspan="5">
-            <center>
-                <asp:Button ID="btn_runReport" runat="server" onclick="btn_runReport_Click"
-                    Text="Run Report" Width="193px" style="text-align: center" /></td>
+                &nbsp;</td>
             </center>
         </tr>
         </table>
@@ -137,37 +135,30 @@
                 style="font-size: small; font-weight: 700; text-align: center;" 
                 Text="Report Filters" Visible="False"></asp:Label>
             <br />
-            <asp:TextBox ID="txtFilterby" runat="server" Height="25px" Width="161px"></asp:TextBox>
+            <asp:TextBox ID="txtFilterby" runat="server" Height="22px" Width="161px"></asp:TextBox>
             <br />
-            <asp:Panel ID="Panel1" runat="server" CssClass="popupControl" Height="102px" 
-                Width="163px">
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
-                        <asp:RadioButton ID="rdbtn_Barangay" runat="server" AutoPostBack="True" 
-                            GroupName="ConsultType" oncheckedchanged="rdbtn_Barangay_CheckedChanged" 
-                            style="font-size: small" Text="Barangay" Visible="False" />
-                     <br/>
-                        <asp:RadioButton ID="rdbtn_Disease" runat="server" AutoPostBack="True" 
-                            GroupName="ConsultType" oncheckedchanged="rdbtn_Disease_CheckedChanged" 
-                            style="font-size: small" Text="Disease" Visible="False" />
+            <asp:Panel ID="Panel1" runat="server" CssClass="popupControl" Height="102px" Width="163px">
+               
+                    <asp:RadioButton ID="rdbtn_Barangay" runat="server" AutoPostBack="True" 
+                        GroupName="ConsultType" oncheckedchanged="rdbtn_Barangay_CheckedChanged" 
+                        style="font-size: small" Text="Barangay" Visible="False" />
                     <br />
-                        <asp:RadioButton ID="rdbtn_Age" runat="server" AutoPostBack="True" 
-                            GroupName="ConsultType" oncheckedchanged="rdbtn_Age_CheckedChanged" 
-                            style="font-size: small" Text="Age Bracket" Visible="False" />
-
+                    <asp:RadioButton ID="rdbtn_Disease" runat="server" AutoPostBack="True" 
+                        GroupName="ConsultType" oncheckedchanged="rdbtn_Disease_CheckedChanged" 
+                        style="font-size: small" Text="Disease" Visible="False" />
                     <br />
-                        <asp:RadioButton ID="rdbtn_Month" runat="server" AutoPostBack="True" 
-                            GroupName="ConsultType" oncheckedchanged="rdbtn_Month_CheckedChanged" 
-                            style="font-size: small" Text="Month" Visible="False" />
-
-
-
+                    <asp:RadioButton ID="rdbtn_Age" runat="server" AutoPostBack="True" 
+                        GroupName="ConsultType" oncheckedchanged="rdbtn_Age_CheckedChanged" 
+                        style="font-size: small" Text="Age Bracket" Visible="False" />
                     <br />
-                        <asp:RadioButton ID="rdbtn_Year" runat="server" AutoPostBack="True" 
-                            GroupName="ConsultType" oncheckedchanged="rdbtn_Year_CheckedChanged" 
-                            style="font-size: small" Text="Year" />
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+                    <asp:RadioButton ID="rdbtn_Month" runat="server" AutoPostBack="True" 
+                        GroupName="ConsultType" oncheckedchanged="rdbtn_Month_CheckedChanged" 
+                        style="font-size: small" Text="Month" Visible="False" />
+                    <br />
+                    <asp:RadioButton ID="rdbtn_Year" runat="server" AutoPostBack="True" 
+                        GroupName="ConsultType" oncheckedchanged="rdbtn_Year_CheckedChanged" 
+                        style="font-size: small" Text="Year" />
+                
             </asp:Panel>
             <asp:PopupControlExtender ID="txtFilterby_PopupControlExtender" runat="server" 
                 PopupControlID="Panel1" Position="Bottom" TargetControlID="txtFilterby">
@@ -182,7 +173,7 @@
                         style="font-size: small; font-weight: 700;" Text="Barangay:"></asp:Label>
                     <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="Barangay" 
                         DataTextField="BarangayName" DataValueField="BarangayName" Height="20px" 
-                        Visible="False" Width="123px">
+                        Width="123px">
                     </asp:DropDownList>
                     <asp:Label ID="Label12" runat="server" Font-Bold="True" 
                         style="font-size: small" Text="Month:"></asp:Label>
@@ -246,6 +237,8 @@
             
         </div>
     </div>
+                <asp:Button ID="btn_runReport" runat="server" onclick="btn_runReport_Click"
+                    Text="Run Report" Width="193px" style="text-align: center" />
     <br />
 
 <br />
