@@ -308,7 +308,11 @@ AND mc.BarangayID = p.BarangayID</CommandText>
               <DbSource ConnectionRef="geraldNov30 (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        pt.PatientID, pt.PtLname + ',' + pt.PtFname + ' ' + pt.PtMname AS FullName, pt.PtGender, b.BarangayName, pt.PtContact, d.DiseaseName, (DATEPART(month,e.EncounterDateTime)) AS month
+                    <CommandText>SELECT        pt.PatientID, pt.PtLname + ',' + pt.PtFname + ' ' + pt.PtMname AS FullName, pt.PtGender, b.BarangayName, pt.PtContact, d.DiseaseName,
+CASE (DATEPART(month, 
+                         e.EncounterDateTime)) 
+                         WHEN '1' THEN 'January' WHEN '2' THEN 'February' WHEN '3' THEN 'March' WHEN '4' THEN 'April' WHEN '5' THEN 'May' WHEN '6' THEN 'June' WHEN '7' THEN 'July'
+                          WHEN '8' THEN 'August' WHEN '9' THEN 'September' WHEN '10' THEN 'October' WHEN '11' THEN 'November' WHEN '12' THEN 'December' END AS month
 FROM            Barangays AS b INNER JOIN
                 Patients AS pt INNER JOIN
                 Encounters AS e INNER JOIN
@@ -341,7 +345,11 @@ WHERE        (d.DiseaseName = @diseaseName) AND (DATEPART(month,e.EncounterDateT
               <DbSource ConnectionRef="geraldNov30 (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        pt.PatientID, pt.PtLname + ',' + pt.PtFname + ' ' + pt.PtMname AS FullName, b.BarangayName, pt.PtContact, e.EncounterID, e.EncounterDateTime, DATEPART(month, e.EncounterDateTime) AS Month,
+                    <CommandText>SELECT        pt.PatientID, pt.PtLname + ',' + pt.PtFname + ' ' + pt.PtMname AS FullName, b.BarangayName, pt.PtContact, e.EncounterID, e.EncounterDateTime,
+CASE (DATEPART(month, 
+                         e.EncounterDateTime)) 
+                         WHEN '1' THEN 'January' WHEN '2' THEN 'February' WHEN '3' THEN 'March' WHEN '4' THEN 'April' WHEN '5' THEN 'May' WHEN '6' THEN 'June' WHEN '7' THEN 'July'
+                          WHEN '8' THEN 'August' WHEN '9' THEN 'September' WHEN '10' THEN 'October' WHEN '11' THEN 'November' WHEN '12' THEN 'December' END AS Month,
                          e.Facilitatedby
 FROM            Barangays AS b INNER JOIN
                          PatientsLocation AS ptL ON b.BarangayID = ptL.BarangayID INNER JOIN
@@ -406,7 +414,11 @@ ORDER BY e.EncounterDateTime</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        pt.PatientID, pt.PtLname + ',' + pt.PtFname + ' ' + pt.PtMname AS FullName, b.BarangayName, pt.PtContact, e.EncounterID, e.EncounterDateTime, e.Age, 
-                         e.Facilitatedby, (DATEPART(month,e.EncounterDateTime)) AS month
+                         e.Facilitatedby, 
+CASE (DATEPART(month, 
+                         e.EncounterDateTime)) 
+                         WHEN '1' THEN 'January' WHEN '2' THEN 'February' WHEN '3' THEN 'March' WHEN '4' THEN 'April' WHEN '5' THEN 'May' WHEN '6' THEN 'June' WHEN '7' THEN 'July'
+                          WHEN '8' THEN 'August' WHEN '9' THEN 'September' WHEN '10' THEN 'October' WHEN '11' THEN 'November' WHEN '12' THEN 'December' END AS month
 FROM            Barangays AS b INNER JOIN
                          PatientsLocation AS ptL ON b.BarangayID = ptL.BarangayID INNER JOIN
                          Patients AS pt ON ptL.PatientID = pt.PatientID INNER JOIN
@@ -440,7 +452,11 @@ WHERE        (e.Age &lt;= @ageParam) AND (DATEPART(month,e.EncounterDateTime) = 
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>
 SELECT        pt.PatientID, pt.PtLname + ',' + pt.PtFname + ' ' + pt.PtMname AS FullName, b.BarangayName, pt.PtContact, e.EncounterID, e.EncounterDateTime, 
-                         e.Facilitatedby, DATEPART(month,e.EncounterDateTime) AS month
+                         e.Facilitatedby, 
+CASE (DATEPART(month, 
+                         e.EncounterDateTime)) 
+                         WHEN '1' THEN 'January' WHEN '2' THEN 'February' WHEN '3' THEN 'March' WHEN '4' THEN 'April' WHEN '5' THEN 'May' WHEN '6' THEN 'June' WHEN '7' THEN 'July'
+                          WHEN '8' THEN 'August' WHEN '9' THEN 'September' WHEN '10' THEN 'October' WHEN '11' THEN 'November' WHEN '12' THEN 'December' END AS Month
 FROM            Barangays AS b INNER JOIN
                          PatientsLocation AS ptL ON b.BarangayID = ptL.BarangayID INNER JOIN
                          Patients AS pt ON ptL.PatientID = pt.PatientID INNER JOIN
@@ -462,7 +478,7 @@ WHERE        (b.BarangayName = @barangayName) AND (DATEPART(month,e.EncounterDat
               <Mapping SourceColumn="EncounterID" DataSetColumn="EncounterID" />
               <Mapping SourceColumn="EncounterDateTime" DataSetColumn="EncounterDateTime" />
               <Mapping SourceColumn="Facilitatedby" DataSetColumn="Facilitatedby" />
-              <Mapping SourceColumn="month" DataSetColumn="month" />
+              <Mapping SourceColumn="Month" DataSetColumn="Month" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -725,7 +741,13 @@ WHERE        (LogType = @logtype)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="month" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmonth" msprop:Generator_ColumnPropNameInRow="month" msprop:Generator_ColumnPropNameInTable="monthColumn" msprop:Generator_UserColumnName="month" type="xs:int" minOccurs="0" />
+              <xs:element name="month" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmonth" msprop:Generator_ColumnPropNameInRow="month" msprop:Generator_ColumnPropNameInTable="monthColumn" msprop:Generator_UserColumnName="month" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -769,7 +791,13 @@ WHERE        (LogType = @logtype)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Month" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month" type="xs:int" minOccurs="0" />
+              <xs:element name="Month" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -865,7 +893,13 @@ WHERE        (LogType = @logtype)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="month" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmonth" msprop:Generator_ColumnPropNameInRow="month" msprop:Generator_ColumnPropNameInTable="monthColumn" msprop:Generator_UserColumnName="month" type="xs:int" minOccurs="0" />
+              <xs:element name="month" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmonth" msprop:Generator_ColumnPropNameInRow="month" msprop:Generator_ColumnPropNameInTable="monthColumn" msprop:Generator_UserColumnName="month" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -909,7 +943,13 @@ WHERE        (LogType = @logtype)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="month" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmonth" msprop:Generator_ColumnPropNameInRow="month" msprop:Generator_ColumnPropNameInTable="monthColumn" msprop:Generator_UserColumnName="month" type="xs:int" minOccurs="0" />
+              <xs:element name="Month" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
