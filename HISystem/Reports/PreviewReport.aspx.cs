@@ -152,6 +152,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Reports.Checked)
         {
+            MultiView2.SetActiveView(PaombongReportView);
             #region Instantiate Report Source
             ReportDataSource rds_Maternal = new ReportDataSource();
             rds_Maternal.DataSourceId = "_MaternalCare";
@@ -284,6 +285,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Inventory.Checked)
         {
+            MultiView2.SetActiveView(InventoryView);
             ReportDataSource rds_Inventory = new ReportDataSource();
             rds_Inventory.DataSourceId = "_MedicineLog_";
             rds_Inventory.Name = "MedicineLog";

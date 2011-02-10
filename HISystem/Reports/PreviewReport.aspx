@@ -44,87 +44,75 @@
                     oncheckedchanged="rdbtn_Consultation_CheckedChanged" />
             </td>
         </tr>
+        
+        </table>
+      
+
+    <asp:MultiView ID="MultiView2" runat="server">
+        <asp:View ID="PaombongReportView" runat="server">
+        <table>
         <tr>
-            <td colspan="2" class="stylecenter">
-                <asp:Label ID="Label1" runat="server" Text="Filters" 
-                    Font-Bold="True" style="font-size: small; text-align: center;" 
-                    Visible="False"></asp:Label>
+        <td colspan="4" style="height: 31px">
+            <asp:Label ID="Label1" runat="server" Font-Bold="True" 
+                style="font-size: small; text-align: center;" Text="Filters" Visible="False"></asp:Label>
             </td>
-            <td colspan="3" class="stylecenter">
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 175px">
-                <asp:Label ID="Label2" runat="server" Text="Quarter:" style="font-size: small; font-weight: 700;" 
-                    Visible="False"></asp:Label>
-                </td>
-            <td>
-            <asp:DropDownList ID="ddlQuarter" runat="server" Height="20px" Width="123px" 
-                    Visible="False">
+        <td>
+            <asp:Label ID="Label2" runat="server" 
+                style="font-size: small; font-weight: 700;" Text="Quarter:" Visible="False"></asp:Label>
+            </td><td style="width: 204px">
+                <asp:DropDownList ID="ddlQuarter" runat="server" Height="20px" Visible="False" 
+                    Width="123px">
                     <asp:ListItem>1st Quarter</asp:ListItem>
                     <asp:ListItem>2nd Quarter</asp:ListItem>
                     <asp:ListItem>3rd Quarter</asp:ListItem>
                     <asp:ListItem>4th Quarter</asp:ListItem>
-        </asp:DropDownList>
-                </td>
-            <td style="width: 77px; height: 23px;" colspan="2">
-                <asp:Label ID="Label3" runat="server" Text="Year:" style="font-size: small; font-weight: 700;" 
-                    Visible="False"></asp:Label>
-                </td>
-            <td style="height: 23px; width: 268435264px;">
-                <asp:DropDownList ID="DropDownList1" runat="server" 
-              
-                    Height="20px" Width="123px" Visible="False">
-        </asp:DropDownList>
+                </asp:DropDownList>
             </td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align: center">
-      
-                <asp:Label ID="Label4" runat="server" Font-Bold="True" style="font-size: small" 
-                    Text="Filters" Visible="False"></asp:Label>
-      
-                </td>
-            <td style="width: 77px" colspan="2">
-                &nbsp;</td>
-            <td style="width: 268435264px">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="width: 175px">
-                <asp:Label ID="Label5" runat="server" Text="Log Type:" style="font-size: small; font-weight: 700;" 
-                    Visible="False"></asp:Label>
+        <td style="width: 61px">
+            <asp:Label ID="Label3" runat="server" 
+                style="font-size: small; font-weight: 700;" Text="Year:" Visible="False"></asp:Label>
+            </td><td>
+                <asp:DropDownList ID="DropDownList1" runat="server" Height="20px" 
+                    Visible="False" Width="123px">
+                </asp:DropDownList>
             </td>
-            <td>
-            <asp:DropDownList ID="ddlLogType" DataSourceID="logData" DataTextField="LogType" DataValueField="LogType" runat="server" Height="20px" Width="123px" 
-                    Visible="False">
-        </asp:DropDownList>
-         <asp:SqlDataSource ID="logData" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
-             SelectCommand="SELECT DISTINCT [LogType] FROM [MedicineLog]">
-        </asp:SqlDataSource>
-            </td>
-            <td colspan="3">
-      
-                &nbsp;</td>
-        </tr>
-
-        <tr>
-            <td colspan="2" style="text-align: center">
-                <%--<asp:Label ID="Label6" runat="server" 
-                    style="font-size: small; font-weight: 700; text-align: center;" 
-                    Text="Filters - Search By" Visible="False"></asp:Label>--%>
-            &nbsp;</td>
-            <td colspan="3">
-                &nbsp;</td>
-        </tr>
-
-        <tr>
-            <td colspan="5">
-                &nbsp;</td>
-            </center>
         </tr>
         </table>
+        </asp:View>
+
+       
+        <asp:View ID="InventoryView" runat="server">
+         <table>
+        <tr>
+        <td colspan="4" style="height: 30px">
+            <asp:Label ID="Label4" runat="server" Font-Bold="True" style="font-size: small" 
+                Text="Filters" Visible="False"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+        <td>
+            <asp:Label ID="Label5" runat="server" 
+                style="font-size: small; font-weight: 700;" Text="Log Type:" Visible="False"></asp:Label>
+            </td><td>
+                <asp:DropDownList ID="ddlLogType" runat="server" DataSourceID="logData" 
+                    DataTextField="LogType" DataValueField="LogType" Height="20px" Visible="False" 
+                    Width="123px">
+                </asp:DropDownList>
+            </td><td>
+                <asp:SqlDataSource ID="logData" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
+                    SelectCommand="SELECT DISTINCT [LogType] FROM [MedicineLog]">
+                </asp:SqlDataSource>
+            </td>
+        </tr>
+        </table>
+        </asp:View>
+
+
+    </asp:MultiView>
+    <br />
       
 
 <br />
