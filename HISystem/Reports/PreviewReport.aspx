@@ -11,50 +11,34 @@
     <br />
         <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
-        <table style="width:100%;" cellpadding="1">
-        <tr>
-            <td style="width: 175px; height: 42px; font-size: small;" class="stylecenter">
-                Municipality:</td>
-            <td style="height: 42px; font-size: small; width: 119px;" class="stylecenter">
-                <strong>Paombong</strong></td>
-            <td style="width: 77px; height: 42px; font-size: small;" 
-                colspan="2">
-                Province:</td>
-            <td style="height: 42px; width: 268435264px;">
-                &nbsp;<strong><span style="font-size: small; text-align: center;">Bulacan</span></strong></td>
-        </tr>
-        <tr>
-            <td style="height: 42px; font-size: small;" colspan="5" class="stylecenter">
-                <strong style="text-align: center">Choose Type Of Report</strong></td>
-        </tr>
-        <tr>
-            <td style="width: 175px; height: 42px; font-size: small;">
-                <asp:RadioButton ID="rdbtn_Reports" GroupName="TypeReport" runat="server" Text="Reports" 
+      
+      <p>
+       Municipality:
+                <strong style="font-size: medium">Paombong</strong>
+       <br />
+       Province:
+      <strong><span style="font-size: medium; text-align: center;">Bulacan</span></strong></p>
+    <p>
+                <strong style="text-align: center; font-size: medium;">Choose Type Of Report</strong>
+            <br />
+             <asp:RadioButton ID="rdbtn_Reports" GroupName="TypeReport" runat="server" Text="Reports" 
                     oncheckedchanged="rdbtn_Reports_CheckedChanged" 
                     Font-Size="Small" AutoPostBack="True" style="text-align: center" />
-            </td>
-            <td style="text-align: center; height: 42px; width: 202px;" colspan="2">
                 <asp:RadioButton ID="rdbtn_Inventory" GroupName="TypeReport" runat="server" 
                     Text="Inventory" Font-Size="Small" AutoPostBack="True" 
                     oncheckedchanged="rdbtn_Inventory_CheckedChanged" />
-            </td>
-            <td style="text-align: center; height: 42px" colspan="2">
                 <asp:RadioButton ID="rdbtn_Consultation" GroupName="TypeReport" runat="server" 
                     style="font-size: small" Text="Consultation" AutoPostBack="True" 
-                    oncheckedchanged="rdbtn_Consultation_CheckedChanged" />
-            </td>
-        </tr>
-        
-        </table>
-      
-
-    <asp:MultiView ID="MultiView2" runat="server">
+                    oncheckedchanged="rdbtn_Consultation_CheckedChanged" />    
+    </p>
+    <asp:MultiView ID="MultiView2" runat="server" Visible="False">
         <asp:View ID="PaombongReportView" runat="server">
         <table>
         <tr>
         <td colspan="4" style="height: 31px">
             <asp:Label ID="Label1" runat="server" Font-Bold="True" 
-                style="font-size: small; text-align: center;" Text="Filters" Visible="False"></asp:Label>
+                style="font-size: medium; text-align: center;" Text="Filters" 
+                Visible="False"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -87,7 +71,7 @@
          <table>
         <tr>
         <td colspan="4" style="height: 30px">
-            <asp:Label ID="Label4" runat="server" Font-Bold="True" style="font-size: small" 
+            <asp:Label ID="Label4" runat="server" Font-Bold="True" style="font-size: medium" 
                 Text="Filters" Visible="False"></asp:Label>
             </td>
         </tr>
@@ -119,7 +103,11 @@
 
     <div style="height: 190px; width: 784px">
         <div id="leftpane" style="float:left; width: 258px; height: 167px;">
-            <asp:Label ID="Label6" runat="server" 
+            
+            <asp:MultiView ID="MultiView3" runat="server" Visible="False">
+                <asp:View ID="ConsultFilterView" runat="server">
+
+                <asp:Label ID="Label6" runat="server" 
                 style="font-size: small; font-weight: 700; text-align: center;" 
                 Text="Report Filters" Visible="False"></asp:Label>
             <br />
@@ -151,11 +139,14 @@
             <asp:PopupControlExtender ID="txtFilterby_PopupControlExtender" runat="server" 
                 PopupControlID="Panel1" Position="Bottom" TargetControlID="txtFilterby">
         </asp:PopupControlExtender>
+                </asp:View>
+            </asp:MultiView>
+            
         </div>
         <div id="rightpane" 
             style="float:right; height: 184px; width: 488px; overflow: auto;">
             
-    <asp:MultiView ID="MultiView1" runat="server">
+    <asp:MultiView ID="MultiView1" runat="server" Visible="False">
                 <asp:View ID="BrgyView" runat="server">
                     
                     <table>
