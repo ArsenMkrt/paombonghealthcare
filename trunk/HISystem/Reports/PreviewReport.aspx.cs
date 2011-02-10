@@ -285,6 +285,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Inventory.Checked)
         {
+            MultiView2.Visible = true;
             MultiView2.SetActiveView(InventoryView);
             ReportDataSource rds_Inventory = new ReportDataSource();
             rds_Inventory.DataSourceId = "_MedicineLog_";
@@ -332,6 +333,8 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Consultation.Checked)
         {
+            MultiView3.Visible = true;
+            MultiView3.SetActiveView(ConsultFilterView);
             Label6.Visible = true;
             rdbtn_Age.Visible = true;
             rdbtn_Barangay.Visible = true;
@@ -355,6 +358,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Barangay.Checked)
         {
+            MultiView1.Visible = true;
             MultiView1.SetActiveView(BrgyView);
             txtFilterby.Text = "Barangay";
             ReportDataSource rds_cBarangay = new ReportDataSource();
@@ -394,6 +398,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Disease.Checked)
         {
+            MultiView1.Visible = true;
             MultiView1.SetActiveView(DiseaseView);
             txtFilterby.Text = "Disease";
             ReportDataSource rds = new ReportDataSource();
@@ -433,6 +438,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Age.Checked)
         {
+            MultiView1.Visible = true;
             MultiView1.SetActiveView(AgeView);
             txtFilterby.Text = "Age Bracket";
             ReportDataSource rds_AgeBracket = new ReportDataSource();
@@ -473,6 +479,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Month.Checked)
         {
+            MultiView1.Visible = true;
             MultiView1.SetActiveView(MonthView);
             txtFilterby.Text = "Month";
             ReportDataSource rds_Month = new ReportDataSource();
@@ -512,6 +519,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Year.Checked)
         {
+            MultiView1.Visible = true;
             MultiView1.SetActiveView(YearView);
             txtFilterby.Text = "Year";
             ReportDataSource rds_Year = new ReportDataSource();
