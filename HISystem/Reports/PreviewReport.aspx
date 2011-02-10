@@ -44,9 +44,10 @@
         <tr>
         <td>
             <asp:Label ID="Label2" runat="server" 
-                style="font-size: small; font-weight: 700;" Text="Quarter:" Visible="False"></asp:Label>
+                style="font-size: small; font-weight: 700;" Text="Quarter:" 
+                Visible="False" Height="21px"></asp:Label>
             </td><td style="width: 204px">
-                <asp:DropDownList ID="ddlQuarter" runat="server" Height="20px" Visible="False" 
+                <asp:DropDownList ID="ddlQuarter" runat="server" Height="21px" Visible="False" 
                     Width="123px">
                     <asp:ListItem>1st Quarter</asp:ListItem>
                     <asp:ListItem>2nd Quarter</asp:ListItem>
@@ -56,9 +57,10 @@
             </td>
         <td style="width: 61px">
             <asp:Label ID="Label3" runat="server" 
-                style="font-size: small; font-weight: 700;" Text="Year:" Visible="False"></asp:Label>
+                style="font-size: small; font-weight: 700;" Text="Year:" Visible="False" 
+                Height="21px"></asp:Label>
             </td><td>
-                <asp:DropDownList ID="DropDownList1" runat="server" Height="20px" 
+                <asp:DropDownList ID="DropDownList1" runat="server" Height="21px" 
                     Visible="False" Width="123px">
                 </asp:DropDownList>
             </td>
@@ -78,10 +80,11 @@
         <tr>
         <td>
             <asp:Label ID="Label5" runat="server" 
-                style="font-size: small; font-weight: 700;" Text="Log Type:" Visible="False"></asp:Label>
+                style="font-size: small; font-weight: 700;" Text="Log Type:" 
+                Visible="False" Height="21px"></asp:Label>
             </td><td>
                 <asp:DropDownList ID="ddlLogType" runat="server" DataSourceID="logData" 
-                    DataTextField="LogType" DataValueField="LogType" Height="20px" Visible="False" 
+                    DataTextField="LogType" DataValueField="LogType" Height="21px" Visible="False" 
                     Width="123px">
                 </asp:DropDownList>
             </td><td>
@@ -109,9 +112,9 @@
 
                 <asp:Label ID="Label6" runat="server" 
                 style="font-size: small; font-weight: 700; text-align: center;" 
-                Text="Report Filters" Visible="False"></asp:Label>
+                Text="Report Filters" Visible="False" Height="21px"></asp:Label>
             <br />
-            <asp:TextBox ID="txtFilterby" runat="server" Height="22px" Width="161px"></asp:TextBox>
+            <asp:TextBox ID="txtFilterby" runat="server" Height="21px" Width="161px"></asp:TextBox>
             <br />
             <asp:Panel ID="Panel1" runat="server" CssClass="popupControl" Height="102px" Width="163px">
                
@@ -144,28 +147,29 @@
             
         </div>
         <div id="rightpane" 
-            style="float:right; height: 184px; width: 488px; overflow: auto;">
+            style="float:right; height: 183px; width: 488px; overflow: auto;">
             
     <asp:MultiView ID="MultiView1" runat="server" Visible="False">
                 <asp:View ID="BrgyView" runat="server">
-                    
+                    <br />
                     <table>
                     <tr>
                      <td><asp:Label ID="Label7" runat="server" 
-                        style="font-size: small; font-weight: 700;" Text="Barangay:"></asp:Label></td>
+                        style="font-size: small; font-weight: 700;" Text="Barangay:" Height="21px"></asp:Label></td>
                     <td> 
                         <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="Barangay" 
-                        DataTextField="BarangayName" DataValueField="BarangayName" Height="20px" 
+                        DataTextField="BarangayName" DataValueField="BarangayName" Height="21px" 
                         Width="123px" style="margin-left: 0px">
                     </asp:DropDownList></td>
                     </tr>
                    
                     <tr>
-                    <td> <asp:Label ID="Label12" runat="server" Font-Bold="True" 
-                        style="font-size: small" Text="Month:"></asp:Label></td>
+                    <td> 
+                        <asp:Label ID="Label12" runat="server" Font-Bold="True" 
+                        style="font-size: small" Text="Month:" Height="21px"></asp:Label></td>
                     <td> 
                         <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="getMonths" 
-                        DataTextField="Months" DataValueField="Months" Height="20px" Visible="False" 
+                        DataTextField="Months" DataValueField="Months" Height="21px" Visible="False" 
                         Width="123px" style="margin-left: 0px">
                     </asp:DropDownList></td>
                     </tr>
@@ -179,20 +183,21 @@
 
 
                 <asp:View ID="DiseaseView" runat="server">
+                <br />
                 <table>
                 <tr>
                 <td><asp:Label ID="Label8" runat="server" 
-                        style="font-size: small; font-weight: 700" Text="Disease:"></asp:Label></td>
+                        style="font-size: small; font-weight: 700" Text="Disease:" Height="21px"></asp:Label></td>
                 <td><asp:DropDownList ID="ddlDisease" runat="server" DataSourceID="Disease" 
-                        DataTextField="DiseaseName" DataValueField="DiseaseName" Height="20px" 
+                        DataTextField="DiseaseName" DataValueField="DiseaseName" Height="21px" 
                         Visible="False" Width="123px" style="margin-left: 16px">  </asp:DropDownList></td>
                 </tr>
                 <tr>
                 <td><asp:Label ID="Label13" runat="server" Font-Bold="True" 
-                        style="font-size: small" Text="Month:"></asp:Label></td>
+                        style="font-size: small" Text="Month:" Height="21px"></asp:Label></td>
                 <td> 
                     <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="getMonths" 
-                        DataTextField="Months" DataValueField="Months" Height="20px" Visible="False" 
+                        DataTextField="Months" DataValueField="Months" Height="21px" Visible="False" 
                         Width="123px" style="margin-left: 16px">
                     </asp:DropDownList></td>
                 </tr>
@@ -204,19 +209,21 @@
 
 
                 <asp:View ID="AgeView" runat="server">
+                 <br />
                  <table>
                 <tr>
                 <td>  <asp:Label ID="Label9" runat="server" 
-                        style="font-size: small; font-weight: 700" Text="Age Bracket:"></asp:Label></td>
-                <td><asp:DropDownList ID="ddlAge" runat="server" Height="20px" Visible="False" 
+                        style="font-size: small; font-weight: 700" Text="Age Bracket:" 
+                        Height="21px"></asp:Label></td>
+                <td><asp:DropDownList ID="ddlAge" runat="server" Height="21px" Visible="False" 
                         Width="123px" style="margin-left: 19px">
                     </asp:DropDownList></td>
                 </tr>
                 <tr>
                 <td><asp:Label ID="Label14" runat="server" Font-Bold="True" 
-                        style="font-size: small" Text="Month:"></asp:Label></td>
+                        style="font-size: small" Text="Month:" Height="21px"></asp:Label></td>
                 <td><asp:DropDownList ID="DropDownList5" runat="server" DataSourceID="getMonths" 
-                        DataTextField="Months" DataValueField="Months" Height="20px" Visible="False" 
+                        DataTextField="Months" DataValueField="Months" Height="21px" Visible="False" 
                         Width="123px" style="margin-left: 19px">
                     </asp:DropDownList></td>
                 </tr>
@@ -229,10 +236,11 @@
                     
                 </asp:View>
                 <asp:View ID="MonthView" runat="server">
+                <br />
                     <asp:Label ID="Label10" runat="server" 
-                        style="font-size: small; font-weight: 700" Text="Month:"></asp:Label>
+                        style="font-size: small; font-weight: 700" Text="Month:" Height="21px"></asp:Label>
                     <asp:DropDownList ID="ddlMonth" runat="server" DataSourceID="getMonths" 
-                        DataTextField="Months" DataValueField="Months" Height="20px" Visible="False" 
+                        DataTextField="Months" DataValueField="Months" Height="21px" Visible="False" 
                         Width="122px" style="margin-left: 18px">
                     </asp:DropDownList>
                     <asp:SqlDataSource ID="getMonths" runat="server" 
@@ -243,13 +251,15 @@
                
                
                 <asp:View ID="YearView" runat="server">
+                 <br />
                  <table>
                 <tr>
-                <td> <asp:Label ID="Label11" runat="server" 
-                        style="font-size: small; font-weight: 700" Text="Year:"></asp:Label></td>
+                <td> 
+                    <asp:Label ID="Label11" runat="server" 
+                        style="font-size: small; font-weight: 700" Text="Year:" Height="21px"></asp:Label></td>
                 <td> 
                     <asp:DropDownList ID="ddlYear" runat="server" DataSourceID="getYears" 
-                        DataTextField="Years" DataValueField="Years" Height="20px" Visible="False" 
+                        DataTextField="Years" DataValueField="Years" Height="21px" Visible="False" 
                         Width="123px" style="margin-left: 19px">
                     </asp:DropDownList></td>
                 </tr>
@@ -273,7 +283,8 @@
         </div>
     </div>
                 <asp:Button ID="btn_runReport" runat="server" onclick="btn_runReport_Click"
-                    Text="Run Report" Width="193px" style="text-align: center" />
+                    Text="Run Report" Width="186px" style="text-align: center" 
+        Height="28px" />
     <br />
 
 <br />
