@@ -225,7 +225,7 @@ h1 {
     text-align: center;
   }
   
-/*
+
 
 .watermark
 {
@@ -234,11 +234,10 @@ h1 {
 
 .popupControl
 {
-	background-color:#AAD4FF;
+	background-color:#a2cc85;
 	position:absolute;
 	visibility:hidden;
 	border-style:solid;
 	border-color: Black;
 	border-width: 2px;
 }
-*/

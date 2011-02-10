@@ -165,73 +165,129 @@
         </asp:PopupControlExtender>
         </div>
         <div id="rightpane" 
-            style="float:right; height: 165px; width: 488px; overflow: auto;">
+            style="float:right; height: 184px; width: 488px; overflow: auto;">
             
     <asp:MultiView ID="MultiView1" runat="server">
                 <asp:View ID="BrgyView" runat="server">
-                    <asp:Label ID="Label7" runat="server" 
-                        style="font-size: small; font-weight: 700;" Text="Barangay:"></asp:Label>
-                    <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="Barangay" 
+                    
+                    <table>
+                    <tr>
+                     <td><asp:Label ID="Label7" runat="server" 
+                        style="font-size: small; font-weight: 700;" Text="Barangay:"></asp:Label></td>
+                    <td> 
+                        <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="Barangay" 
                         DataTextField="BarangayName" DataValueField="BarangayName" Height="20px" 
-                        Width="123px">
-                    </asp:DropDownList>
-                    <asp:Label ID="Label12" runat="server" Font-Bold="True" 
-                        style="font-size: small" Text="Month:"></asp:Label>
-                    <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="getMonths" 
+                        Width="123px" style="margin-left: 0px">
+                    </asp:DropDownList></td>
+                    </tr>
+                   
+                    <tr>
+                    <td> <asp:Label ID="Label12" runat="server" Font-Bold="True" 
+                        style="font-size: small" Text="Month:"></asp:Label></td>
+                    <td> 
+                        <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="getMonths" 
                         DataTextField="Months" DataValueField="Months" Height="20px" Visible="False" 
-                        Width="123px">
-                    </asp:DropDownList>
+                        Width="123px" style="margin-left: 0px">
+                    </asp:DropDownList></td>
+                    </tr>
+                    </table>
+                    
+                   <br />
+                   
+                   
+                    
                 </asp:View>
+
+
                 <asp:View ID="DiseaseView" runat="server">
-                    <asp:Label ID="Label8" runat="server" 
-                        style="font-size: small; font-weight: 700" Text="Disease:"></asp:Label>
-                    <asp:DropDownList ID="ddlDisease" runat="server" DataSourceID="Disease" 
+                <table>
+                <tr>
+                <td><asp:Label ID="Label8" runat="server" 
+                        style="font-size: small; font-weight: 700" Text="Disease:"></asp:Label></td>
+                <td><asp:DropDownList ID="ddlDisease" runat="server" DataSourceID="Disease" 
                         DataTextField="DiseaseName" DataValueField="DiseaseName" Height="20px" 
-                        Visible="False" Width="123px">
-                    </asp:DropDownList>
-                    <asp:Label ID="Label13" runat="server" Font-Bold="True" 
-                        style="font-size: small" Text="Month:"></asp:Label>
+                        Visible="False" Width="123px" style="margin-left: 16px">  </asp:DropDownList></td>
+                </tr>
+                <tr>
+                <td><asp:Label ID="Label13" runat="server" Font-Bold="True" 
+                        style="font-size: small" Text="Month:"></asp:Label></td>
+                <td> 
                     <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="getMonths" 
                         DataTextField="Months" DataValueField="Months" Height="20px" Visible="False" 
-                        Width="123px">
-                    </asp:DropDownList>
+                        Width="123px" style="margin-left: 16px">
+                    </asp:DropDownList></td>
+                </tr>
+                </table>
+                    
+                 
                 </asp:View>
+
+
+
                 <asp:View ID="AgeView" runat="server">
-                    <asp:Label ID="Label9" runat="server" 
-                        style="font-size: small; font-weight: 700" Text="Age Bracket:"></asp:Label>
-                    <asp:DropDownList ID="ddlAge" runat="server" Height="20px" Visible="False" 
-                        Width="123px">
-                    </asp:DropDownList>
-                    <asp:Label ID="Label14" runat="server" Font-Bold="True" 
-                        style="font-size: small" Text="Month:"></asp:Label>
-                    <asp:DropDownList ID="DropDownList5" runat="server" DataSourceID="getMonths" 
+                 <table>
+                <tr>
+                <td>  <asp:Label ID="Label9" runat="server" 
+                        style="font-size: small; font-weight: 700" Text="Age Bracket:"></asp:Label></td>
+                <td><asp:DropDownList ID="ddlAge" runat="server" Height="20px" Visible="False" 
+                        Width="123px" style="margin-left: 19px">
+                    </asp:DropDownList></td>
+                </tr>
+                <tr>
+                <td><asp:Label ID="Label14" runat="server" Font-Bold="True" 
+                        style="font-size: small" Text="Month:"></asp:Label></td>
+                <td><asp:DropDownList ID="DropDownList5" runat="server" DataSourceID="getMonths" 
                         DataTextField="Months" DataValueField="Months" Height="20px" Visible="False" 
-                        Width="123px">
-                    </asp:DropDownList>
+                        Width="123px" style="margin-left: 19px">
+                    </asp:DropDownList></td>
+                </tr>
+                </table>
+
+
+                  
+                    
+                    
+                    
                 </asp:View>
                 <asp:View ID="MonthView" runat="server">
                     <asp:Label ID="Label10" runat="server" 
                         style="font-size: small; font-weight: 700" Text="Month:"></asp:Label>
                     <asp:DropDownList ID="ddlMonth" runat="server" DataSourceID="getMonths" 
                         DataTextField="Months" DataValueField="Months" Height="20px" Visible="False" 
-                        Width="122px">
+                        Width="122px" style="margin-left: 18px">
                     </asp:DropDownList>
                     <asp:SqlDataSource ID="getMonths" runat="server" 
                         ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
                         SelectCommand="SelectMonthPresent" SelectCommandType="StoredProcedure">
                     </asp:SqlDataSource>
                 </asp:View>
+               
+               
                 <asp:View ID="YearView" runat="server">
-                    <asp:Label ID="Label11" runat="server" 
-                        style="font-size: small; font-weight: 700" Text="Year:"></asp:Label>
+                 <table>
+                <tr>
+                <td> <asp:Label ID="Label11" runat="server" 
+                        style="font-size: small; font-weight: 700" Text="Year:"></asp:Label></td>
+                <td> 
                     <asp:DropDownList ID="ddlYear" runat="server" DataSourceID="getYears" 
                         DataTextField="Years" DataValueField="Years" Height="20px" Visible="False" 
-                        Width="123px">
-                    </asp:DropDownList>
-                    <asp:SqlDataSource ID="getYears" runat="server" 
+                        Width="123px" style="margin-left: 19px">
+                    </asp:DropDownList></td>
+                </tr>
+                <tr>
+                <td></td>
+                <td><asp:SqlDataSource ID="getYears" runat="server" 
                         ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
                         SelectCommand="SelectYearPresent" SelectCommandType="StoredProcedure">
-                    </asp:SqlDataSource>
+                    </asp:SqlDataSource></td>
+                </tr>
+                </table>
+
+
+
+                   
+                   
+                    
                 </asp:View>
             </asp:MultiView>
             
