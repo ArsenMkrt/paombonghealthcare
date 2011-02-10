@@ -353,6 +353,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Barangay.Checked)
         {
+            MultiView1.SetActiveView(BrgyView);
             ReportDataSource rds_cBarangay = new ReportDataSource();
             rds_cBarangay.DataSourceId = "_Barangay";
             rds_cBarangay.Name = "SearchByBarangay";
@@ -390,6 +391,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Disease.Checked)
         {
+            MultiView1.SetActiveView(DiseaseView);
             ReportDataSource rds = new ReportDataSource();
             rds.DataSourceId = "_SearchByDiseaseName";
             rds.Name = "SearchByDiseaseName";
@@ -427,6 +429,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Age.Checked)
         {
+            MultiView1.SetActiveView(AgeView);
             ReportDataSource rds_AgeBracket = new ReportDataSource();
             rds_AgeBracket.DataSourceId = "_AgeBracket";
             rds_AgeBracket.Name = "SearchByAgeBracket";
@@ -465,6 +468,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Month.Checked)
         {
+            MultiView1.SetActiveView(MonthView);
             ReportDataSource rds_Month = new ReportDataSource();
             rds_Month.DataSourceId = "_MonthConsult";
             rds_Month.Name = "SearchByMonth";
@@ -502,6 +506,7 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         if (rdbtn_Year.Checked)
         {
+            MultiView1.SetActiveView(YearView);
             ReportDataSource rds_Year = new ReportDataSource();
             rds_Year.DataSourceId = "_YearConsult";
             rds_Year.Name = "SearchByYear";
