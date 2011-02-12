@@ -36,6 +36,10 @@
           <DataField>PER</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="pHeader">
+          <DataField>pHeader</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>PaombongDataSet</DataSourceName>
@@ -10470,12 +10474,14 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
             <Top>0.5168in</Top>
-            <Left>2.82433in</Left>
+            <Left>2.81292in</Left>
             <Height>0.25in</Height>
             <Width>3.90134in</Width>
             <ZIndex>3</ZIndex>
@@ -10544,7 +10550,9 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
@@ -10604,57 +10612,70 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox5">
+          <Textbox Name="Textbox59">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="1"</Value>
+                    <Value>=First(Fields!quart.Value, "MaternalCare")</Value>
                     <Style>
+                      <FontSize>11pt</FontSize>
                       <FontWeight>Bold</FontWeight>
-                      <TextDecoration>Underline</TextDecoration>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>Textbox5</rd:DefaultName>
+            <rd:DefaultName>Textbox45</rd:DefaultName>
             <Top>0.1in</Top>
-            <Left>2.82433in</Left>
+            <Left>2.79187in</Left>
             <Height>0.3125in</Height>
-            <Width>1.18968in</Width>
+            <Width>1.22214in</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
-                <Style>None</Style>
+                <Style>Solid</Style>
               </Border>
+              <TopBorder>
+                <Style>None</Style>
+              </TopBorder>
+              <LeftBorder>
+                <Style>None</Style>
+              </LeftBorder>
+              <RightBorder>
+                <Style>None</Style>
+              </RightBorder>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox6">
+          <Textbox Name="Textbox60">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="2011"</Value>
+                    <Value>=First(Fields!year.Value, "MaternalCare")</Value>
                     <Style>
+                      <FontSize>11pt</FontSize>
                       <FontWeight>Bold</FontWeight>
-                      <TextDecoration>Underline</TextDecoration>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>Textbox6</rd:DefaultName>
+            <rd:DefaultName>Textbox45</rd:DefaultName>
             <Top>0.1in</Top>
             <Left>4.90052in</Left>
             <Height>0.3125in</Height>
@@ -10662,41 +10683,61 @@
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
-                <Style>None</Style>
+                <Style>Solid</Style>
               </Border>
+              <TopBorder>
+                <Style>None</Style>
+              </TopBorder>
+              <LeftBorder>
+                <Style>None</Style>
+              </LeftBorder>
+              <RightBorder>
+                <Style>None</Style>
+              </RightBorder>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox13">
+          <Textbox Name="Textbox58">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="2500"</Value>
+                    <Value>=First(Fields!pHeader.Value, "MaternalCare")</Value>
                     <Style>
+                      <FontSize>11pt</FontSize>
                       <FontWeight>Bold</FontWeight>
-                      <TextDecoration>Underline</TextDecoration>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>Textbox13</rd:DefaultName>
-            <Top>0.87499in</Top>
+            <rd:DefaultName>Textbox45</rd:DefaultName>
+            <Top>0.84675in</Top>
             <Left>5.25592in</Left>
-            <Height>0.25in</Height>
+            <Height>0.27824in</Height>
             <Width>1.45834in</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
-                <Style>None</Style>
+                <Style>Solid</Style>
               </Border>
+              <TopBorder>
+                <Style>None</Style>
+              </TopBorder>
+              <LeftBorder>
+                <Style>None</Style>
+              </LeftBorder>
+              <RightBorder>
+                <Style>None</Style>
+              </RightBorder>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>

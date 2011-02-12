@@ -10,13 +10,13 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MaternalCareTableAdapter" GeneratorDataComponentClassName="MaternalCareTableAdapter" Name="MaternalCare" UserDataComponentName="MaternalCareTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="geraldNov30 (Web.config)" DbObjectName="dbo.MaternalCare" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="geraldNov30 (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        mc.MaternalData AS Expr2, SUM(mc.NumberOfPatients) AS Expr1, mc.Quarter AS quart, mc.Year AS year, CASE (i.IndicatorType) 
                          WHEN '1' THEN Round(p.Population * 0.035, 2) WHEN '2' THEN Round(p.Population * 0.03, 2) END AS POP, CASE (i.IndicatorType) 
                          WHEN '1' THEN CAST(CAST(Round(SUM(NumberOfPatients) / (p.Population * 0.035), 2) AS FLOAT) AS VARCHAR(25)) 
-                         WHEN '2' THEN CAST(CAST(Round(SUM(NumberOfPatients) / (p.Population * 0.03), 2) AS FLOAT) AS VARCHAR(25)) END AS PER
+                         WHEN '2' THEN CAST(CAST(Round(SUM(NumberOfPatients) / (p.Population * 0.03), 2) AS FLOAT) AS VARCHAR(25)) END AS PER, p.Population AS pHeader
 FROM            Indicator AS i INNER JOIN
                          MaternalCare AS mc INNER JOIN
                          Barangays AS b ON mc.BarangayID = b.BarangayID INNER JOIN
@@ -40,6 +40,7 @@ GROUP BY mc.MaternalData, p.Population, mc.[Percent], mc.Quarter, mc.Year, i.Ind
               <Mapping SourceColumn="year" DataSetColumn="year" />
               <Mapping SourceColumn="POP" DataSetColumn="POP" />
               <Mapping SourceColumn="PER" DataSetColumn="PER" />
+              <Mapping SourceColumn="pHeader" DataSetColumn="pHeader" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -435,17 +436,16 @@ ORDER BY e.EncounterDateTime</CommandText>
               <DbSource ConnectionRef="geraldNov30 (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        pt.PatientID, pt.PtLname + ',' + pt.PtFname + ' ' + pt.PtMname AS FullName, b.BarangayName, pt.PtContact, e.EncounterID, e.EncounterDateTime, e.Age, 
-                         e.Facilitatedby, 
-CASE (DATEPART(month, 
-                         e.EncounterDateTime)) 
+                    <CommandText>SELECT        pt.PatientID, pt.PtLname + ',' + pt.PtFname + ' ' + pt.PtMname AS FullName, b.BarangayName, pt.PtContact, e.EncounterID, e.EncounterDateTime, 
+                         CASE @ageParam WHEN '15' THEN '0-15' WHEN '30' THEN '16-30' WHEN '48' THEN '31-48' WHEN '65' THEN '49-65' WHEN '89' THEN '66-89' WHEN '150' THEN '90-Above'
+                          END AS AgeBracket, e.Facilitatedby, CASE (DATEPART(month, e.EncounterDateTime)) 
                          WHEN '1' THEN 'January' WHEN '2' THEN 'February' WHEN '3' THEN 'March' WHEN '4' THEN 'April' WHEN '5' THEN 'May' WHEN '6' THEN 'June' WHEN '7' THEN 'July'
                           WHEN '8' THEN 'August' WHEN '9' THEN 'September' WHEN '10' THEN 'October' WHEN '11' THEN 'November' WHEN '12' THEN 'December' END AS month
 FROM            Barangays AS b INNER JOIN
                          PatientsLocation AS ptL ON b.BarangayID = ptL.BarangayID INNER JOIN
                          Patients AS pt ON ptL.PatientID = pt.PatientID INNER JOIN
                          Encounters AS e ON pt.PatientID = e.PatientID
-WHERE        (e.Age &lt;= @ageParam) AND (e.Age &gt;= @ageParam2) AND (DATEPART(month,e.EncounterDateTime) = @month)</CommandText>
+WHERE        (e.Age &lt;= @ageParam) AND (e.Age &gt;= @ageParam2) AND (DATEPART(month, e.EncounterDateTime) = @month)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="ageParam" ColumnName="Age" DataSourceName="paombongdb.dbo.Encounters" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@ageParam" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Age" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="ageParam2" ColumnName="Age" DataSourceName="paombongdb.dbo.Encounters" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@ageParam2" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Age" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -463,8 +463,8 @@ WHERE        (e.Age &lt;= @ageParam) AND (e.Age &gt;= @ageParam2) AND (DATEPART(
               <Mapping SourceColumn="EncounterID" DataSetColumn="EncounterID" />
               <Mapping SourceColumn="EncounterDateTime" DataSetColumn="EncounterDateTime" />
               <Mapping SourceColumn="Facilitatedby" DataSetColumn="Facilitatedby" />
-              <Mapping SourceColumn="Age" DataSetColumn="Age1" />
               <Mapping SourceColumn="month" DataSetColumn="month" />
+              <Mapping SourceColumn="AgeBracket" DataSetColumn="AgeBracket" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -572,6 +572,7 @@ WHERE        (LogType = @logtype)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="pHeader" msprop:Generator_ColumnVarNameInTable="columnpHeader" msprop:Generator_ColumnPropNameInRow="pHeader" msprop:Generator_ColumnPropNameInTable="pHeaderColumn" msprop:Generator_UserColumnName="pHeader" type="xs:long" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -929,17 +930,17 @@ WHERE        (LogType = @logtype)</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Age" msprop:Generator_ColumnVarNameInTable="columnAge" msprop:Generator_ColumnPropNameInRow="Age" msprop:Generator_ColumnPropNameInTable="AgeColumn" msprop:Generator_UserColumnName="Age" type="xs:int" minOccurs="0" />
-              <xs:element name="Age1" msdata:Caption="Age" msprop:Generator_ColumnVarNameInTable="columnAge1" msprop:Generator_ColumnPropNameInRow="Age1" msprop:Generator_ColumnPropNameInTable="Age1Column" msprop:Generator_UserColumnName="Age1" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="month" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmonth" msprop:Generator_ColumnPropNameInRow="month" msprop:Generator_ColumnPropNameInTable="monthColumn" msprop:Generator_UserColumnName="month" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AgeBracket" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAgeBracket" msprop:Generator_ColumnPropNameInRow="AgeBracket" msprop:Generator_ColumnPropNameInTable="AgeBracketColumn" msprop:Generator_UserColumnName="AgeBracket" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
