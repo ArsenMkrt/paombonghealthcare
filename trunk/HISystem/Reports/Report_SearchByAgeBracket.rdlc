@@ -44,12 +44,12 @@
           <DataField>Age</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Age1">
-          <DataField>Age</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="month">
           <DataField>month</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AgeBracket">
+          <DataField>AgeBracket</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -618,11 +618,11 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>List Of Patients who consultated Under or Equal the Age of  </Value>
+                <Value>List Of Patients who consultated Under the Age Bracket </Value>
                 <Style />
               </TextRun>
               <TextRun>
-                <Value>=Fields!Age.Value</Value>
+                <Value>=Fields!AgeBracket.Value</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
