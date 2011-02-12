@@ -18,12 +18,13 @@
         <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="False" 
             ForeColor="#3366CC" Font-Underline="True" style="font-size: small">Register</asp:HyperLink> 
         <span style="font-size: small">&nbsp;if you don't have an account.
+        
     </span>
     </p>
-    
-
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
+    
+    
     
     <asp:Panel ID="PnlLogin" runat="server" Width="341px" Height="178px" 
         BackColor="#D3E7C5">

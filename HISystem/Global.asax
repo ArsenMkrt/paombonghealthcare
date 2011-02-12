@@ -59,8 +59,10 @@
 
 
         Session.Abandon();
-        //FormsAuthentication.SignOut();
+        
 
     }
        
+    
+    
 </script>
