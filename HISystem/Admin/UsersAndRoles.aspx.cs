@@ -24,9 +24,11 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
 
             // Display those users belonging to the currently selected role
             DisplayUsersBelongingToRole();
+            
         }
         ActionStatus.Text = "";
-        
+        Button1.Visible = true;
+        lblHint0.Visible = false;
     }
 
     private void BindRolesToList()
@@ -66,6 +68,8 @@ public partial class Admin_UsersAndRoles : System.Web.UI.Page
         {
             RoleList1.SelectedValue = "Doctor";
             Session["selectedUsersRole"] = "Doctor";
+            Button1.Visible = false;
+            lblHint0.Visible = true;
         }
         else if (Roles.IsUserInRole(selectedUserName, "Nurse"))
         {
