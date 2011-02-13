@@ -23,7 +23,7 @@
         <asp:Label ID="ActionStatus" runat="server" CssClass="Important"></asp:Label>
     </p>
         <hr style="height: -12px" />
-        <table style="width: 308px" bgcolor="#D3E7C5">
+        <table style="width: 341px" bgcolor="#D3E7C5">
             <tr>
                 <td colspan="2" style="height: 41px">
                     
@@ -35,29 +35,36 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 152px">
+                <td style="width: 152px; height: 42px;">
                     <b>Select a User:</b></td>
-                <td>
+                <td style="height: 42px">
                     <asp:DropDownList ID="UserList" runat="server" AutoPostBack="True" 
                         DataTextField="UserName" DataValueField="UserName" 
-                        onselectedindexchanged="UserList_SelectedIndexChanged">
+                        onselectedindexchanged="UserList_SelectedIndexChanged" Height="23px" 
+                        Width="166px">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
-                <td style="width: 152px">
+                <td style="width: 152px; height: 34px;">
                     <b>Choose Role:</b>&nbsp;&nbsp;</td>
-                <td>
+                <td style="height: 34px">
                     <asp:DropDownList ID="RoleList1" runat="server" 
-                        onselectedindexchanged="RoleList1_SelectedIndexChanged">
+                        onselectedindexchanged="RoleList1_SelectedIndexChanged" Height="23px" 
+                        Width="166px">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <center style="height: 33px">
+                    <center style="height: 50px">
                     <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
-                        Text="Assign/Change Role" Width="187px" Height="29px" /></center>
+                        Text="Assign/Change Role" Width="187px" Height="29px" />
+                        <br />
+                    <asp:Label ID="lblHint0" runat="server" Font-Bold="False" Font-Size="Small" 
+                        ForeColor="#666666" Visible="False">*You can only view users from this Role</asp:Label>
+                        <br />
+                    </center>
                 </td>
             </tr>
             </table>
@@ -71,7 +78,7 @@
     
         <br/>
 
-        <table style="width: 308px" bgcolor="#D3E7C5">
+        <table style="width: 341px" bgcolor="#D3E7C5">
             <tr>
                 <td colspan="2" style="height: 40px">
                     <center><h3>Manage Users By Role</h3></center>
@@ -82,11 +89,12 @@
                     </td>
             </tr>
             <tr>
-                <td style="width: 135px">
+                <td style="width: 159px; height: 45px;">
                     <b>Select a Role:</b></td>
-                <td>
+                <td style="height: 45px">
                     <asp:DropDownList ID="RoleList" runat="server" AutoPostBack="true" 
-                        onselectedindexchanged="RoleList_SelectedIndexChanged">
+                        onselectedindexchanged="RoleList_SelectedIndexChanged" Height="23px" 
+                        Width="166px">
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -120,7 +128,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 135px">
+                <td style="width: 159px">
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
