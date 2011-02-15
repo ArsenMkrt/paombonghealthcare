@@ -65,6 +65,21 @@ public class Patient
             return false;
     }
 
+    //Check Birthdate Also
+    public bool HasSamePhilhealth(string PhilhealthNumber)
+    {
+        data = new DataAccess();
+        data.ConnectToDatabase(); ;
+        SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM Patients WHERE PtFaxNumber = @philhealthNum", data.Connection);
+        cmdTxt.Parameters.Add("@philhealthNum", SqlDbType.VarChar).Value = PhilhealthNumber;
+        int check = (int)cmdTxt.ExecuteScalar();
+        data.CloseDatabase();
+        if (check > 0)
+            return true;
+        else
+            return false;
+    }
+
     public DataTable GetValues(string Patient_Id)
     {
         data = new DataAccess();
