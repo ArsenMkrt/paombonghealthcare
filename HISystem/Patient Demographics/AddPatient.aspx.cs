@@ -73,18 +73,42 @@ public partial class Patient_Demographics_AddEditPatient : System.Web.UI.Page
                         if (radiobutton_Female.Checked)
                             Gender = "Female";
 
-                        //Add Patient
-                        bool statusAdd = pt.AddPatient(txtFName.Text.Trim(), txtMName.Text.Trim(), txtLName.Text.Trim(), txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
-                            txtSuffix.Text.Trim(), txtDate.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
-                            txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
-                            Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
-
-                        if (statusAdd)
+                        if (txtFaxNum.Text != null || txtFaxNum.Text != "")
                         {
-                            Response.Write("<script> window.alert('Added Patient Successfully.')</script>");
+                            bool statusSamePhilhealth = pt.HasSamePhilhealth(txtFaxNum.Text);
+                            if (statusSamePhilhealth)
+                            {
+                                Response.Write("<script> window.alert('Patient has same Philhealth Number Please Try Again.')</script>");
+                            }
+                            else
+                            {
+                                //Add Patient
+                                bool statusAdd = pt.AddPatient(txtFName.Text.Trim(), txtMName.Text.Trim(), txtLName.Text.Trim(), txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
+                                    txtSuffix.Text.Trim(), txtDate.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
+                                    txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
+                                    Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
+                                if (statusAdd)
+                                {
+                                    Response.Write("<script> window.alert('Added Patient Successfully.')</script>");
+                                }
+                                else
+                                    Response.Write("<script> window.alert('Added Patient Failed.')</script>");
+                            }
                         }
                         else
-                            Response.Write("<script> window.alert('Added Patient Failed.')</script>");
+                        {
+                            //Add Patient
+                            bool statusAdd = pt.AddPatient(txtFName.Text.Trim(), txtMName.Text.Trim(), txtLName.Text.Trim(), txtContactNum.Text.Trim(), txtEmailAdd.Text.Trim(),
+                                txtSuffix.Text.Trim(), txtDate.Text.Trim(), txtBirthplace.Text.Trim(), txtAddress.Text.Trim(),
+                                txtFaxNum.Text.Trim(), txtDoctor.Text.Trim(), txtNationality.Text.Trim(), txtCity.Text.Trim(),
+                                Gender, ddlCivilStatus.Text.Trim(), txtSpouseName.Text.Trim(), txtCompany.Text.Trim(), DateTime.Now.ToString("d"), ddlBarangay.Text.Trim());
+                            if (statusAdd)
+                            {
+                                Response.Write("<script> window.alert('Added Patient Successfully.')</script>");
+                            }
+                            else
+                                Response.Write("<script> window.alert('Added Patient Failed.')</script>");
+                        }
                     }
                     else
                         Response.Write("<script> window.alert('Please select gender')</script>");
