@@ -397,11 +397,15 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             Label12.Visible = true;
             DropDownList3.Visible = true;
             DropDownList2.Visible = true;
+            Label16.Visible = true;
+            DropDownList7.Visible = true;
             //Disease
             Label8.Visible = false;
             Label13.Visible = false;
             DropDownList4.Visible = false;
             ddlDisease.Visible = false;
+            DropDownList6.Visible = false;
+            Label15.Visible = false;
             //Age
             Label9.Visible = false;
             ddlAge.Visible = false;
@@ -437,11 +441,15 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             ddlDisease.Visible = true;
             DropDownList4.Visible = true;
             Label13.Visible = true;
+            DropDownList6.Visible = true;
+            Label15.Visible = true;
             //Barangay
             Label7.Visible = false;
             Label12.Visible = false;
             DropDownList3.Visible = false;
             DropDownList2.Visible = false;
+            Label16.Visible = false;
+            DropDownList7.Visible = false;
             //Age
             Label9.Visible = false;
             Label14.Visible = false;
@@ -483,11 +491,15 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             Label12.Visible = false;
             DropDownList3.Visible = false;
             DropDownList2.Visible = false;
+            Label16.Visible = false;
+            DropDownList7.Visible = false;
             //Disease
             Label8.Visible = false;
             Label13.Visible = false;
             DropDownList4.Visible = false;
             ddlDisease.Visible = false;
+            DropDownList6.Visible = false;
+            Label15.Visible = false;
             //Month
             Label10.Visible = false;
             ddlMonth.Visible = false;
@@ -521,11 +533,15 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             Label12.Visible = false;
             DropDownList3.Visible = false;
             DropDownList2.Visible = false;
+            Label16.Visible = false;
+            DropDownList7.Visible = false;
             //Disease
             Label8.Visible = false;
             Label13.Visible = false;
             DropDownList4.Visible = false;
             ddlDisease.Visible = false;
+            DropDownList6.Visible = false;
+            Label15.Visible = false;
             //Year
             Label11.Visible = false;
             ddlYear.Visible = false;
@@ -566,11 +582,15 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             Label12.Visible = false;
             DropDownList3.Visible = false;
             DropDownList2.Visible = false;
+            Label16.Visible = false;
+            DropDownList7.Visible = false;
             //Disease
             Label8.Visible = false;
             Label13.Visible = false;
             DropDownList4.Visible = false;
             ddlDisease.Visible = false;
+            DropDownList6.Visible = false;
+            Label15.Visible = false;
             //Month
             Label10.Visible = false;
             ddlMonth.Visible = false;
