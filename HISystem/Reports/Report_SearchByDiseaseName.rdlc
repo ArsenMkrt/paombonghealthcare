@@ -40,6 +40,10 @@
           <DataField>month</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="year">
+          <DataField>year</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>PaombongDataSet</DataSourceName>
@@ -503,6 +507,24 @@
               </TextRun>
               <TextRun>
                 <Value>=Fields!month.Value</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>and year of </Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!year.Value</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>

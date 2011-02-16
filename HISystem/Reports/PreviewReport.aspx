@@ -173,6 +173,15 @@
                         Width="123px" style="margin-left: 0px">
                     </asp:DropDownList></td>
                     </tr>
+                    <tr>
+                <td><asp:Label ID="Label16" runat="server" Font-Bold="True" 
+                        style="font-size: small" Text="Year:" Height="21px"></asp:Label></td>
+                <td>
+                <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="getYears" 
+                        DataTextField="Years" DataValueField="Years" Height="21px" Visible="False" 
+                        Width="123px" style="margin-left: 19px">
+                    </asp:DropDownList></td>
+                </tr>
                     </table>
                     
                    <br />
@@ -198,6 +207,15 @@
                 <td> 
                     <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="getMonths" 
                         DataTextField="MonthsText" DataValueField="MonthsValue" Height="21px" Visible="False" 
+                        Width="123px" style="margin-left: 16px">
+                    </asp:DropDownList></td>
+                </tr>
+                <tr>
+                <td><asp:Label ID="Label15" runat="server" Font-Bold="True" 
+                        style="font-size: small" Text="Year:" Height="21px"></asp:Label></td>
+                <td> 
+                    <asp:DropDownList ID="DropDownList6" runat="server" DataSourceID="getYears" 
+                        DataTextField="Years" DataValueField="Years" Height="21px" Visible="False" 
                         Width="123px" style="margin-left: 16px">
                     </asp:DropDownList></td>
                 </tr>
@@ -356,6 +374,7 @@
         <SelectParameters>
             <asp:Parameter DefaultValue="Binakod" Name="barangayName" Type="String" />
             <asp:Parameter DefaultValue="1" Name="month" Type="Decimal" />
+            <asp:Parameter DefaultValue="2011" Name="year" Type="Decimal" />
         </SelectParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="_AgeBracket" runat="server" 
@@ -373,6 +392,7 @@
         <SelectParameters>
             <asp:Parameter DefaultValue="Mumps" Name="diseaseName" Type="String" />
             <asp:Parameter DefaultValue="1" Name="month" Type="Decimal" />
+            <asp:Parameter DefaultValue="2011" Name="year" Type="Decimal" />
         </SelectParameters>
     </asp:ObjectDataSource>
 <%--    <asp:ObjectDataSource ID="_Header" runat="server" 
