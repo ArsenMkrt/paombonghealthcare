@@ -68,7 +68,7 @@ public class BasePage:System.Web.UI.MasterPage
             if (Page.Request.IsAuthenticated)
             {
                 string url = Page.ResolveUrl(@"~/Public/SessionExpired.aspx");
-                HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 602)) + "; Url=" + url);
+                HttpContext.Current.Response.AppendHeader("Refresh", Convert.ToString((Session.Timeout * 62)) + "; Url=" + url);
             }
             else if(!Page.Request.IsAuthenticated)
             {

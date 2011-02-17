@@ -97,24 +97,22 @@
         Text="PhilHealth #"></asp:Label>
             </td>
             <td class="style6" colspan="2">
-               <%-- <asp:TextBox ID="txtFaxNum" runat="server" autocomplete="off" Width="227px" 
+                <asp:TextBox ID="txtFaxNum" runat="server" autocomplete="off" Width="227px" 
                     onKeyUp="javascript:return mask(this.value,this,'2,12','-');" 
-                    onBlur="javascript:return mask(this.value,this,'2,12','-');" MaxLength="14" onpaste="return false;"></asp:TextBox>--%>
+                    onBlur="javascript:return mask(this.value,this,'2,12','-');" MaxLength="14" onpaste="return false;"></asp:TextBox>
 
-                    <asp:TextBox ID="txtFaxNum" runat="server" autocomplete="off" Width="227px" 
+                   <%-- <asp:TextBox ID="txtFaxNum" runat="server" autocomplete="off" Width="227px" 
                     MaxLength="14" onpaste="return false;" Height="23px"></asp:TextBox>
                 <asp:MaskedEditExtender ID="txtFaxNum_MaskedEditExtender" runat="server" 
-                    CultureAMPMPlaceholder="" CultureCurrencySymbolPlaceholder="" 
-                    CultureDateFormat="" CultureDatePlaceholder="" CultureDecimalPlaceholder="" 
-                    CultureThousandsPlaceholder="" ClearMaskOnLostFocus="False" CultureTimePlaceholder="" Enabled="True" 
+                      ClearMaskOnLostFocus="False" Enabled="True" 
                     Mask="99-999999999-9" TargetControlID="txtFaxNum">
-                </asp:MaskedEditExtender>
+                </asp:MaskedEditExtender>--%>
                 <br />
 
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
                     ControlToValidate="txtFaxNum" 
                     ErrorMessage="(input valid philhealth number format)" Font-Italic="True" 
-                    Font-Size="Small" ValidationExpression="\b\d{2}-\d{9}-\d{1}"></asp:RegularExpressionValidator>
+                    Font-Size="Small" ValidationExpression="(\b\d{2}-\d{9}-\d{1})?"></asp:RegularExpressionValidator>
 
             </td>
         </tr>

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Web.Security;
 using System.Web.UI.HtmlControls;
 
-public partial class SiteTemplate3 : BasePage
+public partial class SiteTemplate5 : BasePage
 {
     
 

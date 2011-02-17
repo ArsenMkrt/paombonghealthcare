@@ -85,7 +85,7 @@
                     <td>
                         <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" 
                             ValidationGroup="LoginUserValidationGroup" Width="64px" />
-                        &nbsp;<input id="Reset1" type="reset" value="Clear" /></td>
+                        &nbsp;<input id="Reset1" type="reset" value="Clear" style="height: 26px; width: 46px"/></td>
                     </tr>
                     </table>
                 </fieldset>

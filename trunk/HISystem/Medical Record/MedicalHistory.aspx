@@ -28,7 +28,7 @@
          TargetControlID="txtSearchPatient" MinimumPrefixLength="1" 
                                 DelimiterCharacters=",:" 
                                 CompletionInterval="1000"
-                                CompletionSetCount="15"
+                                CompletionSetCount="5"
                                 UseContextKey="false"
                                 ServiceMethod="GetLastNames" OnClientHiding="OnClientCompleted"
     OnClientPopulated="OnClientCompleted" OnClientPopulating="OnClientPopulating" 
