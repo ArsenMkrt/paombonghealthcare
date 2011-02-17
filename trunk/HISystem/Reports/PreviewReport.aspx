@@ -271,6 +271,15 @@
                         ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
                         SelectCommand="SelectMonthPresent" SelectCommandType="StoredProcedure">
                     </asp:SqlDataSource>
+                    
+                <asp:Label ID="Label17" runat="server" Font-Bold="True" 
+                        style="font-size: small" Text="Year:" Height="21px"></asp:Label>
+                 
+                    <asp:DropDownList ID="DropDownList8" runat="server" DataSourceID="getYears" 
+                        DataTextField="Years" DataValueField="Years" Height="21px" Visible="False" 
+                        Width="123px" style="margin-left: 16px">
+                    </asp:DropDownList>
+                
                 </asp:View>
                
                
@@ -366,6 +375,7 @@
         TypeName="PaombongDataSetTableAdapters.SearchByMonthTableAdapter">
         <SelectParameters>
             <asp:Parameter DefaultValue="1" Name="monthParam" Type="Decimal" />
+            <asp:Parameter DefaultValue="2011" Name="yearParam" Type="Decimal" />
         </SelectParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="_Barangay" runat="server" 

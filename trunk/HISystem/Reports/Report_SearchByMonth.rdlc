@@ -44,6 +44,10 @@
           <DataField>Month</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="year">
+          <DataField>year</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>PaombongDataSet</DataSourceName>
@@ -638,6 +642,18 @@
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
+              <TextRun>
+                <Value> and year </Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!year.Value</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
@@ -645,7 +661,7 @@
         <rd:DefaultName>Textbox21</rd:DefaultName>
         <Top>0.25708in</Top>
         <Height>0.25in</Height>
-        <Width>3.5625in</Width>
+        <Width>5.34041in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
