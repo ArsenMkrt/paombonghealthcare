@@ -5,7 +5,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <h2 style="background-color: #d3e7c5">
-        Preview Report Page
+        cPreview Report Page
     </h2>
     
     <br />
@@ -391,8 +391,8 @@
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
         TypeName="PaombongDataSetTableAdapters.SearchByAgeBracketTableAdapter">
         <SelectParameters>
-            <asp:Parameter DefaultValue="55" Name="ageParam" Type="String" />
-            <asp:Parameter DefaultValue="30" Name="ageParam2" Type="String" />
+            <asp:Parameter DefaultValue="48" Name="ageParam" Type="String" />
+            <asp:Parameter DefaultValue="31" Name="ageParam2" Type="String" />
             <asp:Parameter DefaultValue="1" Name="month" Type="Decimal" />
         </SelectParameters>
     </asp:ObjectDataSource>
