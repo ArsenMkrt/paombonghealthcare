@@ -9577,7 +9577,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>14.5% x 85%</Value>
+                              <Value>14.5%</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -9636,6 +9636,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
