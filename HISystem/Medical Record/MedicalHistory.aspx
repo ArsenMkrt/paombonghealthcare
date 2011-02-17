@@ -15,8 +15,7 @@
 
     <div id="boxes">
      <div id="modalwindow2x" class="window2x">
-
-                             hndi na modal iseperate page na yung search at view<br />
+<br />
     
 
 

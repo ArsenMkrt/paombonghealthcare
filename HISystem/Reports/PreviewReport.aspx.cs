@@ -30,7 +30,6 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
     {
         dropdownYear.Items.Clear();
 
-
         //Populate Year Dropdown
         for (int i = 2010; i < 2100; i++)
         {
@@ -414,6 +413,8 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             //Month
             Label10.Visible = false;
             ddlMonth.Visible = false;
+            DropDownList8.Visible = false;
+            Label17.Visible = false;
             //Year
             Label11.Visible = false;
             ddlYear.Visible = false;
@@ -458,6 +459,8 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             //Month
             Label10.Visible = false;
             ddlMonth.Visible = false;
+            DropDownList8.Visible = false;
+            Label17.Visible = false;
             //Year
             Label11.Visible = false;
             ddlYear.Visible = false;
@@ -503,6 +506,8 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             //Month
             Label10.Visible = false;
             ddlMonth.Visible = false;
+            DropDownList8.Visible = false;
+            Label17.Visible = false;
             //Year
             Label11.Visible = false;
             ddlYear.Visible = false;
@@ -527,6 +532,8 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             ReportPaombong.LocalReport.Refresh();
             ReportPaombong.Visible = true;
             Label10.Visible = true;
+            DropDownList8.Visible = true;
+            Label17.Visible = true;
             ddlMonth.Visible = true;
             //Barangay
             Label7.Visible = false;
@@ -594,6 +601,8 @@ public partial class Reports_PreviewReport : System.Web.UI.Page
             //Month
             Label10.Visible = false;
             ddlMonth.Visible = false;
+            DropDownList8.Visible = false;
+            Label17.Visible = false;
         }
     }
 }
