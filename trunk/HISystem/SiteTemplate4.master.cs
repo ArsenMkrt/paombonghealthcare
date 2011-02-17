@@ -31,7 +31,7 @@ public partial class SiteTemplate4 : BasePage
             {
                 img_UserRole.ImageUrl = "~/images/midwife.png";
                 img_UserRole.ToolTip = "You are logged in as Midwife!";
-                menu.DataSourceID = "SiteMapDataSource1";
+                menu.DataSourceID = "SiteMapDataSource3";
 
             }
             else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "Nurse") && Page.Request.IsAuthenticated)
