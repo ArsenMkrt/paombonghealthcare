@@ -5,7 +5,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <h2 style="background-color: #d3e7c5">
-        cPreview Report Page
+        Preview Report Page
     </h2>
     
     <br />

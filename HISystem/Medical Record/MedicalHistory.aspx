@@ -103,11 +103,11 @@
         
         </td>
 
-<td>
+<%--<td>
        
          <a href="#modalwindow2" name="modal" style="color: #990033; font-weight: bold;">List Of Patients</a>
         
-        </td>
+        </td>--%>
 
 </tr>
 </table>

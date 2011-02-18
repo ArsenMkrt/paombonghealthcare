@@ -42,62 +42,68 @@ public partial class Medicine_Inventory_Inventory : System.Web.UI.Page
     }
     protected void btnAddToList_Click(object sender, EventArgs e)
     {
-        //gerald try
-        //bool hasSameItem = false;
-        //int getindex = 0;
-        //int count = gridViewList.Rows.Count;
-        //med = new Inventory();
-        //for (int index = 0; index < count; index++)
-        //{
-        //    if (ddlMedicineId.Text == gridViewList.Rows[index].Cells[0].Text.ToString())
-        //    {
-        //        hasSameItem = true;
-        //        getindex = index;
-
-        //    }
-        //}
-
-        //if (getindex != 0)
-        //{
-
-        //    int newQuantity = Int32.Parse(txtQuantity.Text) + Int32.Parse(gridViewList.Rows[getindex].Cells[0].Text);
-        //    gridViewList.Rows[getindex].Cells[0].Text = newQuantity.ToString();
-
-        //    //Convert.ToInt32(gridViewList.Rows[index].Cells[2].Text.ToString());
-        //}
-
-        //end try
-        
-        if (Int32.Parse(txtQuantity.Text) > Int32.Parse(gridviewMedicine.Rows[gridviewMedicine.SelectedIndex].Cells[3].Text))
+        if (txtQuantity.Text != "" || txtQuantity.Text != null)
         {
-            Response.Write("<script> window.alert('Quantity to add to list is below than the quantity of " +
-                gridviewMedicine.Rows[gridviewMedicine.SelectedIndex].Cells[1].Text + "'.')</script>");
-        }
-        else
-        {
-            if (txtMedicineName.Text.Trim() != null && txtQuantity.Text.Trim() != null)
+            if (Int32.Parse(txtQuantity.Text) > Int32.Parse(gridviewMedicine.Rows[gridviewMedicine.SelectedIndex].Cells[3].Text))
             {
-                gridViewList.DataSource = null;
-                gridViewList.DataBind();
-                gridViewList.Dispose();
-                if (Session["List"] == null)
-                    dt.Rows.Add(ddlMedicineId.Text, txtMedicineName.Text, txtQuantity.Text);
-                else
-                {
-                    dt = (DataTable)Session["List"];
-                    dt.Rows.Add(ddlMedicineId.Text, txtMedicineName.Text, txtQuantity.Text);
-                }
-                Session["List"] = dt;
-                ds.Tables.Add(dt);
-                gridViewList.DataSource = ds;
-                gridViewList.DataBind();
-                ds.Tables.Clear();
-                ds.Dispose();
-                dt.Dispose();
+                Response.Write("<script> window.alert('Quantity to add to list is below than the quantity of " +
+                    gridviewMedicine.Rows[gridviewMedicine.SelectedIndex].Cells[1].Text + "'.')</script>");
             }
             else
-                Response.Write("<script> window.alert('Input fields cannot be empty. Please Try Again.')</script>");
+            {
+                if (txtMedicineName.Text.Trim() != null && txtQuantity.Text.Trim() != null)
+                {
+                    bool sameItem = false;
+                    int indexOfSameItem = 1;
+                    gridViewList.DataSource = null;
+                    gridViewList.DataBind();
+                    gridViewList.Dispose();
+                    if (Session["List"] == null)
+                    {  
+                        dt.Rows.Add(ddlMedicineId.Text, txtMedicineName.Text, txtQuantity.Text);
+                    }
+                    //Here is for the list that is not null wherein when the user has several items that are on the list
+                    else 
+                    {
+                        dt = (DataTable)Session["List"];
+                        if (dt.Rows.Count > 0)
+                        {
+                            //Checks whether item is in the checkout list
+                            int index = 0;
+                            foreach (DataRow dr in dt.Rows)
+                            {
+                                if (dt.Rows[index]["MedicineName"].ToString() == txtMedicineName.Text.Trim())
+                                {
+                                    indexOfSameItem = index;
+                                    sameItem = true;
+                                }
+                                index++;
+                            }
+                            if (sameItem)
+                            {
+                                int newQuantity = Int32.Parse(dt.Rows[index-1]["Quantity"].ToString()) + Int32.Parse(txtQuantity.Text);
+                                dt.Rows[index-1]["Quantity"] = newQuantity;
+                            }
+                            else
+                                dt.Rows.Add(ddlMedicineId.Text, txtMedicineName.Text, txtQuantity.Text);
+                        }
+                        else
+                            dt.Rows.Add(ddlMedicineId.Text, txtMedicineName.Text, txtQuantity.Text);
+                    }
+                    Session["List"] = dt;
+                    ds.Tables.Add(dt);
+                    gridViewList.DataSource = ds;
+                    gridViewList.DataBind();
+                    ds.Tables.Clear();
+                    ds.Dispose();
+                    dt.Dispose();
+                }
+                else
+                    Response.Write("<script> window.alert('Input fields cannot be empty. Please Try Again.')</script>");
+            }
         }
+        else
+            Response.Write("<script> window.alert('Input fields cannot be empty. Please Try Again.')</script>");
     }
     protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
     {
