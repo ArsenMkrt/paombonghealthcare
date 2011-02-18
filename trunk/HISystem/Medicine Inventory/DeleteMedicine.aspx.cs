@@ -32,11 +32,11 @@ public partial class Medicine_Inventory_DeleteMedicine : System.Web.UI.Page
                 MedicineDeletedQuantity = med.GetMedicineQuantity(Int32.Parse(txtMedicineId.Text));
                 DeletedMedicineName = med.GetMedicineName(Int32.Parse(txtMedicineId.Text));
                 med.DeleteMedicine(txtMedicineId.Text);
-                
                 med.SaveMedicineLog(Int32.Parse(txtMedicineId.Text), DeletedMedicineName, MedicineDeletedQuantity
                     , Page.User.Identity.Name, "Delete");
-                Response.Write("<script> window.alert('Medicine '"+DeletedMedicineName+" has been deleted.')</script>");
                 gridViewMedicine.DataBind();
+                Response.Write("<script> window.alert('Medicine '"+DeletedMedicineName+" has been deleted.')</script>");
+                
             }
             else
             {
