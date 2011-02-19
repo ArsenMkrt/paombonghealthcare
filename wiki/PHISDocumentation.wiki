@@ -1,0 +1,11 @@
+#labels Featured
+#Paombong Healthcare Information System Documentation
+
+= Introduction =
+
+The current state of healthcare system in the municipality of Paombong has still been facing major difficulties in consolidating data from the different barangay units into an organized and efficient system. Reporting is still manual and paper based, making it prone to error, destruction, and alteration. Consolidation of reports, computation of health indicators on different reports and report generation from various sources remains a challenge for the health workers of the municipality.
+
+
+= Purpose and Description =
+
+Paombong Healthcare Information System aims to consolidate records from barangay to municipal level by recording patient demographics and patient consultation history for providing relevant information during consultation. Medicine Inventory feature is also available for inventory management and monitoring medicines before it runs out of stock. Report generation feature is the most essential part of this system which consolidates monthly inputs from different barangay units and provides quarter and annual reports efficiently. It could also generate custom reports from consultation, medicine inventory which gives the end-user capability to give different parameters for more specific reports.
