@@ -10,9 +10,12 @@ The current state of healthcare system in the municipality of Paombong has still
 
 Paombong Healthcare Information System aims to consolidate records from barangay to municipal level by recording patient demographics and patient consultation history for providing relevant information during consultation. Medicine Inventory feature is also available for inventory management and monitoring medicines before it runs out of stock. Report generation feature is the most essential part of this system which consolidates monthly inputs from different barangay units and provides quarter and annual reports efficiently. It could also generate custom reports from consultation, medicine inventory which gives the end-user capability to give different parameters for more specific reports.
 
+
+
 == Documentation Screenshots ==
 ===Sitemap and user accesibility===
 <a target='_blank' href='http://img232.imageshack.us/i/sitemap2.jpg/'><img src='http://img232.imageshack.us/img232/6176/sitemap2.th.jpg' border='0'/></a>
+
 There are three users of the system namely Doctor, Nurse and Midwife. The doctor is allowed to use all the features of the system such as Manage Roles of the User, Manage Patient Demographics, Manage Patient Medical Records, Manage Medicine Inventory and Manage Reports. The Nurses are allowed to use almost all the features except for Managing Roles. The Midwife is restricted to Manage Roles and Manage Reports.
 
 ===Cross-browser compatibility Testing==
