@@ -13,6 +13,7 @@ Paombong Healthcare Information System aims to consolidate records from barangay
 == Documentation Screenshots ==
 ===Sitemap and user accesibility===
 <a target='_blank' href='http://img232.imageshack.us/i/sitemap2.jpg/'><img src='http://img232.imageshack.us/img232/6176/sitemap2.th.jpg' border='0'/></a>
+  There are three users of the system namely Doctor, Nurse and Midwife. The doctor is allowed to use all the features of the system such as Manage Roles of the User, Manage Patient Demographics, Manage Patient Medical Records, Manage Medicine Inventory and Manage Reports. The Nurses are allowed to use almost all the features except for Managing Roles. The Midwife is restricted to Manage Roles and Manage Reports.
 
 ===Cross-browser compatibility Testing==
 <a target='_blank' href='http://img815.imageshack.us/i/browsertest2.jpg/'><img src='http://img815.imageshack.us/img815/9655/browsertest2.th.jpg' border='0'/></a>
