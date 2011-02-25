@@ -235,6 +235,11 @@
                 <asp:Label ID="lbl_AdminPrivileges" runat="server" Font-Bold="True" 
                     Font-Size="Small" Text="Admin:" Visible="False"></asp:Label>
                 
+                <asp:ImageButton ID="imgbtn_manage" runat="server" Height="33px" 
+                    ImageUrl="~/images/manage.png" style="margin-left: 8px" Width="35px" 
+                    onclick="imgbtn_manage_Click" Visible="False" 
+                     />
+                
                 <asp:ImageButton ID="imgBtn_addUser" runat="server" 
                     ImageUrl="~/images/addUsers.png" onclick="imgBtn_addUser_Click" 
                     ToolTip="Add Users" Width="41px" Height="37px" style="margin-left: 16px" 
