@@ -15,7 +15,7 @@
             ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
             SelectCommand="SELECT DISTINCT [BarangayName] FROM [Barangays] ORDER BY [BarangayName]">
         </asp:SqlDataSource>
-    </p>
+    
     <p>
         &nbsp;</p>
     <p>
