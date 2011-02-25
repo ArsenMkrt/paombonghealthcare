@@ -185,6 +185,10 @@
                 <asp:Label ID="lbl_AdminPrivileges" runat="server" Font-Bold="True" 
                     Font-Size="Small" Text="Admin:" Visible="False"></asp:Label>
                 
+                <asp:ImageButton ID="imgbtn_manage" runat="server" Height="33px" 
+                    ImageUrl="~/images/manage.png" onclick="imgbtn_manage_Click" 
+                    style="margin-left: 8px" Visible="False" Width="35px" />
+                
                 <asp:ImageButton ID="imgBtn_addUser" runat="server" 
                     ImageUrl="~/images/addUsers.png" onclick="imgBtn_addUser_Click" 
                     ToolTip="Add Users" Width="41px" Height="37px" style="margin-left: 16px" 
@@ -236,7 +240,7 @@
                         <asp:HyperLink runat="server" ID="lnkHome" NavigateUrl="~/Default.aspx" 
                             Height="16px" Width="178px">Home</asp:HyperLink>
                     </li>  
-                   <%-- <asp:Repeater runat="server" ID="menu" DataSourceID="SiteMapDataSource1">--%>
+                        <%-- <asp:Repeater runat="server" ID="menu" DataSourceID="SiteMapDataSource1">--%>
                     <asp:Repeater runat="server" ID="menu">
                         <ItemTemplate>
                             <li>

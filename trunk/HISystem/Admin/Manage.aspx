@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="LoginContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <asp:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" 
+    <asp:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="1" 
         Height="272px" Width="685px">
         <asp:TabPanel ID="TabPanel1" runat="server" HeaderText="Manage Population">
         
@@ -41,7 +41,7 @@
                         Barangay</td>
                     <td style="width: 366px">
                         <asp:DropDownList ID="ddlBarangay" runat="server" DataKeyNames="BarangayName" 
-                            DataSourceID="Barangay" DataTextField="BarangayName" 
+                            DataSourceID="Barangay0" DataTextField="BarangayName" 
                             DataValueField="BarangayName" Height="20px" Width="122px">
                         </asp:DropDownList>
                     </td>
@@ -70,7 +70,7 @@
              
                 <asp:SqlDataSource ID="Program" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:CategoryConnectionString %>" 
-                    onselecting="Program_Selecting" 
+                    
                     SelectCommand="SELECT DISTINCT [ProgramData] FROM [ProgramCategory] ORDER BY [ProgramData]">
                 </asp:SqlDataSource>
                 <asp:SqlDataSource ID="Barangay" runat="server" 

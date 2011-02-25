@@ -24,6 +24,7 @@ public partial class SiteTemplate3 : BasePage
                     lbl_AdminPrivileges.Visible = true;
                     imgBtn_addUser.Visible = true;
                     imgBtn_ManageUser.Visible = true;
+                    imgbtn_manage.Visible = true;
 
 
                     img_UserRole.ImageUrl = "~/images/doctor.png";
@@ -56,4 +57,8 @@ public partial class SiteTemplate3 : BasePage
     }
 
 
+    protected void imgbtn_manage_Click(object sender, ImageClickEventArgs e)
+    {
+        Response.Redirect("~/Admin/Manage.aspx");
+    }
 }
