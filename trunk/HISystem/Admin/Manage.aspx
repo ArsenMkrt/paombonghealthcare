@@ -80,13 +80,9 @@
                 <table style="width: 100%; height: 133px;">
                     <tr>
                         <td style="width: 167px">
-                            Program</td>
+                            &nbsp;</td>
                         <td colspan="2" style="width: 366px">
-                            <asp:DropDownList ID="ddlProgram0" runat="server" DataSourceID="Program" 
-                                DataTextField="ProgramData" DataValueField="ProgramData" Height="20px" 
-                                Visible="False" Width="122px">
-                            </asp:DropDownList>
-                        </td>
+                            &nbsp;</td>
                     </tr>
                     <tr>
                         <td style="width: 167px">
@@ -130,13 +126,11 @@
                         <td style="width: 167px">
                             &nbsp;</td>
                         <td style="width: 128px">
-                            <asp:Button ID="btnEdit" runat="server" Height="23px" onclick="btnEdit_Click" 
-                                Text="Edit" Width="118px" />
+                            <asp:Button ID="btnDelete0" runat="server" Height="25px" onclick="btnDelete_Click" 
+                                Text="Delete Existing Record" Width="141px" />
                         </td>
                         <td style="width: 366px">
-                            <asp:Button ID="btnDelete" runat="server" Height="25px" 
-                                Text="Delete Existing Record" Width="141px" onclick="btnDelete_Click" />
-                        </td>
+                            &nbsp;</td>
                     </tr>
                 </table>
              

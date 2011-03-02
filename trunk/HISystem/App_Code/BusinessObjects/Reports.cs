@@ -39,12 +39,13 @@ public class Reports
      * succeeding program thats why the maternal care is only the one to be checked 
      * in the database. 
      */
+
     public bool HasDataForTheYear(int Year, string Month, int BarangayID)
     {
         int count = 0;
         mc = new MonthConverter();
         data = new DataAccess();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
         SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM MaternalCare WHERE Year = " +
             "@year AND BarangayID = @barangayID AND Month = @month",data.Connection);
         cmdTxt.Parameters.Add("@year", SqlDbType.Int).Value = Year;
@@ -58,12 +59,72 @@ public class Reports
             return false;
     }
 
+    public bool HasPopulationData(int Year, string Month, int BarangayID)
+    {
+        int count = 0;
+        mc = new MonthConverter();
+        data = new DataAccess();
+        data.ConnectToDatabase();
+        SqlCommand cmdTxt = new SqlCommand("SELECT COUNT(*) FROM Population WHERE Year = " +
+            "@year AND BarangayID = @barangayID AND Month = @month", data.Connection);
+        cmdTxt.Parameters.Add("@year", SqlDbType.Int).Value = Year;
+        cmdTxt.Parameters.Add("@month", SqlDbType.Int).Value = mc.MonthNameToIndex(Month);
+        cmdTxt.Parameters.Add("@barangayID", SqlDbType.Int).Value = BarangayID;
+        count = (int)cmdTxt.ExecuteScalar();
+        data.CloseDatabase();
+        if (count > 0)
+            return true;
+        else
+            return false;
+    }
+
+    public bool DeleteRecord(string Month,int Year, int BarangayID)
+    {
+        bool isDeleted = false;
+
+        data = new DataAccess();
+        data.ConnectToDatabase();
+        SqlCommand cmdTxt = new SqlCommand("DELETE FROM Population WHERE BarangayID = @barangayId AND Year = @year AND Month = @month",data.Connection);
+        cmdTxt.Parameters.Add("@barangayID", SqlDbType.Int).Value = BarangayID;
+        cmdTxt.Parameters.Add("@year", SqlDbType.Int).Value = Year;
+        cmdTxt.Parameters.Add("@month", SqlDbType.VarChar).Value = Month;
+        int rowsAffected = cmdTxt.ExecuteNonQuery();
+        data.CloseDatabase();
+        if (rowsAffected > 0)
+            isDeleted = true;
+        else
+            isDeleted = false;
+        return isDeleted;
+    }
+
+    public bool DeleteReportsRecord(string Month, int Year, int BarangayID)
+    {
+        bool isDeleted = true;
+        string[] reports = new string[] { "Maternal Care", "Family Planning", "Child Care", "Dental Care", "Malaria", 
+            "Schistomiasis", "Filariasis", "Tuberculosis", "Leprosy" };
+        data = new DataAccess();
+        data.ConnectToDatabase();
+        for (int i = 0; i < reports.Length; i++)
+        {
+            SqlCommand cmdTxt = new SqlCommand("DELETE FROM " + reports[i] + " WHERE BarangayID = @barangayId AND Year = @year AND Month = @month", data.Connection);
+            cmdTxt.Parameters.Add("@barangayID", SqlDbType.Int).Value = BarangayID;
+            cmdTxt.Parameters.Add("@year", SqlDbType.Int).Value = Year;
+            cmdTxt.Parameters.Add("@month", SqlDbType.VarChar).Value = Month;
+            int rowsAffected = cmdTxt.ExecuteNonQuery();
+            if (rowsAffected > 0)
+                isDeleted = true && isDeleted;
+            else
+                isDeleted = false && isDeleted;
+        }
+        data.CloseDatabase();
+        return isDeleted;
+    }
 
     public bool InsertPopulation(int BarangayID, int Population, int Target, int Month, int Year)
     {
         data = new DataAccess();
         mc = new MonthConverter();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
         SqlCommand cmdTxt = new SqlCommand("INSERT INTO Population (BarangayID,Population,Target,Month,Year)"
             + "VALUES (@BarangayID,@Population,@Target,@Month,@Year)",data.Connection);
         cmdTxt.Parameters.Add("@BarangayID", SqlDbType.Int).Value = BarangayID;
@@ -85,7 +146,7 @@ public class Reports
         data = new DataAccess();
         mc = new MonthConverter();
 
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
         SqlCommand cmdTxt = new SqlCommand("INSERT INTO Malaria (MalariaData,Pregnant,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
             + "VALUES (@MalariaData,@Pregnant,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)",data.Connection);
         cmdTxt.Parameters.Add("@MalariaData", SqlDbType.VarChar).Value = MalariaData;
@@ -106,7 +167,7 @@ public class Reports
     {
         data = new DataAccess();
         mc = new MonthConverter();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
 
         SqlCommand cmdTxt = new SqlCommand("INSERT INTO ChildCare (ChildData,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
             + "VALUES (@ChildData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)",data.Connection);
@@ -127,7 +188,7 @@ public class Reports
     {
         data = new DataAccess();
         mc = new MonthConverter();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
         SqlCommand cmdTxt = new SqlCommand("INSERT INTO Tuberculosis (TuberculosisData,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
             + "VALUES (@TbData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)",data.Connection);
         cmdTxt.Parameters.Add("@TbData", SqlDbType.VarChar).Value = TuberculosisData;
@@ -147,7 +208,7 @@ public class Reports
     {
         data = new DataAccess();
         mc = new MonthConverter();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
         SqlCommand cmdTxt = new SqlCommand("INSERT INTO Schisto (SchistoData,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
             + "VALUES (@SchisData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)",data.Connection);
         cmdTxt.Parameters.Add("@SchisData", SqlDbType.VarChar).Value = SchisData;
@@ -167,7 +228,7 @@ public class Reports
     {
         data = new DataAccess();
         mc = new MonthConverter();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
         SqlCommand cmdTxt = new SqlCommand("INSERT INTO Filariasis (FilariasisData,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
             + "VALUES (@FilariasisData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)",data.Connection);
         cmdTxt.Parameters.Add("@FilariasisData", SqlDbType.VarChar).Value = FilariasisData;
@@ -186,7 +247,7 @@ public class Reports
     {
         data = new DataAccess();
         mc = new MonthConverter();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
         SqlCommand cmdTxt = new SqlCommand("INSERT INTO FamilyPlanning (FPData,StartUser,New,Others,DropOut,EndUser,InputDate,BarangayID,Month,Year,Quarter)"
             + "VALUES (@FPData,@SU,@New,@Others,@DO,@EU,@InputDate,@BarangayID,@Month,@Year,@Quarter)",data.Connection);
         cmdTxt.Parameters.Add("@FPData", SqlDbType.VarChar).Value = FPData;
@@ -209,7 +270,7 @@ public class Reports
     {
         data = new DataAccess();
         mc = new MonthConverter();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
         SqlCommand cmdTxt = new SqlCommand("INSERT INTO DentalCare (DentalData,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
             + "VALUES (@DentalData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)",data.Connection);
         cmdTxt.Parameters.Add("@DentalData", SqlDbType.VarChar).Value = DentalData;
@@ -229,7 +290,7 @@ public class Reports
     {
         data = new DataAccess();
         mc = new MonthConverter();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
         SqlCommand cmdTxt = new SqlCommand("INSERT INTO Leprosy (LeprosyData,Male,Female,InputDate,BarangayID,Month,Year,Quarter)"
             + "VALUES (@LeprosyData,@Male,@Female,@InputDate,@BarangayID,@Month,@Year,@Quarter)",data.Connection);
         cmdTxt.Parameters.Add("@LeprosyData", SqlDbType.VarChar).Value = LeprosyData;
@@ -249,7 +310,7 @@ public class Reports
     {
         data = new DataAccess();
         mc = new MonthConverter();
-        data.ConnectToDatabase();;
+        data.ConnectToDatabase();
         SqlCommand cmdTxt = new SqlCommand("INSERT INTO MaternalCare (MaternalData,NumberOfPatients,InputDate,BarangayID,Month,Year,Quarter)"
             + "VALUES (@MaternalData,@NumberOfPatients,@InputDate,@BarangayID,@Month,@Year,@Quarter)",data.Connection);
         cmdTxt.Parameters.Add("@MaternalData", SqlDbType.VarChar).Value = MaternalData;
