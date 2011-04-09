@@ -30,6 +30,7 @@ public partial class Admin_Manage : System.Web.UI.Page
     {
         report = new Reports();
         bool isDeleted;
+        bool isDeletedReport;
         bool hasDataReport;
         bool hasDataPopulation;
         hasDataReport = report.HasDataForTheYear(Convert.ToInt32(ddlYear0.Text), ddlMonth0.Text, Convert.ToInt32(ddlBarangay0.Text));
@@ -37,7 +38,8 @@ public partial class Admin_Manage : System.Web.UI.Page
         if (hasDataReport)
         {
             isDeleted = report.DeleteRecord(ddlMonth0.Text, Convert.ToInt32(ddlYear.Text), Convert.ToInt32(ddlBarangay0.Text));
-            if (isDeleted)
+            isDeletedReport = report.DeleteReportsRecord(ddlMonth0.Text, Convert.ToInt32(ddlYear0.Text), Convert.ToInt32(ddlBarangay0.Text));
+            if (isDeleted && isDeletedReport)
                 Response.Write("<script> window.alert('Deleted Record Successfully.')</script>");
             else
                 Response.Write("<script> window.alert('Deleted Record Failed! Please Try Again!')</script>");
